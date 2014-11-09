@@ -1,0 +1,197 @@
+package com.estimating.controller;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.estimating.domain.User;
+import com.estimating.service.IRouterService;
+import com.estimating.service.IUserService;
+
+@Controller
+@SessionAttributes({ "user", "roleuser" })
+public class RouterController {
+
+	@Autowired
+	IRouterService routerService;
+
+	@Autowired
+	IUserService userService;
+	
+	private Logger logger = Logger.getLogger(RouterController.class);
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String goTest(Model model) {
+		int value = routerService.test();
+		model.addAttribute("value", value);
+		String name = "Mr Hung";
+		model.addAttribute("name", name);
+
+		List<String> listName = new ArrayList<String>();
+		listName.add("Hung");
+		listName.add("Tam");
+		listName.add("Long");
+
+		model.addAttribute("listName", listName);
+
+		return "test";
+	}
+
+	// mapping page
+
+	@RequestMapping(value = "/contact-us", method = RequestMethod.GET)
+	public String goContactUs(Model model) {
+		;
+		return "user/contact-us";
+	}
+
+	@RequestMapping(value = "/edit-profile", method = RequestMethod.GET)
+	public String goEditProfile(Model model) {
+		;
+		return "user/edit-profile";
+	}
+
+	@RequestMapping(value = "/function-point-document", method = RequestMethod.GET)
+	public String goFP_Document(Model model) {
+		;
+		return "user/fp-point-document";
+	}
+
+	@RequestMapping(value = "/function-step-decription", method = RequestMethod.GET)
+	public String goFP_Step_Decription(Model model) {
+		;
+		return "user/fp-step-decription";
+	}
+
+	/*
+	 * @RequestMapping(value = "/functionpoint", method = RequestMethod.GET)
+	 * public String goFunctionPoint(Model model) {; return
+	 * "user/function-point"; }
+	 */
+
+	@RequestMapping(value = "/history", method = RequestMethod.GET)
+	public String goHistory(Model model) {
+		;
+		return "user/history";
+	}
+
+	@RequestMapping(value = "/project-detail", method = RequestMethod.GET)
+	public String goProjectDetail(Model model) {
+		;
+		return "user/project-detail";
+	}
+
+	@RequestMapping(value = "/ucp-document", method = RequestMethod.GET)
+	public String goUCP_document(Model model) {
+		;
+		return "user/UCP_document";
+	}
+
+	@RequestMapping(value = "/ucp-step-decription", method = RequestMethod.GET)
+	public String goUCP_Decription(Model model) {
+		;
+		return "user/ucp-step-decription";
+	}
+
+	@RequestMapping(value = "/ucp-detail", method = RequestMethod.GET)
+	public String goUCP_Detail(Model model) {
+		;
+		return "user/usecase-point-detail";
+	}
+
+	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)
+	public String goUserProfile(Model model) {
+		;
+		return "user/use-profile";
+	}
+
+	// end
+	@RequestMapping(value = "/test2", method = RequestMethod.POST)
+	public String goTest2(Model model, @RequestParam String username,
+			@RequestParam String password) {
+
+		model.addAttribute("username", username);
+		model.addAttribute("password", password);
+		model.addAttribute("listUser", userService.getListUser());
+		return "test2";
+	}
+
+	@RequestMapping(value = "/test3/{username1}/{password1}", method = RequestMethod.GET)
+	public String goTest2GET(Model model,
+			@PathVariable("username1") String username1,
+			@PathVariable("password1") String password1) {
+		System.out.println("vao");
+		model.addAttribute("username1", username1);
+		model.addAttribute("password1", password1);
+		model.addAttribute("listUser", userService.getListUser());
+		return "test2";
+	}
+	
+	/**
+	 * ****************************************************************
+	 * LOGIN
+	 * ****************************************************************
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String doLogin() {
+		logger.info("Go to Login!");
+		return "login";
+	}
+
+	@RequestMapping(value = "/loginfail", method = RequestMethod.GET)
+	public String doLoginFail() {
+		logger.info("Go to LoginFail!");
+		return "login";
+	}
+
+	
+	@RequestMapping(value = "/denied", method = RequestMethod.GET)
+	public String doDeny() {
+		logger.info("Go to denied page!");
+		return "404";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String doHome(HttpServletRequest request, Model model) {
+		logger.info("Go Home!");
+		String url = "";
+		// Get username - add session user
+		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext()
+				.getAuthentication().getPrincipal();
+		String username = user.getUsername();
+
+		// Set sessopm user
+		model.addAttribute("user", username);
+		// Get role - add session rolesuser
+		Collection<GrantedAuthority> authorities = user.getAuthorities();
+
+		// Redirect
+		User usr = userService.getUserByUsername(username);
+	
+		if (authorities.toString().contains("ROLE_ADMIN")) {
+			// Set sessopm roleuser
+			model.addAttribute("roleuser", "admin");
+			url = "admin/Blank";
+		} else {
+			model.addAttribute("roleuser", "user");
+			url = "user/home";
+		}
+
+		return url;
+	}
+	
+}
