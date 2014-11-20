@@ -1,4 +1,4 @@
-package com.estimating.dao;
+package com.estimating.dao.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.estimating.dao.IUserDao;
 import com.estimating.domain.User;
 
 @Repository

@@ -6,11 +6,11 @@ import org.apache.log4j.Logger;
 
 import com.estimating.beans.UseCasePointBean;
 
-public class UseCasePointCalculatorUtils {
+public class UseCasePointUtils {
 
 	@SuppressWarnings("unused")
 	private static final Logger logger = Logger
-			.getLogger(UseCasePointCalculatorUtils.class);
+			.getLogger(UseCasePointUtils.class);
 	@SuppressWarnings("unused")
 	private static final UseCasePointBean ucpBean = null;
 

@@ -1,4 +1,4 @@
-package com.estimating.service;
+package com.estimating.service.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.estimating.dao.IProjectDao;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
+import com.estimating.service.IProjectService;
 
 @Service
 public class ProjectServiceImpl implements IProjectService {

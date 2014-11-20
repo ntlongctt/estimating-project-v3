@@ -53,7 +53,7 @@ public class PasswordUtils {
 	}
 	
 	public static void main(String[] args) {
-		String password = "user";
+		String password = "123456";
 		String encodePassword = encodePassword(password);
 		System.out.println(encodePassword);
 	}

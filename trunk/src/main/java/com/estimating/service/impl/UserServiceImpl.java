@@ -1,4 +1,4 @@
-package com.estimating.service;
+package com.estimating.service.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.estimating.dao.IUserDao;
 import com.estimating.domain.User;
+import com.estimating.service.IUserService;
 
 @Service
 public class UserServiceImpl implements IUserService{

@@ -1,9 +1,10 @@
-package com.estimating.service;
+package com.estimating.service.impl;
 
 import org.springframework.stereotype.Service;
 
 import com.estimating.beans.UseCasePointBean;
-import com.estimating.utils.UseCasePointCalculatorUtils;
+import com.estimating.service.IUseCasePointService;
+import com.estimating.utils.UseCasePointUtils;
 
 @Service
 public class UseCasePointImpl implements IUseCasePointService {
@@ -11,7 +12,7 @@ public class UseCasePointImpl implements IUseCasePointService {
 	@SuppressWarnings("static-access")
 	@Override
 	public UseCasePointBean calTotalUseCasePoint(UseCasePointBean ucpBean) {
-		UseCasePointCalculatorUtils ucpUtils = new UseCasePointCalculatorUtils();
+		UseCasePointUtils ucpUtils = new UseCasePointUtils();
 
 		UseCasePointBean uc = new UseCasePointBean();
 		
