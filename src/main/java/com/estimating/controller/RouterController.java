@@ -31,7 +31,7 @@ public class RouterController {
 
 	@Autowired
 	IUserService userService;
-	
+
 	private Logger logger = Logger.getLogger(RouterController.class);
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
@@ -83,10 +83,10 @@ public class RouterController {
 	 * "user/function-point"; }
 	 */
 
-	@RequestMapping(value = "/history", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage-project", method = RequestMethod.GET)
 	public String goHistory(Model model) {
 		;
-		return "user/history";
+		return "user/manage-project";
 	}
 
 	@RequestMapping(value = "/project-detail", method = RequestMethod.GET)
@@ -140,10 +140,9 @@ public class RouterController {
 		model.addAttribute("listUser", userService.getListUser());
 		return "test2";
 	}
-	
+
 	/**
-	 * ****************************************************************
-	 * LOGIN
+	 * **************************************************************** LOGIN
 	 * ****************************************************************
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -158,20 +157,19 @@ public class RouterController {
 		return "login";
 	}
 
-	
 	@RequestMapping(value = "/denied", method = RequestMethod.GET)
 	public String doDeny() {
 		logger.info("Go to denied page!");
 		return "404";
 	}
-	
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String doHome(HttpServletRequest request, Model model) {
 		logger.info("Go Home!");
 		String url = "";
 		// Get username - add session user
-		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext()
-				.getAuthentication().getPrincipal();
+		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder
+				.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();
 
 		// Set sessopm user
@@ -181,7 +179,7 @@ public class RouterController {
 
 		// Redirect
 		User usr = userService.getUserByUsername(username);
-	
+
 		if (authorities.toString().contains("ROLE_ADMIN")) {
 			// Set sessopm roleuser
 			model.addAttribute("roleuser", "admin");
@@ -193,5 +191,5 @@ public class RouterController {
 
 		return url;
 	}
-	
+
 }
