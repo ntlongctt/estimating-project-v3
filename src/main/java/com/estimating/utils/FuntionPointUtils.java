@@ -1,13 +1,10 @@
 package com.estimating.utils;
 
-import org.apache.log4j.Logger;
+import java.util.HashMap;
 
 import com.estimating.beans.FuntionPointBean;
 
-public class FuntionPointCalculatorUtils {
-
-	private static final Logger logger = Logger
-			.getLogger(UseCasePointCalculatorUtils.class);
+public class FuntionPointUtils {
 
 	public static double calculateUIP(double uiSimple, double uiAverage,
 			double uiComplex) {
@@ -65,7 +62,7 @@ public class FuntionPointCalculatorUtils {
 		return totalRACF;
 	}
 
-	public static double calTotalFP(FuntionPointBean fpPointBean) {
+	public double calTotalFP(FuntionPointBean fpPointBean) {
 		double UIP = calculateUIP(fpPointBean.getUiSimple(),
 				fpPointBean.getUiAverage(), fpPointBean.getUiComplex());
 		System.out.println("UIP : " + UIP);
@@ -87,5 +84,49 @@ public class FuntionPointCalculatorUtils {
 		double totalFP = (Constants.TCF_C1 + (Constants.TCF_C2 * RACF)) * UFP;
 		System.out.println("Total : " + totalFP);
 		return totalFP;
+	}
+	
+	/**
+	 * @return HashMap value function point to update or save to database
+	 */
+	public HashMap<String, String> mapValueFunctionPoint(FuntionPointBean fpBean) {
+		HashMap<String, String> maps = new HashMap<String, String>();	
+			
+		String strUIPoint = String.valueOf(fpBean.getUiSimple()) + ";"
+				+ String.valueOf(fpBean.getUiAverage()) + ";"
+				+ String.valueOf(fpBean.getUiComplex());
+		String strUOPoint = String.valueOf(fpBean.getUoSimple()) + ";"
+				+ String.valueOf(fpBean.getUoAverage()) + ";"
+				+ String.valueOf(fpBean.getUoComplex());
+		String strUQPoint = String.valueOf(fpBean.getUqSimple()) + ";"
+				+ String.valueOf(fpBean.getUqAverage()) + ";"
+				+ String.valueOf(fpBean.getUqComplex());
+		String strILFPoint = String.valueOf(fpBean.getIlfSimple()) + ";"
+				+ String.valueOf(fpBean.getIlfAverage()) + ";"
+				+ String.valueOf(fpBean.getIlfComplex());
+		String strEIFPoint = String.valueOf(fpBean.getEifSimple()) + ";"
+				+ String.valueOf(fpBean.getEifAverage()) + ";"
+				+ String.valueOf(fpBean.getEifComplex());
+		String strRACF = String.valueOf(fpBean.getrF1()) + ";"
+				+ String.valueOf(fpBean.getrF2()) + ";"
+				+ String.valueOf(fpBean.getrF3()) + ";"
+				+ String.valueOf(fpBean.getrF4()) + ";"
+				+ String.valueOf(fpBean.getrF5()) + ";"
+				+ String.valueOf(fpBean.getrF6()) + ";"
+				+ String.valueOf(fpBean.getrF7()) + ";"
+				+ String.valueOf(fpBean.getrF8()) + ";"
+				+ String.valueOf(fpBean.getrF9()) + ";"
+				+ String.valueOf(fpBean.getrF10()) + ";"
+				+ String.valueOf(fpBean.getrF11()) + ";"
+				+ String.valueOf(fpBean.getrF12()) + ";"
+				+ String.valueOf(fpBean.getrF13()) + ";"
+				+ String.valueOf(fpBean.getrF14());
+		maps.put(Constants.FUNCTION_POINT_USER_INPUT, strUIPoint);
+		maps.put(Constants.FUNCTION_POINT_USER_OUTPUT, strUOPoint);
+		maps.put(Constants.FUNCTION_POINT_USER_ONLINE_QUERY, strUQPoint);
+		maps.put(Constants.FUNCTION_POINT_LOGICAL_FILE, strILFPoint);
+		maps.put(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE, strEIFPoint);
+		maps.put(Constants.FUNCTION_POINT_RELATIVE_FACTOR, strRACF);
+		return maps;
 	}
 }

@@ -27,93 +27,12 @@
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 <script src="resources/wizard/js/wizard.js"></script>
-<script src="resources/js/plugins/metisMenu/metisMenu.min.js"></script>
 <script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
 
 <link href="resources/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        //  Wizard 1      
-          $('#wizard1').smartWizard({transitionEffect:'fade',onFinish:onFinishCallback});
-        //  Wizard 2
-      $('#wizard2').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
-      function onFinishCallback(){
-        alert('Finish Called');
-      }    
-    $("#calc-functionpoint").on('submit', function(e){
-		var uiSimple = $('#uiSimple').val();
-		var uiAverage = $('#uiAverage').val();
-		var uiComplex = $('#uiComplex').val();
-		
-		var uoSimple = $('#uoSimple').val();
-		var uoAverage = $('#uoAverage').val();
-		var uoComplex = $('#uoComplex').val();
-  		 
-		var uqSimple = $('#uqSimple').val(); 
-		var uqAverage = $('#uqAverage').val();
-		var uqComplex = $('#uqComplex').val();
-		
-		var ilfSimple = $('#ilfSimple').val();
-		var ilfAverage = $('#ilfAverage').val();
-		var ilfComplex = $('#ilfComplex').val();
-		
-		var eifSimple = $('#eifSimple').val();
-		var eifAverage = $('#eifAverage').val();
-		var eifComplex = $('#eifComplex').val();
-		
-		var rf1 = $('input:radio[name=rf1]').filter(":checked").val()
-		
-		var rf2 = $('input:radio[name=rf2]').filter(":checked").val()
-		
-		var rf3 = $('input:radio[name=rf3]').filter(":checked").val()		
-		
-		var rf4 = $('input:radio[name=rf4]').filter(":checked").val()
-		
-		var rf5 = $('input:radio[name=rf5]').filter(":checked").val()
-		
-		var rf6 = $('input:radio[name=rf6]').filter(":checked").val()
-		
-		var rf7 = $('input:radio[name=rf7]').filter(":checked").val()
-		
-		var rf8 = $('input:radio[name=rf8]').filter(":checked").val()
-		
-		var rf9 = $('input:radio[name=rf9]').filter(":checked").val()
-	
-		var rf10 = $('input:radio[name=rf10]').filter(":checked").val()
-		
-		var rf11 = $('input:radio[name=rf11]').filter(":checked").val()
-		
-		var rf12 = $('input:radio[name=rf12]').filter(":checked").val()
-		
-		var rf13 = $('input:radio[name=rf13]').filter(":checked").val()
-		
-		var rf14 = $('input:radio[name=rf14]').filter(":checked").val()
-		
-		var json ={"uiSimple":uiSimple,"uiAverage":uiAverage,"uiComplex":uiComplex, "uoSimple":uoSimple,"uoAverage":uoAverage,"uoComplex":uoComplex, "uqSimple":uqSimple,"uqAverage":uqAverage,"uqComplex":uqComplex, "ilfSimple":ilfSimple,"ilfAverage":ilfAverage,"ilfComplex":ilfComplex, "eifSimple":eifSimple,"eifAverage":eifAverage,"eifComplex":eifComplex, "rf1":rf1,"rf2":rf2,"rf3":rf3,"rf4":rf4,"rf5":rf5,"rf6":rf6,"rf7":rf7, "rf8":rf8,"rf9":rf9,"rf10":rf10,"rf11":rf11,"rf12":rf12,"rf13":rf13,"rf14":rf14};
-  	     
-  	      e.preventDefault();	      
- 	      $.ajax({
- 	    	    url: "${pageContext.request.contextPath}/calc-functionpoint.json",
- 	    	    type: 'POST',
- 	    	    dataType: 'json',
- 	    	    data: JSON.stringify(json),
- 	    	    contentType: 'application/json',
- 	    	    mimeType: 'application/json',
- 	    	    success: function(data) {
- 	    	    	alert(data);	    	      
- 	    	   	},
- 	    	    error: function(e) {
- 	    	    	
- 	    	    }
- 	    	}); 	          
-         });
-    });
-</script>
-
 
 </head>
 <body class="skin-blue">
@@ -139,7 +58,6 @@
 					</div> -->
 					<div class="clear"></div>
 					<div class="content">
-					<form action="calc-functionpoint.html" method="post" id="calc-functionpoint">
 					<div id="wizard1" class="swMain">
 							<ul>
 								<li><a href="#step-1"> 
@@ -531,8 +449,8 @@
 								<h3 class="info-text">Function point with your infomation</h3>
 								<div class="row" style="margin-top: 5px; margin-bottom: 10px">
 									<div class="col-sm-5 col-sm-offset-1">
-										<button  type="submit" style="width: 92px" id="b1">Preview</button>
-										
+										<button class="btn btn-primary btn-flat" style="width: 92px" id="preview" onclick="previewFpPoint();">Preview</button>
+										<button class="btn btn-success btn-flat" style="width: 92px" id="save">Save</button>
 										</div>
 									</div>
 
@@ -553,7 +471,6 @@
 								</div>
 						</div>
 						</div>
-					</form>
 					<div class="clear"></div>
 					</div>
 				</div>
@@ -668,4 +585,5 @@
 			</div>
 		</div>
 </body>
+<script type="text/javascript" src="resources/js/myjs/function-point.js"></script>
 </html>

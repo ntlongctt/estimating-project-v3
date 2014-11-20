@@ -15,7 +15,6 @@
 <link href="resources/css/font-awesome.min.css" rel="stylesheet"	type="text/css" />
 <link href="resources/css/ionicons.min.css" rel="stylesheet"	type="text/css" />
 <link href="resources/css/AdminLTE.css" rel="stylesheet"	type="text/css" />
-
 <link href="resources/font-awesome-4.1.0/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
 
 <script	src="resources/js/jquery-2.0.2.min.js"></script>
@@ -24,109 +23,9 @@
 <script src="resources/wizard/js/wizard.js"></script>
 <script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
 
-
-
 <link href="resources/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
-
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
-
-<script type="text/javascript">
-	
-
-
-	
-    $(document).ready(function(){   
-      $('#wizard1').smartWizard({transitionEffect:'fade',onFinish:onFinishCallback});
-      function onFinishCallback(){
-        alert('Finish Called');
-      } 
-      
-       $("#calc-usecasepoint").on('submit', function(e){
-    	   
-    	 var simple = $('#simple').val();
-   		var average = $('#average').val();
-   		var complex = $('#complex').val();
-   		
-   		
-		var easy = $('#easy').val();
-		var medium = $('#medium').val();
-		var difficult = $('#difficult').val();
-		
-		
-  		 
-		var distributed = $('#distributed').val();
-		var performance = $('#performance').val();
-		var endUserefficiency = $('#endUserefficiency').val();
-		var complexProcessing = $('#complexProcessing').val();
-		var reusableCode = $('#reusableCode').val();
-		var easeofInstallation = $('#easeofInstallation').val();
-		var easeofUse = $('#easeofUse').val();
-		var portable = $('#portable').val();
-		var easeofChange = $('#easeofChange').val();
-		var concurrentUse = $('#concurrentUse').val();
-		var accessforThirdParties = $('#accessforThirdParties').val();
-		var specialSecurity = $('#specialSecurity').val();
-		var trainingNeeds = $('#trainingNeeds').val();
-  		 		
-		var familiarwithDevelopmentProcess = $('#familiarwithDevelopmentProcess').val();
-		var applicationExperience = $('#applicationExperience').val();
-		var objectOrientedExperience = $('#objectOrientedExperience').val();
-		var leadAnalystCapability = $('#leadAnalystCapability').val();
-		var motivation = $('#motivation').val();
-		var stableRequirements = $('#stableRequirements').val();
-		var parttimeStaff = $('#txtPart-time-Staff').val();
-		var difficulProgrammingLanguage = $('#difficulProgrammingLanguage').val(); 
-  		
-		var json ={ "simple" :simple, "average" :average, "complex" :complex , "easy" :easy, "medium" :medium, "difficult" :difficult,  "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage };
-  	     
-  	      e.preventDefault();	      
- 	      $.ajax({
- 	    	    url: "${pageContext.request.contextPath}/calc-usecasepoint.json",
- 	    	    type: 'POST',
- 	    	    dataType: 'json',
- 	    	    data: JSON.stringify(json),
- 	    	    contentType: 'application/json',
- 	    	    mimeType: 'application/json',
- 	    	    success: function(data) {
- 	    	    	//alert(data.totalUCP);
- 	    	    	document.getElementById("ucw").innerHTML = data.wuc;
- 	    	    	document.getElementById("uaw").innerHTML = data.was;
- 	    	    	document.getElementById("uucp").innerHTML = data.uucp;
- 	    	    	document.getElementById("tcf").innerHTML = data.tcf;
- 	    	    	document.getElementById("efc").innerHTML = data.efc;
- 	    	    	document.getElementById("ucp").innerHTML = data.totalUCP;
- 	    	    	document.getElementById("minimun_hours").innerHTML = data.totalUCP*document.getElementById("minimun_hours_input").value;
- 	    	    	document.getElementById("maximun_hours").innerHTML = data.totalUCP*document.getElementById("maximun_hours_input").value;
- 	    	    	document.getElementById("devired_hours").innerHTML = data.totalUCP*document.getElementById("devired_hours_input").value;
- 	    	    	
- 	    	    	
- 	    	    	
- 	    	   	},
- 	    	    error: function(e) {
- 	    	    	
- 	    	    }
- 	    	}); 	     
-       		});  
-       
-       function result() {
-    	   
-       }
-         });
-</script>
-
-<script>
-
-function myfunction(){
-	
-}
-</script>
-
-<script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Thanh Long";
-}
-</script>
 
 </head>
 <body class="skin-blue">
@@ -150,7 +49,6 @@ function myFunction() {
 					</div> -->
 					<div class="clear"></div>
 					<div class="content">
-					<form action="calc-usecasepoint.html" method="post" id="calc-usecasepoint"> 
 					<div id="wizard1" class="swMain">				
 							<ul>
 								<li><a href="#step-1"> 
@@ -443,9 +341,9 @@ function myFunction() {
 								<div style="margin-top: 30px">
 									<div class="row" style="margin-top: 5px; margin-bottom: 10px">
 									<div class="col-sm-5 col-sm-offset-1">
-										<button class="btn btn-primary btn-flat"   style="width: 92px">Preview</button>
+										<button class="btn btn-primary btn-flat" style="width: 92px" id="save" onclick="PreviewUsecasePoint();" >Preview</button>
 										<button class="btn btn-danger btn-flat" id="btn" style="width: 92px"> Clear All</button>
-										<button class="btn btn-success btn-flat" style="width: 92px">Save</button>
+										<button class="btn btn-success btn-flat" style="width: 92px" id="save" >Save</button>
 									</div>
 									</div>
 									<div class="row">
@@ -514,7 +412,6 @@ function myFunction() {
 							</div>
 							 
 						</div>
-						</form> 
 					<div class="clear"></div>
 					</div>
 				</div>
@@ -629,4 +526,5 @@ function myFunction() {
 			</div>
 		</div>
 </body>
+<script type="text/javascript" src="resources/js/myjs/usecase-point.js"></script>
 </html>

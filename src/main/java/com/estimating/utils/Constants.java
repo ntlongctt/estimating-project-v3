@@ -1,5 +1,6 @@
 package com.estimating.utils;
 
+
 public final class Constants {
 
 	// UseCase Classification
@@ -65,4 +66,12 @@ public final class Constants {
 	// role
 	public static final int ROLE_ADMIN = 1;
 	public static final int ROLE_USER = 2;
+	
+	// Map fp_estimating table
+	public static final String FUNCTION_POINT_USER_INPUT = "user_Input"; 
+	public static final String FUNCTION_POINT_USER_ONLINE_QUERY = "user_Online_Query";
+	public static final String FUNCTION_POINT_LOGICAL_FILE = "logical_File";
+	public static final String FUNCTION_POINT_EXTERNAL_INTERFACE = "external_Interface";
+	public static final String FUNCTION_POINT_RELATIVE_FACTOR  = "relative_Factor ";
+	public static final String FUNCTION_POINT_USER_OUTPUT = "user_Output"; 
 }
