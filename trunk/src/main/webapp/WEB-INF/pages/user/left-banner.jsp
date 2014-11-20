@@ -44,7 +44,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="history.html">
+                            <a href="manage-project.html">
                                 <i class="fa fa-sitemap"></i> <span>My Project</span>
                             </a>
                         </li>
