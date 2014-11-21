@@ -34,106 +34,73 @@
 <script src="resources/wizard/js/wizard.js"></script>
 <script src="resources/js/plugins/metisMenu/metisMenu.min.js"></script>
 <script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
+
 <!-- InputMask -->
-<script src="resourcesjs/plugins/input-mask/jquery.inputmask.js"
-	type="text/javascript"></script>
-<script
-	src="resources/js/plugins/input-mask/jquery.inputmask.date.extensions.js"
-	type="text/javascript"></script>
-<script
-	src="resources/js/plugins/input-mask/jquery.inputmask.extensions.js"
-	type="text/javascript"></script>
-<!-- date-range-picker -->
-<script src="resources/js/plugins/daterangepicker/daterangepicker.js"
-	type="text/javascript"></script>
-<!-- bootstrap color picker -->
-<script
-	src="resources/js/plugins/colorpicker/bootstrap-colorpicker.min.js"
-	type="text/javascript"></script>
-<!-- bootstrap time picker -->
-<script
-	src="resources/js/plugins/timepicker/bootstrap-timepicker.min.js"
-	type="text/javascript"></script>
+ <!-- InputMask -->
+        <script src="resources/js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="resources/js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+        <script src="resources/js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-	$(function() {
-		//Datemask dd/mm/yyyy
-		$("#datemask").inputmask("dd/mm/yyyy", {
-			"placeholder" : "dd/mm/yyyy"
-		});
-		//Datemask2 mm/dd/yyyy
-		$("#datemask2").inputmask("mm/dd/yyyy", {
-			"placeholder" : "mm/dd/yyyy"
-		});
-		//Money Euro
-		$("[data-mask]").inputmask();
+ <!-- Page script -->
+        <script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+                $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+                //Money Euro
+                $("[data-mask]").inputmask();
 
-		//Date range picker
-		$('#reservation').daterangepicker();
-		//Date range picker with time picker
-		$('#reservationtime').daterangepicker({
-			timePicker : true,
-			timePickerIncrement : 30,
-			format : 'MM/DD/YYYY h:mm A'
-		});
-		//Date range as a button
-		$('#daterange-btn').daterangepicker(
-				{
-					ranges : {
-						'Today' : [ moment(), moment() ],
-						'Yesterday' : [ moment().subtract('days', 1),
-								moment().subtract('days', 1) ],
-						'Last 7 Days' : [ moment().subtract('days', 6),
-								moment() ],
-						'Last 30 Days' : [ moment().subtract('days', 29),
-								moment() ],
-						'This Month' : [ moment().startOf('month'),
-								moment().endOf('month') ],
-						'Last Month' : [
-								moment().subtract('month', 1).startOf('month'),
-								moment().subtract('month', 1).endOf('month') ]
-					},
-					startDate : moment().subtract('days', 29),
-					endDate : moment()
-				},
-				function(start, end) {
-					$('#reportrange span').html(
-							start.format('MMMM D, YYYY') + ' - '
-									+ end.format('MMMM D, YYYY'));
-				});
+                //Date range picker
+                $('#reservation').daterangepicker();
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+                //Date range as a button
+                $('#daterange-btn').daterangepicker(
+                        {
+                            ranges: {
+                                'Today': [moment(), moment()],
+                                'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                                'Last 7 Days': [moment().subtract('days', 6), moment()],
+                                'Last 30 Days': [moment().subtract('days', 29), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                            },
+                            startDate: moment().subtract('days', 29),
+                            endDate: moment()
+                        },
+                function(start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                }
+                );
 
-		//iCheck for checkbox and radio inputs
-		$('input[type="checkbox"].minimal, input[type="radio"].minimal')
-				.iCheck({
-					checkboxClass : 'icheckbox_minimal',
-					radioClass : 'iradio_minimal'
-				});
-		//Red color scheme for iCheck
-		$('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red')
-				.iCheck({
-					checkboxClass : 'icheckbox_minimal-red',
-					radioClass : 'iradio_minimal-red'
-				});
-		//Flat red color scheme for iCheck
-		$('input[type="checkbox"].flat-red, input[type="radio"].flat-red')
-				.iCheck({
-					checkboxClass : 'icheckbox_flat-red',
-					radioClass : 'iradio_flat-red'
-				});
+                //iCheck for checkbox and radio inputs
+                $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal'
+                });
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+                //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-red',
+                    radioClass: 'iradio_flat-red'
+                });
 
-		//Colorpicker
-		$(".my-colorpicker1").colorpicker();
-		//color picker with addon
-		$(".my-colorpicker2").colorpicker();
+                //Colorpicker
+                $(".my-colorpicker1").colorpicker();
+                //color picker with addon
+                $(".my-colorpicker2").colorpicker();
 
-		//Timepicker
-		$(".timepicker").timepicker({
-			showInputs : false
-		});
-	});
-</script>
-
-
+                //Timepicker
+                $(".timepicker").timepicker({
+                    showInputs: false
+                });
+            });
+        </script>
 
 </head>
 <body class="skin-blue">
@@ -159,62 +126,92 @@
 					<div class="box-body">
 						<div class="row">
 							<div class="col-md-6">
-								<h4>
+								
 									<dl class="dl-horizontal">
-										<dt>First name:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>User name:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Phone:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Birth date:</dt>
-										<dd>
-											<div class="input-group">
-												<div class="input-group-addon">
-													<i class="fa fa-calendar"></i>
-												</div>
-												<input type="text" class="form-control"
-													data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
-											</div>
-										</dd>
-										<dt>Company:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
+										<!--First Name  -->
+										<div class="from">
+											<tr>
+												<th>First name:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+										</div>
+										<!-- User Name -->
+										<div class="from">
+											<tr>
+												<th>User name:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+										</div>
+										<!-- Phone: -->
+										<div class="from">
+											<tr>
+												<th>Phone:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+										</div>
+										<!-- Date -->
+										<div class="from">
+                                        <label>Date:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                        </div><!-- /.input group -->
+                                    	</div>
+                                    	<!-- Company -->
+										<div class="from">
+											<tr>
+												<th>Company:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+										</div>
 									</dl>
-								</h4>
+								
 							</div>
 							<div class="col-md-6">
-								<h4>
 									<dl class="dl-horizontal">
-										<dt>Last name:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Password:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Mail:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										<dt>Gender:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Address:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-									</dl>
-								</h4>
-
+									<!-- Last name -->
+									<div class="from">
+											<tr>
+												<th>Company:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+									</div>
+									<!-- Password -->
+									<div class="from">
+											<tr>
+												<th>Password:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+									</div>
+									<!-- Mail -->
+									<div class="from">
+											<tr>
+												<th>Mail:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+									</div>
+									<!-- Gender -->
+									<div class="from">
+											<tr>
+												<th>Gender:</th>
+												<th>
+													<select class="form-control" name="abc">
+														<option value="Male">Male</option>
+														<option value="Female">Female</option>
+													</select>
+												</th>
+											</tr>
+									</div>
+									<!-- Address -->
+									<div class="from">
+											<tr>
+												<th>Address:</th>
+												<th><input type="text" class="form-control" placeholder="Nguyễn"></th>
+											</tr>
+									</div>
+								</dl>
 								<p class="text-right">
 									<button class="btn btn-default btn-flat">Submit</button>
 								</p>
