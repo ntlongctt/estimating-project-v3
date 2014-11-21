@@ -137,7 +137,9 @@
                                         </div>
 
 							<!-- Use Case Point Weight -->
-							<h3 class="box-title">Use Case Point Weight</h3>
+							<h3 class="box-title">
+								Use Case Point Weight
+							</h3>
 							<div class="row">
 								<div class="col-sm-5 col-sm-offset-1">
 									<div class="form-group">
@@ -354,6 +356,39 @@
 											placeholder="Difficult Programming Language">
 									</div>
 								</div>
+							<!-- Payment -->
+							<h3 class="box-title">Payment</h3>
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Wage per hour</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>															
+							</div>
+																
+							</div>
+							<!-- Total -->
+							<h3 class="box-title">Total</h3>
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Total point</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Total hour</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Cost </label> <input type="text" class="form-control"
+											placeholder="7">
+									</div>
+								</div>								
 							</div>
 
 							<button class="btn btn-default">Update Version</button>
@@ -599,6 +634,40 @@
 									<div class="form-group">
 										<label>Extent of change and focus on ease of use</label> <input type="text" class="form-control"
 											placeholder="6">
+									</div>
+								</div>								
+							</div>
+							<!-- Payment -->
+							<h3 class="box-title">Payment</h3>
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Wage per hour</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>															
+							</div>
+																
+							</div>
+							<!-- Total -->
+							<h3 class="box-title">Total</h3>
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Total point</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Total hour</label> <input type="text" class="form-control"
+											placeholder="5">
+									</div>
+								</div>
+								<div class="col-sm-5 col-sm-offset-1">
+									<div class="form-group">
+										<label>Cost </label> <input type="text" class="form-control"
+											placeholder="7">
 									</div>
 								</div>								
 							</div>
