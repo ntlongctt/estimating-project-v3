@@ -55,8 +55,7 @@ public class UseCasePointController {
 	public UseCasePointBean previewUseCasePoint(
 			@RequestBody UseCasePointBean useCasePointBean, Model model) {
 		logger.info("Preview UseCasePoint");
-		UseCasePointBean result = ucpService
-				.calTotalUseCasePoint(useCasePointBean);
+		UseCasePointBean result = ucpService.calTotalUseCasePoint(useCasePointBean);
 		return result;
 	}
 
