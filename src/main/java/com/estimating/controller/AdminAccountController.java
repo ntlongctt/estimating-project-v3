@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.estimating.service.IUserService;
 
 @Controller
-@SessionAttributes({ "user", "roleuser" })
+@SessionAttributes({ "user", "roleuser", "userFullname" })
 public class AdminAccountController {
 
 	@Autowired
@@ -27,29 +27,32 @@ public class AdminAccountController {
 			@ModelAttribute("user") String username) {
 		model.addAttribute("selectedUser",
 				userService.getUserByUsername(username));
-		return "admin/CurrentUserInfo";
+		return "admin/SelectedUser";
 	}
 
 	@RequestMapping(value = "/AdminList", method = RequestMethod.GET)
-	public String getAdminList(Model model,
-			@ModelAttribute("user") String username) {
-		model.addAttribute("currentUser",
-				userService.getUserByUsername(username));
+	public String getAdminList(Model model) {
+		model.addAttribute("currentTabRole", "admin");
 		model.addAttribute("userList", userService.getListUserByRole(1));
 		return "admin/UserList";
 	}
 
 	@RequestMapping(value = "/MemberList", method = RequestMethod.GET)
-	public String getMemberList(Model model,
-			@ModelAttribute("user") String username) {
-		model.addAttribute("currentUser",
-				userService.getUserByUsername(username));
+	public String getMemberList(Model model) {
+		model.addAttribute("currentTabRole", "user");
 		model.addAttribute("userList", userService.getListUserByRole(2));
 		return "admin/UserList";
 	}
 
-	@RequestMapping(value = " /selectedUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/selectedUser", method = RequestMethod.GET)
 	public String getSelectedUser(Model model, @RequestParam String username) {
+		model.addAttribute("selectedUser",
+				userService.getUserByUsername(username));
+		return "admin/SelectedUser";
+	}
+
+	@RequestMapping(value = "/reset-password-for-user", method = RequestMethod.GET)
+	public String resetPassword(Model model, @RequestParam String username) {
 		model.addAttribute("selectedUser",
 				userService.getUserByUsername(username));
 		return "admin/CurrentUserInfo";

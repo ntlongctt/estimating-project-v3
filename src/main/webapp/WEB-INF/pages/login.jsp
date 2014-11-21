@@ -38,8 +38,8 @@
                     </div>
                     <form id="loginForm" action="j_spring_security_check" method="post" class="navbar-form navbar-left register span6" autocomplete="off" role="search"style="margin-left:100px">	
                        <div class="form-group">
-                            <input type="text"  id="j_username" name="j_username" class="form-control" placeholder="User name" style="width:200px" autofocus>
-                            <input type="text" id="j_password" name="j_password" class="form-control" placeholder="Password" style="width:200px">                   
+                            <input type="text"  id="j_username" name="j_username" placeholder="User name" style="width:200px" autofocus>
+                            <input type="password" id="j_password" name="j_password" placeholder="Password" style="width:200px">                   
                             <button class="btn btn-danger btn-flat" type="submit" style="margin-top:5px">LOGIN</button>
                         </div>
                         <c:if test="${message != null}">

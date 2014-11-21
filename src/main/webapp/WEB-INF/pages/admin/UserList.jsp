@@ -50,14 +50,20 @@
 		<!-- Right side column. Contains the navbar and content of the page -->
 		<aside class="right-side">
 			<!-- Content Header (Page header) -->
-			<section class="content-header"></section>
+			<section class="content-header">
+				<h1>${currentTabRole == "admin" ? 
+			"Admins in the system" :
+			"Members in the system"}
+				</h1>
+			</section>
 
 			<!-- Main content -->
 			<section class="content">
 
 				<!-- /.box-header -->
-				<div class="box-body table-responsive">
-					<table id="userTable" name="userTable" class="table table-bordered table-striped">
+				<div class="col-xs-12 table-responsive">
+					<table id="userTable" name="userTable"
+						class="table table-striped">
 						<thead>
 							<tr>
 								<th>Account</th>
@@ -65,17 +71,22 @@
 								<th>ID</th>
 								<th>Phone</th>
 								<th>Email</th>
+								<th>Reset password</th>
 							</tr>
 						</thead>
 						<tbody>
-						 	
+
 							<c:forEach var="item" items="${userList}">
 								<tr>
-									<td><a href="/estimating/selectedUser.html?username=${ item.tenUser}" value="${ item.tenUser}">${ item.tenUser}</a></td>
+									<td><a
+										href="/estimating/selectedUser.html?username=${ item.tenUser}"
+										value="${ item.tenUser}">${ item.tenUser}</a></td>
 									<td>${item.hoTen}</td>
 									<td>${item.cmnd}</td>
 									<td>${item.phone}</td>
 									<td>${item.mail}</td>
+									<td><button href="/estimating/reset-password-for-user.html?username=${ item.tenUser}">
+									Reset</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>

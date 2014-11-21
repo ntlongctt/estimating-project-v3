@@ -206,7 +206,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Jane Doe <i class="caret"></i></span>
+                                <span>${userFullname} <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -214,7 +214,7 @@
                                     <img src="resources/img/avatar3.png" class="img-circle" alt="User Image" />
                                    
                                     <p>
-                                        ThanhLong - Web Developer
+                                        ${userFullname} - Web Developer
                                         <small>Member since Nov. 2014</small>
                                     </p>
                                 </li>
@@ -233,7 +233,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/estimating/selectedUser.html?username=${ user }" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="#" class="btn btn-default btn-flat">Sign out</a>
