@@ -156,9 +156,6 @@
 														data-widget="collapse">
 														<i class="fa fa-minus"></i>
 													</button>
-													<button class="btn btn-primary btn-xs" data-widget="remove">
-														<i class="fa fa-times"></i>
-													</button>
 												</div>
 											</div>
 											<div class="box-body">
@@ -441,9 +438,19 @@
 										</div>
 
 										<!-- User Input -->
-										<h4 class="box-title">User Input</h4>
-										<div class="row">
-											<table class="table">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">User Input</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Simple: <input type="text"
 														style="width: 40px; height: 20px" placeholder="7"></th>
@@ -453,12 +460,23 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
 										<!-- User out put -->
-										<h4 class="box-title">User Output</h4>
-
-										<div class="row">
-											<table class="table">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">User output</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Simple: <input type="text"
 														style="width: 40px; height: 20px" placeholder="7"></th>
@@ -468,12 +486,23 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
 										<!-- User Inquiries -->
-										<h4 class="box-title">User Inquiries</h4>
-
-										<div class="row">
-											<table class="table">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">User Inquiries</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Simple: <input type="text"
 														style="width: 40px; height: 20px" placeholder="7"></th>
@@ -483,12 +512,23 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
 										<!-- Internal logical file -->
-										<h4 class="box-title">Internal Logical File</h4>
-
-										<div class="row">
-											<table class="table">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">Internal logical file</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Simple: <input type="text"
 														style="width: 40px; height: 20px" placeholder="7"></th>
@@ -498,12 +538,23 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
 										<!-- External Interface File -->
-										<h4 class="box-title">External Interface File</h4>
-
-										<div class="row">
-											<table class="table">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">External Interface File</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Simple: <input type="text"
 														style="width: 40px; height: 20px" placeholder="7"></th>
@@ -513,14 +564,25 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
 										<!-- Relative Complexity Adjustment Factor -->
-										<h3 class="box-title">Relative Complexity Adjustment
-											Factor</h3>
-
-										<div class="row">
-
-											<table class="table">
+										
+										
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Use Case Point Weight">
+												<h3 class="box-title">External Interface File</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="box-body">
+												<table class="table">
 												<tr class="info">
 													<th>Requirement for reliable backup and recovery:</th>
 													<th><input type="text"
@@ -583,41 +645,71 @@
 														style="width: 40px; height: 20px" placeholder="7"></th>
 												</tr>
 											</table>
+											</div>
+											<!-- /.box-body -->
 										</div>
+										
+					
+										
 										<!-- Payment -->
-										<h3 class="box-title">Payment</h3>
-										<div class="row">
-											<div class="col-sm-5 col-sm-offset-1">
-												<div class="form-group">
-													<label>Wage per hour</label> <input type="text"
-														class="form-control" placeholder="5">
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Payment">
+												<h3 class="box-title">Payment</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+													<button class="btn btn-primary btn-xs" data-widget="remove">
+														<i class="fa fa-times"></i>
+													</button>
 												</div>
 											</div>
-										</div>
-
-									</div>
-									<!-- Total -->
-									<h3 class="box-title">Total</h3>
-									<div class="row">
-										<div class="col-sm-5 col-sm-offset-1">
-											<div class="form-group">
-												<label>Total point</label> <input type="text"
-													class="form-control" placeholder="5">
+											<div class="box-body">
+												<table class="table">
+													<tr class="info">
+														<th>Wage per hour:</th>
+														<th><input type="text" class="form-control" placeholder="5"></th>
+													</tr>
+												</table>
 											</div>
+											<!-- /.box-body -->
 										</div>
-										<div class="col-sm-5 col-sm-offset-1">
-											<div class="form-group">
-												<label>Total hour</label> <input type="text"
-													class="form-control" placeholder="5">
+										
+										
+										<!-- Total -->
+										<div class="box box-primary">
+											<div class="box-header" data-toggle="tooltip" title=""
+												data-original-title="Total">
+												<h3 class="box-title">Total</h3>
+												<div class="box-tools pull-right">
+													<button class="btn btn-primary btn-xs"
+														data-widget="collapse">
+														<i class="fa fa-minus"></i>
+													</button>
+													<button class="btn btn-primary btn-xs" data-widget="remove">
+														<i class="fa fa-times"></i>
+													</button>
+												</div>
 											</div>
-										</div>
-										<div class="col-sm-5 col-sm-offset-1">
-											<div class="form-group">
-												<label>Cost </label> <input type="text" class="form-control"
-													placeholder="7">
+											<div class="box-body">
+											<table class="table">
+													<tr class="info">
+														<th>Total point:</th>
+														<th><input type="text" class="form-control" placeholder="5"></th>
+														<th>Total hour:</th>
+														<th><input type="text" class="form-control" placeholder="5"></th>
+													</tr>
+													<tr class="info">
+														<th>Cost:</th>
+														<th><input type="text" class="form-control" placeholder="5"></th>
+													</tr>
+												</table>
 											</div>
+											<!-- /.box-body -->
 										</div>
-									</div>
+									
 
 									<button class="btn btn-default">Update Version</button>
 									<button class="btn btn-default">Create New Verion</button>
