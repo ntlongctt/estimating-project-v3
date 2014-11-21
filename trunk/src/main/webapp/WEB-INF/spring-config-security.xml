@@ -37,9 +37,9 @@
 			always-use-default-target="true" authentication-failure-url="/loginfail.html" />
 
 		<access-denied-handler error-page="/denied.html" />
-<!-- 
+
 		<logout invalidate-session="true" logout-success-url="/logoutsuccess.html"
-			logout-url="/logout.html" delete-cookies="JSESSIONID" /> -->
+			logout-url="/logout.html" delete-cookies="JSESSIONID" />
 	</http>
 	
 	<authentication-manager>
