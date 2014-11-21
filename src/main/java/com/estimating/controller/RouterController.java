@@ -52,7 +52,7 @@ public class RouterController {
 		;
 		return "user/use-profile";
 	}
-	
+
 	@RequestMapping(value = "/upgrade_user", method = RequestMethod.GET)
 	public String goUpgradeUser(Model model) {
 		;
@@ -173,7 +173,6 @@ public class RouterController {
 
 		// Redirect
 		User usr = userService.getUserByUsername(username);
-
 		if (authorities.toString().contains("ROLE_ADMIN")) {
 			// Set sessopm roleuser
 			model.addAttribute("roleuser", "admin");
