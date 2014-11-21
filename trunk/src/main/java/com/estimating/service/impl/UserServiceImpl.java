@@ -10,11 +10,11 @@ import com.estimating.domain.User;
 import com.estimating.service.IUserService;
 
 @Service
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	IUserDao userDao;
-	
+
 	@Override
 	public List<User> getListUser() {
 		return userDao.getListUser();
@@ -23,6 +23,11 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public User getUserByUsername(String username) {
 		return userDao.getUserByUsername(username);
+	}
+
+	@Override
+	public List<User> getListUserByRole(int roleId) {
+		return userDao.getListUserByRole(roleId);
 	}
 
 }

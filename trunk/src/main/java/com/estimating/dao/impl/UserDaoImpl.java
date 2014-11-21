@@ -13,26 +13,34 @@ import com.estimating.dao.IUserDao;
 import com.estimating.domain.User;
 
 @Repository
-public class UserDaoImpl implements IUserDao{
+public class UserDaoImpl implements IUserDao {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public List<User> getListUser() {
-		TypedQuery<User> query = em.createQuery(
-				"Select p From User p", User.class);
+		TypedQuery<User> query = em.createQuery("Select p From User p",
+				User.class);
 		return query.getResultList();
 	}
 
+	@Override
 	@Transactional
 	public User getUserByUsername(String username) {
-		String strQuery= "SELECT p From User p WHERE p.tenUser = :userName";
-		System.out.println("User name is: " + username );
-	    TypedQuery<User> query = em.createQuery(strQuery, User.class);
-	    query.setParameter("userName", username);
-	    User user = query.getSingleResult();
+		String strQuery = "SELECT p From User p WHERE p.tenUser = :userName";
+		System.out.println("User name is: " + username);
+		TypedQuery<User> query = em.createQuery(strQuery, User.class);
+		query.setParameter("userName", username);
+		User user = query.getSingleResult();
 		return user;
 	}
-	
+
+	@Override
+	public List<User> getListUserByRole(int roleId) {
+		String queryString = "Select u from User u where u.role.maRole = :roleId";
+		TypedQuery<User> query = em.createQuery(queryString, User.class);
+		query.setParameter("roleId", roleId);
+		return query.getResultList();
+	}
 }
