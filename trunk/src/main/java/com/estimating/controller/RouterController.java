@@ -110,7 +110,7 @@ public class RouterController {
 	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)
 	public String goUserProfile(Model model) {
 		;
-		return "user/edit-profile";
+		return "user/use-profile";
 	}
 
 	// end

@@ -3,13 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+<meta	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
 <meta name="viewport" content="width=device-width" />
 <title>Estimating software</title>
@@ -31,6 +25,12 @@
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 
+<script src="resources/js/myjs/jquery.inputmask.bundle.js"></script>
+<script>
+$(document).ready(function(){
+    $(":input").inputmask();
+});
+</script>
 
 </head>
 <body class="skin-blue">
@@ -190,27 +190,27 @@
 								<table class="table">
 									<tr class="info">
 										<th>Familiar Development Process:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Application Experience:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Object-Oriented Experience:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Lead Analyst Capability:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Motivation:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Stable Requirements:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Part-time Staff:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Difficult Programming Language:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 								</table>
 

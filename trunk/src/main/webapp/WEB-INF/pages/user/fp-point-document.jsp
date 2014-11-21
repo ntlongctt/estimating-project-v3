@@ -27,6 +27,8 @@
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
+<link href="resources/css/docs.min.css" rel="stylesheet">
+<script src="resources/js/myjs/ie-emulation-modes-warning.js"></script>
 
 
 
@@ -49,8 +51,7 @@
 <div class="col-md-3">
           <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary">
             <ul class="nav bs-docs-sidenav">
-
-                <li class="active">
+ <li class="active">
   <a href="#overview">Overview</a>
   <ul class="nav">
     <li class=""><a href="#overview-doctype">HTML5 doctype</a></li>
@@ -60,7 +61,7 @@
     <li class=""><a href="#overview-container">Containers</a></li>
   </ul>
 </li>
-<li class="">
+<li>
   <a href="#grid">Grid system</a>
   <ul class="nav">
     <li class=""><a href="#grid-intro">Introduction</a></li>

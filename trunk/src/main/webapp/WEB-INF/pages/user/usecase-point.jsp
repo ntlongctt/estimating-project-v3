@@ -27,6 +27,12 @@
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
 
+<script src="resources/js/myjs/jquery.inputmask.bundle.js"></script>
+<script>
+$(document).ready(function(){
+    $(":input").inputmask();
+});
+</script>
 </head>
 <body class="skin-blue">
 	<!-- header logo: style can be found in header.less -->
@@ -71,6 +77,7 @@
 								</li>
 							</ul>
 							<!-- STEP 1 -->
+							
 							<div id="step-1" style="width: 100%">
 								<h2 class="StepTitle">Step 1 Content</h2>
 								<div class="col-6" style="margin: 50px 0 0 0">
@@ -262,7 +269,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Familiar" target="_blank">Familiar with Development Process</a></label> <input
 												type="text" class="form-control" id="familiarwithDevelopmentProcess" name="familiarwithDevelopmentProcess"
-												placeholder="Familiar with Development Process">
+												placeholder="0"  data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Application Experience -->
@@ -270,7 +277,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Application-Experience" target="_blank">Application Experience</a></label> <input type="text"
 												class="form-control" id="applicationExperience" name="applicationExperience"
-												placeholder="Application Experience">
+												placeholder="0"  data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Object-Oriented Experience -->
@@ -278,7 +285,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Object-Oriented-Experience" target="_blank">Object-Oriented Experience</a></label> <input type="text"
 												class="form-control" id="objectOrientedExperience" name="objectOrientedExperience"
-												placeholder="Object-Oriented Experience">
+												placeholder="0"data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Lead Analyst Capability -->
@@ -286,7 +293,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Lead-Analyst-Capability" target="_blank">Lead Analyst Capability</a></label> <input type="text"
 												class="form-control" id="leadAnalystCapability" name="leadAnalystCapability"
-												placeholder="Lead Analyst Capability">
+												placeholder="0" data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Motivation -->
@@ -294,7 +301,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#step2" target="_blank">Motivation</a></label> <input type="text"
 												class="form-control" id="motivation" name="motivation"
-												placeholder="Motivation">
+												placeholder="0" data-inputmask="'mask': '5	'">
 										</div>
 									</div>
 									<!-- Stable Requirements -->
@@ -302,7 +309,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Motivation" target="_blank">Stable Requirements</a></label> <input type="text"
 												class="form-control" id="stableRequirements" name="stableRequirements"
-												placeholder="Stable Requirements">
+												placeholder="0" data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Part-time Staff -->
@@ -310,7 +317,7 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Part-time-Staff" target="_blank">Part-time Staff</a></label> <input type="text"
 												class="form-control" id="txtPart-time-Staff" name="txtPart-time-Staff"
-												placeholder="Part-time Staff">
+												placeholder="0" data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Difficult Programming Language -->
@@ -318,18 +325,18 @@
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#Difficult_Programming_Language" target="_blank">Difficult Programming Language</a></label> <input
 												type="text" class="form-control" id="difficulProgrammingLanguage" name="difficulProgrammingLanguage"
-												placeholder="Difficult Programming Language">
+												placeholder="0" data-inputmask="'mask': '5'">
 										</div>
 									</div>
 								</div>
-								<h3>O buoc nay, cac gia tri nhap trong vao o chi co the la 1 trong 6 gia tri : 
+								<h3>In this step, entered values must fall into range (0-5) : 
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 0: Easy. Within one week the language can be picked up.">0</a> -
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 1: At least two week is needed to pick up the language.">1</a> -
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 2: At least one month is needed to pick up the language.">2</a> -
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 3: Special training neededfor the language.">3</a> -
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 4: Special training needed for the language and need help during the project.">4</a> -
 								<a href="#" data-toggle="tooltip"	data-original-title="Value 5: Difficult. Needs only experienced people.">5</a>
-								tuong ung voi muc do phuc tap anh huong den du an.
+								with complexity effect to project!
 								</h3>
 							</div>
 							<!-- END STEP 5 -->
@@ -378,15 +385,15 @@
 										<div class="col-sm-5 col-sm-offset-1">
 
 											<div class="input-group" style="margin-bottom: 10px">
-												<span class="input-group-addon">Nhap de thay doi gia tri minimux hours mac dinh</span> 
+												<span class="input-group-addon">Enter value to change default minimum value</span> 
 												<input type="number" id="minimun_hours_input" style="width: 100px" value="15">
 											</div>
 											<div class="input-group" style="margin-bottom: 10px">
-												<span class="input-group-addon">Nhap de thay doi gia tri maximun hours mac dinh</span>
+												<span class="input-group-addon">Enter value to change default maximun value</span>
 												<input type="number"  id="maximun_hours_input" style="width: 100px"  value="25">
 											</div>
 											<div class="input-group" style="margin-bottom: 10px">
-												<span class="input-group-addon">Nhap de thay doi gia tri devired hours mac dinh</span>
+												<span class="input-group-addon">Enter value to change devired maximun value</span>
 												<input type="number" id="devired_hours_input" style="width: 100px" value="20">
 											</div>
 											
