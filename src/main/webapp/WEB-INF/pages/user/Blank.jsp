@@ -54,7 +54,7 @@
 			<section class="content">
 
 
-			<img src="resources/img/fp-imp/EI-example.jpg" class="img-responsive" alt="Responsive image">
+			
 
 			</section>
 			<!-- /.content -->

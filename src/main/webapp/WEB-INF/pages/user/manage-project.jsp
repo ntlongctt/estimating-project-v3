@@ -52,16 +52,60 @@
                     <h1>
                         Manage your projects
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Forms</a></li>
-                        <li class="active">General Elements</li>
-                    </ol>
+                    
+                    
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                	
+								
+												<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List project</h3>                                    
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No. </th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Number version</th>
+                                                <th>Description</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                                   
+                                            <tr>
+                                                <td>1</td>
+                                                <td>128</td>
+                                                <td>230,45</td>
+                                                <td>12/3/2014</td>
+                                                <td>12/3/2014</td>
+                                                <th><a href="ucp-detail.html">detail</a></th>
+                                            </tr>
+                                            <tr>
+                                                <td>V2</td>
+                                                <td>130</td>
+                                                <td>Null</td>
+                                                <td>19/4/2014</td>
+                                                <td>12/3/2014</td>
+                                                <th><a href="ucp-detail.html">detail</a></th>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                 <th>No. </th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Number version</th>
+                                                <th>Description</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="box">
@@ -137,225 +181,118 @@
                                         </div>
 
 							<!-- Use Case Point Weight -->
+
+							<h4 class="box-title">Use Case Point Weight</h4>
+
 							<h3 class="box-title">
 								Use Case Point Weight
 							</h3>
+
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
+								
+									
+									<table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+				 
 							</div>
 
-							<h3 class="box-title">Function Point Weight</h3>
+							<h4 class="box-title">Function Point Weight</h4>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 
 							<h3 class="box-title">Technical Complexity Factor</h3>
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Distributed system:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Distributed system:">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Performance objectives:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Performance objectives:">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>End User efficiency:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="End User efficiency">
-									</div>
-								</div>
-								<!-- Complex Processing -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex Processing:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Complex Processing">
-									</div>
-								</div>
-								<!-- Reusable Code -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Reusable Code:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Reusable Code">
-									</div>
-								</div>
-								<!-- Ease of Installation -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Ease of Installation:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Ease of Installation">
-									</div>
-								</div>
-								<!-- Ease of Use -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Ease of Use:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Ease of Use">
-									</div>
-								</div>
-								<!-- Portable -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Portable:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Portable">
-									</div>
-								</div>
-								<!-- Ease of Change -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Ease of Change:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Ease of Change">
-									</div>
-								</div>
-								<!-- Concurrent Use -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Concurrent Use:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Concurrent Use">
-									</div>
-								</div>
-								<!-- Special Security -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Special Security:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Special Security">
-									</div>
-								</div>
-								<!-- Access for Third Parties -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Access for Third Parties:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Access for Third Parties">
-									</div>
-								</div>
-								<!-- Training Needs -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Training Needs:</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Training Needs">
-									</div>
-								</div>
+							
+								<table class="table">
+									<tr class="info">
+										<th>Distributed system:</th>
+										<th>Performance objectives:</th>
+										<th>End User efficiency:</th>
+									</tr>
+									<tr>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Complex Processing:</th>
+										<th>Reusable Code:</th>
+										<th>Ease of Installation:</th>
+									</tr>
+									<tr>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Ease of Use:</th>
+										<th>Portable:</th>
+										<th>Ease of Change:</th>
+									</tr>		
+									<tr>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Concurrent Use:</th>
+										<th>Special Security:</th>
+										<th>Access for Third Parties:></th>
+									</tr>	
+									<tr>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>	
+									<tr>
+										<th>Training Needs:<input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+
+									</tr>
+								</table>
 							</div>
 							
 							<h3 class="box-title">Inviromental factors calculator</h3>
 							<div class="row">
-								<!-- Familiar with Development Process -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Familiar Development Process</label> <input
-											type="text" class="form-control" id="exampleInputEmail1"
-											placeholder="Familiar with Development Process">
-									</div>
-								</div>
-								<!-- Application Experience -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Application Experience</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Application Experience">
-									</div>
-								</div>
-								<!-- Object-Oriented Experience -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Object-Oriented Experience</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Object-Oriented Experience">
-									</div>
-								</div>
-								<!-- Lead Analyst Capability -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Lead Analyst Capability</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Lead Analyst Capability">
-									</div>
-								</div>
-								<!-- Motivation -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Motivation</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Motivation">
-									</div>
-								</div>
-								<!-- Stable Requirements -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Stable Requirements</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Stable Requirements">
-									</div>
-								</div>
-								<!-- Part-time Staff -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Part-time Staff</label> <input type="text"
-											class="form-control" id="exampleInputEmail1"
-											placeholder="Part-time Staff">
-									</div>
-								</div>
-								<!-- Difficult Programming Language -->
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Difficult Programming Language</label> <input
-											type="text" class="form-control" id="exampleInputEmail1"
-											placeholder="Difficult Programming Language">
-									</div>
-								</div>
+								<table class="table">
+									<tr class="info">
+										<th>Familiar Development Process:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Application Experience:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Object-Oriented Experience:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Lead Analyst Capability:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Motivation:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Stable Requirements:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Part-time Staff:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Difficult Programming Language:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+								</table>
+
 							<!-- Payment -->
 							<h3 class="box-title">Payment</h3>
 							<div class="row">
@@ -430,212 +367,114 @@
                                         </div>
 
 							<!-- User Input -->
-							<h3 class="box-title">User Input</h3>
+							<h4 class="box-title">User Input</h4>
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 							<!-- User out put -->
-							<h3 class="box-title">User Output</h3>
+							<h4 class="box-title">User Output</h4>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 							<!-- User Inquiries -->
-							<h3 class="box-title">User Inquiries</h3>
+							<h4 class="box-title">User Inquiries</h4>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 								<!-- Internal logical file -->
-							<h3 class="box-title">Internal Logical File</h3>
+							<h4 class="box-title">Internal Logical File</h4>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 								<!-- External Interface File -->
-							<h3 class="box-title">External Interface File</h3>
+							<h4 class="box-title">External Interface File</h4>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Simple:</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Average</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Complex</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>								
+								<table class="table">
+									<tr class="info">
+										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>			
+								</table>
 							</div>
 								<!-- Relative Complexity Adjustment Factor -->
 							<h3 class="box-title">Relative Complexity Adjustment Factor</h3>
 
 							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Requirement for reliable backup and recovery</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Requirement for data communication</label> <input type="text" class="form-control"
-											placeholder="7">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of distributed processing</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Performance requirements</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Expected operational environment </label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of online data entries</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of multi-screen or multi-operation online data input</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of online updating of master files</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of complex inputs, outputs, online queries and files</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of complex data processing</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent that currently developed code can be designed for reuse</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of conversion and installation included in the design</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of multiple installations in an organizationand variety of 
-										customer organizations</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Extent of change and focus on ease of use</label> <input type="text" class="form-control"
-											placeholder="6">
-									</div>
-								</div>								
+							
+								<table class="table">
+									<tr class="info">
+										<th>Requirement for reliable backup and recovery:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Requirement for data communication:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Extent of distributed processing:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Performance requirements:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Expected operational environment:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Extent of online data entries:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Extent of multi-screen or multi-operation online data input:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Extent of online updating of master files:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Extent of complex inputs, outputs, online queries and files:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Extent of complex data processing:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Extent that currently developed code can be designed for reuse:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Extent of conversion and installation included in the design:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+									<tr class="info">
+										<th>Extent of multiple installations in an organizationand variety of 
+										customer organizations:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th>Extent of change and focus on ease of use:</th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+									</tr>
+								</table>
 							</div>
 							<!-- Payment -->
 							<h3 class="box-title">Payment</h3>
