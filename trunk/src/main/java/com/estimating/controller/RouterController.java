@@ -27,7 +27,7 @@ import com.estimating.service.IRouterService;
 import com.estimating.service.IUserService;
 
 @Controller
-@SessionAttributes({ "user", "roleuser" })
+@SessionAttributes({ "user", "roleuser", "userFullname" })
 public class RouterController {
 
 	@Autowired
@@ -168,11 +168,13 @@ public class RouterController {
 
 		// Set sessopm user
 		model.addAttribute("user", username);
+
 		// Get role - add session rolesuser
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 
 		// Redirect
 		User usr = userService.getUserByUsername(username);
+		model.addAttribute("userFullname", usr.getHoTen());
 		if (authorities.toString().contains("ROLE_ADMIN")) {
 			// Set sessopm roleuser
 			model.addAttribute("roleuser", "admin");
@@ -201,6 +203,5 @@ public class RouterController {
 		}
 		return lstPrjBean;
 	}
-	
-	
+
 }

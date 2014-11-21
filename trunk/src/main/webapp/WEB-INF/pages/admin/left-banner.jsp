@@ -8,14 +8,14 @@
                             <img src="resources/img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, ${ user }</p>
+                            <p>Hello, ${ userFullname }</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="home.html">
+                            <a href="MyAccount.html">
                                 <i class="fa fa-home"></i> <span>Home</span>
                             </a>
                         </li>
@@ -26,7 +26,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="MyAccount.html"><i class="fa fa-angle-double-right"></i>My Account</a></li>
+                            	<li><a href="MyAccount.html"><i class="fa fa-angle-double-right"></i>My account</a></li>
                                 <li><a href="AdminList.html"><i class="fa fa-angle-double-right"></i>Admins</a></li>
                                 <li><a href="MemberList.html"><i class="fa fa-angle-double-right"></i>Members</a></li>
                             </ul>
@@ -39,8 +39,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="UserReport.html"><i class="fa fa-angle-double-right"></i>User</a></li>
-                                <li><a href="ProjectReport.html"><i class="fa fa-angle-double-right"></i>Project</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>User</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>Project</a></li>
                             </ul>
                         </li>
                     </ul>

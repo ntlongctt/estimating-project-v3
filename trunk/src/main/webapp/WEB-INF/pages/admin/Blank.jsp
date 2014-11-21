@@ -9,32 +9,21 @@
 <meta name="viewport" content="width=device-width" />
 <title>Estimating software</title>
 
+
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css" />
 <link href="resources/css/ionicons.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="resources/css/AdminLTE.css" rel="stylesheet"
+<link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+<link href="resources/css/ionicons.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="resources/font-awesome-4.1.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link href="resources/wizard/css/gsdk-base.css" rel="stylesheet"
-	type="text/css">
+<!-- Theme style -->
 
-<link rel="stylesheet" href="resources/css/normalize.css">
-<link rel="stylesheet" href="resources/css/main.css">
-<link rel="stylesheet" href="resources/css/jquery.steps.css">
-<script src="resources/js/modernizr-2.6.2.min.js"></script>
-<script src="resources/js/jquery-1.9.1.min.js"></script>
-<script src="resources/js/jquery.cookie-1.3.1.js"></script>
-<script src="resources/js/jquery.steps.js"></script>
-
-<script	src="resources/js/jquery.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
-<script src="resources/wizard/js/wizard.js"></script>
-<script src="resources/js/plugins/metisMenu/metisMenu.min.js"></script>
-<script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
 
 
 
@@ -52,9 +41,6 @@
 
 			<!-- Main content -->
 			<section class="content">
-<h1>DAY LA TRANG ADMIN</h1>
-			<img src="resources/img/fp-imp/EI-example.jpg" class="img-responsive" alt="Responsive image">
-
 			</section>
 			<!-- /.content -->
 		</aside>
