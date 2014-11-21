@@ -44,7 +44,7 @@
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
 	<jsp:include page="head-banner.jsp" />
-	<div class="wrapper row-offcanvas row-offcanvas-left">
+	
 		<jsp:include page="left-banner.jsp" />
 	<aside class="right-side">
                 <!-- Content Header (Page header) -->
@@ -64,11 +64,8 @@
                     <div class="row">
                         <!-- left column -->
                         <div class="col-md-6">
-                            <!-- general form elements -->
-                            <div class="box box-primary">
-                                <div class="box-header">
-                                    <h3 class="box-title">Use case point info.</h3>
-                                </div><!-- /.box-header -->
+                        	 <div class="box box-primary">
+                                
                                 <!-- form start -->
                                 <form role="form">
                                     <div class="box-body">
@@ -83,6 +80,20 @@
                                                 <option>Project 5</option>
                                             </select>
                                         </div>
+                                        
+                                    </div><!-- /.box-body -->
+                                </form>
+                            </div><!-- /.box -->
+                        	
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Use case point info.</h3>
+                                </div><!-- /.box-header -->
+                                <!-- form start -->
+                                <form role="form">
+                                    <div class="box-body">
+                                        
                                         <!-- select version-->
                                         <div class="form-group">
                                         	<label>Select version of project</label>
@@ -346,24 +357,24 @@
                         </div><!--/.col (left) -->
                         <!-- right column -->
                         <div class="col-md-6">
+                        	<!-- general form elements disabled -->
+                            <div class="box box-warning">                             
+                                <div class="box-body">
+                                    <form role="form">                       
+                                        <!-- select version-->
+                                        <div class="form-group">
+                                            <p>NOTE : If your project was changed some value, you can change value in the text box and click Update version to complete. If you have another project have similar value with old project, you can change value, then click create new version! </p>
+                                        </div>
+                                    </form>
+                                </div><!-- /.box-body -->                               
+                            </div><!-- /.box -->
                             <!-- general form elements disabled -->
                             <div class="box box-warning">
                                 <div class="box-header">
                                     <h3 class="box-title">Function point info.</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
-                                    <form role="form">
-                                    	<!-- select Project-->
-                                        <div class="form-group">
-                                        	<label>Select your project</label>
-                                            <select class="form-control">
-                                                <option>Project 1</option>
-                                                <option>Project 2</option>
-                                                <option>Project 3</option>
-                                                <option>Project 4</option>
-                                                <option>Project 5</option>
-                                            </select>
-                                        </div>
+                                    <form role="form">                       
                                         <!-- select version-->
                                         <div class="form-group">
                                         	<label>Select version of project</label>
@@ -378,20 +389,20 @@
                                     </form>
                                 </div><!-- /.box-body -->                               
                             </div><!-- /.box -->
-                                                                <!-- Funtion point detail -->
+                            <!-- Funtion point detail -->
                             <div class="box box-info">
                                 <div class="box-body">
                                     
-				<div class="panel box ">
-					<div class="box-header">
-						<h4 class="box-title">
-							<a id="fp-detail" data-toggle="collapse" data-parent="#accordion"	href="#collapseOne" class="collapsed text-light-blue">Function Point Detail</a>
-						</h4>
-					</div>
+								<div class="panel box ">
+								<div class="box-header">
+									<h4 class="box-title">
+										<a id="fp-detail" data-toggle="collapse" data-parent="#accordion"	href="#collapseOne" class="collapsed text-light-blue">Function Point Detail</a>
+									</h4>
+								</div>
 					
-					<div id="collapseOne" class="panel-collapse collapse"
-						style="height: 0px;">
-						<div class="box-body">
+								<div id="collapseOne" class="panel-collapse collapse"
+								style="height: 0px;">
+								<div class="box-body">
 
 							<!-- User Input -->
 							<h3 class="box-title">User Input</h3>
