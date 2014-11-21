@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <header class="header">
             <a href="home.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
@@ -236,7 +237,7 @@
                                         <a href="/estimating/selectedUser.html?username=${ user }" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<c:url value="j_spring_security_logout" />" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
