@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.estimating.service.IProjectService;
 import com.estimating.service.IUserService;
 
 @Controller
@@ -19,6 +20,9 @@ public class AdminAccountController {
 	@Autowired
 	IUserService userService;
 
+	@Autowired
+	IProjectService projectService;
+
 	private static final Logger logger = Logger
 			.getLogger(AdminAccountController.class);
 
@@ -27,6 +31,8 @@ public class AdminAccountController {
 			@ModelAttribute("user") String username) {
 		model.addAttribute("selectedUser",
 				userService.getUserByUsername(username));
+		model.addAttribute("selectedUserProjects",
+				projectService.getListProjectByUserName(username));
 		return "admin/SelectedUser";
 	}
 
@@ -48,6 +54,8 @@ public class AdminAccountController {
 	public String getSelectedUser(Model model, @RequestParam String username) {
 		model.addAttribute("selectedUser",
 				userService.getUserByUsername(username));
+		model.addAttribute("selectedUserProjects",
+				projectService.getListProjectByUserName(username));
 		return "admin/SelectedUser";
 	}
 

@@ -81,7 +81,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="item" items="${selectedUser.projects}">
+								<c:forEach var="item" items="${selectedUserProjects}">
 									<tr>
 										<td><a
 											href="/estimating/selectedProject.html?projectId=${ item.maProject}">${ item.tenProject}</a></td>

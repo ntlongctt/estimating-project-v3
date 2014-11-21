@@ -20,6 +20,7 @@ public class ProjectDaoImpl implements IProjectDao {
 	@PersistenceContext
 	private EntityManager em;
 	private static final Logger logger = Logger.getLogger(ProjectDaoImpl.class);
+
 	/**
 	 * @author Long Nguyen
 	 * @return list project
@@ -31,6 +32,7 @@ public class ProjectDaoImpl implements IProjectDao {
 		return query.getResultList();
 	}
 
+	@Override
 	@Transactional
 	public boolean addProject(Project project) {
 		boolean check = false;
@@ -45,11 +47,12 @@ public class ProjectDaoImpl implements IProjectDao {
 
 	@Override
 	public List<ProjectType> getListProjectType() {
-		TypedQuery<ProjectType> query = em.createQuery("Select p From ProjectType p",
-				ProjectType.class);
+		TypedQuery<ProjectType> query = em.createQuery(
+				"Select p From ProjectType p", ProjectType.class);
 		return query.getResultList();
 	}
 
+	@Override
 	@Transactional
 	public ProjectType findProjectById(int id) {
 		return em.find(ProjectType.class, id);
@@ -57,8 +60,9 @@ public class ProjectDaoImpl implements IProjectDao {
 
 	@Override
 	public List<Project> getListProjectFPEstiamted() {
-		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.FP_Estiamted=0",
-				Project.class);
+		TypedQuery<Project> query = em
+				.createQuery("Select p From Project p Where p.FP_Estiamted=0",
+						Project.class);
 		return query.getResultList();
 	}
 
@@ -66,11 +70,12 @@ public class ProjectDaoImpl implements IProjectDao {
 	public boolean checkExistFpEstimating(int projectID) {
 		Project project = em.find(Project.class, projectID);
 		logger.info("FP_Estiamted: " + project.getFP_Estiamted());
-		if(project.getFP_Estiamted() == 0)
+		if (project.getFP_Estiamted() == 0)
 			return true;
 		return false;
 	}
 
+	@Override
 	@Transactional
 	public boolean updateExistFpEstimating(int projectID) {
 		boolean check = false;
@@ -78,9 +83,19 @@ public class ProjectDaoImpl implements IProjectDao {
 			Project project = em.find(Project.class, projectID);
 			project.setFP_Estiamted(Byte.valueOf("1"));
 			check = true;
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			check = false;
 		}
 		return check;
 	}
+
+	@Override
+	public List<Project> getListProjectByUserName(String username) {
+		TypedQuery<Project> query = em.createQuery(
+				"Select p From Project p where p.user.tenUser = :username",
+				Project.class);
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
+
 }
