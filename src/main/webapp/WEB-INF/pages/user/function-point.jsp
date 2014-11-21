@@ -444,9 +444,15 @@
 										<button class="btn btn-primary btn-flat" style="width: 92px" id="preview" onclick="previewFpPoint();">Preview</button>
 										<button class="btn btn-success btn-flat" style="width: 92px" id="save" onclick="saveFpPoint();">Save</button>
 										</div>
+										
 									</div>
-                            <!-- Success box -->
-                            
+                            <!-- Success box -->                            	
+                            		<div class="callout callout-info col-md-4">
+
+											<label><a href="ucp-step-decription.html#easy" target="_blank">Wage per hour</a></label> 
+												<input type="text" class="form-control" id="wage" name="wageph"
+										placeholder="Less than 4 transactions..." > 									
+										</div>
                             		<div class="callout callout-info col-md-4">
                                         <h4>Total</h4>
                                         <h3 class="info-text" id="totalfp"></h3>
