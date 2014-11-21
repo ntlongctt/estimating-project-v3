@@ -61,55 +61,55 @@
 
                 <!-- Main content -->
                 <section class="content">
+                	
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Project list</h3>                                    
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Project's name</th>
+                                                <th>Project's type</th>
+                                                <th>Description(s)</th>              
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Project 1</td>                                               
+                                                <td>Type 1</td>
+                                                <td> Description</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Project 2</td>                                               
+                                                <td>Type 2</td>
+                                                <td> Description</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Project 3</td>                                               
+                                                <td>Type 3</td>
+                                                <td> Description</td>
+                                            </tr>                                         
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Project's name</th>
+                                                <th>Project's type</th>
+                                                <th>Description</th>                                                
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div>
+                    </div>
                     <div class="row">
                         <!-- left column -->
                         <div class="col-md-6">
-                        	 <div class="box box-primary">
-                                
-                                <!-- form start -->
-                                <form role="form">
-                                    <div class="box-body">
-                                        <div class="form-group">
-                                        	<!-- select -->  
-                                        	<label>Select project</label>                                    
-                                            <select class="form-control">
-                                                <option>Project 1</option>
-                                                <option>Project 2</option>
-                                                <option>Project 3</option>
-                                                <option>Project 4</option>
-                                                <option>Project 5</option>
-                                            </select>
-                                        </div>
-                                        
-                                    </div><!-- /.box-body -->
-                                </form>
-                            </div><!-- /.box -->
-                        	
-                            <!-- general form elements -->
-                            <div class="box box-primary">
-                                <div class="box-header">
-                                    <h3 class="box-title">Use case point info.</h3>
-                                </div><!-- /.box-header -->
-                                <!-- form start -->
-                                <form role="form">
-                                    <div class="box-body">
-                                        
-                                        <!-- select version-->
-                                        <div class="form-group">
-                                        	<label>Select version of project</label>
-                                            <select class="form-control">
-                                                <option>Version 1</option>
-                                                <option>Version 2</option>
-                                                <option>Version 3</option>
-                                                <option>Version 4</option>
-                                                <option>Version 5</option>
-                                            </select>
-                                        </div>
-                                    </div><!-- /.box-body -->
-                                </form>
-                            </div><!-- /.box -->
-
-
+                        	                      	                           
                             <!-- Use case point detail -->
                             <div class="box box-info">
                                 <div class="box-body">
@@ -124,6 +124,17 @@
 					<div id="collapseOne1" class="panel-collapse collapse"
 						style="height: 0px;">
 						<div class="box-body">
+							<!-- select version-->
+                                        <div class="form-group">
+                                        	<label>Select version of project</label>
+                                            <select class="form-control">
+                                                <option>Version 1</option>
+                                                <option>Version 2</option>
+                                                <option>Version 3</option>
+                                                <option>Version 4</option>
+                                                <option>Version 5</option>
+                                            </select>
+                                        </div>
 
 							<!-- Use Case Point Weight -->
 							<h3 class="box-title">Use Case Point Weight</h3>
@@ -356,39 +367,7 @@
 
                         </div><!--/.col (left) -->
                         <!-- right column -->
-                        <div class="col-md-6">
-                        	<!-- general form elements disabled -->
-                            <div class="box box-warning">                             
-                                <div class="box-body">
-                                    <form role="form">                       
-                                        <!-- select version-->
-                                        <div class="form-group">
-                                            <p>NOTE : If your project was changed some value, you can change value in the text box and click Update version to complete. If you have another project have similar value with old project, you can change value, then click create new version! </p>
-                                        </div>
-                                    </form>
-                                </div><!-- /.box-body -->                               
-                            </div><!-- /.box -->
-                            <!-- general form elements disabled -->
-                            <div class="box box-warning">
-                                <div class="box-header">
-                                    <h3 class="box-title">Function point info.</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <form role="form">                       
-                                        <!-- select version-->
-                                        <div class="form-group">
-                                        	<label>Select version of project</label>
-                                            <select class="form-control">
-                                                <option>Version 1</option>
-                                                <option>Version 2</option>
-                                                <option>Version 3</option>
-                                                <option>Version 4</option>
-                                                <option>Version 5</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div><!-- /.box-body -->                               
-                            </div><!-- /.box -->
+                        <div class="col-md-6">                       	                          
                             <!-- Funtion point detail -->
                             <div class="box box-info">
                                 <div class="box-body">
@@ -403,6 +382,17 @@
 								<div id="collapseOne" class="panel-collapse collapse"
 								style="height: 0px;">
 								<div class="box-body">
+								<!-- select version-->
+                                        <div class="form-group">
+                                        	<label>Select version of project</label>
+                                            <select class="form-control">
+                                                <option>Version 1</option>
+                                                <option>Version 2</option>
+                                                <option>Version 3</option>
+                                                <option>Version 4</option>
+                                                <option>Version 5</option>
+                                            </select>
+                                        </div>
 
 							<!-- User Input -->
 							<h3 class="box-title">User Input</h3>
