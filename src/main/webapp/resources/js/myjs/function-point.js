@@ -8,6 +8,7 @@ var uqSimple, uqAverage, uqComplex;
 var ilfSimple, ilfAverage, ilfComplex;
 var eifSimple, eifComplex, uiComplex;
 var rf1, rf2, rf3, rf4, rf5, rf6, rf7, rf8, rf9, rf10, rf11, rf12, rf13, rf4;
+var hour;
 var json;
 var projectID;
 
@@ -56,7 +57,9 @@ var projectID;
 		
 		projectID= $("#selectProject option:selected").val();
 		
-		json ={"uiSimple":uiSimple,"uiAverage":uiAverage,"uiComplex":uiComplex, "uoSimple":uoSimple,"uoAverage":uoAverage,"uoComplex":uoComplex, "uqSimple":uqSimple,"uqAverage":uqAverage,"uqComplex":uqComplex, "ilfSimple":ilfSimple,"ilfAverage":ilfAverage,"ilfComplex":ilfComplex, "eifSimple":eifSimple,"eifAverage":eifAverage,"eifComplex":eifComplex, "rf1":rf1,"rf2":rf2,"rf3":rf3,"rf4":rf4,"rf5":rf5,"rf6":rf6,"rf7":rf7, "rf8":rf8,"rf9":rf9,"rf10":rf10,"rf11":rf11,"rf12":rf12,"rf13":rf13,"rf14":rf14,"projectID":projectID};
+		hour= $('#wage').val();
+		
+		json ={"uiSimple":uiSimple,"uiAverage":uiAverage,"uiComplex":uiComplex, "uoSimple":uoSimple,"uoAverage":uoAverage,"uoComplex":uoComplex, "uqSimple":uqSimple,"uqAverage":uqAverage,"uqComplex":uqComplex, "ilfSimple":ilfSimple,"ilfAverage":ilfAverage,"ilfComplex":ilfComplex, "eifSimple":eifSimple,"eifAverage":eifAverage,"eifComplex":eifComplex, "rf1":rf1,"rf2":rf2,"rf3":rf3,"rf4":rf4,"rf5":rf5,"rf6":rf6,"rf7":rf7, "rf8":rf8,"rf9":rf9,"rf10":rf10,"rf11":rf11,"rf12":rf12,"rf13":rf13,"rf14":rf14,"projectID":projectID, "hour":hour};
   }
   
   

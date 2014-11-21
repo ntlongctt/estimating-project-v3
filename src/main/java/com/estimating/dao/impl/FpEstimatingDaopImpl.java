@@ -1,10 +1,11 @@
 package com.estimating.dao.impl;
-
+						
 import java.util.Date;
 import java.util.HashMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -26,20 +27,21 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	 * Add new function point when create new project
 	 */
 	@Transactional
-	public boolean addFuntionPoint(String projectID) {
+	public boolean addFuntionPoint(FuntionPointBean fpBean) {
 		boolean result = true;
 		try {
 			FpEstimating fp = new FpEstimating();
-			Project project = em.find(Project.class, projectID);
+			HashMap<String, String> maps = fpPointUtils.mapValueFunctionPoint(fpBean);
+			Project project = em.find(Project.class, fpBean.getProjectID());
 			fp.setProject(project);
 			fp.setNgay(new Date());
-			fp.setVersion(0);
-			fp.setUser_Input(";;;");
-			fp.setUser_Output(";;;");
-			fp.setUser_Online_Query(";;;");
-			fp.setLogical_File(";;;");
-			fp.setRelative_Factor(";;;");
-			fp.setExternal_Interface(";;;");
+			fp.setVersion(1);
+			fp.setUser_Input(maps.get(Constants.FUNCTION_POINT_USER_INPUT));
+			fp.setUser_Output(maps.get(Constants.FUNCTION_POINT_USER_OUTPUT));
+			fp.setUser_Online_Query(maps.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
+			fp.setLogical_File(maps.get(Constants.FUNCTION_POINT_LOGICAL_FILE));
+			fp.setRelative_Factor(maps.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
+			fp.setExternal_Interface(maps.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
 			em.persist(fp);
 		}
 		catch(Exception ex) {
@@ -52,11 +54,15 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	 * Update function point
 	 */
 	@Transactional
-	public boolean updateFuntionPoint(FuntionPointBean fpBean, String fpID) {
+	public boolean updateFuntionPoint(FuntionPointBean fpBean) {
 		boolean result = false;
 		try {
+			String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject AND p.version = 1";
+		    TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
+		    query.setParameter("maProject", fpBean.getProjectID());
+		    FpEstimating fp = query.getSingleResult();
 			HashMap<String, String> maps = fpPointUtils.mapValueFunctionPoint(fpBean);
-			FpEstimating fp = em.find(FpEstimating.class, fpID);
+			fp.setNgay(new Date());
 			fp.setUser_Input(maps.get(Constants.FUNCTION_POINT_USER_INPUT));
 			fp.setUser_Output(maps.get(Constants.FUNCTION_POINT_USER_OUTPUT));
 			fp.setUser_Online_Query(maps.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));

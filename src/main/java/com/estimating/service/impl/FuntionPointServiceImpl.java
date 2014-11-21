@@ -21,12 +21,17 @@ public class FuntionPointServiceImpl implements IFuntionpointService {
 	}
 
 	@Override
-	public boolean addFuntionPoint(String projectID) {
-		return fpDao.addFuntionPoint(projectID);
+	public boolean addFuntionPoint(FuntionPointBean fpBean) {
+		return fpDao.addFuntionPoint(fpBean);
 	}
 
 	@Override
-	public boolean updateFuntionPoint(FuntionPointBean fpBean, String fpID) {
-		return fpDao.updateFuntionPoint(fpBean, fpID);
+	public boolean updateFuntionPoint(FuntionPointBean fpBean) {
+		return fpDao.updateFuntionPoint(fpBean);
+	}
+
+	@Override
+	public double calCostFp(FuntionPointBean fpBean) {
+		return fpPointUtils.calculateCostFp(fpBean);
 	}
 }

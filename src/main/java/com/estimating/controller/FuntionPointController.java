@@ -26,8 +26,9 @@ public class FuntionPointController {
 	@Autowired
 	IFuntionpointService fpService;
 
-	private static final Logger logger = Logger.getLogger(FuntionPointController.class);
-	
+	private static final Logger logger = Logger
+			.getLogger(FuntionPointController.class);
+
 	@RequestMapping(value = "/functionpoint", method = RequestMethod.GET)
 	public String goFuntionPoint(Model model) {
 
@@ -49,26 +50,37 @@ public class FuntionPointController {
 			@RequestBody FuntionPointBean fpPointBean, Model model) {
 		logger.info("previewFuntionPoint is called");
 		fpPointBean.setTotalFP(fpService.calFuntionPoint(fpPointBean));
-		fpPointBean.setCost(1000000);
+		fpPointBean.setCost(fpService.calCostFp(fpPointBean));
 		return fpPointBean;
 	}
-	
+
 	@RequestMapping(value = "/save-functionpoint", method = RequestMethod.POST)
 	@ResponseBody
 	public FuntionPointBean saveFuntionPoint(
 			@RequestBody FuntionPointBean fpPointBean, Model model) {
 		logger.info("saveFuntionPoint is called");
-		if(!projectService.checkExistFpEstimating(fpPointBean.getProjectID())) {
+		if (!projectService.checkExistFpEstimating(fpPointBean.getProjectID())) {
 			// Update fp
+			logger.info("Project ID: " + fpPointBean.getProjectID());
 			logger.info("Update FP!");
+			fpPointBean.setVersion(0);
+			fpService.updateFuntionPoint(fpPointBean);
 		} else {
-			// Add fp  + Update FP_Estiamted in project
+			// Add fp + Update FP_Estiamted in project
 			logger.info("Add FP!");
+			/*if (!projectService.updateExistFpEstimating(fpPointBean
+					.getProjectID())
+					|| fpService.addFuntionPoint(fpPointBean.getProjectID())) {
+				model.addAttribute("errorSave", "Save fail!");
+				logger.info("");
+			}*/
+			projectService.updateExistFpEstimating(fpPointBean.getProjectID());
+			fpService.addFuntionPoint(fpPointBean);
 		}
-		
+
 		fpPointBean.setTotalFP(fpService.calFuntionPoint(fpPointBean));
-		fpPointBean.setCost(1000000);
-		
+		fpPointBean.setCost(fpService.calCostFp(fpPointBean));
+
 		return fpPointBean;
 	}
 }

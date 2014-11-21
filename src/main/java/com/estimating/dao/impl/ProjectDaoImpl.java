@@ -65,10 +65,22 @@ public class ProjectDaoImpl implements IProjectDao {
 	@Override
 	public boolean checkExistFpEstimating(int projectID) {
 		Project project = em.find(Project.class, projectID);
-		logger.info(projectID);
-		if(Boolean.parseBoolean(String.valueOf(project.getFP_Estiamted())))
+		logger.info("FP_Estiamted: " + project.getFP_Estiamted());
+		if(project.getFP_Estiamted() == 0)
 			return true;
 		return false;
 	}
 
+	@Transactional
+	public boolean updateExistFpEstimating(int projectID) {
+		boolean check = false;
+		try {
+			Project project = em.find(Project.class, projectID);
+			project.setFP_Estiamted(Byte.valueOf("1"));
+			check = true;
+		} catch(Exception ex) {
+			check = false;
+		}
+		return check;
+	}
 }

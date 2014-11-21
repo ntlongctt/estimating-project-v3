@@ -46,6 +46,10 @@ public class ProjectServiceImpl implements IProjectService {
 	public boolean checkExistFpEstimating(int projectID) {
 		return projectDao.checkExistFpEstimating(projectID);
 	}
-	
+
+	@Override
+	public boolean updateExistFpEstimating(int projectID) {
+		return projectDao.updateExistFpEstimating(projectID);
+	}
 	
 }

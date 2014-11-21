@@ -2,10 +2,14 @@ package com.estimating.utils;
 
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
+
 import com.estimating.beans.FuntionPointBean;
 
 public class FuntionPointUtils {
 
+	private static final Logger logger = Logger.getLogger(FuntionPointUtils.class);
+	
 	public static double calculateUIP(double uiSimple, double uiAverage,
 			double uiComplex) {
 		return uiSimple * Constants.USER_INPUTS_SIMPLE + uiAverage
@@ -121,6 +125,7 @@ public class FuntionPointUtils {
 				+ String.valueOf(fpBean.getrF12()) + ";"
 				+ String.valueOf(fpBean.getrF13()) + ";"
 				+ String.valueOf(fpBean.getrF14());
+		logger.info("strRACF: " + strRACF);
 		maps.put(Constants.FUNCTION_POINT_USER_INPUT, strUIPoint);
 		maps.put(Constants.FUNCTION_POINT_USER_OUTPUT, strUOPoint);
 		maps.put(Constants.FUNCTION_POINT_USER_ONLINE_QUERY, strUQPoint);
@@ -128,5 +133,11 @@ public class FuntionPointUtils {
 		maps.put(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE, strEIFPoint);
 		maps.put(Constants.FUNCTION_POINT_RELATIVE_FACTOR, strRACF);
 		return maps;
+	}
+	
+	public double calculateCostFp(FuntionPointBean fpBean) {
+		FuntionPointUtils fpUtils = new FuntionPointUtils();
+		fpBean.setTotalFP(fpUtils.calTotalFP(fpBean));
+		return fpBean.getTotalFP()*20*fpBean.getHour();
 	}
 }
