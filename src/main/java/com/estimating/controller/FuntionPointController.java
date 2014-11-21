@@ -26,10 +26,8 @@ public class FuntionPointController {
 	@Autowired
 	IFuntionpointService fpService;
 
-
-	private static final Logger logger = Logger
-			.getLogger(FuntionPointController.class);
-
+	private static final Logger logger = Logger.getLogger(FuntionPointController.class);
+	
 	@RequestMapping(value = "/functionpoint", method = RequestMethod.GET)
 	public String goFuntionPoint(Model model) {
 
@@ -47,10 +45,30 @@ public class FuntionPointController {
 
 	@RequestMapping(value = "/calc-functionpoint", method = RequestMethod.POST)
 	@ResponseBody
-	public String previewFuntionPoint(
+	public FuntionPointBean previewFuntionPoint(
 			@RequestBody FuntionPointBean fpPointBean, Model model) {
 		logger.info("previewFuntionPoint is called");
-
-		return "user/function-point";
+		fpPointBean.setTotalFP(fpService.calFuntionPoint(fpPointBean));
+		fpPointBean.setCost(1000000);
+		return fpPointBean;
+	}
+	
+	@RequestMapping(value = "/save-functionpoint", method = RequestMethod.POST)
+	@ResponseBody
+	public FuntionPointBean saveFuntionPoint(
+			@RequestBody FuntionPointBean fpPointBean, Model model) {
+		logger.info("saveFuntionPoint is called");
+		if(!projectService.checkExistFpEstimating(fpPointBean.getProjectID())) {
+			// Update fp
+			logger.info("Update FP!");
+		} else {
+			// Add fp  + Update FP_Estiamted in project
+			logger.info("Add FP!");
+		}
+		
+		fpPointBean.setTotalFP(fpService.calFuntionPoint(fpPointBean));
+		fpPointBean.setCost(1000000);
+		
+		return fpPointBean;
 	}
 }

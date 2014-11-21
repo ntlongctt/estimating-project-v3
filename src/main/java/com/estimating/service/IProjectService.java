@@ -11,4 +11,5 @@ public interface IProjectService {
 	public List<Project> getListProjectFPEstiamted();
 	public List<ProjectType> getListProjectType();
 	public ProjectType findProjectById(int id);
+	public boolean checkExistFpEstimating(int projectID);
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
 import com.estimating.domain.User;
+import com.estimating.service.IFuntionpointService;
 import com.estimating.service.IProjectService;
 import com.estimating.service.IUserService;
 
@@ -20,9 +21,10 @@ import com.estimating.service.IUserService;
 public class ProjectController {
 	@Autowired
 	IProjectService projectService;
-	
 	@Autowired
 	IUserService userService;
+	@Autowired
+	IFuntionpointService fpService;
 	
 	private static final Logger logger = Logger.getLogger(FuntionPointController.class);
 	

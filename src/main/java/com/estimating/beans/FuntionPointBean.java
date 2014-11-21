@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * 
- * @author ChíTâm
+ * @author Chï¿½Tï¿½m
  *
  */
 
@@ -56,6 +56,26 @@ public class FuntionPointBean implements Serializable {
 	private double rf12;
 	private double rf13;
 	private double rf14;
+
+	private double cost;
+	
+	private int projectID;
+	
+	public int getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(int projectID) {
+		this.projectID = projectID;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
 
 	public double getRf1() {
 		return rf1;

@@ -1,5 +1,6 @@
 package com.estimating.dao.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.persistence.EntityManager;
@@ -20,29 +21,25 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	@PersistenceContext
 	EntityManager em;
 	FuntionPointUtils fpPointUtils = new FuntionPointUtils();
-	
-	@Override
-	public boolean addFpEstimating(FpEstimating fpEstimating) {
-		boolean check = false;
-		try {
-			em.persist(fpEstimating);
-			check = true;
-		} catch (Exception e) {
-			check = false;
-		}
-		return check;
-	}
 
 	/**
 	 * Add new function point when create new project
 	 */
 	@Transactional
-	public boolean addFuntionPoint(FuntionPointBean fpBean, String projectID) {
+	public boolean addFuntionPoint(String projectID) {
 		boolean result = true;
 		try {
-			Project project = em.find(Project.class, projectID);
 			FpEstimating fp = new FpEstimating();
+			Project project = em.find(Project.class, projectID);
 			fp.setProject(project);
+			fp.setNgay(new Date());
+			fp.setVersion(0);
+			fp.setUser_Input(";;;");
+			fp.setUser_Output(";;;");
+			fp.setUser_Online_Query(";;;");
+			fp.setLogical_File(";;;");
+			fp.setRelative_Factor(";;;");
+			fp.setExternal_Interface(";;;");
 			em.persist(fp);
 		}
 		catch(Exception ex) {
