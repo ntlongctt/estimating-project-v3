@@ -12,4 +12,5 @@ public interface IProjectDao {
 	public List<Project> getListProjectFPEstiamted();
 	public ProjectType findProjectById(int id);
 	public boolean checkExistFpEstimating(int projectID);
+	public boolean updateExistFpEstimating(int projectID);	
 }

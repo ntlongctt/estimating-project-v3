@@ -16,9 +16,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.estimating.beans.ProjectBean;
+import com.estimating.domain.Project;
 import com.estimating.domain.User;
+import com.estimating.service.IProjectService;
 import com.estimating.service.IRouterService;
 import com.estimating.service.IUserService;
 
@@ -32,26 +36,10 @@ public class RouterController {
 	@Autowired
 	IUserService userService;
 
+	@Autowired
+	IProjectService projectService;
+
 	private Logger logger = Logger.getLogger(RouterController.class);
-
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String goTest(Model model) {
-		int value = routerService.test();
-		model.addAttribute("value", value);
-		String name = "Mr Hung";
-		model.addAttribute("name", name);
-
-		List<String> listName = new ArrayList<String>();
-		listName.add("Hung");
-		listName.add("Tam");
-		listName.add("Long");
-
-		model.addAttribute("listName", listName);
-
-		return "test";
-	}
-
-	// mapping page
 
 	@RequestMapping(value = "/contact-us", method = RequestMethod.GET)
 	public String goContactUs(Model model) {
@@ -198,4 +186,22 @@ public class RouterController {
 		return url;
 	}
 
+	@RequestMapping(value = "/listprojectjson", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ProjectBean> getListProjectJson() {
+		List<ProjectBean> lstPrjBean = new ArrayList<ProjectBean>();
+		ProjectBean projectBean;
+		List<Project> lstProject = projectService.getListProject();
+		for (Project project : lstProject) {
+			projectBean = new ProjectBean();
+			projectBean.setName(project.getTenProject());
+			projectBean.setType(project.getProjectType().getTenLoaiProject());
+			projectBean.setDescription(project.getMoTa());
+			projectBean.setProjectID(project.getMaProject());
+			lstPrjBean.add(projectBean);
+		}
+		return lstPrjBean;
+	}
+	
+	
 }
