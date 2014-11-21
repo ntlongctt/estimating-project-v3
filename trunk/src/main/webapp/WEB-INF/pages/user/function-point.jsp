@@ -13,17 +13,9 @@
 <link href="resources/css/font-awesome.min.css" rel="stylesheet"	type="text/css" />
 <link href="resources/css/ionicons.min.css" rel="stylesheet"	type="text/css" />
 <link href="resources/css/AdminLTE.css" rel="stylesheet"	type="text/css" />
-
-<!-- radio check -->
-<!-- iCheck for checkboxes and radio inputs -->
-<link href="resources/css/iCheck/_all.css" rel="stylesheet"	type="text/css" />
-
-<!-- end radio check -->
 <link href="resources/font-awesome-4.1.0/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
-<link href="resources/wizard/css/gsdk-base.css" rel="stylesheet"	type="text/css">
 
 <script	src="resources/js/jquery-2.0.2.min.js"></script>
-<script	src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 <script src="resources/wizard/js/wizard.js"></script>
@@ -31,8 +23,8 @@
 
 <link href="resources/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
-
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
+
 
 </head>
 <body class="skin-blue">
@@ -78,7 +70,7 @@
 								<h2 class="StepTitle">Step 1 Content</h2>
 								<div class="col-6" style="margin: 50px 0 0 0">
 									<label>Select current project</label> 
-									<select class="form-control" name = "selectProject"style="width: 800px">
+									<select class="form-control" name = "selectProject" style="width: 800px" id="selectProject">
 										<c:forEach var="project" items="${listProject }">
 											<option value="${ project.maProject}">${ project.tenProject}</option>
 										</c:forEach>
@@ -445,30 +437,25 @@
 							</div>
 
 							<!-- RESULT -->
-							<div id="step-4" style="height: 450px;width: 100%">
+							<div id="step-4" style="height: 200px;width: 100%">
 								<h3 class="info-text">Function point with your infomation</h3>
 								<div class="row" style="margin-top: 5px; margin-bottom: 10px">
 									<div class="col-sm-5 col-sm-offset-1">
 										<button class="btn btn-primary btn-flat" style="width: 92px" id="preview" onclick="previewFpPoint();">Preview</button>
-										<button class="btn btn-success btn-flat" style="width: 92px" id="save">Save</button>
+										<button class="btn btn-success btn-flat" style="width: 92px" id="save" onclick="saveFpPoint();">Save</button>
 										</div>
 									</div>
-
-								<div class="small-box bg-green" >
-									<div class="inner">
-										<h3>135,18</h3>
-										<p>Function Point</p>
-									</div>
-									 <div class="col-sm-5 col-sm-offset-1"></div>
-								</div>
-								
-								<div class="small-box bg-yellow">
-	                                <div class="inner">
-	                                    <h3>4,563,500 VND</h3>
-	                                    <p>Cost of your project with function point</p>
-	                                </div>
-	                                <div class="col-sm-5 col-sm-offset-1"></div>
-								</div>
+                            <!-- Success box -->
+                            
+                            		<div class="callout callout-info col-md-4">
+                                        <h4>Total</h4>
+                                        <h3 class="info-text" id="totalfp"></h3>
+                                    </div>
+                                    <div class="callout callout-warning col-md-4">
+                                        <h4>Cost of your project with function point</h4>
+                                        <h3 class="info-text" id="costfp"></h3>
+                                    </div>
+                       	 
 						</div>
 						</div>
 					<div class="clear"></div>
