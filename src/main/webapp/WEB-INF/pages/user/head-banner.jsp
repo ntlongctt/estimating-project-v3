@@ -214,7 +214,7 @@
                                     <img src="resources/img/avatar3.png" class="img-circle" alt="User Image" />
                                    
                                     <p>
-                                        ThanhLong - Web Developer
+                                        ${userFullname }
                                         <small>Member since Nov. 2014</small>
                                     </p>
                                 </li>

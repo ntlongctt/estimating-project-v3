@@ -30,8 +30,8 @@ public class ProjectServiceImpl implements IProjectService {
 	IUseCasePointDao ucDao;*/
 
 	@Override
-	public List<Project> getListProject() {
-		return projectDao.getListProject();
+	public List<Project> getListProject(String username) {
+		return projectDao.getListProject(username);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements IProjectService {
 	}
 
 	@Override
-	public ProjectType findProjectById(int id) {
+	public Project findProjectById(int id) {
 		return projectDao.findProjectById(id);
 	}
 
@@ -158,6 +158,11 @@ public class ProjectServiceImpl implements IProjectService {
 	@Override
 	public List<Project> getListProjectFPEstiamted(String username) {
 		return projectDao.getListProjectFPEstiamted(username);
+	}
+
+	@Override
+	public ProjectType findProjectTypeById(int typeID) {
+		return projectDao.findProjectTypeById(typeID);
 	}
 
 }

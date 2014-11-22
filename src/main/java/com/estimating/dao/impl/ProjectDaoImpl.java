@@ -26,9 +26,10 @@ public class ProjectDaoImpl implements IProjectDao {
 	 * @return list project
 	 */
 	@Override
-	public List<Project> getListProject() {
-		TypedQuery<Project> query = em.createQuery("Select p From Project p",
+	public List<Project> getListProject(String username) {
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.tenUser = :username",
 				Project.class);
+		query.setParameter("username", username);
 		return query.getResultList();
 	}
 
@@ -54,8 +55,8 @@ public class ProjectDaoImpl implements IProjectDao {
 
 	@Override
 	@Transactional
-	public ProjectType findProjectById(int id) {
-		return em.find(ProjectType.class, id);
+	public Project findProjectById(int id) {
+		return em.find(Project.class, id);
 	}
 
 	@Override
@@ -125,6 +126,11 @@ public class ProjectDaoImpl implements IProjectDao {
 				Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();
+	}
+
+	@Override
+	public ProjectType findProjectTypeById(int typeID) {
+		return em.find(ProjectType.class, typeID);
 	}
 
 	

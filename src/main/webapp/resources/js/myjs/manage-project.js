@@ -26,6 +26,7 @@ function viewVersion(projectID) {
 	function(data) {
 		var length = data['listFp'].length;
 		var lstFp = data['listFp'];
+		var projectName = data['projectName'];
 		$('#lstFuntionPoint').html('');
 		for (var i = 0; i < length; i++) {
 			$('#lstFuntionPoint').append($('<option>', {
@@ -33,5 +34,6 @@ function viewVersion(projectID) {
 			    text: lstFp[i].tenProject,
 			}));
 		}
+		document.getElementById("projectName").innerHTML = projectName;
 	})
 }

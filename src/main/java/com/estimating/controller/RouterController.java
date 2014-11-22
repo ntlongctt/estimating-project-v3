@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,31 +54,26 @@ public class RouterController {
 
 	@RequestMapping(value = "/contact-us", method = RequestMethod.GET)
 	public String goContactUs(Model model) {
-		;
 		return "user/contact-us";
 	}
 
 	@RequestMapping(value = "/edit-profile", method = RequestMethod.GET)
 	public String goEditProfile(Model model) {
-		;
 		return "user/use-profile";
 	}
 
 	@RequestMapping(value = "/upgrade_user", method = RequestMethod.GET)
 	public String goUpgradeUser(Model model) {
-		;
 		return "user/upgrade_user";
 	}
 
 	@RequestMapping(value = "/function-point-document", method = RequestMethod.GET)
 	public String goFP_Document(Model model) {
-		;
 		return "user/fp-point-document";
 	}
 
 	@RequestMapping(value = "/function-step-decription", method = RequestMethod.GET)
 	public String goFP_Step_Decription(Model model) {
-		;
 		return "user/fp-step-decription";
 	}
 
@@ -89,37 +85,31 @@ public class RouterController {
 
 	@RequestMapping(value = "/manage-project", method = RequestMethod.GET)
 	public String goHistory(Model model) {
-		;
 		return "user/manage-project";
 	}
 
 	@RequestMapping(value = "/project-detail", method = RequestMethod.GET)
 	public String goProjectDetail(Model model) {
-		;
 		return "user/project-detail";
 	}
 
 	@RequestMapping(value = "/ucp-document", method = RequestMethod.GET)
 	public String goUCP_document(Model model) {
-		;
 		return "user/UCP_document";
 	}
 
 	@RequestMapping(value = "/ucp-step-decription", method = RequestMethod.GET)
 	public String goUCP_Decription(Model model) {
-		;
 		return "user/ucp-step-decription";
 	}
 
 	@RequestMapping(value = "/ucp-detail", method = RequestMethod.GET)
 	public String goUCP_Detail(Model model) {
-		;
 		return "user/usecase-point-detail";
 	}
 
 	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)
 	public String goUserProfile(Model model) {
-		;
 		return "user/use-profile";
 	}
 
@@ -191,7 +181,7 @@ public class RouterController {
 			url = "admin/Blank";
 		} else {
 			model.addAttribute("roleuser", "user");
-			model.addAttribute("countProject",projectService.getListProject().size());
+			model.addAttribute("countProject",projectService.getListProject(username).size());
 			model.addAttribute("countFp",fpService.getAllListFp().size());
 			model.addAttribute("countUc",ucpService.getAllListUc().size());
 			model.addAttribute("totalVersion",fpService.getAllListFp().size()+ucpService.getAllListUc().size());
@@ -208,10 +198,10 @@ public class RouterController {
 
 	@RequestMapping(value = "/listprojectjson", method = RequestMethod.GET)
 	@ResponseBody
-	public List<ProjectBean> getListProjectJson() {
+	public List<ProjectBean> getListProjectJson(@ModelAttribute("user") String username) {
 		List<ProjectBean> lstPrjBean = new ArrayList<ProjectBean>();
 		ProjectBean projectBean;
-		List<Project> lstProject = projectService.getListProject();
+		List<Project> lstProject = projectService.getListProject(username);
 		for (Project project : lstProject) {
 			projectBean = new ProjectBean();
 			projectBean.setName(project.getTenProject());
@@ -226,11 +216,12 @@ public class RouterController {
 	
 	@RequestMapping(value = "/{projectID}/viewDetailFpUc", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> getListFpUc(@PathVariable("projectID") int projectID, Model model) {
+	public Map<String, Object> getListFpUc(@PathVariable("projectID") int projectID, Model model, 
+			@ModelAttribute("user") String username) {
 		Map<String, Object> maps = projectService.getListFpVsUcp(projectID); 
 		maps.put("listFp", maps.get("listFp"));
 		maps.put("listUc", maps.get("listFp"));
-		model.addAttribute("projectName", projectService.findProjectById(projectID));
+		maps.put("projectName", projectService.findProjectById(projectID).getTenProject());
 		return maps;
 	}
 

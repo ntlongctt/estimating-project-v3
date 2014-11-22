@@ -49,11 +49,11 @@ public class ProjectController {
 		project.setMoTa(description);
 
 		// Set ProjectType
-		ProjectType projectType = projectService.findProjectById(type);
+		ProjectType projectType = projectService.findProjectTypeById(type);
 		project.setProjectType(projectType);
 		if (!projectService.addProject(project))
 			logger.info("\n\n Errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-		model.addAttribute("listProject", projectService.getListProject());
+		model.addAttribute("listProject", projectService.getListProject(username));
 		return "user/function-point";
 	}
 }
