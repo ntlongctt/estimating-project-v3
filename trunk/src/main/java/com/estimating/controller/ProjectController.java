@@ -26,14 +26,16 @@ public class ProjectController {
 	IUserService userService;
 	@Autowired
 	IFuntionpointService fpService;
-	
-	private static final Logger logger = Logger.getLogger(FuntionPointController.class);
-	
+
+	private static final Logger logger = Logger
+			.getLogger(FuntionPointController.class);
+
 	@RequestMapping(value = "/addProject", method = RequestMethod.POST)
 	public String addProject(Model model,
 			@RequestParam("txtProjectName") String name,
 			@RequestParam("txtDescription") String description,
-			@RequestParam("typeProject") int type, @ModelAttribute("user") String username) {
+			@RequestParam("typeProject") int type,
+			@ModelAttribute("user") String username) {
 
 		logger.info("Add New Project");
 
