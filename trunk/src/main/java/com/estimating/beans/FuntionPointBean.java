@@ -63,6 +63,26 @@ public class FuntionPointBean implements Serializable {
 	
 	private double hour;
 	
+	private String tenProject;
+
+	private int fpID;
+	
+	public int getFpID() {
+		return fpID;
+	}
+
+	public void setFpID(int fpID) {
+		this.fpID = fpID;
+	}
+
+	public String getTenProject() {
+		return tenProject;
+	}
+
+	public void setTenProject(String tenProject) {
+		this.tenProject = tenProject;
+	}
+
 	public int getVersion() {
 		return version;
 	}

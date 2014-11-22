@@ -1,6 +1,7 @@
 package com.estimating.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
@@ -17,4 +18,5 @@ public interface IProjectService {
 	public boolean uodateExistUcEstimating(int projectID);
 	public boolean updateExistFpEstimating(int projectID);
 	public List<Project> getListProjectByUserName(String username);
+	public Map<String, Object>  getListFpVsUcp(int projectID);
 }

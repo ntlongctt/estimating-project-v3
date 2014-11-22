@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 /**
  * 
- * @author ChíTâm
+ * @author Chï¿½Tï¿½m
  *
  */
 @Entity
@@ -140,5 +140,6 @@ public class FpEstimating implements Serializable {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+
 
 }

@@ -67,15 +67,21 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 		catch(Exception ex){
 			result = false;
 		}
-		return result;
-		
-				
+		return result;	
 	}
 
 	@Override
 	public List<UcpEstiamting> getAllListUc() {
 		TypedQuery<UcpEstiamting> query = em.createQuery("Select p From UcpEstiamting p",
 				UcpEstiamting.class);
+		return query.getResultList();
+	}
+	
+	@Override
+	public List<UcpEstiamting> getListUcpEstimated(String projectID) {
+		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject";
+	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
+	    query.setParameter("maProject", projectID);
 		return query.getResultList();
 	}
 	
