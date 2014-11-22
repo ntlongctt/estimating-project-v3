@@ -11,7 +11,7 @@ $.getJSON("listprojectjson.json",{ajax : 'true'},
 			content += "<td>" + data[i].type + "</td>";
 			content += "<td>" + data[i].description	+ "</td>";
 			content += "<td>"
-					+ "<input type='button' onclick='viewDetailProject(" + data[i].projectID + ")' class='btn btn-primary btn-flat' value='Detail' />"
+					+ "<a type='button' onclick='viewVersion(" + data[i].projectID + ")' style='color:green; font-weight: bold;' >Detail</a>"
 					+ "</td>";
 			content += "</tr>";
 			$("#projectTable > tbody").append(content);
@@ -21,11 +21,12 @@ $.getJSON("listprojectjson.json",{ajax : 'true'},
 })
 
 // 
-function viewDetailProject(projectID) {
+function viewVersion(projectID) {
 	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
 	function(data) {
 		var length = data['listFp'].length;
 		var lstFp = data['listFp'];
+		$('#lstFuntionPoint').html('');
 		for (var i = 0; i < length; i++) {
 			$('#lstFuntionPoint').append($('<option>', {
 			    value: lstFp[i].fpID,

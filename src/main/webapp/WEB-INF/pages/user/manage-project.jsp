@@ -72,23 +72,30 @@ $(document).ready(function(){
                             </div><!-- /.box -->
                     
                     <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-6">
-                        	                      	                           
-                            <!-- Use case point detail -->
-                            <div class="box box-info">
-                                <div class="box-body">
-                                    <!-- Main content -->
-				<div class=	"panel box ">
+                           
+            <div class="col-md-12">
+                            <!-- Custom Tabs (Pulled to the right) -->
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs pull-right">
+                                    <li class="active"><a href="#tab_1-1" data-toggle="tab">Usecase Point</a></li>
+                                    <li><a href="#tab_2-2" data-toggle="tab">Funtion Point</a></li>
+                                    <li class="pull-left header"><i class="fa fa-th"></i> ${projectName }</li>
+                                </ul>
+                                <div class="tab-content">
+                                    <!-- Usecase Point -->
+                                    <div class="tab-pane active" id="tab_1-1">
+                                        <div class=	"panel box ">
 					<div class="box-header">
 					
-						<h4 class="box-title" >
+						<h4 class="box-title" style="width: 600px" >
 							<a id="ucp-detail" data-toggle="collapse" data-parent="#accordion"	href="#collapseOne1" class="collapsed text-light-blue">Use Case Point Detail</a>
 							<hr>
 							<p style="font-size: 15px!important;">Select version of project</p>
-	                        <select class="form-control" id="lstFuntionPoint">
+	                        <select class="form-control" id="lstFuntionPoint" style="width: 300px">
 	                        </select>
-	                        <input type="button" class="btn btn-success btn-flat" value="Detail">
+	                        <input type="button" class="btn btn-success btn-flat" value="Detail" style="margin-top: 10px">
+	                        <input type="button" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
+	                        <input type="button" class="btn btn-warning btn-flat" value="Create new version" style="margin-top: 10px">
 						</h4>
                         
 					</div>
@@ -101,41 +108,51 @@ $(document).ready(function(){
 
 							<!-- Use Case Point Weight -->
 
-							<h4 class="box-title">Use Case Point Weight</h4>
-
-							<h3 class="box-title">
-								Use Case Point Weight
-							</h3>
-
-							<div class="row">
-								
-									
-									<table class="table">
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Use Case Point Weight</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
 										<tr class="info">
 											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
 											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
 											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
 										</tr>			
 									</table>
-				 
-							</div>
-
-							<h4 class="box-title">Function Point Weight</h4>
-
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
-
-							<h3 class="box-title">Technical Complexity Factor</h3>
-							<div class="row">
-							
-								<table class="table">
+                                </div><!-- /.box-body -->
+                            </div>
+                            <!-- Function Point Weight -->
+                            <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Function Point Weight</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
+                            <!-- Technical Complexity Factor -->
+                             <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Technical Complexity Factor</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
 									<tr class="info">
 										<th>Distributed system:</th>
 										<th>Performance objectives:</th>
@@ -181,11 +198,18 @@ $(document).ready(function(){
 
 									</tr>
 								</table>
-							</div>
-							
-							<h3 class="box-title">Inviromental factors calculator</h3>
-							<div class="row">
-								<table class="table">
+                                </div><!-- /.box-body -->
+                            </div>
+                            <!-- Inviromental factors calculator -->
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Inviromental factors calculator</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
 									<tr class="info">
 										<th>Familiar Development Process:</th>
 										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
@@ -211,56 +235,47 @@ $(document).ready(function(){
 										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 								</table>
-
+                                </div><!-- /.box-body -->
+                            </div>
+							
 							<!-- Payment -->
-							<h3 class="box-title">Payment</h3>
-							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Wage per hour</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>															
-							</div>
-																
-							</div>
+							 <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Payment</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+										<label>Wage per hour</label> <input type="text" class="form-control"placeholder="5">
+                                </div><!-- /.box-body -->
+                            </div>
 							<!-- Total -->
-							<h3 class="box-title">Total</h3>
-							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
+							 <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Total</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
 										<label>Total point</label> <input type="text" class="form-control"
 											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
 										<label>Total hour</label> <input type="text" class="form-control"
 											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
 										<label>Cost </label> <input type="text" class="form-control"
 											placeholder="7">
-									</div>
-								</div>								
-							</div>
-
-							<button class="btn btn-default">Update Version</button>
-							<button class="btn btn-default">Create New Verion</button>
+                                </div><!-- /.box-body -->
+                            </div>
+                           
+                            
 						</div>
 					</div>
 				</div>
-				
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-                        </div><!--/.col (left) -->
-                        <!-- right column -->
-                        <div class="col-md-6">                       	                          
-                            <!-- Funtion point detail -->
-                            <div class="box box-info">
+                                    </div><!-- /.tab-pane -->
+                                    <!-- Funtion, Point -->
+                                    <div class="tab-pane" id="tab_2-2">
+                                          <div class="box box-info">
                                 <div class="box-body">
                                     
 								<div class="panel box ">
@@ -286,70 +301,105 @@ $(document).ready(function(){
                                         </div>
 
 							<!-- User Input -->
-							<h4 class="box-title">User Input</h4>
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
+							    <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">User Input</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
 							<!-- User out put -->
-							<h4 class="box-title">User Output</h4>
-
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">User Output</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
 							<!-- User Inquiries -->
-							<h4 class="box-title">User Inquiries</h4>
-
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
-								<!-- Internal logical file -->
-							<h4 class="box-title">Internal Logical File</h4>
-
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
-								<!-- External Interface File -->
-							<h4 class="box-title">External Interface File</h4>
-
-							<div class="row">
-								<table class="table">
-									<tr class="info">
-										<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-										<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-									</tr>			
-								</table>
-							</div>
-								<!-- Relative Complexity Adjustment Factor -->
-							<h3 class="box-title">Relative Complexity Adjustment Factor</h3>
-
-							<div class="row">
-							
-								<table class="table">
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">User Inquiries</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
+							<!-- Internal logical file -->
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Internal Logical File</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
+							<!-- External Interface File -->
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">External Interface File</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <table class="table">
+										<tr class="info">
+											<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+											<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										</tr>			
+									</table>
+                                </div><!-- /.box-body -->
+                            </div>
+							<!-- Relative Complexity Adjustment Factor -->
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">External Interface File</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                	<table class="table">
 									<tr class="info">
 										<th>Requirement for reliable backup and recovery:</th>
 										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
@@ -394,90 +444,50 @@ $(document).ready(function(){
 										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 								</table>
-							</div>
-							<!-- Payment -->
-							<h3 class="box-title">Payment</h3>
-							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
-										<label>Wage per hour</label> <input type="text" class="form-control"
-											placeholder="5">
-									</div>
-								</div>															
-							</div>
-																
-							</div>
+                                </div><!-- /.box-body -->
+                            </div>
+							
+							
+		
+							<div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Payment</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+										<label>Wage per hour</label> <input type="text" class="form-control"placeholder="5">
+                                </div><!-- /.box-body -->
+                            </div>
 							<!-- Total -->
-							<h3 class="box-title">Total</h3>
-							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
+							 <div class="box box-primary">
+                                <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                                    <h3 class="box-title">Total</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-xs" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
 										<label>Total point</label> <input type="text" class="form-control"
 											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
 										<label>Total hour</label> <input type="text" class="form-control"
 											placeholder="5">
-									</div>
-								</div>
-								<div class="col-sm-5 col-sm-offset-1">
-									<div class="form-group">
 										<label>Cost </label> <input type="text" class="form-control"
 											placeholder="7">
-									</div>
-								</div>								
-							</div>
-														
-								<button class="btn btn-default">Update Version</button>
-							<button class="btn btn-default">Create New Verion</button>
+                                </div><!-- /.box-body -->
+                            </div>
 						</div>
 					</div>
 				</div>		
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div><!--/.col (right) -->
-                    </div>   <!-- /.row -->
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-            
-            
-            <div class="col-md-6">
-                            <!-- Custom Tabs (Pulled to the right) -->
-                            <div class="nav-tabs-custom">
-                                <ul class="nav nav-tabs pull-right">
-                                    <li class="active"><a href="#tab_1-1" data-toggle="tab">Usecase Point</a></li>
-                                    <li><a href="#tab_2-2" data-toggle="tab">Funtion Point</a></li>
-                                    <li class="pull-left header"><i class="fa fa-th"></i> ${projectName }</li>
-                                </ul>
-                                <div class="tab-content">
-                                    <!-- Usecase Point -->
-                                    <div class="tab-pane active" id="tab_1-1">
-                                        <b>How to use:</b>
-                                        <p>Exactly like the original bootstrap tabs except you should use
-                                            the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
-                                        A wonderful serenity has taken possession of my entire soul,
-                                        like these sweet mornings of spring which I enjoy with my whole heart.
-                                        I am alone, and feel the charm of existence in this spot,
-                                        which was created for the bliss of souls like mine. I am so happy,
-                                        my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
-                                        that I neglect my talents. I should be incapable of drawing a single stroke
-                                        at the present moment; and yet I feel that I never was a greater artist than now.
-                                    </div><!-- /.tab-pane -->
-                                    <!-- Funtion, Point -->
-                                    <div class="tab-pane" id="tab_2-2">
-                                        The European languages are members of the same family. Their separate existence is a myth.
-                                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                                        new common language would be desirable: one could refuse to pay expensive translators. To
-                                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                                        and regular than that of the individual languages.
+                                </div>
                                     </div><!-- /.tab-pane -->
                                 </div><!-- /.tab-content -->
                             </div><!-- nav-tabs-custom -->
                         </div>
+                    </div>  
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
 <script src="resources/js/myjs/manage-project.js" type="text/javascript"></script>
 </body>
 </html>

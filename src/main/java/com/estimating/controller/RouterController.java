@@ -226,10 +226,11 @@ public class RouterController {
 	
 	@RequestMapping(value = "/{projectID}/viewDetailFpUc", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> getListFpUc(@PathVariable("projectID") int projectID) {
+	public Map<String, Object> getListFpUc(@PathVariable("projectID") int projectID, Model model) {
 		Map<String, Object> maps = projectService.getListFpVsUcp(projectID); 
 		maps.put("listFp", maps.get("listFp"));
 		maps.put("listUc", maps.get("listFp"));
+		model.addAttribute("projectName", projectService.findProjectById(projectID));
 		return maps;
 	}
 
