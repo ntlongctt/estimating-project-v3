@@ -59,10 +59,11 @@ public class ProjectDaoImpl implements IProjectDao {
 	}
 
 	@Override
-	public List<Project> getListProjectFPEstiamted() {
+	public List<Project> getListProjectFPEstiamted(String username) {
 		TypedQuery<Project> query = em
-				.createQuery("Select p From Project p Where p.FP_Estiamted=0",
+				.createQuery("Select p From Project p Where p.FP_Estiamted=0 and p.user.tenUser = :username",
 						Project.class);
+		query.setParameter("username", username);
 		return query.getResultList();
 	}
 

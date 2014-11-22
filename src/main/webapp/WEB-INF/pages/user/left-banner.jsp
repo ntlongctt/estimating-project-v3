@@ -8,7 +8,7 @@
                             <img src="resources/img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Yo1o</p>
+                            <p>Hello, ${userFullname }</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
