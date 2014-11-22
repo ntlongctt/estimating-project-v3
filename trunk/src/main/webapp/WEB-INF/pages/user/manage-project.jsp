@@ -25,7 +25,7 @@
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 
-<script src="resources/js/myjs/jquery.inputmask.bundle.js"></script>
+<script src="resources/js/jquery.inputmask.bundle.js"></script>
 <script>
 $(document).ready(function(){
     $(":input").inputmask();
@@ -354,46 +354,46 @@ $(document).ready(function(){
 								<table class="table">
 									<tr class="info">
 										<th>Requirement for reliable backup and recovery:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Requirement for data communication:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Extent of distributed processing:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Performance requirements:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Expected operational environment:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 										<th>Extent of online data entries:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Extent of multi-screen or multi-operation online data input:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 										<th>Extent of online updating of master files:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Extent of complex inputs, outputs, online queries and files:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 										<th>Extent of complex data processing:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Extent that currently developed code can be designed for reuse:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 										<th>Extent of conversion and installation included in the design:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 									<tr class="info">
 										<th>Extent of multiple installations in an organizationand variety of 
 										customer organizations:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 										<th>Extent of change and focus on ease of use:</th>
-										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+										<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 									</tr>
 								</table>
 							</div>
