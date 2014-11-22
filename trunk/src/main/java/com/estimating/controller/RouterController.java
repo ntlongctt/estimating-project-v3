@@ -2,7 +2,6 @@ package com.estimating.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +28,6 @@ import com.estimating.service.IProjectService;
 import com.estimating.service.IRouterService;
 import com.estimating.service.IUseCasePointService;
 import com.estimating.service.IUserService;
-import com.estimating.service.impl.ProjectServiceImpl;
-import com.google.gson.Gson;
 
 @Controller
 @SessionAttributes({ "user", "roleuser", "userFullname" })

@@ -8,8 +8,9 @@ import com.estimating.beans.FuntionPointBean;
 
 public class FuntionPointUtils {
 
-	private static final Logger logger = Logger.getLogger(FuntionPointUtils.class);
-	
+	private static final Logger logger = Logger
+			.getLogger(FuntionPointUtils.class);
+
 	public static double calculateUIP(double uiSimple, double uiAverage,
 			double uiComplex) {
 		return uiSimple * Constants.USER_INPUTS_SIMPLE + uiAverage
@@ -89,13 +90,13 @@ public class FuntionPointUtils {
 		System.out.println("Total : " + totalFP);
 		return totalFP;
 	}
-	
+
 	/**
 	 * @return HashMap value function point to update or save to database
 	 */
 	public HashMap<String, String> mapValueFunctionPoint(FuntionPointBean fpBean) {
-		HashMap<String, String> maps = new HashMap<String, String>();	
-			
+		HashMap<String, String> maps = new HashMap<String, String>();
+
 		String strUIPoint = String.valueOf(fpBean.getUiSimple()) + ";"
 				+ String.valueOf(fpBean.getUiAverage()) + ";"
 				+ String.valueOf(fpBean.getUiComplex());
@@ -126,30 +127,21 @@ public class FuntionPointUtils {
 				+ String.valueOf(fpBean.getrF13()) + ";"
 				+ String.valueOf(fpBean.getrF14());
 		logger.info("strRACF: " + strRACF);
+		FuntionPointUtils fpUtil = new FuntionPointUtils();
 		maps.put(Constants.FUNCTION_POINT_USER_INPUT, strUIPoint);
 		maps.put(Constants.FUNCTION_POINT_USER_OUTPUT, strUOPoint);
 		maps.put(Constants.FUNCTION_POINT_USER_ONLINE_QUERY, strUQPoint);
 		maps.put(Constants.FUNCTION_POINT_LOGICAL_FILE, strILFPoint);
 		maps.put(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE, strEIFPoint);
 		maps.put(Constants.FUNCTION_POINT_RELATIVE_FACTOR, strRACF);
+		maps.put(Constants.FUNCTION_POINT_TOTAL,
+				String.valueOf(fpUtil.calTotalFP(fpBean)));
 		return maps;
 	}
-	
+
 	public double calculateCostFp(FuntionPointBean fpBean) {
 		FuntionPointUtils fpUtils = new FuntionPointUtils();
 		fpBean.setTotalFP(fpUtils.calTotalFP(fpBean));
-		return fpBean.getTotalFP()*20*fpBean.getHour();
+		return fpBean.getTotalFP() * 20 * fpBean.getHour();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

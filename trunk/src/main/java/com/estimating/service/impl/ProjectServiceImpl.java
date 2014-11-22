@@ -11,14 +11,11 @@ import org.springframework.stereotype.Service;
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
-import com.estimating.dao.IUseCasePointDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
 import com.estimating.service.IProjectService;
-import com.estimating.utils.FuntionPointUtils;
 import com.estimating.utils.ParseStringToArrayUtils;
-import com.sun.media.jfxmedia.logging.Logger;
 
 @Service
 public class ProjectServiceImpl implements IProjectService {
@@ -52,11 +49,6 @@ public class ProjectServiceImpl implements IProjectService {
 	@Override
 	public ProjectType findProjectById(int id) {
 		return projectDao.findProjectById(id);
-	}
-
-	@Override
-	public List<Project> getListProjectFPEstiamted() {
-		return projectDao.getListProjectFPEstiamted();
 	}
 
 	@Override
@@ -161,6 +153,11 @@ public class ProjectServiceImpl implements IProjectService {
 		maps.put("listFp", lstFpBean);
 //		maps.put("listUc", ucDao.getListUcpEstimated(projectID));
 		return maps;
+	}
+
+	@Override
+	public List<Project> getListProjectFPEstiamted(String username) {
+		return projectDao.getListProjectFPEstiamted(username);
 	}
 
 }

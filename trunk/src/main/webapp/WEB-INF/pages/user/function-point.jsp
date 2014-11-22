@@ -451,7 +451,7 @@
 
 											<label><a href="ucp-step-decription.html#easy" target="_blank">Wage per hour</a></label> 
 												<input type="text" class="form-control" id="wage" name="wageph"
-										placeholder="Less than 4 transactions..." > 									
+										placeholder="Enter wage per hour ($)..." > 									
 										</div>
                             		<div class="callout callout-info col-md-4">
                                         <h4>Total</h4>

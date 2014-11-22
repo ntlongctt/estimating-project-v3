@@ -81,8 +81,8 @@
 						<!-- small box -->
 						<div class="small-box bg-yellow">
 							<div class="inner">
-								<h4>44,120,000 VNS</h4>
-								<p>Largest project coat</p>
+								<h4>44,120 $</h4>
+								<p>Largest project cost</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-person-add"></i>
@@ -153,7 +153,7 @@
 											<th>Name</th>
 											<th>Version</th>
 											<th>Point</th>
-											<th>Coat</th>
+											<th>Cost</th>
 										</tr>
 										<tr>
 											<td><a href="#">USA</a></td>
@@ -234,7 +234,7 @@
 											<th>Name</th>
 											<th>Version</th>
 											<th>Point</th>
-											<th>Coat</th>
+											<th>Cost</th>
 										</tr>
 										<tr>
 											<td><a href="#">USA</a></td>

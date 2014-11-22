@@ -4,10 +4,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.service.IFuntionpointService;
@@ -15,6 +17,7 @@ import com.estimating.service.IProjectService;
 import com.estimating.service.IUserService;
 
 @Controller
+@SessionAttributes({ "user", "roleuser", "userFullname" })
 public class FuntionPointController {
 
 	@Autowired
@@ -30,10 +33,10 @@ public class FuntionPointController {
 			.getLogger(FuntionPointController.class);
 
 	@RequestMapping(value = "/functionpoint", method = RequestMethod.GET)
-	public String goFuntionPoint(Model model) {
+	public String goFuntionPoint(Model model, @ModelAttribute("user")String username) {
 
 		model.addAttribute("listProject",
-				projectService.getListProjectFPEstiamted());
+				projectService.getListProjectFPEstiamted(username));
 		model.addAttribute("listProjectType",
 				projectService.getListProjectType());
 		return "user/function-point";
