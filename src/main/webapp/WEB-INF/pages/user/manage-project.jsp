@@ -79,27 +79,25 @@ $(document).ready(function(){
                             <div class="box box-info">
                                 <div class="box-body">
                                     <!-- Main content -->
-				<div class="panel box ">
+				<div class=	"panel box ">
 					<div class="box-header">
-						<h4 class="box-title">
+					
+						<h4 class="box-title" >
 							<a id="ucp-detail" data-toggle="collapse" data-parent="#accordion"	href="#collapseOne1" class="collapsed text-light-blue">Use Case Point Detail</a>
+							<hr>
+							<p style="font-size: 15px!important;">Select version of project</p>
+	                        <select class="form-control" id="lstFuntionPoint">
+	                        </select>
+	                        <input type="button" class="btn btn-success btn-flat" value="Detail">
 						</h4>
+                        
 					</div>
 					
 					<div id="collapseOne1" class="panel-collapse collapse"
 						style="height: 0px;">
 						<div class="box-body">
 							<!-- select version-->
-                                        <div class="form-group">
-                                        	<label>Select version of project</label>
-                                            <select class="form-control">
-                                                <option>Version 1</option>
-                                                <option>Version 2</option>
-                                                <option>Version 3</option>
-                                                <option>Version 4</option>
-                                                <option>Version 5</option>
-                                            </select>
-                                        </div>
+                                      
 
 							<!-- Use Case Point Weight -->
 
@@ -444,6 +442,42 @@ $(document).ready(function(){
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
             
+            
+            <div class="col-md-6">
+                            <!-- Custom Tabs (Pulled to the right) -->
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs pull-right">
+                                    <li class="active"><a href="#tab_1-1" data-toggle="tab">Usecase Point</a></li>
+                                    <li><a href="#tab_2-2" data-toggle="tab">Funtion Point</a></li>
+                                    <li class="pull-left header"><i class="fa fa-th"></i> ${projectName }</li>
+                                </ul>
+                                <div class="tab-content">
+                                    <!-- Usecase Point -->
+                                    <div class="tab-pane active" id="tab_1-1">
+                                        <b>How to use:</b>
+                                        <p>Exactly like the original bootstrap tabs except you should use
+                                            the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+                                        A wonderful serenity has taken possession of my entire soul,
+                                        like these sweet mornings of spring which I enjoy with my whole heart.
+                                        I am alone, and feel the charm of existence in this spot,
+                                        which was created for the bliss of souls like mine. I am so happy,
+                                        my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
+                                        that I neglect my talents. I should be incapable of drawing a single stroke
+                                        at the present moment; and yet I feel that I never was a greater artist than now.
+                                    </div><!-- /.tab-pane -->
+                                    <!-- Funtion, Point -->
+                                    <div class="tab-pane" id="tab_2-2">
+                                        The European languages are members of the same family. Their separate existence is a myth.
+                                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                                        new common language would be desirable: one could refuse to pay expensive translators. To
+                                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                                        words. If several languages coalesce, the grammar of the resulting language is more simple
+                                        and regular than that of the individual languages.
+                                    </div><!-- /.tab-pane -->
+                                </div><!-- /.tab-content -->
+                            </div><!-- nav-tabs-custom -->
+                        </div>
 <script src="resources/js/myjs/manage-project.js" type="text/javascript"></script>
 </body>
 </html>

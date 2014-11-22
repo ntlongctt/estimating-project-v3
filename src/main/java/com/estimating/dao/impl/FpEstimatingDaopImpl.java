@@ -15,8 +15,10 @@ import com.estimating.beans.FuntionPointBean;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
+import com.estimating.domain.User;
 import com.estimating.utils.Constants;
 import com.estimating.utils.FuntionPointUtils;
+
 
 @Repository
 public class FpEstimatingDaopImpl implements IFpEstimatingDao {
@@ -75,6 +77,14 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 			result = false;
 		}
 		return result;
+	}
+
+	@Override
+	public List<FpEstimating> getListFpEstimated(int projectID) {
+		String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject";
+	    TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
+	    query.setParameter("maProject", projectID);
+		return query.getResultList();
 	}
 
 	@Override

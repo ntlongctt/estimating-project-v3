@@ -2,7 +2,9 @@ package com.estimating.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,6 +29,8 @@ import com.estimating.service.IProjectService;
 import com.estimating.service.IRouterService;
 import com.estimating.service.IUseCasePointService;
 import com.estimating.service.IUserService;
+import com.estimating.service.impl.ProjectServiceImpl;
+import com.google.gson.Gson;
 
 @Controller
 @SessionAttributes({ "user", "roleuser", "userFullname" })
@@ -220,6 +224,16 @@ public class RouterController {
 			lstPrjBean.add(projectBean);
 		}
 		return lstPrjBean;
+	}
+
+	
+	@RequestMapping(value = "/{projectID}/viewDetailFpUc", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> getListFpUc(@PathVariable("projectID") int projectID) {
+		Map<String, Object> maps = projectService.getListFpVsUcp(projectID); 
+		maps.put("listFp", maps.get("listFp"));
+		maps.put("listUc", maps.get("listFp"));
+		return maps;
 	}
 
 }
