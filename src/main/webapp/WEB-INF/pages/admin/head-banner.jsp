@@ -1,27 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-        <header class="header">
-            <a href="home.html" class="logo">
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                Admin dashboard
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                         <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<header class="header">
+	<a href="home.html" class="logo"> <!-- Add the class icon to your logo image or logo icon to add the margining -->
+		Admin dashboard
+	</a>
+	<!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top" role="navigation">
+		<!-- Sidebar toggle button-->
+		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas"
+			role="button"> <span class="sr-only">Toggle navigation</span> <span
+			class="icon-bar"></span> <span class="icon-bar"></span> <span
+			class="icon-bar"></span>
+		</a>
+		<div class="navbar-right">
+			<ul class="nav navbar-nav">
+				<!-- Messages: style can be found in dropdown.less-->
+				<li class="dropdown messages-menu">
+					<!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
                                 <span class="label label-success">4</span>
-                            </a> -->
-                           <!--  <ul class="dropdown-menu">
+                            </a> --> <!--  <ul class="dropdown-menu">
                                 <li class="header">You have 4 messages</li>
                                 <li>
                                     inner menu: contains the actual data
@@ -90,10 +87,10 @@
                                 </li>
                                 <li class="footer"><a href="#">See All Messages</a></li>
                             </ul> -->
-                        </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				</li>
+				<!-- Notifications: style can be found in dropdown.less -->
+				<li class="dropdown notifications-menu">
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
                                 <span class="label label-warning">10</span>
                             </a>
@@ -132,10 +129,10 @@
                                 </li>
                                 <li class="footer"><a href="#">View all</a></li>
                             </ul> -->
-                        </li>
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <li class="dropdown tasks-menu">
-                            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				</li>
+				<!-- Tasks: style can be found in dropdown.less -->
+				<li class="dropdown tasks-menu">
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-tasks"></i>
                                 <span class="label label-danger">9</span>
                             </a>
@@ -202,25 +199,26 @@
                                     <a href="#">View all tasks</a>
                                 </li>
                             </ul> -->
-                        </li>
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span>${userFullname} <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="resources/img/avatar3.png" class="img-circle" alt="User Image" />
-                                   
-                                    <p>
-                                        ${userFullname} - Web Developer
-                                        <small>Member since Nov. 2014</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <!-- <li class="user-body">
+				</li>
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user user-menu"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"> <i
+						class="glyphicon glyphicon-user"></i> <span>${userFullname}
+							<i class="caret"></i>
+					</span>
+				</a>
+					<ul class="dropdown-menu">
+						<!-- User image -->
+						<li class="user-header bg-light-blue"><img
+							src="resources/img/avatar3.png" class="img-circle"
+							alt="User Image" />
+
+							<p>
+								${userFullname} - Web Developer <small>Member since Nov.
+									2014</small>
+							</p></li>
+						<!-- Menu Body -->
+						<!-- <li class="user-body">
                                     <div class="col-xs-4 text-center">
                                         <a href="#">Followers</a>
                                     </div>
@@ -231,18 +229,19 @@
                                         <a href="#">Friends</a>
                                     </div>
                                 </li> -->
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="/estimating/selectedUser.html?username=${ user }" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="<c:url value="j_spring_security_logout" />" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+						<!-- Menu Footer-->
+						<li class="user-footer">
+							<div class="pull-left">
+								<a href="/estimating/selectedUser.html?username=${ user }"
+									class="btn btn-default btn-flat">Profile</a>
+							</div>
+							<div class="pull-right">
+							<a href="${pageContext.request.contextPath}/logout.html"
+									class="btn btn-default btn-flat">Sign out</a>
+							</div>
+						</li>
+					</ul></li>
+			</ul>
+		</div>
+	</nav>
+</header>

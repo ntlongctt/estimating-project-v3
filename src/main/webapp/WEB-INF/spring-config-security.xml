@@ -46,6 +46,13 @@
 		<authentication-provider user-service-ref="customUserDetailService">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
+		
+		 <authentication-provider>
+	    <user-service>
+		<user name="name" password="password" authorities="ROLE_USER" />
+	    </user-service>
+	  </authentication-provider>
+	  
 	</authentication-manager>
 
 	<!-- Encode Password -->
