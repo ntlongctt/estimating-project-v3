@@ -90,6 +90,34 @@ public class ProjectDaoImpl implements IProjectDao {
 	}
 
 	@Override
+	public List<Project> getListProjectUCEstimated() {
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.UCP_Estimated=0",
+				Project.class);
+		return query.getResultList();
+	}
+
+	@Override
+	public boolean checkExistUcEstimating(int projectID) {
+		Project project = em.find(Project.class, projectID);
+		if(project.getFP_Estiamted() == 0)
+			return true;
+		return false;
+	}
+
+	@Override
+	public boolean updateExistUcEstimating(int projectID) {
+		boolean check = false;
+		try {
+			Project project = em.find(Project.class, projectID);
+			project.setUCP_Estimated(Byte.valueOf("1"));
+			check = true;
+		} catch(Exception ex) {
+			check = false;
+		}
+		return check;
+	}
+
+	@Override
 	public List<Project> getListProjectByUserName(String username) {
 		TypedQuery<Project> query = em.createQuery(
 				"Select p From Project p where p.user.tenUser = :username",

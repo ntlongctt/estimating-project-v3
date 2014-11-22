@@ -1,5 +1,6 @@
 package com.estimating.utils;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -112,4 +113,66 @@ public class UseCasePointUtils {
 		double uucp = calculate_WUCs + calculate_WAs;
 		return uucp;
 	}
+	
+	/**
+	 * @return HashMap value ues case point to update or save to database
+	 */
+	public HashMap<String, String> mapValueUseCasePoint(UseCasePointBean ucBean){
+		HashMap< String, String> maps = new HashMap<String, String>();
+		
+		String srtWASPoint = String.valueOf(ucBean.getSimple()) + ";"
+				+ String.valueOf(ucBean.getAverage()) + ";"
+				+ String.valueOf(ucBean.getComplex());
+		String srtWUCPoint = String.valueOf(ucBean.getEasy()) + ";"
+				+ String.valueOf(ucBean.getMedium()) + ";"
+				+ String.valueOf(ucBean.getDifficult());
+		String srtTFCPoint = String.valueOf(ucBean.getDistributed()) + ";"
+				+ String.valueOf(ucBean.getPerformance()) + ";"
+				+ String.valueOf(ucBean.getEndUserefficiency()) + ";"
+				+ String.valueOf(ucBean.getComplexProcessing()) + ";"
+				+ String.valueOf(ucBean.getReusableCode()) + ";"
+				+ String.valueOf(ucBean.getEaseofInstallation()) + ";"
+				+ String.valueOf(ucBean.getEaseofUse()) + ";"
+				+ String.valueOf(ucBean.getPortable()) + ";"
+				+ String.valueOf(ucBean.getEaseofChange()) + ";"
+				+ String.valueOf(ucBean.getConcurrentUse()) + ";"
+				+ String.valueOf(ucBean.getSpecialSecurity()) + ";"
+				+ String.valueOf(ucBean.getAccessforThirdParties()) + ";"
+				+ String.valueOf(ucBean.getTrainingNeeds());
+		
+		String srtEFCPoint =  String.valueOf(ucBean.getFamiliarwithDevelopmentProcess()) + ";"
+				+ String.valueOf(ucBean.getApplicationExperience()) + ";"
+				+ String.valueOf(ucBean.getObjectOrientedExperience()) + ";"
+				+ String.valueOf(ucBean.getLeadAnalystCapability()) + ";"
+				+ String.valueOf(ucBean.getMotivation()) + ";"
+				+ String.valueOf(ucBean.getStableRequirements()) + ";"
+				+ String.valueOf(ucBean.getParttimeStaff()) + ";"
+				+ String.valueOf(ucBean.getDifficulProgrammingLanguage()) ;
+		maps.put(Constants.USECASE_POINT_WAS, srtWASPoint);
+		maps.put(Constants.USECASE_POINT_WUC, srtWUCPoint);
+		maps.put(Constants.USECASE_POINT_TECHNICAL_FACTOR, srtTFCPoint);
+		maps.put(Constants.USECASE_POINT_ENVIRIMENT_FACTOR, srtEFCPoint);
+		return maps;
+		
+	}
+	
+	public double calculateCostUc(UseCasePointBean ucBean){
+		UseCasePointUtils ucUltils = new UseCasePointUtils();
+		ucBean.setTotalUCP(ucUltils.calTotalUCP(ucBean));
+		return ucBean.getTotalUCP()*80*ucBean.getHour();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

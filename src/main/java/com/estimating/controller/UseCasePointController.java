@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.service.IProjectService;
 import com.estimating.service.IUseCasePointService;
@@ -32,31 +33,49 @@ public class UseCasePointController {
 	@RequestMapping(value = "/usecasepoint", method = RequestMethod.GET)
 	public String goUserCasePoint(Model model) {
 		UseCasePointBean uBean = new UseCasePointBean();
-		model.addAttribute("listProject", projectService.getListProject());
+		model.addAttribute("listProject", projectService.getListProjectUCEstimated());
 		model.addAttribute("listProjectType",
 				projectService.getListProjectType());
 		model.addAttribute("diem", ucpService.calTotalUseCasePoint(uBean));
 		return "user/usecase-point";
 	}
 
-	@RequestMapping(value = "/ucpValue", method = RequestMethod.POST)
-	@ResponseBody
-	public UseCasePointBean ucpBean(
-			@RequestBody UseCasePointBean useCasePointBean, Model model) {
-		UseCasePointBean result = ucpService
-				.calTotalUseCasePoint(useCasePointBean);
-		// model.addAttribute("ucpPoint",
-		// ucpService.calTotalUseCasePoint(useCasePointBean));
-		return result;
+	@RequestMapping(value = "/addUcEstimating", method = RequestMethod.POST)
+	public String addUcEstimating(Model model){
+		return "user/usecase-point";
 	}
+	
 
 	@RequestMapping(value = "/calc-usecasepoint", method = RequestMethod.POST)
 	@ResponseBody
 	public UseCasePointBean previewUseCasePoint(
 			@RequestBody UseCasePointBean useCasePointBean, Model model) {
 		logger.info("Preview UseCasePoint");
-		UseCasePointBean result = ucpService.calTotalUseCasePoint(useCasePointBean);
-		return result;
+		useCasePointBean.setTotalUCP(ucpService.calTotalUseCasePoint(useCasePointBean));
+		useCasePointBean.setCost(ucpService.calCostUc(useCasePointBean));
+		return useCasePointBean;
+	}
+	
+	@RequestMapping(value = "/save-usecasepoint", method = RequestMethod.POST)
+	@ResponseBody
+	public UseCasePointBean saveUseCasePoint(
+			@RequestBody UseCasePointBean ucPointBean, Model model) {
+		
+		if (!projectService.checkExistUcEstimating(ucPointBean.getProjectID())) {
+	
+			ucPointBean.setVersion(0);
+			ucpService.updateUseCasePoint(ucPointBean);
+		} else {
+			// Add fp + Update FP_Estiamted in project
+			logger.info("Add FP!");
+			projectService.uodateExistUcEstimating(ucPointBean.getProjectID());
+			ucpService.addUseCasePoint(ucPointBean);
+		}
+
+		ucPointBean.setTotalUCP(ucpService.calTotalUseCasePoint(ucPointBean));
+		ucPointBean.setCost(ucpService.calCostUc(ucPointBean));
+
+		return ucPointBean;
 	}
 
 }

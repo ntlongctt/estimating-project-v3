@@ -2,6 +2,7 @@ package com.estimating.dao.impl;
 						
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -74,6 +75,13 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 			result = false;
 		}
 		return result;
+	}
+
+	@Override
+	public List<FpEstimating> getAllListFp() {
+		TypedQuery<FpEstimating> query = em.createQuery("Select p From FpEstimating p",
+				FpEstimating.class);
+		return query.getResultList();
 	}
 
 }

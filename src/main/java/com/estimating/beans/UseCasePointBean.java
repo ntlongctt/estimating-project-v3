@@ -54,6 +54,14 @@ public class UseCasePointBean implements Serializable {
 	private double tcf;
 	private double uucp;
 	private double totalUCP;
+	
+	private double cost;
+	
+	private int projectID;
+	
+	private double hour;
+	
+	private int version;
 
 	public double getTotalUCP() {
 		return totalUCP;
@@ -321,6 +329,38 @@ public class UseCasePointBean implements Serializable {
 
 	public void setWuc(double wuc) {
 		this.wuc = wuc;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public int getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(int projectID) {
+		this.projectID = projectID;
+	}
+
+	public double getHour() {
+		return hour;
+	}
+
+	public void setHour(double hour) {
+		this.hour = hour;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }

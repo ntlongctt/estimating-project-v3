@@ -1,10 +1,13 @@
 package com.estimating.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.dao.IFpEstimatingDao;
+import com.estimating.domain.FpEstimating;
 import com.estimating.service.IFuntionpointService;
 import com.estimating.utils.FuntionPointUtils;
 
@@ -33,5 +36,10 @@ public class FuntionPointServiceImpl implements IFuntionpointService {
 	@Override
 	public double calCostFp(FuntionPointBean fpBean) {
 		return fpPointUtils.calculateCostFp(fpBean);
+	}
+
+	@Override
+	public List<FpEstimating> getAllListFp() {
+		return fpDao.getAllListFp();
 	}
 }

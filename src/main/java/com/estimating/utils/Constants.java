@@ -74,4 +74,11 @@ public final class Constants {
 	public static final String FUNCTION_POINT_EXTERNAL_INTERFACE = "external_Interface";
 	public static final String FUNCTION_POINT_RELATIVE_FACTOR  = "relative_Factor ";
 	public static final String FUNCTION_POINT_USER_OUTPUT = "user_Output"; 
+	
+	//Map uc_estimating table
+	public static final String USECASE_POINT_WAS = "Actor";
+	public static final String USECASE_POINT_WUC = "UseCase";
+	public static final String USECASE_POINT_TECHNICAL_FACTOR = "Technical_Factor";
+	public static final String USECASE_POINT_ENVIRIMENT_FACTOR= "Enviriment_Factor";
+	
 }

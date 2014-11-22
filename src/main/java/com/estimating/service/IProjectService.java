@@ -9,9 +9,12 @@ public interface IProjectService {
 	public List<Project> getListProject();
 	public boolean addProject(Project project);
 	public List<Project> getListProjectFPEstiamted();
+	public List<Project> getListProjectUCEstimated();
 	public List<ProjectType> getListProjectType();
 	public ProjectType findProjectById(int id);
 	public boolean checkExistFpEstimating(int projectID);
+	public boolean checkExistUcEstimating(int projectID);
+	public boolean uodateExistUcEstimating(int projectID);
 	public boolean updateExistFpEstimating(int projectID);
 	public List<Project> getListProjectByUserName(String username);
 }

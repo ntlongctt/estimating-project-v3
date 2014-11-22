@@ -27,7 +27,7 @@
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
 
-<script src="resources/js/myjs/jquery.inputmask.bundle.js"></script>
+<script src="resources/js/jquery.inputmask.bundle.js"></script>
 <script>
 $(document).ready(function(){
     $(":input").inputmask();
@@ -349,7 +349,7 @@ $(document).ready(function(){
 									<div class="row" style="margin-top: 5px; margin-bottom: 10px">
 									<div class="col-sm-5 col-sm-offset-1">
 										<button class="btn btn-primary btn-flat" style="width: 92px" id="save" onclick="PreviewUsecasePoint();" >Preview</button>
-										<button class="btn btn-success btn-flat" style="width: 92px" id="save" >Save</button>
+										<button class="btn btn-success btn-flat" style="width: 92px" id="save" onclick="saveUcPoint();" >Save</button>
 									</div>
 									</div>
 									<div class="row">
