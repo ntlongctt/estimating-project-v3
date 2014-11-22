@@ -80,3 +80,33 @@
 	    }
 	}); 	     
 	}
+  
+  function saveUcPoint(){
+	  
+	  getValue();
+
+	  $.ajax({
+		    url: "calc-usecasepoint.json",
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(json),
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+		    	//alert(data.totalUCP);
+		    	document.getElementById("ucw").innerHTML = data.wuc;
+		    	document.getElementById("uaw").innerHTML = data.was;
+		    	document.getElementById("uucp").innerHTML = data.uucp;
+		    	document.getElementById("tcf").innerHTML = data.tcf;
+		    	document.getElementById("efc").innerHTML = data.efc;
+		    	document.getElementById("ucp").innerHTML = data.totalUCP;
+		    	document.getElementById("minimun_hours").innerHTML = data.totalUCP*document.getElementById("minimun_hours_input").value;
+		    	document.getElementById("maximun_hours").innerHTML = data.totalUCP*document.getElementById("maximun_hours_input").value;
+		    	document.getElementById("devired_hours").innerHTML = data.totalUCP*document.getElementById("devired_hours_input").value;
+		    	alert("Save successful!")
+		   	},
+		    error: function() {   
+		    	alert("Error! Please try again.")
+		    }
+		}); 	     
+  }

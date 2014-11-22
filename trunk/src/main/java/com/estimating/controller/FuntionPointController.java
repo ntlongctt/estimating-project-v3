@@ -68,12 +68,6 @@ public class FuntionPointController {
 		} else {
 			// Add fp + Update FP_Estiamted in project
 			logger.info("Add FP!");
-			/*if (!projectService.updateExistFpEstimating(fpPointBean
-					.getProjectID())
-					|| fpService.addFuntionPoint(fpPointBean.getProjectID())) {
-				model.addAttribute("errorSave", "Save fail!");
-				logger.info("");
-			}*/
 			projectService.updateExistFpEstimating(fpPointBean.getProjectID());
 			fpService.addFuntionPoint(fpPointBean);
 		}

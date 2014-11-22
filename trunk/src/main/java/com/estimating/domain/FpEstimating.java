@@ -28,8 +28,6 @@ public class FpEstimating implements Serializable {
 
 	private String external_Interface;
 
-	private String FP_Estimatingcol;
-
 	private String logical_File;
 
 	@Temporal(TemporalType.DATE)
@@ -69,14 +67,6 @@ public class FpEstimating implements Serializable {
 
 	public void setExternal_Interface(String external_Interface) {
 		this.external_Interface = external_Interface;
-	}
-
-	public String getFP_Estimatingcol() {
-		return this.FP_Estimatingcol;
-	}
-
-	public void setFP_Estimatingcol(String FP_Estimatingcol) {
-		this.FP_Estimatingcol = FP_Estimatingcol;
 	}
 
 	public String getLogical_File() {

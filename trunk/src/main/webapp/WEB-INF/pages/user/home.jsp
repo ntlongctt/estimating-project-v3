@@ -63,29 +63,13 @@
 						<!-- small box -->
 						<div class="small-box bg-aqua">
 							<div class="inner">
-								<h4>15</h4>
+								<h4>${countProject}</h4>
 								<p>
 									<b>Projects</b>
 								</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-bag"></i>
-							</div>
-							<a href="#" class="small-box-footer"> More info <i
-								class="fa fa-arrow-circle-right"></i>
-							</a>
-						</div>
-					</div>
-					<!-- ./col -->
-					<div class="col-lg-3 col-xs-6">
-						<!-- small box -->
-						<div class="small-box bg-green">
-							<div class="inner">
-								<h4>53</h4>
-								<p>Version</p>
-							</div>
-							<div class="icon">
-								<i class="ion ion-stats-bars"></i>
 							</div>
 							<a href="#" class="small-box-footer"> More info <i
 								class="fa fa-arrow-circle-right"></i>
@@ -125,6 +109,23 @@
 						</div>
 					</div>
 					<!-- ./col -->
+					<div class="col-lg-3 col-xs-6">
+						<div class="clearfix">
+                                                    <span class="pull-left">Function Point</span>
+                                                   
+                                                    <small class="pull-right">${countFp}/${totalVersion}(FunctionPoint/Project)</small>
+                                                </div>
+                                                 <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-green" style="width: ${percentFp}%;"></div>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <span class="pull-left">UseCase Point</span>
+                                                    <small class="pull-right">${countUc}/${totalVersion}(UseCasePoint/Project)</small>
+                                                </div>
+                                                 <div class="progress xs">
+                                                <div class="progress-bar progress-bar-light-blue" style="width: ${percentUc}%;"></div>
+                                                </div>
+					</div>
 				</div>
 
 				<section class="col-lg-6 connectedSortable ui-sortable">

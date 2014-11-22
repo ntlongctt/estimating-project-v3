@@ -141,3 +141,15 @@ public class FuntionPointUtils {
 		return fpBean.getTotalFP()*20*fpBean.getHour();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

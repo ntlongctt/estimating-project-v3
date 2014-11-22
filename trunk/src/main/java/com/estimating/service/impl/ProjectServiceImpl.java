@@ -53,6 +53,22 @@ public class ProjectServiceImpl implements IProjectService {
 	}
 
 	@Override
+	public List<Project> getListProjectUCEstimated() {
+		return projectDao.getListProjectUCEstimated();
+	}
+
+	@Override
+	public boolean checkExistUcEstimating(int projectID) {
+		return projectDao.checkExistUcEstimating(projectID);
+	}
+
+	@Override
+	public boolean uodateExistUcEstimating(int projectID) {
+		return projectDao.updateExistUcEstimating(projectID);
+	}
+	
+
+	@Override
 	public List<Project> getListProjectByUserName(String username) {
 		return projectDao.getListProjectByUserName(username);
 	}

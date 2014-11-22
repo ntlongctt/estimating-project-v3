@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.estimating.beans.ProjectBean;
 import com.estimating.domain.Project;
 import com.estimating.domain.User;
+import com.estimating.service.IFuntionpointService;
 import com.estimating.service.IProjectService;
 import com.estimating.service.IRouterService;
+import com.estimating.service.IUseCasePointService;
 import com.estimating.service.IUserService;
 
 @Controller
@@ -38,6 +40,13 @@ public class RouterController {
 
 	@Autowired
 	IProjectService projectService;
+
+	@Autowired
+	IFuntionpointService fpService;
+	
+	@Autowired
+	IUseCasePointService ucpService;
+	
 
 	private Logger logger = Logger.getLogger(RouterController.class);
 
@@ -181,7 +190,16 @@ public class RouterController {
 			url = "admin/Blank";
 		} else {
 			model.addAttribute("roleuser", "user");
+			model.addAttribute("countProject",projectService.getListProject().size());
+			model.addAttribute("countFp",fpService.getAllListFp().size());
+			model.addAttribute("countUc",ucpService.getAllListUc().size());
+			model.addAttribute("totalVersion",fpService.getAllListFp().size()+ucpService.getAllListUc().size());
+
+			double percentFp = fpService.getAllListFp().size()/(fpService.getAllListFp().size()+ucpService.getAllListUc().size())*100;
+			model.addAttribute("percentFp",percentFp);
+			model.addAttribute("percentUc",100-percentFp);
 			url = "user/home";
+			
 		}
 
 		return url;
