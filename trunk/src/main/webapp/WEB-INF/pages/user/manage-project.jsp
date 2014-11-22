@@ -79,7 +79,7 @@ $(document).ready(function(){
                                 <ul class="nav nav-tabs pull-right">
                                     <li class="active"><a href="#tab_1-1" data-toggle="tab">Usecase Point</a></li>
                                     <li><a href="#tab_2-2" data-toggle="tab">Funtion Point</a></li>
-                                    <li class="pull-left header"><i class="fa fa-th"></i> ${projectName }</li>
+                                    <li class="pull-left header" id="projectName"><i class="fa fa-th"></i> </li>
                                 </ul>
                                 <div class="tab-content">
                                     <!-- Usecase Point -->
@@ -91,8 +91,13 @@ $(document).ready(function(){
 							<a id="ucp-detail" data-toggle="collapse" data-parent="#accordion"	href="#collapseOne1" class="collapsed text-light-blue">Use Case Point Detail</a>
 							<hr>
 							<p style="font-size: 15px!important;">Select version of project</p>
-	                        <select class="form-control" id="lstFuntionPoint" style="width: 300px">
-	                        </select>
+	                        <select class="form-control">
+	                                                <option>Version 1</option>
+	                                                <option>Version 2</option>
+	                                                <option>Version 3</option>
+	                                                <option>Version 4</option>
+	                                                <option>Version 5</option>
+                                            </select>
 	                        <input type="button" class="btn btn-success btn-flat" value="Detail" style="margin-top: 10px">
 	                        <input type="button" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
 	                        <input type="button" class="btn btn-warning btn-flat" value="Create new version" style="margin-top: 10px">
@@ -291,13 +296,8 @@ $(document).ready(function(){
 								<!-- select version-->
                                         <div class="form-group">
                                         	<label>Select version of project</label>
-                                            <select class="form-control">
-                                                <option>Version 1</option>
-                                                <option>Version 2</option>
-                                                <option>Version 3</option>
-                                                <option>Version 4</option>
-                                                <option>Version 5</option>
-                                            </select>
+                                                <select class="form-control" id="lstFuntionPoint" style="width: 300px">
+	                       						 </select>
                                         </div>
 
 							<!-- User Input -->

@@ -7,17 +7,18 @@ import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
 
 public interface IProjectService {
-	public List<Project> getListProject();
+	public List<Project> getListProject(String username);
 	public boolean addProject(Project project);
 	public List<Project> getListProjectFPEstiamted(String username);
 	public List<Project> getListProjectUCEstimated();
 	public List<ProjectType> getListProjectType();
-	public ProjectType findProjectById(int id);
+	public Project findProjectById(int id);
 	public boolean checkExistFpEstimating(int projectID);
 	public boolean checkExistUcEstimating(int projectID);
 	public boolean uodateExistUcEstimating(int projectID);
 	public boolean updateExistFpEstimating(int projectID);
 	public List<Project> getListProjectByUserName(String username);
 	public Map<String, Object>  getListFpVsUcp(int projectID);
+	public ProjectType findProjectTypeById(int typeID);
 	//public Project findProjectById(Project project);
 }
