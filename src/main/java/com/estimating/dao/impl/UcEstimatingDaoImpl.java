@@ -2,6 +2,7 @@ package com.estimating.dao.impl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -79,7 +80,8 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	
 	@Override
 	public List<UcpEstiamting> getListUcpEstimated(String projectID) {
-		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject";
+		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject ";
+		
 	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
 	    query.setParameter("maProject", projectID);
 		return query.getResultList();

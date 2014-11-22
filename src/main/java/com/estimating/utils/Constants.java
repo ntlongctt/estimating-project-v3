@@ -76,9 +76,8 @@ public final class Constants {
 	public static final String FUNCTION_POINT_TOTAL = "total";
 
 	// Map uc_estimating table
-	public static final String USECASE_POINT_WAS = "Actor";
-	public static final String USECASE_POINT_WUC = "UseCase";
-	public static final String USECASE_POINT_TECHNICAL_FACTOR = "Technical_Factor";
-	public static final String USECASE_POINT_ENVIRIMENT_FACTOR = "Enviriment_Factor";
-
+	public static final String USECASE_POINT_WAS = "actor";
+	public static final String USECASE_POINT_WUC = "useCase";
+	public static final String USECASE_POINT_TECHNICAL_FACTOR = "technical_Factor";
+	public static final String USECASE_POINT_ENVIRIMENT_FACTOR= "enviriment_Factor";
 }
