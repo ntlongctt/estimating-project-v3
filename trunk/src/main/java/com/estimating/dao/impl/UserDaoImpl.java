@@ -32,6 +32,7 @@ public class UserDaoImpl implements IUserDao {
 		System.out.println("User name is: " + username);
 		TypedQuery<User> query = em.createQuery(strQuery, User.class);
 		query.setParameter("userName", username);
+		System.out.println("User name is: " + username);
 		User user = query.getSingleResult();
 		return user;
 	}

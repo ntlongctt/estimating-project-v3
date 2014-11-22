@@ -9,9 +9,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.estimating.beans.FuntionPointBean;
+import com.estimating.controller.UseCasePointController;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
@@ -87,13 +89,14 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 		}
 		return result;
 	}
-
+	private static final Logger logger = Logger
+			.getLogger(UseCasePointController.class);
 	@Override
 	public List<FpEstimating> getListFpEstimated(int projectID) {
-		String strQuery = "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject";
-		TypedQuery<FpEstimating> query = em.createQuery(strQuery,
-				FpEstimating.class);
-		query.setParameter("maProject", projectID);
+		String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject";
+		logger.info("strQuery");
+	    TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
+	    query.setParameter("maProject", projectID);
 		return query.getResultList();
 	}
 
