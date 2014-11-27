@@ -1,6 +1,7 @@
 $(document).ready(
 function() {
 editTableUCP();
+editTableFP();
 selectUCP();
 
 $("#projectTable > tbody").html("");
@@ -82,6 +83,93 @@ function editTableUCP() {
 		if (value == "Hide") {
 			$("#panelPayment").slideUp("slow");
 			document.getElementById("editPayment").innerHTML = "Edit";
+		}
+	});
+}
+
+//Event collapse for FP
+function editTableFP() {
+	$("#editUserInput").click(function() {
+		var value = document.getElementById("editUserInput").innerHTML;
+		if (value == "Edit") {
+			$("#panelUserInput").slideDown("slow");
+			document.getElementById("editUserInput").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelUserInput").slideUp("slow");
+			document.getElementById("editUserInput").innerHTML = "Edit";
+		}
+	});
+
+	$("#editUserOuput").click(function() {
+		var value = document.getElementById("editUserOuput").innerHTML;
+		if (value == "Edit") {
+			$("#panelUserOutput").slideDown("slow");
+			document.getElementById("editUserOuput").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelUserOutput").slideUp("slow");
+			document.getElementById("editUserOuput").innerHTML = "Edit";
+		}
+	});
+
+	$("#editUserOnlineQuery").click(function() {
+		var value = document.getElementById("editUserOnlineQuery").innerHTML;
+		if (value == "Edit") {
+			$("#panelUserOnlineQuery").slideDown("slow");
+			document.getElementById("editUserOnlineQuery").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelUserOnlineQuery").slideUp("slow");
+			document.getElementById("editUserOnlineQuery").innerHTML = "Edit";
+		}
+	});
+
+	$("#editInternalLogicalFile").click(function() {
+		var value = document.getElementById("editInternalLogicalFile").innerHTML;
+		if (value == "Edit") {
+			$("#panelInternalLogicalFile").slideDown("slow");
+			document.getElementById("editInternalLogicalFile").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelInternalLogicalFile").slideUp("slow");
+			document.getElementById("editInternalLogicalFile").innerHTML = "Edit";
+		}
+	});
+	
+	$("#editExternalInterfaceFile").click(function() {
+		var value = document.getElementById("editExternalInterfaceFile").innerHTML;
+		if (value == "Edit") {
+			$("#panelExternalInterfaceFile").slideDown("slow");
+			document.getElementById("editExternalInterfaceFile").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelExternalInterfaceFile").slideUp("slow");
+			document.getElementById("editExternalInterfaceFile").innerHTML = "Edit";
+		}
+	});
+	
+	$("#editRCAF").click(function() {
+		var value = document.getElementById("editRCAF").innerHTML;
+		if (value == "Edit") {
+			$("#panelRCAF").slideDown("slow");
+			document.getElementById("editRCAF").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelRCAF").slideUp("slow");
+			document.getElementById("editRCAF").innerHTML = "Edit";
+		}
+	});
+
+	$("#editPaymentFP").click(function() {
+		var value = document.getElementById("editPaymentFP").innerHTML;
+		if (value == "Edit") {
+			$("#panelPaymentFP").slideDown("slow");
+			document.getElementById("editPaymentFP").innerHTML = "Hide";
+		}
+		if (value == "Hide") {
+			$("#panelPaymentFP").slideUp("slow");
+			document.getElementById("editPaymentFP").innerHTML = "Edit";
 		}
 	});
 }
