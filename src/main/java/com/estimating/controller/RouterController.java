@@ -226,5 +226,12 @@ public class RouterController {
 		maps.put("projectName", projectService.findProjectById(projectID).getTenProject());
 		return maps;
 	}
+	
+	// Register
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String goRegister() {
+		logger.info("Register");
+		return "register";
+	}
 
 }
