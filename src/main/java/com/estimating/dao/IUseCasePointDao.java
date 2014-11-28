@@ -10,4 +10,5 @@ public interface IUseCasePointDao {
 	public boolean addUseCasePoint(UseCasePointBean ucBean);
 	public boolean updateUseCasePoint(UseCasePointBean ucBean);
 	public List<UcpEstiamting> getAllListUc();
+	public List<UcpEstiamting> findListUcpByUsername(String username);
 }

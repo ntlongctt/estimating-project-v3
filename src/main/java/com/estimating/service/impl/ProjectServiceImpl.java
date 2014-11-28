@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
+import com.estimating.beans.ProjectBean;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
 import com.estimating.domain.FpEstimating;
@@ -163,6 +165,23 @@ public class ProjectServiceImpl implements IProjectService {
 	@Override
 	public ProjectType findProjectTypeById(int typeID) {
 		return projectDao.findProjectTypeById(typeID);
+	}
+
+	@Override
+	public List<ProjectBean> findListProjectBySearchUcpVip(Set<Integer> listId) {
+		List<Project> projects =  new ArrayList<Project>();
+		projects = projectDao.findListProjectBySearchUcpVip(listId);
+		List<ProjectBean> result = new ArrayList<ProjectBean>();
+		ProjectBean bean;
+		for (Project project : projects) {
+			bean = new ProjectBean();
+			bean.setName(project.getTenProject());
+			bean.setType(project.getProjectType().getTenLoaiProject());
+			bean.setDescription(project.getMoTa());
+			bean.setProjectID(project.getMaProject());
+			result.add(bean);
+		}
+		return result;
 	}
 
 }

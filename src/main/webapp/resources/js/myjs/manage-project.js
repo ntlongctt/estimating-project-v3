@@ -200,3 +200,55 @@ function selectUCP() {
 	    alert("Value: " + valueSelected +" Text: " +textSelected);
 	});
 }
+
+// Search vip
+function searchVip() {
+	var vip_ucp_from, vip_ucp_to, vip_ucp_total_hour_from, vip_ucp_total_hour_to, vip_ucp_coat_from, 
+	vip_ucp_coat_to, vip_ucpw_from, vip_ucpw_to, vip_fpw_from, vip_fpw_to;
+	var vip_tcf_from, vip_tcf_to, vip_ecf_from, vip_ecf_to;
+	vip_ucp_from = $('#vip_ucp_from').val();
+	vip_ucp_to = $('#vip_ucp_to').val();
+	vip_ucp_total_hour_from = $('#vip_ucp_total_hour_from').val();
+	vip_ucp_total_hour_to = $('#vip_ucp_total_hour_to').val();
+	vip_ucp_coat_from = $('#vip_ucp_coat_from').val();
+	vip_ucp_coat_to = $('#vip_ucp_coat_to').val();
+	vip_ucpw_from = $('#vip_ucpw_from').val();
+	vip_ucpw_to = $('#vip_ucpw_to').val();
+	vip_fpw_from = $('#vip_fpw_from').val();
+	vip_fpw_to = $('#vip_fpw_to').val();
+	vip_tcf_from = $('#vip_tcf_from').val();
+	vip_tcf_to = $('#vip_tcf_to').val();
+	vip_ecf_from = $('#vip_ecf_from').val();
+	vip_ecf_to = $('#vip_ecf_to').val();
+	
+	var json ={"vip_ucp_from" :vip_ucp_from, "vip_ucp_to" :vip_ucp_to, "vip_ucp_total_hour_from" :vip_ucp_total_hour_from, "vip_ucp_total_hour_to" :vip_ucp_total_hour_to,"vip_ucp_coat_from" :vip_ucp_coat_from, "vip_ucp_coat_to" :vip_ucp_coat_to , "vip_ucpw_from" :vip_ucpw_from, "vip_ucpw_to" :vip_ucpw_to,"vip_fpw_from" :vip_fpw_from,"vip_fpw_to" :vip_fpw_to,"vip_tcf_from" :vip_tcf_from, "vip_tcf_to" :vip_tcf_to, "vip_ecf_from" :vip_ecf_from,"vip_ecf_to" :vip_ecf_to};
+	$("#projectTable > tbody").html("");
+	$.ajax({
+	    url: "search-usecasepoint-vip.json",
+	    type: 'POST',
+	    dataType: 'json',
+	    data: JSON.stringify(json),
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function(data) {
+	    	var length = data.length;
+	    	if(length > 0) {
+	    		for (var i = 0; i < length; i++) {
+	    			var content = "<tr>";
+	    			content += "<td>" + data[i].name + "</td>";
+	    			content += "<td>" + data[i].type + "</td>";
+	    			content += "<td>" + data[i].description	+ "</td>";
+	    			content += "<td>"
+	    					+ "<a type='button' onclick='viewVersion(" + data[i].projectID + ")' style='color:green; font-weight: bold;' >Detail</a>"
+	    					+ "</td>";
+	    			content += "</tr>";
+	    			$("#projectTable > tbody").append(content);
+	    		}
+	    		$("#projectTable").dataTable();
+	    	}
+	   	},
+	    error: function() {    	
+	    }
+	}); 	
+	
+}

@@ -91,5 +91,13 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	    query.setParameter("maProject", projectID);
 		return query.getResultList();
 	}
+
+	@Override
+	public List<UcpEstiamting> findListUcpByUsername(String username) {
+		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.user.username = :username ";
+	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
+	    query.setParameter("username", username);
+		return query.getResultList();
+	}
 	
 }

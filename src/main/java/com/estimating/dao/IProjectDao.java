@@ -1,6 +1,7 @@
 package com.estimating.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
@@ -18,4 +19,5 @@ public interface IProjectDao {
 	public boolean updateExistFpEstimating(int projectID);
 	public List<Project> getListProjectByUserName(String username);
 	public ProjectType findProjectTypeById(int typeID);
+	public List<Project> findListProjectBySearchUcpVip(Set<Integer> listId);
 }

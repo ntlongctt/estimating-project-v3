@@ -1,11 +1,15 @@
 package com.estimating.utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
 import com.estimating.beans.UseCasePointBean;
+import com.estimating.domain.UcpEstiamting;
+import com.mysql.fabric.xmlrpc.base.Array;
 
 public class UseCasePointUtils {
 
@@ -30,7 +34,6 @@ public class UseCasePointUtils {
 	
 	@SuppressWarnings("unused")
 	public static double calculator_TCF(UseCasePointBean useCasePointBean) {
-		System.out.print("Input Technical factor: ");
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		double distributed_system, reusable_code, easy_to_change, training_needs, performance_objectives, easy_to_installation, concurrent_use, end_uses_efficiency, easy_to_use, special_security, complex_processing, portable, access_for_3_parties;
@@ -120,12 +123,17 @@ public class UseCasePointUtils {
 	public HashMap<String, String> mapValueUseCasePoint(UseCasePointBean ucBean){
 		HashMap< String, String> maps = new HashMap<String, String>();
 		
+		// Actor
 		String srtWASPoint = String.valueOf(ucBean.getSimple()) + ";"
 				+ String.valueOf(ucBean.getAverage()) + ";"
 				+ String.valueOf(ucBean.getComplex());
+		
+		// Use case
 		String srtWUCPoint = String.valueOf(ucBean.getEasy()) + ";"
 				+ String.valueOf(ucBean.getMedium()) + ";"
 				+ String.valueOf(ucBean.getDifficult());
+		
+		// Technical
 		String srtTFCPoint = String.valueOf(ucBean.getDistributed()) + ";"
 				+ String.valueOf(ucBean.getPerformance()) + ";"
 				+ String.valueOf(ucBean.getEndUserefficiency()) + ";"
@@ -140,6 +148,7 @@ public class UseCasePointUtils {
 				+ String.valueOf(ucBean.getAccessforThirdParties()) + ";"
 				+ String.valueOf(ucBean.getTrainingNeeds());
 		
+		// Environment
 		String srtEFCPoint =  String.valueOf(ucBean.getFamiliarwithDevelopmentProcess()) + ";"
 				+ String.valueOf(ucBean.getApplicationExperience()) + ";"
 				+ String.valueOf(ucBean.getObjectOrientedExperience()) + ";"
@@ -163,16 +172,77 @@ public class UseCasePointUtils {
 	}
 	
 	
+	/**
+	 * @return List UseCasePointBean from UcpEstiamting
+	 */
+	public List<UseCasePointBean> parseUcpDaoToBean(List<UcpEstiamting> listUcpEstiamting) {
+		List<UseCasePointBean> listUseCasePointBean = new  ArrayList<UseCasePointBean>();
+		UseCasePointBean ucpBean;
+		List<Double> listDouble = new ArrayList<Double>();
+		for (UcpEstiamting ucpDao : listUcpEstiamting) {
+			/** Get Use Case Point Weight */
+			String usecase = ucpDao.getUseCase();
+			listDouble = ParseStringToArrayUtils.parseToArray(usecase);
+			ucpBean = new UseCasePointBean();
+			ucpBean.setEasy(listDouble.get(0));
+			ucpBean.setMedium(listDouble.get(1));
+			ucpBean.setDifficult(listDouble.get(2));
+			
+			/** Get Function Point Weight */
+			listDouble.clear();
+			String function = ucpDao.getActor();
+			listDouble = ParseStringToArrayUtils.parseToArray(function);
+			ucpBean.setSimple(listDouble.get(0));
+			ucpBean.setAverage(listDouble.get(1));
+			ucpBean.setComplex(listDouble.get(2));
+			
+			/** Get Technical Complexity Factor  */
+			listDouble.clear();
+			String technical = ucpDao.getTechnical_Factor();
+			listDouble = ParseStringToArrayUtils.parseToArray(technical);
+			ucpBean.setDistributed(listDouble.get(0));
+			ucpBean.setPerformance(listDouble.get(1));
+			ucpBean.setEndUserefficiency(listDouble.get(2));
+			ucpBean.setComplex(listDouble.get(3));
+			ucpBean.setReusableCode(listDouble.get(4));
+			ucpBean.setEaseofInstallation(listDouble.get(5));
+			ucpBean.setEaseofUse(listDouble.get(6));
+			ucpBean.setPortable(listDouble.get(7));
+			ucpBean.setEaseofChange(listDouble.get(8));
+			ucpBean.setConcurrentUse(listDouble.get(9));
+			ucpBean.setSpecialSecurity(listDouble.get(10));
+			ucpBean.setAccessforThirdParties(listDouble.get(11));
+			ucpBean.setTrainingNeeds(listDouble.get(12));
+			
+			/** Get Inviromental factors*/
+			listDouble.clear();
+			String enviriment = ucpDao.getEnviriment_Factor();
+			listDouble = ParseStringToArrayUtils.parseToArray(enviriment);
+			ucpBean.setFamiliarwithDevelopmentProcess(listDouble.get(0));
+			ucpBean.setApplicationExperience(listDouble.get(1));
+			ucpBean.setObjectOrientedExperience(listDouble.get(2));
+			ucpBean.setLeadAnalystCapability(listDouble.get(3));
+			ucpBean.setMotivation(listDouble.get(4));
+			ucpBean.setStableRequirements(listDouble.get(5));
+			ucpBean.setParttimeStaff(listDouble.get(6));
+			ucpBean.setDifficulProgrammingLanguage(listDouble.get(7));
+			
+			/** Set project ID */
+			ucpBean.setProjectID(ucpDao.getProject().getMaProject());
+			
+			listUseCasePointBean.add(ucpBean);
+		}
+		return listUseCasePointBean;
+	}
 	
+	// Calculate hour
+	public static double calHour(UseCasePointBean ucBean) {
+		return ucBean.getTotalUCP() * 25;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// Calculate cost
+	public static double calCost(UseCasePointBean ucBean) {
+		return ucBean.getHour() * 80000;
+	}
 	
 }
