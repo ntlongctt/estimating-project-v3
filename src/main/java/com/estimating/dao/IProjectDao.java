@@ -10,7 +10,7 @@ public interface IProjectDao {
 	public boolean addProject(Project project);
 	public List<ProjectType> getListProjectType();
 	public List<Project> getListProjectFPEstiamted(String username);
-	public List<Project> getListProjectUCEstimated();
+	public List<Project> getListProjectUCEstimated(String username);
 	public Project findProjectById(int id);
 	public boolean checkExistFpEstimating(int projectID);
 	public boolean checkExistUcEstimating(int projectID);

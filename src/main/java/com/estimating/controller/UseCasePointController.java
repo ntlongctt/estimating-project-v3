@@ -4,11 +4,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.service.IProjectService;
@@ -16,6 +17,7 @@ import com.estimating.service.IUseCasePointService;
 import com.estimating.service.IUserService;
 
 @Controller
+@SessionAttributes({ "user", "roleuser", "userFullname" })
 public class UseCasePointController {
 
 	@Autowired
@@ -31,9 +33,9 @@ public class UseCasePointController {
 			.getLogger(UseCasePointController.class);
 
 	@RequestMapping(value = "/usecasepoint", method = RequestMethod.GET)
-	public String goUserCasePoint(Model model) {
+	public String goUserCasePoint(@ModelAttribute("user") String username, Model model) {
 		UseCasePointBean uBean = new UseCasePointBean();
-		model.addAttribute("listProject", projectService.getListProjectUCEstimated());
+		model.addAttribute("listProject", projectService.getListProjectUCEstimated(username));
 		model.addAttribute("listProjectType",
 				projectService.getListProjectType());
 		model.addAttribute("diem", ucpService.calTotalUseCasePoint(uBean));
@@ -62,7 +64,6 @@ public class UseCasePointController {
 			@RequestBody UseCasePointBean ucPointBean, Model model) {
 		
 		if (!projectService.checkExistUcEstimating(ucPointBean.getProjectID())) {
-	
 			ucPointBean.setVersion(0);
 			ucpService.updateUseCasePoint(ucPointBean);
 		} else {

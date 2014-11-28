@@ -62,8 +62,8 @@ public class ProjectServiceImpl implements IProjectService {
 	}
 
 	@Override
-	public List<Project> getListProjectUCEstimated() {
-		return projectDao.getListProjectUCEstimated();
+	public List<Project> getListProjectUCEstimated(String username) {
+		return projectDao.getListProjectUCEstimated(username);
 	}
 
 	@Override

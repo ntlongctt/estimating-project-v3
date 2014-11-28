@@ -14,7 +14,6 @@ import com.estimating.utils.UseCasePointUtils;
 @Service
 public class UseCasePointServiceImpl implements IUseCasePointService {
 
-	@SuppressWarnings("static-access")
 	UseCasePointUtils ucPointUltils = new UseCasePointUtils();
 	@Autowired
 	IUseCasePointDao ucDao;

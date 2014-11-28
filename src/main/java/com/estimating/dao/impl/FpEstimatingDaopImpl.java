@@ -25,7 +25,7 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	@PersistenceContext
 	EntityManager em;
 	FuntionPointUtils fpPointUtils = new FuntionPointUtils();
-
+	private static final Logger logger = Logger.getLogger(UseCasePointController.class);
 	/**
 	 * Add new function point when create new project
 	 */
@@ -68,29 +68,23 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 		boolean result = false;
 		try {
 			String strQuery = "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject AND p.version = 1";
-			TypedQuery<FpEstimating> query = em.createQuery(strQuery,
-					FpEstimating.class);
+			TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
 			query.setParameter("maProject", fpBean.getProjectID());
 			FpEstimating fp = query.getSingleResult();
-			HashMap<String, String> maps = fpPointUtils
-					.mapValueFunctionPoint(fpBean);
+			HashMap<String, String> maps = fpPointUtils.mapValueFunctionPoint(fpBean);
 			fp.setNgay(new Date());
 			fp.setUser_Input(maps.get(Constants.FUNCTION_POINT_USER_INPUT));
 			fp.setUser_Output(maps.get(Constants.FUNCTION_POINT_USER_OUTPUT));
-			fp.setUser_Online_Query(maps
-					.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
+			fp.setUser_Online_Query(maps.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
 			fp.setLogical_File(maps.get(Constants.FUNCTION_POINT_LOGICAL_FILE));
-			fp.setRelative_Factor(maps
-					.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
-			fp.setExternal_Interface(maps
-					.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
+			fp.setRelative_Factor(maps.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
+			fp.setExternal_Interface(maps.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
 		} catch (Exception ex) {
 			result = false;
 		}
 		return result;
 	}
-	private static final Logger logger = Logger
-			.getLogger(UseCasePointController.class);
+	
 	@Override
 	public List<FpEstimating> getListFpEstimated(int projectID) {
 		String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject";
@@ -102,8 +96,7 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 
 	@Override
 	public List<FpEstimating> getAllListFp() {
-		TypedQuery<FpEstimating> query = em.createQuery(
-				"Select p From FpEstimating p", FpEstimating.class);
+		TypedQuery<FpEstimating> query = em.createQuery("Select p From FpEstimating p", FpEstimating.class);
 		return query.getResultList();
 	}
 

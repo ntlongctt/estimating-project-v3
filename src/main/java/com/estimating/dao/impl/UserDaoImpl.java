@@ -28,7 +28,7 @@ public class UserDaoImpl implements IUserDao {
 	@Override
 	@Transactional
 	public User getUserByUsername(String username) {
-		String strQuery = "SELECT p From User p WHERE p.tenUser = :userName";
+		String strQuery = "SELECT p From User p WHERE p.username = :userName";
 		System.out.println("User name is: " + username);
 		TypedQuery<User> query = em.createQuery(strQuery, User.class);
 		query.setParameter("userName", username);

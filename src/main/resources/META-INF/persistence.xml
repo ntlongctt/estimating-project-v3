@@ -4,13 +4,16 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="estimating">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.estimating.domain.Project</class>
-		<class>com.estimating.domain.ProjectType</class>
-		<class>com.estimating.domain.Role</class>
-		<class>com.estimating.domain.User</class>
 		<class>com.estimating.domain.FeedBack</class>
-		<class>com.estimating.domain.UcpEstiamting</class>
 		<class>com.estimating.domain.FpEstimating</class>
+		<class>com.estimating.domain.ProjectType</class>
+		<class>com.estimating.domain.Project</class>
+		<class>com.estimating.domain.RealCost</class>
+		<class>com.estimating.domain.Role</class>
+		<class>com.estimating.domain.ShareProject</class>
+		<class>com.estimating.domain.UcpEstiamting</class>
+		<class>com.estimating.domain.UserType</class>
+		<class>com.estimating.domain.User</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" /> <!-- language to tell with database -->
 			<property name="hibernate.show_sql" value="true" />   <!-- show sql on stdout -->

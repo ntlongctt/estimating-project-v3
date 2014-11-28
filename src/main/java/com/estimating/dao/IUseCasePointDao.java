@@ -2,8 +2,6 @@ package com.estimating.dao;
 
 import java.util.List;
 
-import com.estimating.domain.UcpEstiamting;
-
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.domain.UcpEstiamting;
 

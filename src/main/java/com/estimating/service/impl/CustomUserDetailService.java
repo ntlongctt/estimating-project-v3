@@ -28,13 +28,13 @@ public class CustomUserDetailService implements UserDetailsService {
 		// TODO Auto-generated method stub
 		try {
 			User usr = userDAO.getUserByUsername(userName);
-			System.out.println("Username: " + usr.getTenUser() + "\nPassword: " + usr.getPass());
+			System.out.println("Username: " + usr.getUsername() + "\nPassword: " + usr.getPassword());
 				boolean enabled = true;
 				boolean accountNonExpired = true;
 				boolean credentialsNonExpired = true;
 				boolean accountNonLocked = true;
-				return new org.springframework.security.core.userdetails.User(usr.getTenUser(),
-						usr.getPass(), enabled, accountNonExpired,
+				return new org.springframework.security.core.userdetails.User(usr.getUsername(),
+						usr.getPassword(), enabled, accountNonExpired,
 						credentialsNonExpired, accountNonLocked,
 						getAuthorities(usr.getRole().getMaRole()));
 						
