@@ -5,9 +5,10 @@ jQuery(document).ready(function() {
         Background slideshow
     */
     $.backstretch([
-      "../resources/login/img/backgrounds/1.jpg"
-    , "../resources/login/img/backgrounds/2.jpg"
-    , "../resources/login/img/backgrounds/3.jpg"
+      "resources/login/img/backgrounds/banner-bg.jpg"
+    , "resources/login/img/backgrounds/intro-bg.jpg"
+    , "resources/login/img/backgrounds/ipad.jpg"
+    , "resources/login/img/backgrounds/phones.jpg"
     ], {duration: 3000, fade: 750});
 
     /*

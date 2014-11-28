@@ -20,8 +20,6 @@ import com.estimating.utils.UseCasePointUtils;
 
 @Repository
 public class UcEstimatingDaoImpl implements IUseCasePointDao {
-	private static final Logger logger = Logger.getLogger(UcEstimatingDaoImpl.class);
-	
 	@PersistenceContext
 	EntityManager em;
 	UseCasePointUtils ucPointUtils = new UseCasePointUtils();
@@ -29,6 +27,7 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	/**
 	 * Add new Use case point when create new project
 	 */
+	@Override
 	@Transactional
 	public boolean addUseCasePoint(UseCasePointBean ucBean) {
 		boolean result = true;
