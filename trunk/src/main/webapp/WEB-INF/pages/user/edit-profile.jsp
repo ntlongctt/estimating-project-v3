@@ -59,30 +59,17 @@
 							<div class="col-md-6">
 								<h4>
 									<dl class="dl-horizontal">
-										<dt>First name:</dt>
+										<dt>Full name:</dt>
 										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
+											<input type="text" class="form-control" id="fullname">
 										</dd>
 										<dt>User name:</dt>
 										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
+											<input type="text" class="form-control" id="username">
 										</dd>
 										<dt>Phone:</dt>
 										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Birth date:</dt>
-										<dd>
-											<div class="input-group">
-												<div class="input-group-addon">
-													<i class="fa fa-calendar"></i>
-												</div>
-												<input type="text" class="form-control"	data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
-											</div>
-										</dd>
-										<dt>Company:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
+											<input type="text" class="form-control" id="phone">
 										</dd>
 									</dl>
 								</h4>
@@ -90,25 +77,20 @@
 							<div class="col-md-6">
 								<h4>
 									<dl class="dl-horizontal">
-										<dt>Last name:</dt>
+										<dt>Email:</dt>
 										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
+											<input type="text" class="form-control" id="mail">
+										</dd>
+										<dd>
+											<input type="text" class="form-control" id="mail">
 										</dd>
 										<dt>Password:</dt>
 										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										</dd>
-										<dt>Mail:</dt>
-										<dd>
-											<input type="text" class="form-control" placeholder="Nguyễn">
-										<dt>Gender:</dt>
-										<dd>
-											<span class="badge">Male</span>
+											<input type="text" class="form-control" id="pass">
 										</dd>
 										<dt>Address:</dt>
 										<dd>
-											<span class="badge">22, Huu Nghi, Binh Tho, Thu Duc,
-												Tp.HCM</span>
+											<input type="text" class="form-control" id="address">
 										</dd>
 									</dl>
 								</h4>

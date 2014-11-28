@@ -7,16 +7,23 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
+import com.estimating.beans.UserBean;
 import com.estimating.dao.IUserDao;
+import com.estimating.domain.Role;
 import com.estimating.domain.User;
+import com.estimating.domain.UserType;
+import com.estimating.utils.PasswordUtils;
 
 @Repository
 public class UserDaoImpl implements IUserDao {
-
+	private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
+	
 	@PersistenceContext
 	private EntityManager em;
+	PasswordUtils passUtils = new PasswordUtils();
 
 	@Override
 	public List<User> getListUser() {
@@ -43,5 +50,49 @@ public class UserDaoImpl implements IUserDao {
 		TypedQuery<User> query = em.createQuery(queryString, User.class);
 		query.setParameter("roleId", roleId);
 		return query.getResultList();
+	}
+
+	@Override
+	@Transactional
+	public boolean addUser(UserBean userbean) {
+		boolean result = true;
+		try {
+			User user = new User();
+			UserType usertype = new UserType();
+			usertype.setMaUserType(1);
+			user.setUsername(userbean.getUsername());
+			String pass = PasswordUtils.encodePassword(userbean.getPass());
+			user.setPassword(pass);
+			user.setHoTen(userbean.getFullname());
+			user.setMail(userbean.getMail());
+			user.setPhone(userbean.getPhone());
+			user.setDiaChi(userbean.getAddress());
+			user.setUserType(usertype);
+			Role role = new Role();
+			role.setMaRole(2);
+			user.setRole(role);
+			em.persist(user);
+		} catch (Exception ex) {
+			logger.warn(ex.toString());
+			result = false;
+		}
+		return result;
+	}
+
+	@Override
+	public boolean editUser(UserBean userbean) {
+		boolean result = true;
+		try {
+			User user = new User();
+			user.setUsername(userbean.getUsername());
+			user.setHoTen(userbean.getFullname());
+			user.setMail(userbean.getMail());
+			user.setPhone(userbean.getPhone());
+			user.setDiaChi(userbean.getAddress());
+		} catch (Exception ex) {
+			logger.warn(ex.toString());
+			result = false;
+		}
+		return result;
 	}
 }

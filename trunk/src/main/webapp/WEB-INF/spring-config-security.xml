@@ -20,7 +20,7 @@
 		<intercept-url pattern="/loginfail.html" access="permitAll" />
 		<intercept-url pattern="/resetpassword.html" access="permitAll" />
 		<intercept-url pattern="/requestresetpassword.html" access="permitAll" />
-		<intercept-url pattern="/register.html" access="permitAll" />
+		<intercept-url pattern="/register*.*" access="permitAll" />
 		
 		<!-- ROLE_ADMIN -->
 		<intercept-url pattern="/adminmanager.html" access="hasRole('ROLE_ADMIN')" />
