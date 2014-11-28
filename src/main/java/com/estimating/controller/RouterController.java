@@ -59,7 +59,7 @@ public class RouterController {
 
 	@RequestMapping(value = "/edit-profile", method = RequestMethod.GET)
 	public String goEditProfile(Model model) {
-		return "user/use-profile";
+		return "user/edit-profile";
 	}
 
 	@RequestMapping(value = "/upgrade_user", method = RequestMethod.GET)
@@ -107,11 +107,6 @@ public class RouterController {
 	@RequestMapping(value = "/ucp-detail", method = RequestMethod.GET)
 	public String goUCP_Detail(Model model) {
 		return "user/usecase-point-detail";
-	}
-
-	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)
-	public String goUserProfile(Model model) {
-		return "user/use-profile";
 	}
 
 	// end
