@@ -28,7 +28,6 @@
                             <ul class="treeview-menu">
                                 <li><a href="usecasepoint.html"><i class="fa fa-angle-double-right"></i>Use Case Point</a></li>
                                 <li><a href="functionpoint.html"><i class="fa fa-angle-double-right"></i>Function Point</a></li>
-                              <!--   <li><a href="#"><i class="fa fa-angle-double-right"></i>COCOMO</a></li> -->
                             </ul>
                         </li>
                         <li class="treeview">
@@ -40,13 +39,19 @@
                             <ul class="treeview-menu">
                                 <li><a href="ucp-document.html"><i class="fa fa-angle-double-right"></i> UseCase Point Method</a></li>
                                 <li><a href="function-point-document.html"><i class="fa fa-angle-double-right"></i> Function Point Method</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Legislation</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>Legislation</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="manage-project.html">
-                                <i class="fa fa-sitemap"></i> <span>My Project</span>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa  fa-folder-open"></i>
+                                <span>Project</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="manage-project.html"><i class="fa fa-angle-double-right"></i>My Project</a></li>
+                                <li><a href="share-project.html"><i class="fa fa-angle-double-right"></i>Share Project</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="contact-us.html">
@@ -56,6 +61,11 @@
                          <li>
                             <a href="user-profile.html">
                                 <i class="fa fa-user"></i> <span>My profiles</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="search-engine.html">
+                                <i class="fa fa-search"></i> <span>Search engine</span>
                             </a>
                         </li>
                         <li>

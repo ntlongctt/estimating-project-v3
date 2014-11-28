@@ -77,20 +77,20 @@ public class RouterController {
 		return "user/fp-step-decription";
 	}
 
-	/*
-	 * @RequestMapping(value = "/functionpoint", method = RequestMethod.GET)
-	 * public String goFunctionPoint(Model model) {; return
-	 * "user/function-point"; }
-	 */
 
 	@RequestMapping(value = "/manage-project", method = RequestMethod.GET)
 	public String goHistory(Model model) {
 		return "user/manage-project";
 	}
+	
+	@RequestMapping(value = "/share-project", method = RequestMethod.GET)
+	public String goShareProject(Model model) {
+		return "user/share-project";
+	}
 
-	@RequestMapping(value = "/project-detail", method = RequestMethod.GET)
-	public String goProjectDetail(Model model) {
-		return "user/project-detail";
+	@RequestMapping(value = "/search-engine", method = RequestMethod.GET)
+	public String goSearchEngine(Model model) {
+		return "user/search-engine";
 	}
 
 	@RequestMapping(value = "/ucp-document", method = RequestMethod.GET)
@@ -102,7 +102,7 @@ public class RouterController {
 	public String goUCP_Decription(Model model) {
 		return "user/ucp-step-decription";
 	}
-
+	
 	@RequestMapping(value = "/ucp-detail", method = RequestMethod.GET)
 	public String goUCP_Detail(Model model) {
 		return "user/usecase-point-detail";

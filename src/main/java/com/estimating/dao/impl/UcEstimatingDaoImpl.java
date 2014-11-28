@@ -20,6 +20,8 @@ import com.estimating.utils.UseCasePointUtils;
 
 @Repository
 public class UcEstimatingDaoImpl implements IUseCasePointDao {
+	private static final Logger logger = Logger.getLogger(UcEstimatingDaoImpl.class);
+	
 	@PersistenceContext
 	EntityManager em;
 	UseCasePointUtils ucPointUtils = new UseCasePointUtils();
@@ -34,6 +36,9 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			UcpEstiamting uc = new UcpEstiamting();
 			HashMap<String, String> maps = ucPointUtils.mapValueUseCasePoint(ucBean);
 			Project project = em.find(Project.class, ucBean.getProjectID());
+
+			logger.info("pojectID: " + project.getMaProject());
+			
 			uc.setProject(project);
 			uc.setNgay(new Date());
 			uc.setVersion(1);

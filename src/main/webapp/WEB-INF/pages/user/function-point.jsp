@@ -105,7 +105,7 @@
 												<th style="width: 20px" rowspan="2"><h3>NO.</h3></th>
 												<th style="width: 700px" rowspan="2"><h3>MEASUREMENT
 														PARAMETER</h3></th>
-												<th colspan="3"><span style="margin-left: 100px">WEIGHTING
+												<th colspan="3"><span style="margin-left: 170px">WEIGHTING
 														FACTOR</span></th>
 
 											</tr>
