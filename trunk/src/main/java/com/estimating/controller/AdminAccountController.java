@@ -23,8 +23,7 @@ public class AdminAccountController {
 	@Autowired
 	IProjectService projectService;
 
-	private static final Logger logger = Logger
-			.getLogger(AdminAccountController.class);
+	private static final Logger logger = Logger.getLogger(AdminAccountController.class);
 
 	@RequestMapping(value = "/MyAccount", method = RequestMethod.GET)
 	public String getCurrentUser(Model model,

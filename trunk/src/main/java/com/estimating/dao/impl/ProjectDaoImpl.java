@@ -27,7 +27,7 @@ public class ProjectDaoImpl implements IProjectDao {
 	 */
 	@Override
 	public List<Project> getListProject(String username) {
-		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.tenUser = :username",
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.username = :username",
 				Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();
@@ -62,13 +62,13 @@ public class ProjectDaoImpl implements IProjectDao {
 	@Override
 	public List<Project> getListProjectFPEstiamted(String username) {
 		TypedQuery<Project> query = em
-				.createQuery("Select p From Project p Where p.FP_Estiamted=0 and p.user.tenUser = :username",
+.createQuery("Select p From Project p Where p.FP_Estiamted=0 and p.user.username = :username",
 						Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();
 	}
 
-	@Override
+	@Transactional
 	public boolean checkExistFpEstimating(int projectID) {
 		Project project = em.find(Project.class, projectID);
 		logger.info("FP_Estiamted: " + project.getFP_Estiamted());
@@ -92,21 +92,23 @@ public class ProjectDaoImpl implements IProjectDao {
 	}
 
 	@Override
-	public List<Project> getListProjectUCEstimated() {
-		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.UCP_Estimated=0",
+	public List<Project> getListProjectUCEstimated(String username) {
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.UCP_Estimated=0 and p.user.username = :username",
 				Project.class);
+		query.setParameter("username", username);
 		return query.getResultList();
 	}
 
-	@Override
+	@Transactional
 	public boolean checkExistUcEstimating(int projectID) {
 		Project project = em.find(Project.class, projectID);
-		if(project.getFP_Estiamted() == 0)
+		logger.info(project.getUCP_Estimated());
+		if(project.getUCP_Estimated() == 0)
 			return true;
 		return false;
 	}
 
-	@Override
+	@Transactional
 	public boolean updateExistUcEstimating(int projectID) {
 		boolean check = false;
 		try {
@@ -122,7 +124,7 @@ public class ProjectDaoImpl implements IProjectDao {
 	@Override
 	public List<Project> getListProjectByUserName(String username) {
 		TypedQuery<Project> query = em.createQuery(
-				"Select p From Project p where p.user.tenUser = :username",
+				"Select p From Project p where p.user.username = :username",
 				Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();

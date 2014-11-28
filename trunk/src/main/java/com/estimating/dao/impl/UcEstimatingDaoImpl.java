@@ -2,29 +2,28 @@ package com.estimating.dao.impl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.dao.IUseCasePointDao;
-import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.UcpEstiamting;
 import com.estimating.utils.Constants;
 import com.estimating.utils.UseCasePointUtils;
-import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 @Repository
 public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	@PersistenceContext
 	EntityManager em;
 	UseCasePointUtils ucPointUtils = new UseCasePointUtils();
+	private static final Logger logger = Logger.getLogger(UcEstimatingDaoImpl.class);
 	/**
 	 * Add new Use case point when create new project
 	 */
@@ -51,6 +50,7 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	}
 
 	@Override
+	@Transactional
 	public boolean updateUseCasePoint(UseCasePointBean ucBean) {
 		boolean result = false;
 		try {
@@ -66,6 +66,7 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 		uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
 		}
 		catch(Exception ex){
+			logger.warn(ex.toString());
 			result = false;
 		}
 		return result;	

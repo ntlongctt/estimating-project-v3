@@ -185,8 +185,10 @@ public class RouterController {
 			model.addAttribute("countFp",fpService.getAllListFp().size());
 			model.addAttribute("countUc",ucpService.getAllListUc().size());
 			model.addAttribute("totalVersion",fpService.getAllListFp().size()+ucpService.getAllListUc().size());
-
-			double percentFp = fpService.getAllListFp().size()/(fpService.getAllListFp().size()+ucpService.getAllListUc().size())*100;
+			double percentFp = 0;
+			if(fpService.getAllListFp().size() !=0 && ucpService.getAllListUc().size() !=0) {
+				percentFp = fpService.getAllListFp().size()/(fpService.getAllListFp().size()+ucpService.getAllListUc().size())*100;
+			}
 			model.addAttribute("percentFp",percentFp);
 			model.addAttribute("percentUc",100-percentFp);
 			url = "user/home";

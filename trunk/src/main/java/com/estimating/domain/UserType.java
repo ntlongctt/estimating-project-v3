@@ -1,43 +1,39 @@
 package com.estimating.domain;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
+ * The persistent class for the user_type database table.
  * 
- * @author ChíTâm
- *
  */
 @Entity
-@Table(name = "roles")
-@NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r")
-public class Role implements Serializable {
+@Table(name="user_type")
+@NamedQuery(name="UserType.findAll", query="SELECT u FROM UserType u")
+public class UserType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int maRole;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int maUserType;
 
 	private String moTa;
 
-	// bi-directional many-to-one association to User
-	@OneToMany(mappedBy = "role")
+	//bi-directional many-to-one association to User
+	@OneToMany(mappedBy="userType")
 	private List<User> users;
 
-	public Role() {
+	public UserType() {
 	}
 
-	public int getMaRole() {
-		return this.maRole;
+	public int getMaUserType() {
+		return this.maUserType;
 	}
 
-	public void setMaRole(int maRole) {
-		this.maRole = maRole;
+	public void setMaUserType(int maUserType) {
+		this.maUserType = maUserType;
 	}
 
 	public String getMoTa() {
@@ -58,14 +54,14 @@ public class Role implements Serializable {
 
 	public User addUser(User user) {
 		getUsers().add(user);
-		user.setRole(this);
+		user.setUserType(this);
 
 		return user;
 	}
 
 	public User removeUser(User user) {
 		getUsers().remove(user);
-		user.setRole(null);
+		user.setUserType(null);
 
 		return user;
 	}

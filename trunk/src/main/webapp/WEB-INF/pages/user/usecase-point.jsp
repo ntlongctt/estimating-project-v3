@@ -1,4 +1,3 @@
-<%@page import="com.estimating.domain.UcpEstiamting"%>
 <%@page import="org.springframework.context.annotation.Bean"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -82,7 +81,7 @@ $(document).ready(function(){
 								<h2 class="StepTitle">Step 1 Content</h2>
 								<div class="col-6" style="margin: 50px 0 0 0">
 									<label>Select current project</label> 
-									<select class="form-control" name="selectProject">
+									<select class="form-control" name="selectProject" id="selectProject">
 										<c:forEach var="project" items="${listProject}" >
 											<option value="${project.maProject}">${project.tenProject}</option>
 										</c:forEach>
@@ -348,7 +347,7 @@ $(document).ready(function(){
 								<div style="margin-top: 30px">
 									<div class="row" style="margin-top: 5px; margin-bottom: 10px">
 									<div class="col-sm-5 col-sm-offset-1">
-										<button class="btn btn-primary btn-flat" style="width: 92px" id="save" onclick="PreviewUsecasePoint();" >Preview</button>
+										<button class="btn btn-primary btn-flat" style="width: 92px" id="preview" onclick="PreviewUsecasePoint();" >Preview</button>
 										<button class="btn btn-success btn-flat" style="width: 92px" id="save" onclick="saveUcPoint();" >Save</button>
 									</div>
 									</div>
