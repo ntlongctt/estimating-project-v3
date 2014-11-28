@@ -199,9 +199,7 @@
 						</div>
 						<!-- /.box-body-->
 						<div class="box-footer" style="display: block;">
-							<button class="btn btn-info">
-								<i class="fa fa-download"></i> Generate PDF
-							</button>
+							
 							<button class="btn btn-warning">
 								<i class="fa fa-bug"></i> Give Feedback
 							</button>
@@ -280,9 +278,7 @@
 						</div>
 						<!-- /.box-body-->
 						<div class="box-footer" style="display: block;">
-							<button class="btn btn-info">
-								<i class="fa fa-download"></i> Generate PDF
-							</button>
+							
 							<button class="btn btn-warning">
 								<i class="fa fa-bug"></i> Give Feedback
 							</button>

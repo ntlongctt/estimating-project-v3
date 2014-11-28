@@ -102,7 +102,7 @@ public class ProjectDaoImpl implements IProjectDao {
 	@Transactional
 	public boolean checkExistUcEstimating(int projectID) {
 		Project project = em.find(Project.class, projectID);
-		logger.info(project.getUCP_Estimated());
+		logger.info("id: " + projectID);
 		if(project.getUCP_Estimated() == 0)
 			return true;
 		return false;

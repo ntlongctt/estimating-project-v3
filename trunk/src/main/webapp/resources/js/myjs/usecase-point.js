@@ -8,7 +8,8 @@
   var motivation, stableRequirements, parttimeStaff, difficulProgrammingLanguage;
   var projectID;
   var json;
-
+  var projectID;
+  
   // Wizard 
   $('#wizard1').smartWizard({transitionEffect:'fade',onFinish:onFinishCallback});
   
@@ -50,6 +51,11 @@
 	stableRequirements = $('#stableRequirements').val();
 	parttimeStaff = $('#txtPart-time-Staff').val();
 	difficulProgrammingLanguage = $('#difficulProgrammingLanguage').val(); 
+
+	projectID= $("#selectProject option:selected").val();
+	
+	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID };
+
 	projectID= $("#selectProject option:selected").val();
 	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID };
   }

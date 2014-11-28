@@ -64,6 +64,7 @@ public class UseCasePointController {
 			@RequestBody UseCasePointBean ucPointBean, Model model) {
 		
 		if (!projectService.checkExistUcEstimating(ucPointBean.getProjectID())) {
+			logger.info("Update FP!");
 			ucPointBean.setVersion(0);
 			ucpService.updateUseCasePoint(ucPointBean);
 		} else {
