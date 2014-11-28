@@ -1,6 +1,8 @@
 package com.estimating.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.estimating.dao.IProjectDao;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
+import com.estimating.domain.UcpEstiamting;
 
 @Repository
 public class ProjectDaoImpl implements IProjectDao {
@@ -133,6 +136,17 @@ public class ProjectDaoImpl implements IProjectDao {
 	@Override
 	public ProjectType findProjectTypeById(int typeID) {
 		return em.find(ProjectType.class, typeID);
+	}
+
+	@Transactional
+	public List<Project> findListProjectBySearchUcpVip(Set<Integer> listId) {
+		List<Project> result = new ArrayList<Project>();
+		Project project;
+		for (Integer id : listId) {
+			project = em.find(Project.class, id);
+			result.add(project);
+		}
+		return result;
 	}
 
 	

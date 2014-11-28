@@ -79,7 +79,8 @@ public class RouterController {
 
 
 	@RequestMapping(value = "/manage-project", method = RequestMethod.GET)
-	public String goHistory(Model model) {
+	public String goHistory(Model model, @ModelAttribute("user") String username) {
+		model.addAttribute("usertype", userService.getUserByUsername(username).getUserType().getMaUserType());
 		return "user/manage-project";
 	}
 	

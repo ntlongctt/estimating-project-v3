@@ -62,6 +62,16 @@ public class UseCasePointBean implements Serializable {
 	private double hour;
 	
 	private int version;
+	
+	private int ucpId;
+
+	public int getUcpId() {
+		return ucpId;
+	}
+
+	public void setUcpId(int ucpId) {
+		this.ucpId = ucpId;
+	}
 
 	public double getTotalUCP() {
 		return totalUCP;

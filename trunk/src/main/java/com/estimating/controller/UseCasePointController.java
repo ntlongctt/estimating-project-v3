@@ -1,9 +1,15 @@
 package com.estimating.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.estimating.beans.ProjectBean;
+import com.estimating.beans.SearchUseCasePointBean;
 import com.estimating.beans.UseCasePointBean;
+import com.estimating.domain.UcpEstiamting;
 import com.estimating.service.IProjectService;
 import com.estimating.service.IUseCasePointService;
 import com.estimating.service.IUserService;
@@ -78,6 +87,33 @@ public class UseCasePointController {
 		ucPointBean.setCost(ucpService.calCostUc(ucPointBean));
 
 		return ucPointBean;
+	}
+	
+	/**
+	 * Step 1: Get list use case point of user
+	 * Step 2: Calculate & Compare fields of list use case point with parameter get from controller
+	 * Step 3: Get list id of use case point from Step 2
+	 * Step 4: Get project from list use case point id
+	 * @param searchUCPBean
+	 * @param model
+	 * @return list
+	 */
+	@RequestMapping(value = "/search-usecasepoint-vip", method = RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectBean> searchUseCasePointVip(@ModelAttribute("user") String username,
+			@RequestBody SearchUseCasePointBean searchUCPBean, Model model) {
+		List<ProjectBean> result = new ArrayList<ProjectBean>();
+		// Step 1
+		List<UcpEstiamting> lstUcpEstiamting = ucpService.findListUcpByUsername(username);
+		
+		// Step 2 and Step 3
+		Assert.notNull(lstUcpEstiamting, "List use case point null");
+		Set<Integer> listId = ucpService.listUcpIdToSearchVip(lstUcpEstiamting, searchUCPBean);
+		
+		// Step 4
+		result = projectService.findListProjectBySearchUcpVip(listId);
+		
+		return result;
 	}
 
 }

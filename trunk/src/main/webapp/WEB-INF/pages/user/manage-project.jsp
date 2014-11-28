@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,8 @@ $(document).ready(function(){
 
                 <!-- Main content -->
                 <section class="content">
-					<!-- Search project	 -->
+					<!-- Search project	regular user -->
+					<c:if test="${usertype ==1 }">
 					<div class="panel panel-default">
 					    <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
 					        <h4 class="panel-title">
@@ -85,7 +86,7 @@ $(document).ready(function(){
 			                                            <th style="width: 40px"><span><input type="text" name="total_ucp_hour_to" id="total_ucp_hour_to"></span></th>
 			                                        </tr>
 			                                        <tr>
-			                                            <th style="width: 200px">Coat of project:</th>
+			                                            <th style="width: 200px">Cost of project:</th>
 			                                            <th style="width: 50px"><span><input type="text" name="ucp_coat_from" id="ucp_coat_from"></span></th>
 			                                            <th style="width: 50px">to:</th>
 			                                            <th style="width: 40px"><span><input type="text" name="ucp_coat_to" id="ucp_coat_to"></span></th>
@@ -114,7 +115,7 @@ $(document).ready(function(){
 			                                            <th style="width: 40px"><span><input type="text" name="fp_total_hour_to" id="fp_total_hour_to"></span></th>
 			                                        </tr>
 			                                        <tr>
-			                                            <th style="width: 200px">Coat of project:</th>
+			                                            <th style="width: 200px">Cost of project:</th>
 			                                            <th style="width: 50px"><span><input type="text" name="fp_coat_from" id="fp_coat_from"></span></th>
 			                                            <th style="width: 50px">to:</th>
 			                                            <th style="width: 40px"><span><input type="text" name="fp_coat_to" id="fp_coat_to"></span></th>
@@ -132,8 +133,10 @@ $(document).ready(function(){
                         	</div>
 					    </div>
 				    </div>
+				    </c:if>
 
 					<!-- Search project for vip -->
+					<c:if test="${usertype ==2 }">
 					<div class="panel panel-default">
 						    <div class="panel-heading" role="tab" id="collapseListGroupHeading">
 						        <h4 class="panel-title">
@@ -202,7 +205,7 @@ $(document).ready(function(){
 				                                        </tr>
 				                                    	</tbody>
 				                                    </table>
-				                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px">
+				                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" onclick="searchVip();">
 					                            </div>
 											</div>
 	                                    </div><!-- /.tab-pane -->
@@ -278,6 +281,7 @@ $(document).ready(function(){
                             	</div>
 						    </div>
 					    </div>
+					    </c:if>
 
 
 					<!-- List project -->

@@ -80,4 +80,5 @@ public final class Constants {
 	public static final String USECASE_POINT_WUC = "useCase";
 	public static final String USECASE_POINT_TECHNICAL_FACTOR = "technical_Factor";
 	public static final String USECASE_POINT_ENVIRIMENT_FACTOR= "enviriment_Factor";
+	
 }
