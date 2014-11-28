@@ -236,10 +236,16 @@ $(document).ready(function(){
 				                                            <th style="width: 40px"><span><input type="text" name="vip_uop_to" id="vip_uop_to"></span></th>
 				                                        </tr>
 				                                        <tr>
-				                                            <th style="width: 200px">User Inquiries:</th>
-				                                            <th style="width: 50px"><span><input type="text" name="vip_uip_from" id="vip_uip_from"></span></th>
+				                                            <th style="width: 200px">User Input:</th>
+				                                            <th style="width: 50px"><span><input type="text" name="vip_uip_from" id="vip_uop_from"></span></th>
 				                                            <th style="width: 50px">to:</th>
-				                                            <th style="width: 40px"><span><input type="text" name="vip_uip_to" id="vip_uip_to"></span></th>
+				                                            <th style="width: 40px"><span><input type="text" name="vip_uip_to" id="vip_uop_to"></span></th>
+				                                        </tr>
+				                                        <tr>
+				                                            <th style="width: 200px">User Inquiries:</th>
+				                                            <th style="width: 50px"><span><input type="text" name="vip_uinp_from" id="vip_uip_from"></span></th>
+				                                            <th style="width: 50px">to:</th>
+				                                            <th style="width: 40px"><span><input type="text" name="vip_uinp_to" id="vip_uip_to"></span></th>
 				                                        </tr>
 				                                        <tr>
 				                                            <th style="width: 200px">Internal Logical File:</th>
@@ -254,7 +260,7 @@ $(document).ready(function(){
 				                                            <th style="width: 40px"><span><input type="text" name="vip_eif_to" id="vip_eif_to"></span></th>
 				                                        </tr>
 				                                         <tr>
-				                                            <th style="width: 200px">External Interface File:</th>
+				                                            <th style="width: 200px">Relative Complexity Adjustment Factor:</th>
 				                                            <th style="width: 50px"><span><input type="text" name="vip_racf_from" id="vip_racf_from"></span></th>
 				                                            <th style="width: 50px">to:</th>
 				                                            <th style="width: 40px"><span><input type="text" name="vip_racf_to" id="vip_racf_to"></span></th>
@@ -319,8 +325,8 @@ $(document).ready(function(){
                                     <option>Version 4</option>
                                     <option>Version 5</option>
                                 </select>
-		                        <input type="button" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
-		                        <input type="button" class="btn btn-success btn-flat" value="Create new version" style="margin-top: 10px">
+		                        <input type="button" name="btn_update_servion" id="btn_update_servion" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
+		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" id="btn_create_version" value="Create new version" style="margin-top: 10px">
 							</div>
 						</div>
 					
@@ -328,10 +334,10 @@ $(document).ready(function(){
 						<div class="box-body" style="margin-top: -30px">
 								<div class="box-body">
 									<table>
-										<tr>
-											<td style="width: 150px"><label>Total point</label> <input type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Total hour</label> <input type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Cost </label> <input type="text" class="form-control" placeholder="7" style="width: 100px" readonly="true"></td>
+										<tr> 
+											<td style="width: 150px"><label>Total point</label> <input name="ucp_total_point" id="ucp_total_point" type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
+											<td style="width: 150px"><label>Total hour</label> <input type="text" class="form-control" id="ucp_total_hour" name="ucp_total_hour" style="width: 100px" placeholder="5" readonly="true"></td>
+											<td style="width: 150px"><label>Cost </label> <input type="text" name="ucp_cost" id="ucp_cost" class="form-control" placeholder="7" style="width: 100px" readonly="true"></td>
 										</tr>
 									</table>
                                 </div>
@@ -343,9 +349,9 @@ $(document).ready(function(){
 				<div id="panelUCPWeight" style="text-align: left; display: none; margin-top: 10px;">
 					 <table style="width: 600px">
 					 	<tr class="info">
-					 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Simple: <input type="text" name="ucp_ucpw_simple" id="ucp_ucpw_simple" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Average: <input type="text" name="ucp_ucpw_Average" id="ucp_ucpw_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Complex: <input type="text" name="ucp_ucpw_Complex" id="ucp_ucpw_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 					 	</tr>			
 					</table>
 				</div>
@@ -360,9 +366,9 @@ $(document).ready(function(){
 				<div id="panelFPWeigth" style="text-align: left; display: none; margin-top: 10px;">
 					 <table  style="width: 600px">
 					 	<tr class="info">
-					 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Simple: <input type="text" name="ucp_fp_Simple" id="ucp_fp_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Average: <input type="text" name="ucp_fp_Average" id="ucp_fp_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Complex: <input type="text" name="ucp_fp_Complex" id="ucp_fp_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 					 	</tr>			
 					 </table>
 				</div>
@@ -381,9 +387,9 @@ $(document).ready(function(){
 								<th>End User efficiency:</th>
 							</tr>
 							<tr>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input name="ucp_Distributed" id="ucp_Distributed" type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Performance" id="ucp_Performance" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_efficiency" id="ucp_efficiency" style="width: 40px; height: 20px" placeholder="7"></th>
 							</tr>
 							<tr class="info">
 								<th>Complex Processing:</th>
@@ -391,9 +397,9 @@ $(document).ready(function(){
 								<th>Ease of Installation:</th>
 							</tr>
 							<tr>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Processing" id="ucp_Processing" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Reusable" id="ucp_Reusable" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Installation" id="ucp_Installation" style="width: 40px; height: 20px" placeholder="7"></th>
 							</tr>
 							<tr class="info">
 								<th>Ease of Use:</th>
@@ -401,9 +407,9 @@ $(document).ready(function(){
 								<th>Ease of Change:</th>
 							</tr>		
 							<tr>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_ease_of_use" id="ucp_ease_of_use" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Portable" id="ucp_Portable" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Change" id="ucp_Change" style="width: 40px; height: 20px" placeholder="7"></th>
 							</tr>
 							<tr class="info">
 								<th>Concurrent Use:</th>
@@ -411,12 +417,12 @@ $(document).ready(function(){
 								<th>Access for Third Parties:></th>
 							</tr>	
 							<tr>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Concurrent" id="ucp_Concurrent" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Security" id="ucp_Security" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th><input type="text" name="ucp_Third_Parties" id="ucp_Third_Parties" style="width: 40px; height: 20px" placeholder="7"></th>
 							</tr>	
 							<tr>
-								<th>Training Needs:<input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+								<th>Training Needs:<input type="text" name="ucp_Training" id="ucp_Training" style="width: 40px; height: 20px" placeholder="7"></th>
 
 							</tr>
 						</table>
@@ -433,27 +439,27 @@ $(document).ready(function(){
 							<table style="width: 600px" >
 								<tr class="info">
 									<th>Familiar Development Process:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Familiar" id="ucp_Familiar" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									<th>Application Experience:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Application" id="ucp_Application" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								</tr>
 								<tr class="info">
 									<th>Object-Oriented Experience:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Object_Oriented" id="ucp_Object_Oriented" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									<th>Lead Analyst Capability:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Lead_Analyst" id="ucp_Lead_Analyst" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								</tr>
 								<tr class="info">
 									<th>Motivation:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Motivation" id="ucp_Motivation" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									<th>Stable Requirements:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Stable_Requirements" id="ucp_Stable_Requirements" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								</tr>
 								<tr class="info">
 									<th>Part-time Staff:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Part_time" id="ucp_Part_time" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 									<th>Difficult Programming Language:</th>
-									<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+									<th><input type="text" name="ucp_Difficult" id="ucp_Difficult" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								</tr>
 							</table>
 						</div>
@@ -467,7 +473,7 @@ $(document).ready(function(){
 			<td style="width: 70%">		
 					<div id="panelPayment" style="text-align: left; display: none; margin-top: 10px;">
 						<div class="" style="width: 320px;">
-							<label>Wage per hour</label> <input type="text" class="form-control"placeholder="5">
+							<label>Wage per hour</label> <input type="text" name="ucp_Wage_per_hour" id="ucp_Wage_per_hour" class="form-control"placeholder="5">
 						</div>
 					</div>
 			</td>
@@ -505,9 +511,9 @@ $(document).ready(function(){
 								<div class="box-body">
 									<table>
 										<tr>
-											<td style="width: 150px"><label>Total point</label> <input type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Total hour</label> <input type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Cost </label> <input type="text" class="form-control" placeholder="7" style="width: 100px" readonly="true"></td>
+											<td style="width: 150px"><label>Total point</label> <input name="fp_Total_point" id="fp_Total_point" type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
+											<td style="width: 150px"><label>Total hour</label> <input type="text" name="fp_Total_hour" id="fp_Total_hour" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
+											<td style="width: 150px"><label>Cost </label> <input type="text" name="fp_Cost" id="fp_Cost" class="form-control" placeholder="7" style="width: 100px" readonly="true"></td>
 										</tr>
 									</table>
                                 </div>
@@ -519,9 +525,9 @@ $(document).ready(function(){
 				<div id="panelUserInput" style="text-align: left; display: none; margin-top: 10px;">
 					 <table style="width: 600px">
 					 	<tr class="info">
-					 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-					 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Simple: <input type="text" name="fp_User_Input_Simple" id="fp_User_Input_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Average: <input type="text" name="fp_User_Input_Average" id="fp_User_Input_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Complex: <input type="text" name="fp_User_Input_Complex" id="fp_User_Input_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 					 	</tr>			
 					</table>
 				</div>
@@ -536,9 +542,9 @@ $(document).ready(function(){
 					<div id="panelUserOutput" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_User_Output_Simple" id="fp_User_Output_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Average: <input type="text" name="fp_User_Output_Average" id="fp_User_Output_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Complex: <input type="text" name="fp_User_Output_Complex" id="fp_User_Output_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -552,9 +558,9 @@ $(document).ready(function(){
 					<div id="panelUserOnlineQuery" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_User_Online_Query_Simple" id="fp_User_Online_Query_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Average: <input type="text" name="fp_User_Online_Query_Average" id="fp_User_Online_Query_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Complex: <input type="text" name="fp_User_Online_Query_Complex" id="fp_User_Online_Query_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -563,14 +569,14 @@ $(document).ready(function(){
 		</tr>
 		
 		<tr>
-			<td style="text-align: left; font-weight: bold; color: black; width: 20%">User Output</td>
+			<td style="text-align: left; font-weight: bold; color: black; width: 20%">Internal Logical File</td>
 			<td style="width: 70%">
 					<div id="panelInternalLogicalFile" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_Internal_Logical_File_Simple" id="fp_Internal_Logical_File_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Average: <input type="text" name="fp_Internal_Logical_File_Average" id="fp_Internal_Logical_File_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Complex: <input type="text" name="fp_Internal_Logical_File_Complex" id="fp_Internal_Logical_File_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -584,9 +590,9 @@ $(document).ready(function(){
 					<div id="panelExternalInterfaceFile" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_External_Interface_Simple" id="fp_External_Interface_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Average: <input type="text" name="fp_External_Interface_Average" id="fp_External_Interface_Average" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Complex: <input type="text" name="fp_External_Interface_Complex" id="fp_External_Interface_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -601,46 +607,46 @@ $(document).ready(function(){
 						 <table  class="table">
 						 	<tr class="info">
 								<th>Requirement for reliable backup and recovery:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_1" id="rcf_1" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								<th>Requirement for data communication:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_2" id="rcf_2" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of distributed processing:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_3" id="rcf_3" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								<th>Performance requirements:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_4" id="rcf_4" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Expected operational environment:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_5" id="rcf_5" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
 								<th>Extent of online data entries:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_6" id="rcf_6" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of multi-screen or multi-operation online data input:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_7" id="rcf_7" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 								<th>Extent of online updating of master files:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_8" id="rcf_8" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of complex inputs, outputs, online queries and files:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_9" id="rcf_9" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 								<th>Extent of complex data processing:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_10" id="rcf_10" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent that currently developed code can be designed for reuse:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_11" id="rcf_11" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 								<th>Extent of conversion and installation included in the design:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_12" id="rcf_13" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of multiple installations in an organizationand variety of 
 								customer organizations:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_13" id="rcf_13" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 								<th>Extent of change and focus on ease of use:</th>
-								<th><input type="text" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_14" id="rcf_14" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>		
 						 </table>
 						 </div>
@@ -653,7 +659,7 @@ $(document).ready(function(){
 			<td style="width: 70%">		
 					<div id="panelPaymentFP" style="text-align: left; display: none; margin-top: 10px;">
 						<div class="" style="width: 320px;">
-							<label>Wage per hour</label> <input type="text" class="form-control"placeholder="5">
+							<label>Wage per hour</label> <input type="text" name="fp_Wage_per_hour" id="fp_Wage_per_hour" class="form-control"placeholder="5">
 						</div>
 					</div>
 			</td>
