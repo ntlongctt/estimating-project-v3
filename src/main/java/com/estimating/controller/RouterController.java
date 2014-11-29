@@ -213,11 +213,10 @@ public class RouterController {
 			@ModelAttribute("user") String username) {
 		Map<String, Object> maps = projectService.getListFpVsUcp(projectID); 
 		maps.put("listFp", maps.get("listFp"));
-		maps.put("listUc", maps.get("listFp"));
+		maps.put("listUc", maps.get("listUc"));
 		maps.put("projectName", projectService.findProjectById(projectID).getTenProject());
 		return maps;
 	}
-	
 	// Register
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String goRegister() {

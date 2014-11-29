@@ -61,7 +61,7 @@ $(document).ready(function(){
 
 					    	<div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1" data-toggle="tab">Usecase Point</a></li>
+                                <li class="active"><a href="#tab_1" data-toggle="tab">Use case Point</a></li>
                                 <li class=""><a href="#tab_2" data-toggle="tab">Function Point</a></li>
                                 <li class=""><a href="#tab_3" data-toggle="tab">Statistic</a></li>
                                 
@@ -74,7 +74,7 @@ $(document).ready(function(){
 				                            	<table class="table">
 			                                        <tbody>
 			                                        <tr>
-			                                            <th style="width: 200px">Usecase Point from:</th>
+			                                            <th style="width: 200px">Use case Point from:</th>
 			                                            <th style="width: 50px"><span><input type="text" name="ucp_from" id="ucp_from"></span></th>
 			                                            <th style="width: 50px">to:</th>
 			                                            <th style="width: 40px"><span><input type="text" name="ucp_to" id="ucp_to"></span></th>
@@ -323,11 +323,6 @@ $(document).ready(function(){
 								<p style="font-size: 15px!important;">Select version of project</p>
 								<!-- select version-->
 		                        <select class="form-control" id="selectUCP">
-                                    <option>Version 1</option>
-                                    <option>Version 2</option>
-                                    <option>Version 3</option>
-                                    <option>Version 4</option>
-                                    <option>Version 5</option>
                                 </select>
 		                        <input type="button" name="btn_update_servion" id="btn_update_servion" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
 		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" id="btn_create_version" value="Create new version" style="margin-top: 10px">
@@ -498,13 +493,8 @@ $(document).ready(function(){
 								<hr>
 								<p style="font-size: 15px!important;">Select version of project</p>
 								<!-- select version-->
-		                        <select class="form-control" id="selectFP">
-		                                                <option>Version 1</option>
-		                                                <option>Version 2</option>
-		                                                <option>Version 3</option>
-		                                                <option>Version 4</option>
-		                                                <option>Version 5</option>
-	                                            </select>
+		                        <select class="form-control" id="lstFuntionPoint">
+	                             </select>
 		                        <input type="button" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
 		                        <input type="button" class="btn btn-success btn-flat" value="Create new version" style="margin-top: 10px">
 							</div>
