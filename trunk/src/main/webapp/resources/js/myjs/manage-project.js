@@ -178,6 +178,7 @@ function editTableFP() {
 function viewVersion(projectID) {
 	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
 	function(data) {
+		// Function
 		var length = data['listFp'].length;
 		var lstFp = data['listFp'];
 		var projectName = data['projectName'];
@@ -188,11 +189,35 @@ function viewVersion(projectID) {
 			    text: lstFp[i].tenProject,
 			}));
 		}
+		
+		// Use case
+		var length = data['listUc'].length;
+		var lstFp = data['listUc'];
+		var projectName = data['projectName'];
+		$('#selectUCP').html('');
+		for (var i = 0; i < length; i++) {
+			$('#selectUCP').append($('<option>', {
+			    value: lstFp[i].fpID,
+			    text: lstFp[i].tenProject,
+			}));
+		}
+	
+		
 		document.getElementById("projectName").innerHTML = "Project : " + "<b style='color:#3c8dbc'>" + projectName + "</b>"; 
 	})
+	
 }
 
 function selectUCP() {
+	$('#selectUCP').change(function () {
+	    var optionSelected = $(this).find("option:selected");
+	    var valueSelected  = optionSelected.val();
+	    var textSelected   = optionSelected.text();
+	    alert("Value: " + valueSelected +" Text: " +textSelected);
+	});
+}
+
+function selectFP() {
 	$('#selectUCP').change(function () {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();

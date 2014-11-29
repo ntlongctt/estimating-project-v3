@@ -64,6 +64,10 @@ public class UseCasePointBean implements Serializable {
 	private int version;
 	
 	private int ucpId;
+	
+	private String tenProject;
+
+	private int fpID;
 
 	public int getUcpId() {
 		return ucpId;
@@ -371,6 +375,14 @@ public class UseCasePointBean implements Serializable {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public String getTenProject() {
+		return tenProject;
+	}
+
+	public void setTenProject(String tenProject) {
+		this.tenProject = tenProject;
 	}
 
 }

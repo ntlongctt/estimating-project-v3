@@ -11,13 +11,22 @@ import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.beans.ProjectBean;
+
+import com.estimating.beans.UseCasePointBean;
+
 import com.estimating.beans.ShareProjectBean;
+
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
+import com.estimating.dao.IUseCasePointDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
+
+import com.estimating.domain.UcpEstiamting;
+
 import com.estimating.domain.ShareProject;
+
 import com.estimating.service.IProjectService;
 import com.estimating.utils.ParseStringToArrayUtils;
 
@@ -29,6 +38,9 @@ public class ProjectServiceImpl implements IProjectService {
  
 	@Autowired
 	IFpEstimatingDao fpDao;
+	
+	@Autowired
+	IUseCasePointDao ucpDao;
 	
 	/*@Autowired
 	IUseCasePointDao ucDao;*/
@@ -144,18 +156,62 @@ public class ProjectServiceImpl implements IProjectService {
 			fpBean.setFpID(fp.getMaFP_Es());
 			lstFpBean.add(fpBean);
 		}
-		
-//		for (FpEstimating project : lstFp) {
-//			projectBean = new ProjectBean();
-//			projectBean.setName(project.getTenProject());
-//			projectBean.setType(project.getProjectType().getTenLoaiProject());
-//			projectBean.setDescription(project.getMoTa());
-//			projectBean.setProjectID(project.getMaProject());
-//			lstPrjBean.add(projectBean);
-//		}
-		
 		maps.put("listFp", lstFpBean);
-//		maps.put("listUc", ucDao.getListUcpEstimated(projectID));
+		
+		
+		
+		List<UcpEstiamting> lstUcp = ucpDao.getListUcpEstimated(projectID);
+		List<UseCasePointBean> lstBean = new ArrayList<UseCasePointBean>();
+		UseCasePointBean ucpBean;
+		for (UcpEstiamting uc : lstUcp) {
+			// Set Was_weight
+			ucpBean = new UseCasePointBean();
+			List<Double> was = ParseStringToArrayUtils.parseToArray(uc.getActor());
+			ucpBean.setEasy(was.get(0));
+			ucpBean.setMedium(was.get(1));
+			ucpBean.setDifficult(was.get(2));
+			// Set WUC weight
+			List<Double> wuc = ParseStringToArrayUtils.parseToArray(uc.getUseCase());
+			ucpBean.setSimple(wuc.get(0));
+			ucpBean.setAverage(wuc.get(1));
+			ucpBean.setComplex(wuc.get(2));
+			// Set Technical
+			List<Double> tcf = ParseStringToArrayUtils.parseToArray(uc.getTechnical_Factor());
+			ucpBean.setDistributed(tcf.get(0));
+			ucpBean.setPerformance(tcf.get(1));
+			ucpBean.setEaseofChange(tcf.get(2));
+			ucpBean.setComplex(tcf.get(3));
+			ucpBean.setReusableCode(tcf.get(4));
+			ucpBean.setEaseofInstallation(tcf.get(5));
+			ucpBean.setEaseofUse(tcf.get(6));
+			ucpBean.setPortable(tcf.get(7));
+			ucpBean.setEaseofChange(tcf.get(8));
+			ucpBean.setConcurrentUse(tcf.get(9));
+			ucpBean.setSpecialSecurity(tcf.get(10));
+			ucpBean.setAccessforThirdParties(tcf.get(11));
+			ucpBean.setTrainingNeeds(tcf.get(12));
+			// Set Environment
+			List<Double> efc = ParseStringToArrayUtils.parseToArray(uc.getEnviriment_Factor());
+			ucpBean.setFamiliarwithDevelopmentProcess(efc.get(0));
+			ucpBean.setApplicationExperience(efc.get(1));
+			ucpBean.setObjectOrientedExperience(efc.get(2));
+			ucpBean.setLeadAnalystCapability(efc.get(3));
+			ucpBean.setMotivation(efc.get(4));
+			ucpBean.setStableRequirements(efc.get(5));
+			ucpBean.setParttimeStaff(6);
+			ucpBean.setDifficulProgrammingLanguage(efc.get(7));
+			//Set total
+			ucpBean.setTotalUCP(uc.getTotal());
+			//Set Name =  ProjectName + version + create date= 
+			ucpBean.setTenProject(uc.getProject().getTenProject() + "v" + uc.getVersion() + "-" + uc.getNgay() );
+			ucpBean.setUcpId(uc.getMaUCP_Es());
+			lstBean.add(ucpBean);
+			
+		}
+		maps.put("listUc", lstBean);
+		
+		
+		
 		return maps;
 	}
 
