@@ -26,4 +26,5 @@ public interface IProjectDao {
 	public List<ShareProject> getListShareProject(String username);
 	public boolean discardProject(int[] listId);
 	public List<Project> findListProjectBySearchUcp(Set<Integer> listId);
+	public List<ShareProject> getListProjectShareByOtherUser(String username);
 }
