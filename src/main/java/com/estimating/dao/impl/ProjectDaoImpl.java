@@ -1,4 +1,4 @@
-package com.estimating.dao.impl;
+ 	package com.estimating.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -145,6 +145,18 @@ public class ProjectDaoImpl implements IProjectDao {
 		for (Integer id : listId) {
 			project = em.find(Project.class, id);
 			result.add(project);
+		}
+		return result;
+	}
+
+	@Transactional
+	public List<Project> findListProjectBySearchUcp(Set<Integer> listId) {
+		List<Project> result = new ArrayList<Project>();
+		Project project;
+		for (Integer id : listId) {
+			project = em.find(Project.class, id);
+			if(project.getUser().getUserType().getMaUserType() == 1)
+				result.add(project);
 		}
 		return result;
 	}

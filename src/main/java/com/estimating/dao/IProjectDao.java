@@ -20,4 +20,5 @@ public interface IProjectDao {
 	public List<Project> getListProjectByUserName(String username);
 	public ProjectType findProjectTypeById(int typeID);
 	public List<Project> findListProjectBySearchUcpVip(Set<Integer> listId);
+	public List<Project> findListProjectBySearchUcp(Set<Integer> listId);
 }

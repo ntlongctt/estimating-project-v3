@@ -93,7 +93,7 @@ $(document).ready(function(){
 			                                        </tr>
 			                                    	</tbody>
 			                                    </table>
-			                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" name="btn_ucp_search" id="btn_ucp_search">
+			                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" name="btn_ucp_search" id="btn_ucp_search" onclick="searchRegular();" >
 				                            </div>
 										</div>
                                     </div><!-- /.tab-pane -->
@@ -122,7 +122,7 @@ $(document).ready(function(){
 			                                        </tr>
 			                                    	</tbody>
 			                                    </table>
-			                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" name="btn_fp_search">
+			                                    <input type="button" onclick="searchRegular()" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" name="btn_fp_search">
 				                            </div>
 										</div>
                                     </div><!-- /.tab-pane -->

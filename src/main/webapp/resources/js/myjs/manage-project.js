@@ -201,7 +201,51 @@ function selectUCP() {
 	});
 }
 
-// Search vip
+// Search regular
+function searchRegular() {
+	var ucp_from, ucp_to, total_ucp_hour_from, total_ucp_hour_to, ucp_coat_from, ucp_coat_to;
+	ucp_from = $('#ucp_from').val();
+	ucp_to = $('#ucp_to').val();
+	total_ucp_hour_from = $('#total_ucp_hour_from').val();
+	total_ucp_hour_to = $('#total_ucp_hour_to').val();
+	ucp_coat_from = $('#ucp_coat_from').val();
+	ucp_coat_to = $('#ucp_coat_to').val();
+	
+	
+	var json ={"ucp_from" :ucp_from, "ucp_to" :ucp_to, "total_ucp_hour_from" :total_ucp_hour_from, "total_ucp_hour_to" :total_ucp_hour_to,"ucp_coat_from" :ucp_coat_from, "ucp_coat_to" :ucp_coat_to};
+	$("#projectTable > tbody").html("");
+	$.ajax({
+	    url: "search-usecasepoint.json",
+	    type: 'POST',
+	    dataType: 'json',
+	    data: JSON.stringify(json),
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function(data) {
+	    	var length = data.length;
+	    	if(length > 0) {
+	    		for (var i = 0; i < length; i++) {
+	    			var content = "<tr>";
+	    			content += "<td>" + data[i].name + "</td>";
+	    			content += "<td>" + data[i].type + "</td>";
+	    			content += "<td>" + data[i].description	+ "</td>";
+	    			content += "<td>"
+	    					+ "<a type='button' onclick='viewVersion(" + data[i].projectID + ")' style='color:green; font-weight: bold;' >Detail</a>"
+	    					+ "</td>";
+	    			content += "</tr>";
+	    			$("#projectTable > tbody").append(content);
+	    		}
+	    		$("#projectTable").dataTable();
+	    	}
+	   	},
+	    error: function() {    	
+	    }
+	}); 	
+	
+}
+
+
+//Search vip
 function searchVip() {
 	var vip_ucp_from, vip_ucp_to, vip_ucp_total_hour_from, vip_ucp_total_hour_to, vip_ucp_coat_from, 
 	vip_ucp_coat_to, vip_ucpw_from, vip_ucpw_to, vip_fpw_from, vip_fpw_to;

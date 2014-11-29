@@ -115,5 +115,23 @@ public class UseCasePointController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/search-usecasepoint", method = RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectBean> searchUseCasePoint(@ModelAttribute("user") String username,
+			@RequestBody SearchUseCasePointBean searchUCPBean, Model model) {
+		List<ProjectBean> result = new ArrayList<ProjectBean>();
+		// Step 1
+		List<UcpEstiamting> lstUcpEstiamting = ucpService.findListUcpByUsername(username);
+		
+		// Step 2 and Step 3
+		Assert.notNull(lstUcpEstiamting, "List use case point null");
+		Set<Integer> listId = ucpService.listUcpIdToSearchVip(lstUcpEstiamting, searchUCPBean);
+		
+		// Step 4
+		result = projectService.findListProjectBySearchUcpVip(listId);
+		
+		return result;
+	}
 
 }

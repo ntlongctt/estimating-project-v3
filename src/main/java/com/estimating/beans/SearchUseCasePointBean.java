@@ -27,6 +27,13 @@ public class SearchUseCasePointBean implements Serializable {
 	private double vip_tcf_to;
 	private double vip_ecf_from;
 	private double vip_ecf_to;
+	private double ucp_from;
+	private double ucp_to;
+	private double total_ucp_hour_from;
+	private double total_ucp_hour_to;
+	private double ucp_coat_from;
+	private double ucp_coat_to;
+	
 
 	public double getVip_ucp_from() {
 		return vip_ucp_from;
@@ -138,6 +145,54 @@ public class SearchUseCasePointBean implements Serializable {
 
 	public void setVip_ecf_to(double vip_ecf_to) {
 		this.vip_ecf_to = vip_ecf_to;
+	}
+
+	public double getUcp_from() {
+		return ucp_from;
+	}
+
+	public void setUcp_from(double ucp_from) {
+		this.ucp_from = ucp_from;
+	}
+
+	public double getUcp_to() {
+		return ucp_to;
+	}
+
+	public void setUcp_to(double ucp_to) {
+		this.ucp_to = ucp_to;
+	}
+
+	public double getTotal_ucp_hour_from() {
+		return total_ucp_hour_from;
+	}
+
+	public void setTotal_ucp_hour_from(double total_ucp_hour_from) {
+		this.total_ucp_hour_from = total_ucp_hour_from;
+	}
+
+	public double getTotal_ucp_hour_to() {
+		return total_ucp_hour_to;
+	}
+
+	public void setTotal_ucp_hour_to(double total_ucp_hour_to) {
+		this.total_ucp_hour_to = total_ucp_hour_to;
+	}
+
+	public double getUcp_coat_from() {
+		return ucp_coat_from;
+	}
+
+	public void setUcp_coat_from(double ucp_coat_from) {
+		this.ucp_coat_from = ucp_coat_from;
+	}
+
+	public double getUcp_coat_to() {
+		return ucp_coat_to;
+	}
+
+	public void setUcp_coat_to(double ucp_coat_to) {
+		this.ucp_coat_to = ucp_coat_to;
 	}
 
 }

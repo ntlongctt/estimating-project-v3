@@ -16,5 +16,6 @@ public interface IUseCasePointService {
 	public List<UcpEstiamting> getAllListUc();
 	public List<UcpEstiamting> findListUcpByUsername(String username);	
 	public Set<Integer> listUcpIdToSearchVip(List<UcpEstiamting> listUcpEstiamting, SearchUseCasePointBean searchBean); 
+	public Set<Integer> listUcpIdToSearch(List<UcpEstiamting> listUcpEstiamting, SearchUseCasePointBean searchBean); 
 }
 
