@@ -1,15 +1,22 @@
 package com.estimating.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.estimating.beans.ShareProjectBean;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
 import com.estimating.domain.User;
@@ -56,4 +63,44 @@ public class ProjectController {
 		model.addAttribute("listProject", projectService.getListProject(username));
 		return "user/function-point";
 	}
+	/**
+	 * Start Share Project
+	 */
+	
+	@RequestMapping(value = "/share-project", method = RequestMethod.GET)
+	public String goShareProject(Model model) {
+		return "user/share-project";
+	}
+	
+	
+	@RequestMapping(value ="/add-share-project", method = RequestMethod.POST, headers="Accept=application/json")
+	@ResponseBody 
+	public List<ShareProjectBean> projectShare(@RequestBody ShareProjectBean shareBean, @ModelAttribute("user") String username ){
+		List<ShareProjectBean> result = new ArrayList<ShareProjectBean>();
+		shareBean.setOwn_user(username);
+		if(projectService.addProjectShare(shareBean)) {
+			result = projectService.getListShareProject(username);
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value ="/list-share-project", method = RequestMethod.GET)
+	@ResponseBody 
+	public List<ShareProjectBean> getListProjectShare(@ModelAttribute("user") String username ){
+		List<ShareProjectBean> result = new ArrayList<ShareProjectBean>();
+		result = projectService.getListShareProject(username);
+		return result;
+	}
+	
+	@RequestMapping(value ="/discard-share/{paramListId}", method = RequestMethod.POST)
+	public String discardShare(@PathVariable("paramListId") int [] param){
+		if(param.length > 0) {
+			projectService.discardProject(param);
+		}
+		return "user/share-project";
+	}	
+	/**
+	 * End Share Project
+	 */
 }

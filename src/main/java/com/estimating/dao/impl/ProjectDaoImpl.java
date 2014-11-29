@@ -12,10 +12,12 @@ import javax.transaction.Transactional;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
+import com.estimating.beans.ShareProjectBean;
 import com.estimating.dao.IProjectDao;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
-import com.estimating.domain.UcpEstiamting;
+import com.estimating.domain.ShareProject;
+import com.estimating.domain.User;
 
 @Repository
 public class ProjectDaoImpl implements IProjectDao {
@@ -149,6 +151,51 @@ public class ProjectDaoImpl implements IProjectDao {
 		return result;
 	}
 
+	@Override
+	@Transactional
+	public boolean addProjectShare(ShareProjectBean shareproject) {
+		
+		boolean check = false;
+		try {
+			ShareProject share = new ShareProject();
+			Project project = em.find(Project.class, shareproject.getMaProject());
+			User own = em.find(User.class, shareproject.getOwn_user());
+			User user = em.find(User.class, shareproject.getShare_user());
+			share.setProject(project);
+			share.setUser1(own);
+			share.setUser2(user);
+			em.persist(share);
+			check = true;
+		} catch (Exception e) {
+			check = false;
+		}
+		return check;
+	}
+
+	@Override
+	public List<ShareProject> getListShareProject(String username) {
+		TypedQuery<ShareProject> query = em.createQuery(
+				"Select p From ShareProject p where p.user1.username = :username",
+				ShareProject.class);
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
+
+	@Transactional
+	public boolean discardProject(int[] listId) {
+		boolean check = false;
+		try {
+			for(int i = 0; i< listId.length; i++) {
+				ShareProject share = em.find(ShareProject.class, listId[i]);
+				em.remove(share);
+			}
+			check = true;
+		} catch (Exception e) {
+			check = false;
+		}
+		return check;
+	}
+
 	@Transactional
 	public List<Project> findListProjectBySearchUcp(Set<Integer> listId) {
 		List<Project> result = new ArrayList<Project>();
@@ -160,7 +207,4 @@ public class ProjectDaoImpl implements IProjectDao {
 		}
 		return result;
 	}
-
-	
-
 }
