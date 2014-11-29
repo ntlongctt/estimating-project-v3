@@ -92,6 +92,9 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		List<UseCasePointBean> result = new ArrayList<UseCasePointBean>();
 		// Step 2
 		for (UseCasePointBean uc : listUseCasePointBean) {
+			
+			
+			
 			if(search.getVip_ucp_to() == 0.0) search.setVip_ucp_to(max);
 			if(search.getVip_ucp_total_hour_to() == 0.0) search.setVip_ucp_total_hour_to(max);
 			if(search.getVip_ucp_coat_to() == 0.0) search.setVip_ucp_coat_to(max);

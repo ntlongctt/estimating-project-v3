@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.estimating.beans.ProjectBean;
+import com.estimating.beans.ShareProjectBean;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
 
@@ -23,4 +24,7 @@ public interface IProjectService {
 	public Map<String, Object>  getListFpVsUcp(int projectID);
 	public ProjectType findProjectTypeById(int typeID);
 	public List<ProjectBean> findListProjectBySearchUcpVip(Set<Integer> listId);
+	public boolean addProjectShare(ShareProjectBean shareproject);
+	public List<ShareProjectBean> getListShareProject(String username);
+	public boolean discardProject(int[] listId);
 }

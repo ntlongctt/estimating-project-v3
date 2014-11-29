@@ -83,11 +83,6 @@ public class RouterController {
 		model.addAttribute("usertype", userService.getUserByUsername(username).getUserType().getMaUserType());
 		return "user/manage-project";
 	}
-	
-	@RequestMapping(value = "/share-project", method = RequestMethod.GET)
-	public String goShareProject(Model model) {
-		return "user/share-project";
-	}
 
 	@RequestMapping(value = "/search-engine", method = RequestMethod.GET)
 	public String goSearchEngine(Model model) {

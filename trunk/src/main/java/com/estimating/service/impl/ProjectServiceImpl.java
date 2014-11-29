@@ -11,11 +11,13 @@ import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.beans.ProjectBean;
+import com.estimating.beans.ShareProjectBean;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
+import com.estimating.domain.ShareProject;
 import com.estimating.service.IProjectService;
 import com.estimating.utils.ParseStringToArrayUtils;
 
@@ -182,6 +184,37 @@ public class ProjectServiceImpl implements IProjectService {
 			result.add(bean);
 		}
 		return result;
+	}
+
+	@Override
+	public boolean addProjectShare(ShareProjectBean shareproject) {
+		return projectDao.addProjectShare(shareproject);
+	}
+
+	@Override
+	public List<ShareProjectBean> getListShareProject(String username) {
+		List<ShareProject> listshare = projectDao.getListShareProject(username);
+		List<ShareProjectBean> listBean = new ArrayList<ShareProjectBean>();
+		listBean.clear();
+		ShareProjectBean shareBean;
+		for (ShareProject list : listshare) {
+			shareBean = new ShareProjectBean();
+			shareBean.setIdshare_project(list.getIdshareProject());
+			shareBean.setMaProject(list.getProject().getMaProject());
+			shareBean.setOwn_user(list.getUser1().getUsername());
+			shareBean.setShare_user(list.getUser2().getUsername());
+			shareBean.setProjectName(list.getProject().getTenProject());
+			shareBean.setType(list.getProject().getProjectType().getTenLoaiProject());
+			shareBean.setDescription(list.getProject().getMoTa());
+			listBean.add(shareBean);
+		}
+		
+		return listBean;
+	}
+
+	@Override
+	public boolean discardProject(int[] listId) {
+		return projectDao.discardProject(listId);
 	}
 
 }
