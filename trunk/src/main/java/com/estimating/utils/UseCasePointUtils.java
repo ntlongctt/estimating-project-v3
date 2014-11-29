@@ -238,6 +238,7 @@ public class UseCasePointUtils {
 	// Calculate hour
 	public static double calHour(UseCasePointBean ucBean) {
 		return ucBean.getTotalUCP() * 25;
+
 	}
 	
 	// Calculate cost
