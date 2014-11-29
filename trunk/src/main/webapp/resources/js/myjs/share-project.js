@@ -3,7 +3,9 @@ $(document).ready(
 function() {
 	
 getListShareProject();
+getListProjectByOtherUser()
 
+// Get list project to select option
 $.getJSON("listprojectjson.json",{ajax : 'true'},
 	function(data) {
 		var length = data.length;
@@ -14,8 +16,10 @@ $.getJSON("listprojectjson.json",{ajax : 'true'},
 			}));
 		}
 	})
+
 })
 
+// Get list share project in TO OTHER USER
 function getListShareProject(){
 	$("#projectShareToOtherTable > tbody").html("");
 
@@ -36,15 +40,12 @@ function getListShareProject(){
 				/*content += "<td>"
 					+ "<a type='button' data-toggle='modal' data-target='#myModal-edit-share' onclick='viewModal(" + data[i].idshare_project + ")' style='color:green; font-weight: bold;' >Edit</a>"
 					+ "</td>";*/
+				content += "</tr>";
 				$("#projectShareToOtherTable > tbody").append(content);
 			}
 			$("#projectShareToOtherTable").dataTable();
 		})
 		
-}
-
-function viewModal(idshare_project){
-	
 }
 
 function shareproject(){
@@ -85,3 +86,25 @@ function discardShare() {
      });
 }
 
+function getListProjectByOtherUser() {
+$("#projectTable > tbody").html("");
+
+$.getJSON("getListProjectByOtherUser.json",{ajax : 'true'},
+	function(data) {
+		var length = data.length;
+		for (var i = 0; i < length; i++) {
+			var content = "<tr>";
+			content += "<td>" + data[i].projectName + "</td>";
+			content += "<td>" + data[i].type + "</td>";
+			content += "<td>" + data[i].description	+ "</td>";
+			content += "<td>" + data[i].own_user + "</td>";
+			content += "<td>"
+				+ "<a type='button' onclick='viewVersion(" + data[i].maProject + ")' style='color:green; font-weight: bold;' >Detail</a>"
+				+ "</td>";
+		content += "</tr>";
+			content += "</tr>";
+			$("#projectTable > tbody").append(content);
+		}
+		$("#projectTable").dataTable();
+	})    
+}

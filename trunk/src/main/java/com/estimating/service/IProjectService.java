@@ -26,5 +26,6 @@ public interface IProjectService {
 	public List<ProjectBean> findListProjectBySearchUcpVip(Set<Integer> listId);
 	public boolean addProjectShare(ShareProjectBean shareproject);
 	public List<ShareProjectBean> getListShareProject(String username);
+	public List<ShareProjectBean> getListProjectShareByOtherUser(String username);
 	public boolean discardProject(int[] listId);
 }

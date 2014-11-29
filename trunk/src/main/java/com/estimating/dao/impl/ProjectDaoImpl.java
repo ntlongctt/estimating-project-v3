@@ -207,4 +207,13 @@ public class ProjectDaoImpl implements IProjectDao {
 		}
 		return result;
 	}
+
+	@Override
+	public List<ShareProject> getListProjectShareByOtherUser(String username) {
+		TypedQuery<ShareProject> query = em.createQuery(
+				"Select p From ShareProject p where p.user2.username = :username",
+				ShareProject.class);
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
 }

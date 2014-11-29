@@ -217,4 +217,25 @@ public class ProjectServiceImpl implements IProjectService {
 		return projectDao.discardProject(listId);
 	}
 
+	@Override
+	public List<ShareProjectBean> getListProjectShareByOtherUser(String username) {
+		List<ShareProject> listshare = projectDao.getListProjectShareByOtherUser(username);
+		List<ShareProjectBean> listBean = new ArrayList<ShareProjectBean>();
+		listBean.clear();
+		ShareProjectBean shareBean;
+		for (ShareProject list : listshare) {
+			shareBean = new ShareProjectBean();
+			shareBean.setIdshare_project(list.getIdshareProject());
+			shareBean.setMaProject(list.getProject().getMaProject());
+			shareBean.setOwn_user(list.getUser1().getUsername());
+			shareBean.setShare_user(list.getUser2().getUsername());
+			shareBean.setProjectName(list.getProject().getTenProject());
+			shareBean.setType(list.getProject().getProjectType().getTenLoaiProject());
+			shareBean.setDescription(list.getProject().getMoTa());
+			listBean.add(shareBean);
+		}
+		
+		return listBean;
+	}
+
 }

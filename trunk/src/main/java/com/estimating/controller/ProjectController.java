@@ -93,14 +93,26 @@ public class ProjectController {
 		return result;
 	}
 	
+	// Discard share: Remove record in database
 	@RequestMapping(value ="/discard-share/{paramListId}", method = RequestMethod.POST)
 	public String discardShare(@PathVariable("paramListId") int [] param){
 		if(param.length > 0) {
 			projectService.discardProject(param);
 		}
 		return "user/share-project";
-	}	
+	}
+	
+	// Get list project by other users
+	@RequestMapping(value ="/getListProjectByOtherUser", method = RequestMethod.GET)
+	@ResponseBody 
+	public List<ShareProjectBean> getListProjectShareByOtherUser(@ModelAttribute("user") String username ){
+		List<ShareProjectBean> result = new ArrayList<ShareProjectBean>();
+		result = projectService.getListProjectShareByOtherUser(username);
+		return result;
+	}
+	
 	/**
+	 * 
 	 * End Share Project
 	 */
 }
