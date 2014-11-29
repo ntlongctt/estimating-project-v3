@@ -52,5 +52,4 @@ public class UserServiceImpl implements IUserService {
 	public boolean editUser(UserBean userbean) {
 		return userDao.editUser(userbean);
 	}
-
 }

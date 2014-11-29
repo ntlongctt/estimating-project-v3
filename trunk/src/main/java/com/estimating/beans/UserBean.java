@@ -10,6 +10,15 @@ public class UserBean implements Serializable {
 	
 	private String username;
 	private String pass;
+	private String npass;
+	public String getNpass() {
+		return npass;
+	}
+
+	public void setNpass(String npass) {
+		this.npass = npass;
+	}
+
 	private String fullname;
 	private String mail;
 	private String phone;

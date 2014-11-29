@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class PasswordUtils {
@@ -30,6 +32,11 @@ public class PasswordUtils {
 		String hashedPassword = passwordEncoder.encode(password);
 		
 		return hashedPassword;
+	}
+	
+	public boolean isPasswordValid(String encPass, String rawPass, Object salt)
+			throws DataAccessException {
+		return BCrypt.checkpw(rawPass, encPass);
 	}
 
 	public static void exportPasswordFile(String content, File destination) throws InterruptedException, IOException {

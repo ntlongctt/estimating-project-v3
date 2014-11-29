@@ -14,4 +14,5 @@ public interface IUserDao {
 	
 	public boolean editUser (UserBean userbean);
 	
+	public boolean updatePassword(String username, String password);
 }

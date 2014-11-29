@@ -13,6 +13,6 @@ public interface IUserService {
 	public boolean addUser(UserBean userbean);
 	
 	public boolean editUser(UserBean userbean);
-	
+		
 	public UserBean getProfilebyUser(String username);
-}
+	}
