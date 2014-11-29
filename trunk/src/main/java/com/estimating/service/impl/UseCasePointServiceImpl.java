@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import sun.print.resources.serviceui;
+
 import com.estimating.beans.SearchUseCasePointBean;
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.dao.IUseCasePointDao;
@@ -118,6 +120,61 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		
 		return listId;
 	}
+
+	@Override
+	public Set<Integer> listUcpIdToSearch(List<UcpEstiamting> listUcpEstiamting,SearchUseCasePointBean searchBean) {
+
+		List<UseCasePointBean> listUseCasePointBean = ucPointUltils.parseUcpDaoToBean(listUcpEstiamting);
+		Set<Integer> listId = new HashSet<Integer>();
+		
+		/**
+		 * 	Calculate useCasePointBean
+		 */
+		for (UseCasePointBean useCasePointBean : listUseCasePointBean) {
+			/** Set Use Case Point Weight */
+			useCasePointBean.setWuc(UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
+					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
+			/** Set Function Point Weight */
+			useCasePointBean.setWas(UseCasePointUtils.calculator_WAs(useCasePointBean.getSimple(),
+					useCasePointBean.getAverage(), useCasePointBean.getComplex()));
+			
+			/** Set Technical Complexity Factor  */
+			useCasePointBean.setTcf(UseCasePointUtils.calculator_TCF(useCasePointBean));
+			
+			/** Set Invironment factors*/
+			useCasePointBean.setEfc(UseCasePointUtils.calculator_ECF(useCasePointBean));
+		}
+		
+		
+		/**
+		 * Compare
+		 */
+		// Set default max
+		double max = 99999999999.0;
+		List<UseCasePointBean> result = new ArrayList<UseCasePointBean>();
+		//Step 2
+		for (UseCasePointBean uc : listUseCasePointBean) {
+			if(searchBean.getUcp_to() == 0.0) searchBean.setUcp_coat_to(0);
+			if(searchBean.getUcp_coat_to() == 0.0) searchBean.setUcp_coat_to(max);
+			if(searchBean.getTotal_ucp_hour_to() == 0.0 ) searchBean.setTotal_ucp_hour_to(max);
+			
+			if(searchBean.getUcp_from() <= uc.getTotalUCP() && uc.getTotalUCP() <= searchBean.getUcp_coat_to() &&
+				searchBean.getUcp_coat_from() <= uc.getCost() && uc.getCost() <= searchBean.getUcp_coat_to() &&
+				searchBean.getTotal_ucp_hour_from()<= uc.getHour() && uc.getHour() <= searchBean.getTotal_ucp_hour_to()){
+				result.add(uc);
+			}
+		}
+		// Step 3: Set project id for ucp bean from result;
+		if(result !=null && result.size() > 0) {
+			for (UseCasePointBean uc : result) {
+				listId.add(uc.getProjectID());
+			}
+		}
+		
+		return listId;
+	}
+	
+	
 
 
 }
