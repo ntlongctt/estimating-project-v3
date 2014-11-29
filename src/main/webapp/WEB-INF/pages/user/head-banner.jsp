@@ -233,7 +233,8 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="#" data-toggle="modal"
+										data-target="#myModal-newp-roject"class="btn btn-default btn-flat">Change password</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="logout.html" class="btn btn-default btn-flat">Sign out</a>
@@ -245,3 +246,4 @@
                 </div>
             </nav>
         </header>
+       

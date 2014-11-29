@@ -32,8 +32,7 @@ public class UserController {
 		userService.editUser(userBean);
 		return userBean;
 	}
-
-
+	
 	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)
 	public String goUserProfile(@ModelAttribute("user") String username) {
 		return "user/use-profile";

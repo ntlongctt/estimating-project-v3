@@ -80,10 +80,11 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	@Override
+	@Transactional
 	public boolean editUser(UserBean userbean) {
 		boolean result = true;
 		try {
-			User user = new User();
+			User user = em.find(User.class, userbean.getUsername());
 			user.setUsername(userbean.getUsername());
 			user.setHoTen(userbean.getFullname());
 			user.setMail(userbean.getMail());
@@ -95,4 +96,18 @@ public class UserDaoImpl implements IUserDao {
 		}
 		return result;
 	}
+
+	@Override
+	@Transactional
+	public boolean updatePassword(String username, String password) {
+		boolean check = true;
+		User user = em.find(User.class, username);
+		try {
+			user.setPassword(password);
+		} catch (Exception e) {
+			check = false;
+		}
+		return check;
+	}
+
 }

@@ -294,6 +294,30 @@
 		<!-- /.right-side -->
 	</div>
 	<!-- ./wrapper -->
-
+<!-- MODAL NEW PROJECT -->
+		<div class="modal fade" id="myModal-newp-roject" tabindex="-1"	role="dialog" aria-labelledby="myModalLabel3">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel3">Change password</h4>
+					</div>
+				<div class="modal-body">
+				<form  method="POST">
+					<label>Current password</label> 
+					<input type="password" class="form-control" name="pass" id="pass"> 
+					
+					<label>New password</label> 
+					<input type="password" class="form-control" name="npass" id="npass">
+					
+					<label>New password</label> 
+					<input type="password" class="form-control" name="cnpass" id="cnpass">
+					
+					<button type="submit" class="btn bg-purple margin"  onclick="changePass();">Change</button>
+				</form>	
+				</div>
+			</div>
+			</div>
+		</div>
 </body>
+<script type="text/javascript" src="resources/js/myjs/user.js"></script>
 </html>

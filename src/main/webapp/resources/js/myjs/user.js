@@ -1,5 +1,30 @@
-var username, pass, fullname, mail, phone, address;
+var username, pass, npass, cnpass , fullname, mail, phone, address;
 var json;
+
+function getPass(){
+	pass = $('#pass').val();
+	npass = $('#npass').val();
+	cnpass = $('#cnpass').val();
+	json={"pass":pass, "npass":npass };
+}
+
+function changePass(){
+	getPass();
+	$.ajax({
+	    url: "new-password.json",
+	    type: 'POST',
+	    dataType: 'json',
+	    data: JSON.stringify(json),
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function(data) {
+	    	alert("Password has been change!");
+	   	},
+	    error: function() {
+	    	alert("Error! Please try again.")
+	    }
+	});
+}
 
 function getProfile(){
 	username = $('#username').val();
@@ -21,7 +46,7 @@ function editProfile(){
 		    contentType: 'application/json',
 		    mimeType: 'application/json',
 		    success: function(data) {
-		    	alert("Register successful!");
+		    	alert("Update successful!");
 		   	},
 		    error: function() {
 		    	alert("Error! Please try again.")
@@ -61,7 +86,6 @@ $(document).ready(function() {
 	$(function() {
 		 $.getJSON("user-profilejson.json",{ajax : 'true'},
 		 	function(data) {
-			 alert(data.username)
 			 	$("#username").val(data.username);
 			 	$("#fullname").val(data.fullname);
 			 	$("#phone").val(data.phone);
