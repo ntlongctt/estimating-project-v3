@@ -23,9 +23,14 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
+			value="jdbc:mysql://mysql16799-estimating-2911.jelastic.skali.net/estiamting_v2" />
+		<property name="username" value="root" />
+		<property name="password" value="83O74JBXmV" />
+		<!-- <property name="url"
 			value="jdbc:mysql://localhost:3306/estiamting_v2" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="root" /> -->
+		
 	</bean>
 
 	<!-- Entity Manager -->

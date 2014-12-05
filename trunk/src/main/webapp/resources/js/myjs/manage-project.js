@@ -269,6 +269,48 @@ function searchRegular() {
 	
 }
 
+//Search regular function
+function serarchRegularFp(){
+
+	var fp_from, fp_to, fp_total_hour_from, fp_total_hour_to, fp_coat_from, fp_coat_to;
+	fp_from = $('#fp_from').val();
+	fp_to = $('#fp_to').val();
+	fp_total_hour_from = $('#fp_total_hour_from').val();
+	fp_total_hour_to = $('#fp_total_hour_to').val();
+	fp_coat_from = $('#fp_coat_from').val();
+	fp_coat_to = $('#fp_coat_to').val();
+
+	var json = {"fp_from" :fp_from,"fp_to" :fp_to,"fp_total_hour_from" :fp_total_hour_from,"fp_total_hour_to" :fp_total_hour_to,"fp_coat_from" :fp_coat_from,"fp_coat_to" :fp_coat_to};
+	$("#projectTable > tbody").html("");
+	$.ajax({
+	    url: "search-functionpoint.json",
+	    type: 'POST',
+	    dataType: 'json',
+	    data: JSON.stringify(json),
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function(data) {
+	    	var length = data.length;
+	    	if(length > 0) {
+	    		for (var i = 0; i < length; i++) {
+	    			var content = "<tr>";
+	    			content += "<td>" + data[i].name + "</td>";
+	    			content += "<td>" + data[i].type + "</td>";
+	    			content += "<td>" + data[i].description	+ "</td>";
+	    			content += "<td>"
+	    					+ "<a type='button' onclick='viewVersion(" + data[i].projectID + ")' style='color:green; font-weight: bold;' >Detail</a>"
+	    					+ "</td>";
+	    			content += "</tr>";
+	    			$("#projectTable > tbody").append(content);
+	    		}
+	    		$("#projectTable").dataTable();
+	    	}
+	   	},
+	    error: function() {    	
+	    }
+	}); 		
+}
+
 
 //Search vip
 function searchVip() {

@@ -140,16 +140,7 @@ public class ProjectDaoImpl implements IProjectDao {
 		return em.find(ProjectType.class, typeID);
 	}
 
-	@Transactional
-	public List<Project> findListProjectBySearchUcpVip(Set<Integer> listId) {
-		List<Project> result = new ArrayList<Project>();
-		Project project;
-		for (Integer id : listId) {
-			project = em.find(Project.class, id);
-			result.add(project);
-		}
-		return result;
-	}
+
 
 	@Override
 	@Transactional
@@ -215,5 +206,28 @@ public class ProjectDaoImpl implements IProjectDao {
 				ShareProject.class);
 		query.setParameter("username", username);
 		return query.getResultList();
+	}
+
+	@Transactional
+	public List<Project> findListProjectBySearchUcpVip(Set<Integer> listId) {
+		List<Project> result = new ArrayList<Project>();
+		Project project;
+		for (Integer id : listId) {
+			project = em.find(Project.class, id);
+			result.add(project);
+		}
+		return result;
+	}
+	
+	@Transactional
+	public List<Project> findListProjectBySearchFpRegular(Set<Integer> listId) {
+		List<Project> result = new ArrayList<Project>();
+		Project project;
+		for (Integer id : listId) {
+			project = em.find(Project.class, id);
+			if(project.getUser().getUserType().getMaUserType() == 1)
+				result.add(project);
+		}
+		return result;
 	}
 }

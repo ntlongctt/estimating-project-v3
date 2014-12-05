@@ -127,7 +127,8 @@ public class RouterController {
 	}
 
 	/**
-	 * **************************************************************** LOGIN
+	 * **************************************************************** 
+	 * LOGIN
 	 * ****************************************************************
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -177,11 +178,17 @@ public class RouterController {
 			model.addAttribute("countUc",ucpService.getAllListUc().size());
 			model.addAttribute("totalVersion",fpService.getAllListFp().size()+ucpService.getAllListUc().size());
 			double percentFp = 0;
-			if(fpService.getAllListFp().size() !=0 && ucpService.getAllListUc().size() !=0) {
-				percentFp = fpService.getAllListFp().size()/(fpService.getAllListFp().size()+ucpService.getAllListUc().size())*100;
+			double percentUc = 0;
+			double a = fpService.getAllListFp().size();
+			double b = ucpService.getAllListUc().size();
+			if(a !=0 && b !=0) {
+				percentFp = a/(a+b) * 100;
+				percentUc = 100 - percentFp;
 			}
 			model.addAttribute("percentFp",percentFp);
-			model.addAttribute("percentUc",100-percentFp);
+			model.addAttribute("percentUc",percentUc);
+			
+		//	logger.info("percentFp:" + 100-percentFp);
 			url = "user/home";
 			
 		}

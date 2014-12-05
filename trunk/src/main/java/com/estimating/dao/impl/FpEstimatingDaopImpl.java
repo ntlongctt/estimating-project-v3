@@ -35,23 +35,18 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 		boolean result = true;
 		try {
 			FpEstimating fp = new FpEstimating();
-			HashMap<String, String> maps = fpPointUtils
-					.mapValueFunctionPoint(fpBean);
+			HashMap<String, String> maps = fpPointUtils.mapValueFunctionPoint(fpBean);
 			Project project = em.find(Project.class, fpBean.getProjectID());
 			fp.setProject(project);
 			fp.setNgay(new Date());
 			fp.setVersion(1);
 			fp.setUser_Input(maps.get(Constants.FUNCTION_POINT_USER_INPUT));
 			fp.setUser_Output(maps.get(Constants.FUNCTION_POINT_USER_OUTPUT));
-			fp.setUser_Online_Query(maps
-					.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
+			fp.setUser_Online_Query(maps.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
 			fp.setLogical_File(maps.get(Constants.FUNCTION_POINT_LOGICAL_FILE));
-			fp.setRelative_Factor(maps
-					.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
-			fp.setExternal_Interface(maps
-					.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
-			fp.setTotal(Double.parseDouble(maps
-					.get(Constants.FUNCTION_POINT_TOTAL)));
+			fp.setRelative_Factor(maps.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
+			fp.setExternal_Interface(maps.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
+			fp.setTotal(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTAL)));
 			em.persist(fp);
 		} catch (Exception ex) {
 			result = false;

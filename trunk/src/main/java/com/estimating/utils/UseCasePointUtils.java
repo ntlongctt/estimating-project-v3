@@ -105,6 +105,11 @@ public class UseCasePointUtils {
 		double calculate_ECF = calculator_ECF(ucpBean);
 		double uucp = calculate_WAs+calculate_WUCs;
 		double totalUCP = uucp * calculate_TCF	* calculate_ECF;
+		logger.info("Tong use case:" + totalUCP );
+		logger.info("uucp:" + uucp );
+		logger.info("calculate_TCF:" + calculate_TCF );
+		logger.info("calculate_ECF" + calculate_ECF );
+		logger.info("===============================");
 		return totalUCP;
 	}
 	
@@ -157,10 +162,12 @@ public class UseCasePointUtils {
 				+ String.valueOf(ucBean.getStableRequirements()) + ";"
 				+ String.valueOf(ucBean.getParttimeStaff()) + ";"
 				+ String.valueOf(ucBean.getDifficulProgrammingLanguage()) ;
+		UseCasePointUtils ucpUltil = new UseCasePointUtils();
 		maps.put(Constants.USECASE_POINT_WAS, srtWASPoint);
 		maps.put(Constants.USECASE_POINT_WUC, srtWUCPoint);
 		maps.put(Constants.USECASE_POINT_TECHNICAL_FACTOR, srtTFCPoint);
 		maps.put(Constants.USECASE_POINT_ENVIRIMENT_FACTOR, srtEFCPoint);
+		maps.put(Constants.USECASE_POINT_TOTAL, String.valueOf(ucpUltil.calTotalUCP(ucBean)));
 		return maps;
 		
 	}
@@ -243,7 +250,8 @@ public class UseCasePointUtils {
 	
 	// Calculate cost
 	public static double calCost(UseCasePointBean ucBean) {
-		return ucBean.getHour() * 80000;
+		double cost = ucBean.getHour() * 80000;
+		return cost;
 	}
 	
 }
