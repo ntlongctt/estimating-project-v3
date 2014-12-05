@@ -64,8 +64,6 @@ $(document).ready(function(){
                                 <li class="active"><a href="#tab_1" data-toggle="tab">Use case Point</a></li>
                                 <li class=""><a href="#tab_2" data-toggle="tab">Function Point</a></li>
                                 <li class=""><a href="#tab_3" data-toggle="tab">Statistic</a></li>
-                                
-                                <!-- <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li> -->
                             </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
@@ -97,6 +95,7 @@ $(document).ready(function(){
 				                            </div>
 										</div>
                                     </div><!-- /.tab-pane -->
+                                    <!-- Search Function Point -->
                                     <div class="tab-pane" id="tab_2">
                                         <div class="box box-primary">
 				                            <div class="box-body">
@@ -206,6 +205,26 @@ $(document).ready(function(){
 				                                    	</tbody>
 				                                    </table>
 				                                    <input type="button" class="btn btn-primary btn-flat" value="Search" style="margin-top: 10px" onclick="searchVip();">
+													<br>
+				                                    <!-- List project -->
+									                
+									                    <div class="box-body table-responsive">
+									                        <table id="projectTableVip" class="table table-bordered table-striped">
+									                            <thead style="background-color: #3c8dbc; color: white">
+									                                <tr>
+									                                    <th>Name</th>
+									                                    <th>Type</th>
+									                                    <th>Description</th>
+									                                    <th>Version</th>
+									                                    <th>Use Case</th>
+									                                    <th>Hour</th>
+									                                </tr>
+									                            </thead>
+									                            <tbody>                                   
+									                            </tbody>
+									                        </table>
+									                    </div>
+									            
 					                            </div>
 											</div>
 	                                    </div><!-- /.tab-pane -->

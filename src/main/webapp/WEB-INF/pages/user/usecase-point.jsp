@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-	name='viewport'>
+<meta	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'	name='viewport'>
 <title>Estimating software</title>
 
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"	type="text/css" />
@@ -15,17 +13,14 @@
 <link href="resources/css/ionicons.min.css" rel="stylesheet"	type="text/css" />
 <link href="resources/css/AdminLTE.css" rel="stylesheet"	type="text/css" />
 <link href="resources/font-awesome-4.1.0/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
-
 <script	src="resources/js/jquery-2.0.2.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 <script src="resources/wizard/js/wizard.js"></script>
 <script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
-
 <link href="resources/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
-
 <script src="resources/js/jquery.inputmask.bundle.js"></script>
 <script>
 $(document).ready(function(){
@@ -375,8 +370,7 @@ $(document).ready(function(){
 													EF - Enviromental Factor</li>
 											</ul>
 											<ul class="list-group">
-												<li class="list-group-item">
-												<span id="ucp" class="badge">0</span>
+												<li class="list-group-item"><span id="ucp" class="badge">0</span>
 													UCP - Use Case Points</li>
 											</ul>
 										</div>
@@ -408,8 +402,9 @@ $(document).ready(function(){
 												<li class="list-group-item"><span class="badge" id="devired_hours">0</span>Derived
 													hours</li>
 											</ul>
-											<p>Cost: 3,430,000 VND</p>
-											
+											<ul class="list-group">
+												<li class="list-group-item"><span class="badge" id="cost">0</span>Cost: </li>
+											</ul>
 										</div>
 									</div>
 								</div>

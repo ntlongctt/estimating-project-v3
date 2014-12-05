@@ -3,27 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-	name='viewport'>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'	name='viewport'>
 <meta name="viewport" content="width=device-width" />
 <title>Estimating software</title>
 
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
-<link href="resources/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="resources/css/ionicons.min.css" rel="stylesheet"
-	type="text/css" />
+<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
-<link rel="stylesheet" href="resources/css/normalize.css">
-<link rel="stylesheet" href="resources/css/main.css">
-<link rel="stylesheet" href="resources/css/jquery.steps.css">
-<script src="resources/js/modernizr-2.6.2.min.js"></script>
-<script src="resources/js/jquery-1.9.1.min.js"></script>
-<script src="resources/js/jquery.cookie-1.3.1.js"></script>
-<script src="resources/js/jquery.steps.js"></script>
-
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>

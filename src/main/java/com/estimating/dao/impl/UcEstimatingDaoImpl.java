@@ -36,16 +36,23 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			HashMap<String, String> maps = ucPointUtils.mapValueUseCasePoint(ucBean);
 			Project project = em.find(Project.class, ucBean.getProjectID());
 
-			logger.info("pojectID: " + project.getMaProject());
+			logger.info("pojectID save: " + project.getMaProject());
 			
 			uc.setProject(project);
 			uc.setNgay(new Date());
 			uc.setVersion(1);
+			logger.info("pojectID save Buoc 1 " + project.getMaProject());
 			uc.setActor(maps.get(Constants.USECASE_POINT_WAS));
 			uc.setUseCase(maps.get(Constants.USECASE_POINT_WUC));
+			logger.info("pojectID save Buoc 2 " + project.getMaProject());
 			uc.setTechnical_Factor(maps.get(Constants.USECASE_POINT_TECHNICAL_FACTOR));
 			uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
+			logger.info("pojectID save Buoc 3.1 " + project.getMaProject());
+			uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
+			logger.info("pojectID save Buoc 3 " + project.getMaProject());
+			logger.info("Save thanh cong1:");
 			em.persist(uc);
+			logger.info("Save thanh cong!:");
 		}
 		catch(Exception ex){
 			result = false;
@@ -68,6 +75,8 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 		uc.setUseCase(maps.get(Constants.USECASE_POINT_WUC));
 		uc.setTechnical_Factor(maps.get(Constants.USECASE_POINT_TECHNICAL_FACTOR));
 		uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
+		uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
+		logger.info("Vao update DAO");
 		}
 		catch(Exception ex){
 			logger.warn(ex.toString());

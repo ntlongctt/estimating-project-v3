@@ -80,6 +80,7 @@ public final class Constants {
 	public static final String USECASE_POINT_WUC = "useCase";
 	public static final String USECASE_POINT_TECHNICAL_FACTOR = "technical_Factor";
 	public static final String USECASE_POINT_ENVIRIMENT_FACTOR= "enviriment_Factor";
+	public static final String USECASE_POINT_TOTAL = "total";
 	
 	// Password Pattern
 	public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";

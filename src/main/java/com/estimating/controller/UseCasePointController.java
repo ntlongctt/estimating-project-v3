@@ -73,12 +73,12 @@ public class UseCasePointController {
 			@RequestBody UseCasePointBean ucPointBean, Model model) {
 		
 		if (!projectService.checkExistUcEstimating(ucPointBean.getProjectID())) {
-			logger.info("Update FP!");
+			logger.info("Update UP!");
 			ucPointBean.setVersion(0);
 			ucpService.updateUseCasePoint(ucPointBean);
 		} else {
 			// Add fp + Update FP_Estiamted in project
-			logger.info("Add FP!");
+			logger.info("Add UCP!");
 			projectService.uodateExistUcEstimating(ucPointBean.getProjectID());
 			ucpService.addUseCasePoint(ucPointBean);
 		}
@@ -126,10 +126,10 @@ public class UseCasePointController {
 		
 		// Step 2 and Step 3
 		Assert.notNull(lstUcpEstiamting, "List use case point null");
-		Set<Integer> listId = ucpService.listUcpIdToSearchVip(lstUcpEstiamting, searchUCPBean);
+		Set<Integer> listId = ucpService.listUcpIdToSearch(lstUcpEstiamting, searchUCPBean);
 		
 		// Step 4
-		result = projectService.findListProjectBySearchUcpVip(listId);
+		result = projectService.findListProjectBySearchFpRegular(listId);
 		
 		return result;
 	}

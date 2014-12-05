@@ -73,12 +73,14 @@
 	    mimeType: 'application/json',
 	    success: function(data) {
 	    	alert(data.was);
-	    	document.getElementById("ucw").innerHTML = data.totalUCP;
-	    	document.getElementById("uaw").innerHTML = data.was;
-	    	document.getElementById("uucp").innerHTML = data.uucp;
-	    	document.getElementById("tcf").innerHTML = data.tcf;
-	    	document.getElementById("efc").innerHTML = data.efc;
+	    	document.getElementById("ucw").innerHTML = 1;
+	    	document.getElementById("uaw").innerHTML = 1;
+	    	document.getElementById("uucp").innerHTML = 1;
+	    	document.getElementById("tcf").innerHTML = 2;
+	    	document.getElementById("efc").innerHTML =2;
 	    	document.getElementById("ucp").innerHTML = data.totalUCP;
+	    	document.getElementById("cost").innerHTML = data.cost;
+	    	
 	    	document.getElementById("minimun_hours").innerHTML = data.totalUCP*document.getElementById("minimun_hours_input").value;
 	    	document.getElementById("maximun_hours").innerHTML = data.totalUCP*document.getElementById("maximun_hours_input").value;
 	    	document.getElementById("devired_hours").innerHTML = data.totalUCP*document.getElementById("devired_hours_input").value;
@@ -101,11 +103,11 @@
 		    mimeType: 'application/json',
 		    success: function(data) {
 		    	//alert(data.totalUCP);
-		    	document.getElementById("ucw").innerHTML = data.wuc;
-		    	document.getElementById("uaw").innerHTML = data.was;
-		    	document.getElementById("uucp").innerHTML = data.uucp;
-		    	document.getElementById("tcf").innerHTML = data.tcf;
-		    	document.getElementById("efc").innerHTML = data.efc;
+		    	document.getElementById("ucw").innerHTML = 1;
+		    	document.getElementById("uaw").innerHTML = 1;
+		    	document.getElementById("uucp").innerHTML = 1;
+		    	document.getElementById("tcf").innerHTML = 2;
+		    	document.getElementById("efc").innerHTML =2;
 		    	document.getElementById("ucp").innerHTML = data.totalUCP;
 		    	document.getElementById("minimun_hours").innerHTML = data.totalUCP*document.getElementById("minimun_hours_input").value;
 		    	document.getElementById("maximun_hours").innerHTML = data.totalUCP*document.getElementById("maximun_hours_input").value;

@@ -11,22 +11,16 @@ import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.beans.ProjectBean;
-
 import com.estimating.beans.UseCasePointBean;
-
 import com.estimating.beans.ShareProjectBean;
-
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
 import com.estimating.dao.IUseCasePointDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
-
 import com.estimating.domain.UcpEstiamting;
-
 import com.estimating.domain.ShareProject;
-
 import com.estimating.service.IProjectService;
 import com.estimating.utils.ParseStringToArrayUtils;
 
@@ -241,7 +235,24 @@ public class ProjectServiceImpl implements IProjectService {
 		}
 		return result;
 	}
-
+	
+	@Override
+	public List<ProjectBean> findListProjectBySearchFpRegular(Set<Integer> listId) {
+		List<Project> projects =  new ArrayList<Project>();
+		projects = projectDao.findListProjectBySearchUcp(listId);
+		List<ProjectBean> result = new ArrayList<ProjectBean>();
+		ProjectBean bean;
+		for (Project project : projects) {
+			bean = new ProjectBean();
+			bean.setName(project.getTenProject());
+			bean.setType(project.getProjectType().getTenLoaiProject());
+			bean.setDescription(project.getMoTa());
+			bean.setProjectID(project.getMaProject());
+			result.add(bean);
+		}
+		return result;
+	}
+	
 	@Override
 	public boolean addProjectShare(ShareProjectBean shareproject) {
 		return projectDao.addProjectShare(shareproject);
@@ -293,5 +304,9 @@ public class ProjectServiceImpl implements IProjectService {
 		
 		return listBean;
 	}
+
+	
+
+	
 
 }

@@ -25,7 +25,6 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 	@Autowired
 	IUseCasePointDao ucDao;
 
-
 	
 	@Override
 	public double calTotalUseCasePoint(UseCasePointBean ucpBean) {
@@ -133,7 +132,9 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		/**
 		 * 	Calculate useCasePointBean
 		 */
-		for (UseCasePointBean useCasePointBean : listUseCasePointBean) {
+		Assert.notNull(listUseCasePointBean, "Can't find use case point");
+		for
+		(UseCasePointBean useCasePointBean : listUseCasePointBean) {
 			/** Set Use Case Point Weight */
 			useCasePointBean.setWuc(UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
 					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
@@ -157,21 +158,24 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		List<UseCasePointBean> result = new ArrayList<UseCasePointBean>();
 		//Step 2
 		for (UseCasePointBean uc : listUseCasePointBean) {
-			if(searchBean.getUcp_to() == 0.0) searchBean.setUcp_coat_to(0);
+			if(searchBean.getUcp_to() == 0.0) searchBean.setUcp_to(0);
 			if(searchBean.getUcp_coat_to() == 0.0) searchBean.setUcp_coat_to(max);
 			if(searchBean.getTotal_ucp_hour_to() == 0.0 ) searchBean.setTotal_ucp_hour_to(max);
 			
-			if(searchBean.getUcp_from() <= uc.getTotalUCP() && uc.getTotalUCP() <= searchBean.getUcp_coat_to() &&
+			if(searchBean.getUcp_from() <= uc.getTotalUCP() && uc.getTotalUCP() <= searchBean.getUcp_to() &&
 				searchBean.getUcp_coat_from() <= uc.getCost() && uc.getCost() <= searchBean.getUcp_coat_to() &&
 				searchBean.getTotal_ucp_hour_from()<= uc.getHour() && uc.getHour() <= searchBean.getTotal_ucp_hour_to()){
 				result.add(uc);
+				
 			}
+			
 		}
 		// Step 3: Set project id for ucp bean from result;
 		if(result !=null && result.size() > 0) {
 			for (UseCasePointBean uc : result) {
 				listId.add(uc.getProjectID());
 			}
+			
 		}
 		
 		return listId;
