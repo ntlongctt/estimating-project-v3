@@ -179,11 +179,11 @@ function viewVersion(projectID) {
 	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
 	function(data) {
 		// Function
-		var length = data['listFp'].length;
+		var length1 = data['listFp'].length;
 		var lstFp = data['listFp'];
 		var projectName = data['projectName'];
 		$('#lstFuntionPoint').html('');
-		for (var i = 0; i < length; i++) {
+		for (var i = 0; i < length1; i++) {
 			$('#lstFuntionPoint').append($('<option>', {
 			    value: lstFp[i].fpID,
 			    text: lstFp[i].tenProject,
@@ -191,17 +191,18 @@ function viewVersion(projectID) {
 		}
 		
 		// Use case
-		var length = data['listUc'].length;
-		var lstFp = data['listUc'];
+		var length2 = data['listUc'].length;
+		var lstUp = data['listUc'];
 		var projectName = data['projectName'];
 		$('#selectUCP').html('');
-		for (var i = 0; i < length; i++) {
+		for (var i = 0; i < length2; i++) {
 			$('#selectUCP').append($('<option>', {
-			    value: lstFp[i].fpID,
-			    text: lstFp[i].tenProject,
+			    value: lstUp[i].ucpId,
+			    text: lstUp[i].tenProject,
 			}));
 		}
-	
+
+		
 		
 		document.getElementById("projectName").innerHTML = "Project : " + "<b style='color:#3c8dbc'>" + projectName + "</b>"; 
 	})
@@ -213,8 +214,22 @@ function selectUCP() {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	    alert("Value: " + valueSelected +" Text: " +textSelected);
+	    alert(valueSelected);
+	    $.ajax({
+	        type : "GET",
+	        url : "show-ucpDetail/" + valueSelected + ".json",
+	        dataType: 'json',
+	    	data: JSON.stringify(json),
+	    	contentType: 'application/json',
+	    	mimeType: 'application/json',
+	         success : function(response) {
+	             alert("Success");
+	             // Refresh page
+	             //location.reload();	
+	         }
+	     });
 	});
+	
 }
 
 function selectFP() {
@@ -361,5 +376,50 @@ function searchVip() {
 	    error: function() {    	
 	    }
 	}); 	
+	
+}
+
+// Declaration global usecase point variable
+var easy, medium, difficult, simple, average, complex, distributed, performance, endUserefficiency, complexProcessing;
+var reusableCode, easeofInstallation, easeofUse, portable, easeofChange, concurrentUse, accessforThirdParties, specialSecurity;
+var trainingNeeds, familiarwithDevelopmentProcess, applicationExperience, objectOrientedExperience, leadAnalystCapability;
+var motivation, stableRequirements, parttimeStaff, difficulProgrammingLanguage;
+var projectID, json;
+//Get value use case point input
+function getValueUseCase(){
+	easy = $('#ucp_ucpw_simple').val();
+	medium = $('#ucp_ucpw_Average').val();
+	difficult = $('#ucp_ucpw_Complex').val();
+	
+	simple = $('#ucp_fp_Simple').val();
+	average = $('#ucp_fp_Average').val();
+	complex = $('#ucp_fp_Complex').val();
+		 
+	distributed = $('#ucp_Distributed').val();
+	performance = $('#ucp_Performance').val();
+	endUserefficiency = $('#ucp_efficiency').val();
+	complexProcessing = $('#ucp_Processing').val();
+	reusableCode = $('#ucp_Reusable').val();
+	easeofInstallation = $('#ucp_Installation').val();
+	easeofUse = $('#ucp_ease_of_use').val();
+	portable = $('#ucp_Portable').val();
+	easeofChange = $('#ucp_Change').val();
+	concurrentUse = $('#ucp_Concurrent').val();
+	accessforThirdParties = $('#ucp_Security').val();
+	specialSecurity = $('#ucp_Third_Parties').val();
+	trainingNeeds = $('#ucp_Training').val();
+		 		
+	familiarwithDevelopmentProcess = $('#ucp_Familiar').val();
+	applicationExperience = $('#ucp_Application').val();
+	objectOrientedExperience = $('#ucp_Object_Oriented').val();
+	leadAnalystCapability = $('#ucp_Lead_Analyst').val();
+	motivation = $('#ucp_Motivation').val();
+	stableRequirements = $('#ucp_Stable_Requirements').val();
+	parttimeStaff = $('#ucp_Part_time').val();
+	difficulProgrammingLanguage = $('#ucp_Difficult').val();
+
+	projectID= $("#selectUCP option:selected").val();
+
+	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID };
 	
 }
