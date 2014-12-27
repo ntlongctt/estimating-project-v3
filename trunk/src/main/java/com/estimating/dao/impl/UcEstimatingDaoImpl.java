@@ -35,12 +35,21 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			UcpEstiamting uc = new UcpEstiamting();
 			HashMap<String, String> maps = ucPointUtils.mapValueUseCasePoint(ucBean);
 			Project project = em.find(Project.class, ucBean.getProjectID());
-
+			int version = 0;
 			logger.info("pojectID save: " + project.getMaProject());
 			
 			uc.setProject(project);
 			uc.setNgay(new Date());
-			uc.setVersion(1);
+			
+			// For create new Version
+			if(ucBean.getUcpId() != 0) {
+				String strQuery = "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject ORDER BY p.version DESC";
+				TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
+				query.setParameter("maProject", ucBean.getProjectID());
+				List<UcpEstiamting> temp = query.getResultList();
+				version = temp.get(0).getVersion() + 1;
+			}
+			uc.setVersion(version);
 			logger.info("pojectID save Buoc 1 " + project.getMaProject());
 			uc.setActor(maps.get(Constants.USECASE_POINT_WAS));
 			uc.setUseCase(maps.get(Constants.USECASE_POINT_WUC));
@@ -60,21 +69,23 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 
 	@Override
 	@Transactional
-	public boolean updateUseCasePoint(UseCasePointBean ucBean) {
+	public boolean updateUseCasePoint(UseCasePointBean ucBean, boolean newVersion) {
 		boolean result = false;
 		try {
-		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject AND p.version = 1";
-		TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
-		query.setParameter("maProject", ucBean.getProjectID());
-		UcpEstiamting uc = query.getSingleResult();
-		HashMap<String, String> maps = ucPointUtils.mapValueUseCasePoint(ucBean);
-		uc.setNgay(new Date());
-		uc.setActor(maps.get(Constants.USECASE_POINT_WAS));
-		uc.setUseCase(maps.get(Constants.USECASE_POINT_WUC));
-		uc.setTechnical_Factor(maps.get(Constants.USECASE_POINT_TECHNICAL_FACTOR));
-		uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
-		uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
-		logger.info("Vao update DAO");
+			String strQuery= "SELECT p From UcpEstiamting p WHERE p.maUCP_Es = :maUCP_Es";
+			TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
+			query.setParameter("maUCP_Es", ucBean.getUcpId());
+			UcpEstiamting uc = query.getSingleResult();
+			HashMap<String, String> maps = ucPointUtils.mapValueUseCasePoint(ucBean);
+			uc.setNgay(new Date());
+			uc.setActor(maps.get(Constants.USECASE_POINT_WAS));
+			uc.setUseCase(maps.get(Constants.USECASE_POINT_WUC));
+			uc.setTechnical_Factor(maps.get(Constants.USECASE_POINT_TECHNICAL_FACTOR));
+			uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
+			uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
+			if(newVersion)
+				uc.setVersion(uc.getVersion() + 1);
+			logger.info("Vao update DAO");
 		}
 		catch(Exception ex){
 			logger.warn(ex.toString());

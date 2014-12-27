@@ -304,6 +304,9 @@ public class UseCasePointUtils {
 		/** Set project ID */
 		ucpBean.setProjectID(ucEstimating.getProject().getMaProject());
 		
+		/* Set total*/
+		ucpBean.setTotalUCP(ucEstimating.getTotal());
+		ucpBean.setCost(ucEstimating.getTotal() * 20);
 		
 		return ucpBean;
 		

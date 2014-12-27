@@ -8,6 +8,7 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -98,7 +99,7 @@ public class UseCasePointController {
 		if (!projectService.checkExistUcEstimating(ucPointBean.getProjectID())) {
 			logger.info("Update UP!");
 			ucPointBean.setVersion(0);
-			ucpService.updateUseCasePoint(ucPointBean);
+			ucpService.updateUseCasePoint(ucPointBean, false);
 		} else {
 			// Add fp + Update FP_Estiamted in project
 			logger.info("Add UCP!");
@@ -111,6 +112,27 @@ public class UseCasePointController {
 
 		return ucPointBean;
 	}
+	/*Create new UCP version*/
+	@RequestMapping(value ="/new-ucpVersion", method = RequestMethod.POST)
+	@ResponseBody
+	public UseCasePointBean createNewUcpVersion(
+			@RequestBody UseCasePointBean ucPointBean, Model model){
+		// Validate
+		if(ucPointBean.getProjectID() == 0)
+			model.addAttribute("message", "Please select version of project!");
+		ucpService.addUseCasePoint(ucPointBean);
+		return ucPointBean;
+	}
+	
+	/* Update current UCP version*/
+	@RequestMapping(value ="/update-ucpVersion", method = RequestMethod.POST)
+	@ResponseBody
+	public UseCasePointBean updateNewUcpVersion(
+			@RequestBody UseCasePointBean ucPointBean, Model model){
+		ucpService.updateUseCasePoint(ucPointBean, false);
+		return ucPointBean;
+	}
+	
 	
 	/**
 	 * Step 1: Get list use case point of user

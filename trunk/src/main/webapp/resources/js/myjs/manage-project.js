@@ -1,3 +1,11 @@
+  // Declaration global variable
+  var easy, medium, difficult, simple, average, complex, distributed, performance, endUserefficiency, complexProcessing;
+  var reusableCode, easeofInstallation, easeofUse, portable, easeofChange, concurrentUse, accessforThirdParties, specialSecurity;
+  var trainingNeeds, familiarwithDevelopmentProcess, applicationExperience, objectOrientedExperience, leadAnalystCapability;
+  var motivation, stableRequirements, parttimeStaff, difficulProgrammingLanguage;
+  var projectID2;
+  var json;
+  
 $(document).ready(
 function() {
 editTableUCP();
@@ -85,6 +93,27 @@ function editTableUCP() {
 			document.getElementById("editPayment").innerHTML = "Edit";
 		}
 	});
+}
+
+//Create new UCP version
+function createNewUcpVersion(){
+	alert("new");
+	getValueUseCase();
+	$.ajax({
+		    url: "new-ucpVersion.json",
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(json),
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+		    	// alert("Save successful!")
+		    	
+		   	},
+		    error: function() {   
+		    	alert("Error! Please try again.")
+		    }
+		}); 
 }
 
 //Event collapse for FP
@@ -178,6 +207,7 @@ function editTableFP() {
 function viewVersion(projectID) {
 	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
 	function(data) {
+		projectID2 = projectID;
 		// Function
 		var length1 = data['listFp'].length;
 		var lstFp = data['listFp'];
@@ -200,7 +230,42 @@ function viewVersion(projectID) {
 			    value: lstUp[i].ucpId,
 			    text: lstUp[i].tenProject,
 			}));
+			
 		}
+		$('#ucp_ucpw_simple').val(lstUp[0].easy);
+		$('#ucp_ucpw_Average').val(lstUp[0].medium);
+	 	$('#ucp_ucpw_Complex').val( lstUp[0].difficult);
+	 	$('#ucp_fp_Simple').val( lstUp[0].simple);
+	 	$('#ucp_fp_Average').val( lstUp[0].average);
+	 	$('#ucp_fp_Complex').val( lstUp[0].complex);
+	 	$('#ucp_Distributed').val( lstUp[0].distributed);
+	 	$('#ucp_Performance').val( lstUp[0].performance);
+	 	$('#ucp_efficiency').val( lstUp[0].endUserefficiency);
+	 	$('#ucp_Processing').val( lstUp[0].complexProcessing);
+	 	$('#ucp_Reusable').val( lstUp[0].reusableCode);
+	 	$('#ucp_Installation').val( lstUp[0].easeofInstallation);
+	 	$('#ucp_ease_of_use').val( lstUp[0].easeofUse);
+	 	$('#ucp_Portable').val( lstUp[0].portable);
+	 	$('#ucp_Change').val( lstUp[0].easeofChange);
+	 	$('#ucp_Concurrent').val( lstUp[0].concurrentUse);
+	 	$('#ucp_Security').val( lstUp[0].accessforThirdParties);
+	 	$('#ucp_Third_Parties').val( lstUp[0].specialSecurity);
+	 	$('#ucp_Training').val( lstUp[0].trainingNeeds);
+
+	 	$('#ucp_Familiar').val( lstUp[0].familiarwithDevelopmentProcess);
+	 	$('#ucp_Application').val( lstUp[0].applicationExperience);
+	 	$('#ucp_Object_Oriented').val( lstUp[0].objectOrientedExperience);
+	 	$('#ucp_Lead_Analyst').val( lstUp[0].leadAnalystCapability);
+	 	$('#ucp_Motivation').val( lstUp[0].motivation);
+	 	$('#ucp_Stable_Requirements').val( lstUp[0].stableRequirements);
+	 	$('#ucp_Part_time').val( lstUp[0].parttimeStaff);
+	 	$('#ucp_Difficult').val( lstUp[0].difficulProgrammingLanguage);
+
+	 	$('#ucp_total_point').val( lstUp[0].totalUCP);
+	 	$('#ucp_total_hour').val("20");
+	 	$('#ucp_cost').val( lstUp[0].totalUCP * 20);
+
+
 
 		
 		
@@ -223,9 +288,39 @@ function selectUCP() {
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
 	         success : function(response) {
-	             alert("Success");
-	             // Refresh page
-	             //location.reload();	
+	         	alert(response.easy);
+	         	 $('#ucp_ucpw_simple').val( response.easy);
+	         	 $('#ucp_ucpw_Average').val( response.medium);
+	         	 $('#ucp_ucpw_Complex').val( response.difficult);
+	         	 $('#ucp_fp_Simple').val( response.simple);
+	         	 $('#ucp_fp_Average').val( response.average);
+	         	 $('#ucp_fp_Complex').val( response.complex);
+	         	 $('#ucp_Distributed').val( response.distributed);
+	         	 $('#ucp_Performance').val( response.performance);
+	         	 $('#ucp_efficiency').val( response.endUserefficiency);
+	         	 $('#ucp_Processing').val( response.complexProcessing);
+	         	 $('#ucp_Reusable').val( response.reusableCode);
+	         	 $('#ucp_Installation').val( response.easeofInstallation);
+	         	 $('#ucp_ease_of_use').val( response.easeofUse);
+	         	 $('#ucp_Portable').val( response.portable);
+	         	 $('#ucp_Change').val( response.easeofChange);
+	         	 $('#ucp_Concurrent').val( response.concurrentUse);
+	         	 $('#ucp_Security').val( response.accessforThirdParties);
+	         	 $('#ucp_Third_Parties').val( response.specialSecurity);
+	         	 $('#ucp_Training').val( response.trainingNeeds);
+
+	         	 $('#ucp_Familiar').val( response.familiarwithDevelopmentProcess);
+	         	 $('#ucp_Application').val( response.applicationExperience);
+	         	 $('#ucp_Object_Oriented').val( response.objectOrientedExperience);
+	         	 $('#ucp_Lead_Analyst').val( response.leadAnalystCapability);
+	         	 $('#ucp_Motivation').val( response.motivation);
+	         	 $('#ucp_Stable_Requirements').val( response.stableRequirements);
+	         	 $('#ucp_Part_time').val( response.parttimeStaff);
+	         	 $('#ucp_Difficult').val( response.difficulProgrammingLanguage);
+
+	         	 $('#ucp_total_point').val( response.totalUCP);
+	         	 $('#ucp_total_hour').val("20");
+	         	 $('#ucp_cost').val( response.totalUCP * 20);
 	         }
 	     });
 	});
@@ -379,14 +474,9 @@ function searchVip() {
 	
 }
 
-// Declaration global usecase point variable
-var easy, medium, difficult, simple, average, complex, distributed, performance, endUserefficiency, complexProcessing;
-var reusableCode, easeofInstallation, easeofUse, portable, easeofChange, concurrentUse, accessforThirdParties, specialSecurity;
-var trainingNeeds, familiarwithDevelopmentProcess, applicationExperience, objectOrientedExperience, leadAnalystCapability;
-var motivation, stableRequirements, parttimeStaff, difficulProgrammingLanguage;
-var projectID, json;
 //Get value use case point input
 function getValueUseCase(){
+	alert("ID: " + projectID2);
 	easy = $('#ucp_ucpw_simple').val();
 	medium = $('#ucp_ucpw_Average').val();
 	difficult = $('#ucp_ucpw_Complex').val();
@@ -418,8 +508,8 @@ function getValueUseCase(){
 	parttimeStaff = $('#ucp_Part_time').val();
 	difficulProgrammingLanguage = $('#ucp_Difficult').val();
 
-	projectID= $("#selectUCP option:selected").val();
-
-	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID };
+	ucpId= $("#selectUCP option:selected").val();
+	
+	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID2, "ucpId" :ucpId };
 	
 }

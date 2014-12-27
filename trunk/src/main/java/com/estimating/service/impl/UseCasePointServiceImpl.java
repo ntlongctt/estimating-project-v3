@@ -43,8 +43,8 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 	}
 
 	@Override
-	public boolean updateUseCasePoint(UseCasePointBean ucBean) {
-		return ucDao.updateUseCasePoint(ucBean);
+	public boolean updateUseCasePoint(UseCasePointBean ucBean, boolean newVersion) {
+		return ucDao.updateUseCasePoint(ucBean, newVersion);
 	}
 
 	@Override

@@ -146,7 +146,7 @@ public class ProjectServiceImpl implements IProjectService {
 			// Set total
 			fpBean.setTotalFP(fp.getTotal());
 			// Set name = ProjectName + version + create date
-			fpBean.setTenProject(fp.getProject().getTenProject() + " v" + fp.getVersion() + " - " + fp.getNgay());
+			fpBean.setTenProject(fp.getProject().getTenProject() + "-- v" + fp.getVersion() + " - " + fp.getNgay());
 			fpBean.setFpID(fp.getMaFP_Es());
 			lstFpBean.add(fpBean);
 		}
