@@ -344,8 +344,13 @@ $(document).ready(function(){
 		                        <select class="form-control" id="selectUCP">
                                 </select>
 		                        <input type="button" name="btn_update_servion" id="btn_update_servion" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
-		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" id="btn_create_version" value="Create new version" style="margin-top: 10px">
+		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" onclick="createNewUcpVersion();" id="btn_create_version" value="Create new version" style="margin-top: 10px">
+									------- ${message }
 							</div>
+							
+							<c:if test="${message !='' }">
+								<div style="color: red" id="errorMessage"><p>${message }</p></div>
+							</c:if>
 						</div>
 					
 					<div >
@@ -367,7 +372,7 @@ $(document).ready(function(){
 				<div id="panelUCPWeight" style="text-align: left; display: none; margin-top: 10px;">
 					 <table style="width: 600px">
 					 	<tr class="info">
-					 		<th>Simple: <input type="text" name="ucp_ucpw_simple" id="ucp_ucpw_simple" style="width: 40px; height: 20px" placeholder="7"></th>
+					 		<th>Simple: <input type="text" name="ucp_ucpw_simple" id="ucp_ucpw_simple" style="width: 40px; height: 20px" ></th>
 					 		<th>Average: <input type="text" name="ucp_ucpw_Average" id="ucp_ucpw_Average" style="width: 40px; height: 20px" placeholder="7"></th>
 					 		<th>Complex: <input type="text" name="ucp_ucpw_Complex" id="ucp_ucpw_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
 					 	</tr>			

@@ -16,7 +16,7 @@ public interface IUseCasePointService {
 	public double calEcf(UseCasePointBean ucpBean);
 	
 	public boolean addUseCasePoint(UseCasePointBean ucBean);
-	public boolean updateUseCasePoint(UseCasePointBean ucBean);
+	public boolean updateUseCasePoint(UseCasePointBean ucBean, boolean newVersion);
 	public double calCostUc(UseCasePointBean ucBean);
 	public List<UseCasePointBean> parseUcpDaoToBean(List<UcpEstiamting> listUcEs);
 	public List<UcpEstiamting> getAllListUc();

@@ -69,6 +69,16 @@ public class UseCasePointBean implements Serializable {
 
 	private int fpID;
 
+	private String errorMessage;
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
 	public int getUcpId() {
 		return ucpId;
 	}
