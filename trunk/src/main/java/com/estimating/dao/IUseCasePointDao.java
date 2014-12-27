@@ -11,4 +11,5 @@ public interface IUseCasePointDao {
 	public List<UcpEstiamting> getListUcpEstimated(int projectID);	
 	public List<UcpEstiamting> getAllListUc();
 	public List<UcpEstiamting> findListUcpByUsername(String username);
+	public UcpEstiamting findUseCasePointByUCId(int id);
 }

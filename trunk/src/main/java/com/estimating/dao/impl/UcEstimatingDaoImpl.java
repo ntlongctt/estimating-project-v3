@@ -49,8 +49,6 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
 			logger.info("pojectID save Buoc 3.1 " + project.getMaProject());
 			uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
-			logger.info("pojectID save Buoc 3 " + project.getMaProject());
-			logger.info("Save thanh cong1:");
 			em.persist(uc);
 			logger.info("Save thanh cong!:");
 		}
@@ -107,6 +105,14 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
 	    query.setParameter("username", username);
 		return query.getResultList();
+	}
+
+	@Override
+	public UcpEstiamting findUseCasePointByUCId(int id) {
+		String strQuery= "SELECT p From UcpEstiamting p WHERE p.maUCP_Es = :id ";
+	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
+	    query.setParameter("id", id);
+		return query.getSingleResult();
 	}
 	
 }

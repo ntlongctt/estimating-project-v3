@@ -16,6 +16,7 @@ import com.estimating.dao.IUserDao;
 import com.estimating.domain.User;
 import com.estimating.utils.Constants;
 
+@SuppressWarnings("deprecation")
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 

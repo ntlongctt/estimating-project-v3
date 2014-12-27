@@ -21,9 +21,10 @@ public class UseCasePointUtils {
 
 	public static double calculator_WUCs(double ucSimple, double ucAverage,
 			double ucComplex) {
-		return ucSimple * Constants.USE_CASE_SIMPLE + ucAverage
-				* Constants.USE_CASE_AVERAGE + ucComplex
-				* Constants.USE_CASE_COMPLEX;
+		double wuc;
+		wuc = ucSimple * Constants.USE_CASE_SIMPLE + ucAverage
+				* Constants.USE_CASE_AVERAGE + ucComplex* Constants.USE_CASE_COMPLEX;
+		return wuc;
 	}
 
 	public static double calculator_WAs(double aSimple, double aAverage,
@@ -123,7 +124,7 @@ public class UseCasePointUtils {
 	}
 	
 	/**
-	 * @return HashMap value ues case point to update or save to database
+	 * @return HashMap value use case point to update or save to database
 	 */
 	public HashMap<String, String> mapValueUseCasePoint(UseCasePointBean ucBean){
 		HashMap< String, String> maps = new HashMap<String, String>();
@@ -175,7 +176,7 @@ public class UseCasePointUtils {
 	public double calculateCostUc(UseCasePointBean ucBean){
 		UseCasePointUtils ucUltils = new UseCasePointUtils();
 		ucBean.setTotalUCP(ucUltils.calTotalUCP(ucBean));
-		return ucBean.getTotalUCP()*80*ucBean.getHour();
+		return ucBean.getTotalUCP()*80000*ucBean.getHour();
 	}
 	
 	
@@ -183,6 +184,7 @@ public class UseCasePointUtils {
 	 * @return List UseCasePointBean from UcpEstiamting
 	 */
 	public List<UseCasePointBean> parseUcpDaoToBean(List<UcpEstiamting> listUcpEstiamting) {
+		
 		List<UseCasePointBean> listUseCasePointBean = new  ArrayList<UseCasePointBean>();
 		UseCasePointBean ucpBean;
 		List<Double> listDouble = new ArrayList<Double>();
@@ -238,8 +240,73 @@ public class UseCasePointUtils {
 			ucpBean.setProjectID(ucpDao.getProject().getMaProject());
 			
 			listUseCasePointBean.add(ucpBean);
+			
+
 		}
 		return listUseCasePointBean;
+	}
+	
+	/**
+	 * @return List UseCasePointBean from UcpEstiamting
+	 */
+	
+	public UseCasePointBean parseSingleUcpToSingleBean(UcpEstiamting ucEstimating){
+		
+		UseCasePointBean ucpBean;
+		ucpBean = new UseCasePointBean();
+		String usecase = ucEstimating.getUseCase();
+		List<Double> listDouble = new ArrayList<Double>();
+		listDouble = ParseStringToArrayUtils.parseToArray(usecase);
+		
+		ucpBean.setEasy(listDouble.get(0));
+		ucpBean.setMedium(listDouble.get(1));
+		ucpBean.setDifficult(listDouble.get(2));
+		
+		/** Get Function Point Weight */
+		listDouble.clear();
+		String function = ucEstimating.getActor();
+		listDouble = ParseStringToArrayUtils.parseToArray(function);
+		ucpBean.setSimple(listDouble.get(0));
+		ucpBean.setAverage(listDouble.get(1));
+		ucpBean.setComplex(listDouble.get(2));
+		
+		/** Get Technical Complexity Factor  */
+		listDouble.clear();
+		String technical = ucEstimating.getTechnical_Factor();
+		listDouble = ParseStringToArrayUtils.parseToArray(technical);
+		ucpBean.setDistributed(listDouble.get(0));
+		ucpBean.setPerformance(listDouble.get(1));
+		ucpBean.setEndUserefficiency(listDouble.get(2));
+		ucpBean.setComplex(listDouble.get(3));
+		ucpBean.setReusableCode(listDouble.get(4));
+		ucpBean.setEaseofInstallation(listDouble.get(5));
+		ucpBean.setEaseofUse(listDouble.get(6));
+		ucpBean.setPortable(listDouble.get(7));
+		ucpBean.setEaseofChange(listDouble.get(8));
+		ucpBean.setConcurrentUse(listDouble.get(9));
+		ucpBean.setSpecialSecurity(listDouble.get(10));
+		ucpBean.setAccessforThirdParties(listDouble.get(11));
+		ucpBean.setTrainingNeeds(listDouble.get(12));
+		
+		/** Get Inviromental factors*/
+		listDouble.clear();
+		String enviriment = ucEstimating.getEnviriment_Factor();
+		listDouble = ParseStringToArrayUtils.parseToArray(enviriment);
+		ucpBean.setFamiliarwithDevelopmentProcess(listDouble.get(0));
+		ucpBean.setApplicationExperience(listDouble.get(1));
+		ucpBean.setObjectOrientedExperience(listDouble.get(2));
+		ucpBean.setLeadAnalystCapability(listDouble.get(3));
+		ucpBean.setMotivation(listDouble.get(4));
+		ucpBean.setStableRequirements(listDouble.get(5));
+		ucpBean.setParttimeStaff(listDouble.get(6));
+		ucpBean.setDifficulProgrammingLanguage(listDouble.get(7));
+		
+		/** Set project ID */
+		ucpBean.setProjectID(ucEstimating.getProject().getMaProject());
+		
+		
+		return ucpBean;
+		
 	}
 	
 	// Calculate hour

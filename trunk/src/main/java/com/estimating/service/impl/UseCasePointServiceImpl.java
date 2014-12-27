@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import sun.print.resources.serviceui;
-
 import com.estimating.beans.SearchUseCasePointBean;
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.dao.IUseCasePointDao;
@@ -30,6 +28,14 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 	public double calTotalUseCasePoint(UseCasePointBean ucpBean) {
 		return ucPointUltils.calTotalUCP(ucpBean);
 	}
+	
+
+	@Override
+	public double calWuc(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_WUCs(ucpBean.getSimple(), ucpBean.getAverage(), ucpBean.getComplex());
+	}
+	
+	
 	
 	@Override
 	public boolean addUseCasePoint(UseCasePointBean ucBean) {
@@ -180,8 +186,37 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		
 		return listId;
 	}
-	
-	
 
+
+	@Override
+	public double calWas(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_WAs(ucpBean.getEasy(), ucpBean.getMedium(), ucpBean.getDifficult());
+	}
+
+
+	@Override
+	public double calTfc(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_TCF(ucpBean);
+	}
+
+
+	@Override
+	public double calEcf(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_ECF(ucpBean);
+	}
+
+
+	@Override
+	public List<UseCasePointBean> parseUcpDaoToBean(List<UcpEstiamting> listUcEs) {
+		return ucPointUltils.parseUcpDaoToBean(listUcEs);
+	}
+
+
+	@Override
+	public UseCasePointBean findUseCasePointByUCId(int id) {
+		UcpEstiamting uc = ucDao.findUseCasePointByUCId(id);
+		UseCasePointBean bean = ucPointUltils.parseSingleUcpToSingleBean(uc);
+		return bean;
+	}
 
 }

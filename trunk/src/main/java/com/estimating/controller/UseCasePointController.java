@@ -11,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -37,6 +39,8 @@ public class UseCasePointController {
 
 	@Autowired
 	IUseCasePointService ucpService;
+	
+	UcpEstiamting ucEs;
 
 	private static final Logger logger = Logger
 			.getLogger(UseCasePointController.class);
@@ -57,6 +61,7 @@ public class UseCasePointController {
 	}
 	
 
+
 	@RequestMapping(value = "/calc-usecasepoint", method = RequestMethod.POST)
 	@ResponseBody
 	public UseCasePointBean previewUseCasePoint(
@@ -64,7 +69,25 @@ public class UseCasePointController {
 		logger.info("Preview UseCasePoint");
 		useCasePointBean.setTotalUCP(ucpService.calTotalUseCasePoint(useCasePointBean));
 		useCasePointBean.setCost(ucpService.calCostUc(useCasePointBean));
+		useCasePointBean.setWuc(ucpService.calWuc(useCasePointBean));
+		useCasePointBean.setWas(ucpService.calWas(useCasePointBean));
+		useCasePointBean.setTcf(ucpService.calTfc(useCasePointBean));
+		useCasePointBean.setEfc(ucpService.calEcf(useCasePointBean));
 		return useCasePointBean;
+	}
+
+	@RequestMapping (value = "/show-ucpDetail/{valueSelected}", method = RequestMethod.GET)
+	@ResponseBody
+	public UseCasePointBean showUseCaseDetail(@PathVariable("valueSelected") int valueSelected, Model model){
+		UseCasePointBean ucBean = new UseCasePointBean();
+		/*List<UcpEstiamting> list = new ArrayList<UcpEstiamting>();
+		List<UseCasePointBean> listUcBean = new ArrayList<UseCasePointBean>();
+		listUcBean = ucpService.parseUcpDaoToBean(list);
+		
+		ucBean.setSimple(Double.parseDouble(listUcBean.get(0).toString()));*/
+		ucBean = ucpService.findUseCasePointByUCId(valueSelected);
+		logger.info("Gia tri: " + valueSelected);
+		return ucBean;
 	}
 	
 	@RequestMapping(value = "/save-usecasepoint", method = RequestMethod.POST)
