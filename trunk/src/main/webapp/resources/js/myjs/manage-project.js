@@ -349,7 +349,7 @@ function selectUCP() {
 	        type : "GET",
 	        url : "show-ucpDetail/" + valueSelected + ".json",
 	        dataType: 'json',
-	    	data: JSON.stringify(json),
+	    	
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
 	         success : function(response) {

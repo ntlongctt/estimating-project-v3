@@ -159,15 +159,14 @@ function selectUCP() {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	    alert(valueSelected);
 	    $.ajax({
 	        type : "GET",
 	        url : "show-ucpDetail/" + valueSelected + ".json",
 	        dataType: 'json',
-	    	data: JSON.stringify(json),
+	    	
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
-	         success : function(response) {
+	        success : function(response) {
 	         	//Use Case Point Weight
 	         	alert("long");
 				document.getElementById("ucpw_simple").innerHTML = response.easy;
@@ -221,7 +220,7 @@ $.getJSON("getListProjectByOtherUser.json",{ajax : 'true'},
 			content += "<td>"
 				+ "<a type='button' onclick='viewVersion(" + data[i].maProject + ")' style='color:green; font-weight: bold;' >Detail</a>"
 				+ "</td>";
-		content += "</tr>";
+		content += "</tr>";	
 			content += "</tr>";
 			$("#projectTable > tbody").append(content);
 		}
