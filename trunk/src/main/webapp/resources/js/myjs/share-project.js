@@ -4,6 +4,7 @@ function() {
 	
 getListShareProject();
 getListProjectByOtherUser()
+selectUCP()
 
 // Get list project to select option
 $.getJSON("listprojectjson.json",{ajax : 'true'},
@@ -84,6 +85,125 @@ function discardShare() {
              location.reload();	
          }
      });
+}
+
+function viewVersion(projectID){
+	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
+	function(data) {
+		projectID2 = projectID;
+		// Function
+		var length1 = data['listFp'].length;
+		var lstFp = data['listFp'];
+		var projectName = data['projectName'];
+		$('#lstFuntionPoint').html('');
+		for (var i = 0; i < length1; i++) {
+			$('#lstFuntionPoint').append($('<option>', {
+			    value: lstFp[i].fpID,
+			    text: lstFp[i].tenProject,
+			}));
+		}
+		
+		// Use case
+		var length2 = data['listUc'].length;
+		var lstUp = data['listUc'];
+		var projectName = data['projectName'];
+		$('#selectUCP').html('');
+		for (var i = 0; i < length2; i++) {
+			$('#selectUCP').append($('<option>', {
+			    value: lstUp[i].ucpId,
+			    text: lstUp[i].tenProject,
+			}));
+			
+		}
+		
+		//Detail value
+		//Use Case Point Weight
+		document.getElementById("ucpw_simple").innerHTML = lstUp[0].easy;
+		document.getElementById("ucpw_Average").innerHTML = lstUp[0].medium;
+		document.getElementById("ucpw_Complex").innerHTML = lstUp[0].difficult;
+		//Function Point Weightct
+		document.getElementById("fpw_Simple").innerHTML = lstUp[0].simple;
+		document.getElementById("fpw_Average").innerHTML = lstUp[0].average;
+		document.getElementById("fpw_Complex").innerHTML = lstUp[0].complex;
+		//Technical Complexity Factor 
+		document.getElementById("ucp_tcf_1").innerHTML = lstUp[0].distributed;
+		document.getElementById("ucp_tcf_2").innerHTML = lstUp[0].performance;
+		document.getElementById("ucp_tcf_3").innerHTML = lstUp[0].endUserefficiency;
+		document.getElementById("ucp_tcf_4").innerHTML = lstUp[0].complexProcessing;
+		document.getElementById("ucp_tcf_5").innerHTML = lstUp[0].reusableCode;
+		document.getElementById("ucp_tcf_6").innerHTML = lstUp[0].easeofInstallation;
+		document.getElementById("ucp_tcf_7").innerHTML = lstUp[0].easeofUse;
+		document.getElementById("ucp_tcf_8").innerHTML = lstUp[0].portable;
+		document.getElementById("ucp_tcf_9").innerHTML = lstUp[0].easeofChange;
+		document.getElementById("ucp_tcf_10").innerHTML = lstUp[0].concurrentUse;
+		document.getElementById("ucp_tcf_11").innerHTML = lstUp[0].accessforThirdParties;
+		document.getElementById("ucp_tcf_12").innerHTML = lstUp[0].specialSecurity;
+		document.getElementById("ucp_tcf_13").innerHTML = lstUp[0].trainingNeeds;
+		//Environmental Complexity Factor
+		document.getElementById("ucp_ecf_1").innerHTML = lstUp[0].familiarwithDevelopmentProcess;
+		document.getElementById("ucp_ecf_2").innerHTML = lstUp[0].applicationExperience;
+		document.getElementById("ucp_ecf_3").innerHTML = lstUp[0].objectOrientedExperience;
+		document.getElementById("ucp_ecf_4").innerHTML = lstUp[0].leadAnalystCapability;
+		document.getElementById("ucp_ecf_5").innerHTML = lstUp[0].motivation;
+		document.getElementById("ucp_ecf_6").innerHTML = lstUp[0].stableRequirements;
+		document.getElementById("ucp_ecf_7").innerHTML = lstUp[0].parttimeStaff;
+		document.getElementById("ucp_ecf_8").innerHTML = lstUp[0].difficulProgrammingLanguage;
+
+	});
+
+
+}
+
+function selectUCP() {
+	$('#selectUCP').change(function () {
+	    var optionSelected = $(this).find("option:selected");
+	    var valueSelected  = optionSelected.val();
+	    var textSelected   = optionSelected.text();
+	    alert(valueSelected);
+	    $.ajax({
+	        type : "GET",
+	        url : "show-ucpDetail/" + valueSelected + ".json",
+	        dataType: 'json',
+	    	data: JSON.stringify(json),
+	    	contentType: 'application/json',
+	    	mimeType: 'application/json',
+	         success : function(response) {
+	         	//Use Case Point Weight
+	         	alert("long");
+				document.getElementById("ucpw_simple").innerHTML = response.easy;
+				document.getElementById("ucpw_Average").innerHTML = response.medium;
+				document.getElementById("ucpw_Complex").innerHTML = response.difficult;
+				//Function Point Weightct
+				document.getElementById("fpw_Simple").innerHTML = response.simple;
+				document.getElementById("fpw_Average").innerHTML = response.average;
+				document.getElementById("fpw_Complex").innerHTML = response.complex;
+				//Technical Complexity Factor 
+				document.getElementById("ucp_tcf_1").innerHTML = response.distributed;
+				document.getElementById("ucp_tcf_2").innerHTML = response.performance;
+				document.getElementById("ucp_tcf_3").innerHTML = response.endUserefficiency;
+				document.getElementById("ucp_tcf_4").innerHTML = response.complexProcessing;
+				document.getElementById("ucp_tcf_5").innerHTML = response.reusableCode;
+				document.getElementById("ucp_tcf_6").innerHTML = response.easeofInstallation;
+				document.getElementById("ucp_tcf_7").innerHTML = response.easeofUse;
+				document.getElementById("ucp_tcf_8").innerHTML = response.portable;
+				document.getElementById("ucp_tcf_9").innerHTML = response.easeofChange;
+				document.getElementById("ucp_tcf_10").innerHTML = response.concurrentUse;
+				document.getElementById("ucp_tcf_11").innerHTML = response.accessforThirdParties;
+				document.getElementById("ucp_tcf_12").innerHTML = response.specialSecurity;
+				document.getElementById("ucp_tcf_13").innerHTML = response.trainingNeeds;
+				//Environmental Complexity Factor
+				document.getElementById("ucp_ecf_1").innerHTML = response.familiarwithDevelopmentProcess;
+				document.getElementById("ucp_ecf_2").innerHTML = response.applicationExperience;
+				document.getElementById("ucp_ecf_3").innerHTML = response.objectOrientedExperience;
+				document.getElementById("ucp_ecf_4").innerHTML = response.leadAnalystCapability;
+				document.getElementById("ucp_ecf_5").innerHTML = response.motivation;
+				document.getElementById("ucp_ecf_6").innerHTML = response.stableRequirements;
+				document.getElementById("ucp_ecf_7").innerHTML = response.parttimeStaff;
+				document.getElementById("ucp_ecf_8").innerHTML = response.difficulProgrammingLanguage;
+	         }
+	     });
+	});
+	
 }
 
 function getListProjectByOtherUser() {

@@ -343,7 +343,7 @@ $(document).ready(function(){
 								<!-- select version-->
 		                        <select class="form-control" id="selectUCP">
                                 </select>
-		                        <input type="button" name="btn_update_servion" id="btn_update_servion" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
+		                        <input type="button" name="btn_update_servion" id="btn_update_servion" onclick="updUcpVersion();" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
 		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" onclick="createNewUcpVersion();" id="btn_create_version" value="Create new version" style="margin-top: 10px">
 									------- ${message }
 							</div>
