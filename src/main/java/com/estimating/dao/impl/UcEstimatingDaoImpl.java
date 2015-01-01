@@ -103,7 +103,7 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	
 	@Override
 	public List<UcpEstiamting> getListUcpEstimated(int projectID) {
-		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject ";
+		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject ORDER BY p.version DESC ";
 		
 	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
 	    query.setParameter("maProject", projectID);

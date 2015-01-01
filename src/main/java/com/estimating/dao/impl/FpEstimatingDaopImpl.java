@@ -82,7 +82,7 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	
 	@Override
 	public List<FpEstimating> getListFpEstimated(int projectID) {
-		String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject";
+		String strQuery= "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject ";
 		logger.info("strQuery");
 	    TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
 	    query.setParameter("maProject", projectID);
