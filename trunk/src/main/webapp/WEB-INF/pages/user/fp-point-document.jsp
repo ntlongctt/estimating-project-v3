@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,31 +7,36 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-<meta name="viewport" content="width=device-width" />
 <title>Estimating software</title>
 
-<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
 <link href="resources/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css" />
 <link href="resources/css/ionicons.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/AdminLTE.css" rel="stylesheet"
+	type="text/css" />
 
-<link rel="stylesheet" href="resources/css/normalize.css">
-<link rel="stylesheet" href="resources/css/main.css">
-<link rel="stylesheet" href="resources/css/jquery.steps.css">
-<script src="resources/js/modernizr-2.6.2.min.js"></script>
-<script src="resources/js/jquery-1.9.1.min.js"></script>
-<script src="resources/js/jquery.cookie-1.3.1.js"></script>
-<script src="resources/js/jquery.steps.js"></script>
+<!-- radio check -->
+<!-- iCheck for checkboxes and radio inputs -->
+<link href="resources/css/iCheck/_all.css" rel="stylesheet"
+	type="text/css" />
 
-<script src="resources/js/jquery.min.js"></script>
+<!-- end radio check -->
+<link href="resources/font-awesome-4.1.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="resources/wizard/css/gsdk-base.css" rel="stylesheet"
+	type="text/css">
+
+<script	src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
-<link href="resources/css/docs.min.css" rel="stylesheet">
-<script src="resources/js/myjs/ie-emulation-modes-warning.js"></script>
-
-
+<script src="resources/wizard/js/wizard.js"></script>
+<script src="resources/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="resources/wizard/js/jquery.bootstrap.wizard.js"></script>
+	
+<!-- <script src="resources/wizard/js/bootstrap.min.js"></script> -->
 
 </head>
 <body class="skin-blue">
@@ -42,77 +48,345 @@
 		<!-- Right side column. Contains the navbar and content of the page -->
 		<aside class="right-side">
 			<!-- Content Header (Page header) -->
-			<section class="content-header"></section>
+			<section class="content-header">
+			</section>
 
 			<!-- Main content -->
 			<section class="content">
-
-
-				<div class="col-md-3">
-					<!-- Left side column. contains the logo and sidebar -->
-            <aside class="left-side sidebar-offcanvas">                
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-                  
-                    <ul class="sidebar-menu">
-                        <li>
-                            <a href="home.html">
-                                <i class="fa fa-home"></i> <span>Home</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Estimating Methods</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="usecasepoint.html"><i class="fa fa-angle-double-right"></i>Use Case Point</a></li>
-                                <li><a href="functionpoint.html"><i class="fa fa-angle-double-right"></i>Function Point</a></li>
-                              <!--   <li><a href="#"><i class="fa fa-angle-double-right"></i>COCOMO</a></li> -->
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span>Documentation</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="ucp-document.html"><i class="fa fa-angle-double-right"></i> UseCase Point Method</a></li>
-                                <li><a href="function-point-document.html"><i class="fa fa-angle-double-right"></i> Function Point Method</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Legislation</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="manage-project.html">
-                                <i class="fa fa-sitemap"></i> <span>My Project</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contact-us.html">
-                                <i class="fa fa-envelope-o"></i> <span>Contact us</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="user-profile.html">
-                                <i class="fa fa-user"></i> <span>My profiles</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-info-circle"></i> <span>About us</span>
-                            </a>
-                        </li>
-                       
-                    </ul>
-                </section>
-                <!-- /.sidebar -->
-            </aside>
+				<h2 class="text-info">Use Case Points</h2>
+				<p>Function Point (FP) is a software estimation technique devised in 1979 by A. J. Albrecht, then of IBM, as a means of measuring software size and productivity. 
+				In practice this metric is used to measure the amount of functionality in a system as described by a specification.
+				Quantifies the size and complexity of an application based on its inputs, outputs, inquiries, internal files, and interfaces.</p>
+				<div class="box-body">
+					<div class="box-group" id="accordion">
+						<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a id="history"  data-toggle="collapse" data-parent="#accordion" href="#collapseOne1" class="collapsed text-light-blue"  >History</a>
+								</h4>
+							</div>
+							<div id="collapseOne1" class="panel-collapse collapse"
+								style="height: 0px;">
+								<div class="box-body">
+								<p >The first version of FPA, invented by Albrecht at IBM in 1979 [3], proposed 
+									a new metric (i.e., function point) for software size rather than lines of code. The International Function Point User Group (IFPUG) adopted a revised method [4], defining a function point as a means to “measure software size by quantifying the functionality provided 
+									to the user based solely on logical designs and functionality specifications” [24]. Because 
+									the functionality of a software system, from the user’s perspective, usually emerges early 
+									in a project, FPA offers the unique advantage of being applicable during the early stage, 
+									when other approaches to size measurement are not appropriate.
+									</p></div>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" class="collapsed text-light-blue"  >Method</a>
+								</h4>
+							</div>
+							<div id="collapseOne2" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>The method for determining the size estimate to develop a system is based on a calculation with the following elements:</p>
+								<ul>
+								<li>Unadjusted Use Case Weight (UUCW) – the point size of the software that accounts for the number and complexity of use cases.</li>
+								<li>Unadjusted Actor Weight (UAW) – the point size of the software that accounts for the number and complexity of actors.</li>
+								<li>Technical Complexity Factor (TCF) – factor that is used to adjust the size based on technical considerations.</li>
+								<li>Environmental Complexity Factor (ECF) – factor that is used to adjust the size based on environmental considerations.</li>
+								</ul>
+								<p>Once the previous four elements have been calculated, the final size estimate can be calculated. This final number is known as the Use Case Points or UCP for a software development project.<br>The following sections walk through the various calculations to determine the UCP for a project.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" class="collapsed text-light-blue"  >Unadjusted Use Case Weight (UUCW)</a>
+								</h4>
+							</div>
+							<div id="collapseOne3" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>The UUCW is one of the factors that contribute to the size of the software being developed. It is calculated based on the number and complexity of the use cases for the system. To find the UUCW for a system, each of the use cases must be identified and classified as Simple, Average or Complex based on the number of transactions the use case contains. Each classification has a predefined weight assigned. Once all use cases have been classified as simple, average or complex, the total weight (UUCW) is determine by summing the corresponding weights for each use case. The following chart shows the different classifications of use cases based on the number of transactions and the weight value assigned for each use case within the classification.</p>
+								
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Use Case Classification Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Use Case Classification</th>
+                                            <th>No. of Transactions</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>1 to 3 transactions</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>4 to 7 transactions</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>8 or more transactions</td>
+                                            <td>15</td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+							</div>
+								 <p>UUCW = (Total No. of Simple Use Cases x 5) + (Total No. Average Use Case x 10) + (Total No. Complex Use Cases x 15)</p>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+							<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed text-light-blue"  >Unadjusted Actor Weight (UAW)</a>
+								</h4>
+							</div>
+							<div id="collapse4" class="panel-collapse collapse">
+								<div class="box-body">
+								<p>The UAW is another factor that contributes to the size of the software being developed. It is calculated based on the number and complexity of the actors for the system. Similar to finding the UUCW, each of the actors must be identified and classified as Simple, Average or Complex based on the type of actor. Each classification also has a predefined weight assigned. The UAW is the total of the weights for each of the actors. The following chart shows the different classifications of actors and the weight value assigned.</p>
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Actor Classification Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Actor Classification</th>
+                                            <th>Type of Actor</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>External system that must interact with the system using a well-defined API</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>External system that must interact with the system using standard communication protocols (e.g. TCP/IP, FTP, HTTP, database)</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>Human actor using a GUI application interface</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+                            <p>UAW = (Total No. of Simple actors x 1) + (Total No. Average actors x 2) + (Total No. Complex actors x 3)</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5" class="collapsed text-light-blue"  >Technical Complexity Factor (TCF)</a>
+								</h4>
+							</div>
+							<div id="collapse5" class="panel-collapse collapse" style="height: auto;">
+								<div class="box-body">
+								<p>The TCF is one of the factors applied to the estimated size of the software in order to account for technical considerations of the system. It is determined by assigning a score between 0 (factor is irrelevant) and 5 (factor is essential) to each of the 13 technical factors listed in the table below. This score is then multiplied by the defined weighted value for each factor. The total of all calculated values is the technical factor (TF). The TF is then used to compute the TCF with the following formula:</p><br>
+								<p>TCF = 0.6 + (TF/100)</p>
+								
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Actor Classification Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Factor</th>
+                                            <th>Description</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>T1</td>
+                                            <td>Distributed system</td>
+                                            <td>2.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>T2</td>
+                                            <td>Response time/performance objectives</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>T3</td>
+                                            <td>End-user efficiency</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>T4</td>
+                                            <td>Internal processing complexity</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>T5</td>
+                                            <td>Code reusability</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>T6</td>
+                                            <td>Easy to install</td>
+                                            <td>0.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>T7</td>
+                                            <td>Easy to use</td>
+                                            <td>0.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>T8</td>
+                                            <td>Portability to other platforms</td>
+                                            <td>2.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>T9</td>
+                                            <td>System maintenance</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>T10</td>
+                                            <td>Concurrent/parallel processing</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>T11</td>
+                                            <td>Security features</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>T12</td>
+                                            <td>End-user efficiency</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                         <tr>
+                                            <td>13</td>
+                                            <td>T13</td>
+                                            <td>End user training</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+								
+								</div>
+							</div>
+						</div>
+						<div class="panel box  ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6" class="collapsed text-light-blue"  >Environmental Complexity Factor (ECF)</a></h4>
+							</div>
+							<div id="collapse6" class="panel-collapse collapse"
+								style="height: 0px;">
+								<div class="box-body">
+								<p>The ECF is another factor applied to the estimated size of the software in order to account for environmental considerations of the system. It is determined by assigning a score between 0 (no experience) and 5 (expert) to each of the 8 environmental factors listed in the table below. This score is then multiplied by the defined weighted value for each factor. The total of all calculated values is the environment factor (EF). The EF is then used to compute the ECF with the following formula:</p><br>
+								<p>ECF = 1.4 + (-0.03 x EF)</p>
+								
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Actor Classification Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Factor</th>
+                                            <th>Description</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>E1</td>
+                                            <td>Familiarity with development process used</td>
+                                            <td>1.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>E2</td>
+                                            <td>Application experience</td>
+                                            <td>0.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>E3</td>
+                                            <td>Object-oriented experience of team</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>E4</td>
+                                            <td>Lead analyst capability</td>
+                                            <td>0.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>E5</td>
+                                            <td>Motivation of the team	</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>E6</td>
+                                            <td>Stability of requirements</td>
+                                            <td>2.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>E7</td>
+                                            <td>Part-time staff</td>
+                                            <td>-1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>E8</td>
+                                            <td>Difficult programming language</td>
+                                            <td>-1.0</td>
+                                        </tr>
+                                        
+                                    </tbody></table>
+                             	</div><!-- /.box-body -->
+                            	</div>	
+							
+							</div>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne6" class="collapsed text-light-blue"  >Use Case Points (UCP)</a>
+								</h4>
+							</div>
+							<div id="collapseOne6" class="panel-collapse collapse"
+								style="height: 0px;">
+								<div class="box-body">
+								<p >Finally the UCP can be calculated once the unadjusted project size (UUCW and UAW), technical factor (TCF) and environmental factor (ECF) have been determined. The UCP is calculated based on the following formula:</p><br>
+								<p>UCP = (UUCW + UAW) x TCF x ECF</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
 				</div>
-
-				<div class="col-md-9" role="main"></div>
-
 			</section>
 			<!-- /.content -->
 		</aside>

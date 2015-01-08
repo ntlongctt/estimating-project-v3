@@ -517,10 +517,10 @@ $(document).ready(function(){
 								<hr>
 								<p style="font-size: 15px!important;">Select version of project</p>
 								<!-- select version-->
-		                        <select class="form-control" id="lstFuntionPoint">
+		                        <select class="form-control" id="selectFP">
 	                             </select>
 		                        <input type="button" class="btn btn-primary btn-flat" value="Update version" onclick="updFpVersion()" style="margin-top: 10px">
-		                        <input type="button" class="btn btn-success btn-flat" value="Create new version" style="margin-top: 10px">
+		                        <input type="button" class="btn btn-success btn-flat" value="Create new version" onclick="createNewFpVersion()" style="margin-top: 10px">
 							</div>
 						</div>
 					
@@ -529,9 +529,9 @@ $(document).ready(function(){
 								<div class="box-body">
 									<table>
 										<tr>
-											<td style="width: 150px"><label>Total point</label> <input name="fp_Total_point" id="fp_Total_point" type="text" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Total hour</label> <input type="text" name="fp_Total_hour" id="fp_Total_hour" class="form-control" style="width: 100px" placeholder="5" readonly="true"></td>
-											<td style="width: 150px"><label>Cost </label> <input type="text" name="fp_Cost" id="fp_Cost" class="form-control" placeholder="7" style="width: 100px" readonly="true"></td>
+											<td style="width: 150px"><label>Total point</label> <input name="fp_Total_point" id="fp_Total_point" type="text" class="form-control" style="width: 100px" placeholder="" readonly="true"></td>
+											<td style="width: 150px"><label>Total hour</label> <input type="text" name="fp_Total_hour" id="fp_Total_hour" class="form-control" style="width: 100px" placeholder="" readonly="true"></td>
+											<td style="width: 150px"><label>Cost </label> <input type="text" name="fp_Cost" id="fp_Cost" class="form-control" placeholder="" style="width: 100px" readonly="true"></td>
 										</tr>
 									</table>
                                 </div>
@@ -560,9 +560,9 @@ $(document).ready(function(){
 					<div id="panelUserOutput" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" name="fp_User_Output_Simple" id="fp_User_Output_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" name="fp_User_Output_Average" id="fp_User_Output_Average" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" name="fp_User_Output_Complex" id="fp_User_Output_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_User_Output_Simple" id="fp_User_Output_Simple" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Average: <input type="text" name="fp_User_Output_Average" id="fp_User_Output_Average" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Complex: <input type="text" name="fp_User_Output_Complex" id="fp_User_Output_Complex" style="width: 40px; height: 20px" placeholder=""></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -576,9 +576,9 @@ $(document).ready(function(){
 					<div id="panelUserOnlineQuery" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" name="fp_User_Online_Query_Simple" id="fp_User_Online_Query_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" name="fp_User_Online_Query_Average" id="fp_User_Online_Query_Average" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" name="fp_User_Online_Query_Complex" id="fp_User_Online_Query_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_User_Online_Query_Simple" id="fp_User_Online_Query_Simple" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Average: <input type="text" name="fp_User_Online_Query_Average" id="fp_User_Online_Query_Average" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Complex: <input type="text" name="fp_User_Online_Query_Complex" id="fp_User_Online_Query_Complex" style="width: 40px; height: 20px" placeholder=""></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -592,9 +592,9 @@ $(document).ready(function(){
 					<div id="panelInternalLogicalFile" style="text-align: left; display: none; margin-top: 10px;">
 						 <table  style="width: 600px">
 						 	<tr class="info">
-						 		<th>Simple: <input type="text" name="fp_Internal_Logical_File_Simple" id="fp_Internal_Logical_File_Simple" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Average: <input type="text" name="fp_Internal_Logical_File_Average" id="fp_Internal_Logical_File_Average" style="width: 40px; height: 20px" placeholder="7"></th>
-						 		<th>Complex: <input type="text" name="fp_Internal_Logical_File_Complex" id="fp_Internal_Logical_File_Complex" style="width: 40px; height: 20px" placeholder="7"></th>
+						 		<th>Simple: <input type="text" name="fp_Internal_Logical_File_Simple" id="fp_Internal_Logical_File_Simple" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Average: <input type="text" name="fp_Internal_Logical_File_Average" id="fp_Internal_Logical_File_Average" style="width: 40px; height: 20px" placeholder=""></th>
+						 		<th>Complex: <input type="text" name="fp_Internal_Logical_File_Complex" id="fp_Internal_Logical_File_Complex" style="width: 40px; height: 20px" placeholder=""></th>
 						 	</tr>			
 						 </table>
 					</div>
@@ -625,46 +625,46 @@ $(document).ready(function(){
 						 <table  class="table">
 						 	<tr class="info">
 								<th>Requirement for reliable backup and recovery:</th>
-								<th><input type="text" name="rcf_1" id="rcf_1" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_1" id="rcf_1" style="width: 40px; height: 20px" placeholder="" data-inputmask="'mask': '5'"></th>
 								<th>Requirement for data communication:</th>
-								<th><input type="text" name="rcf_2" id="rcf_2" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_2" id="rcf_2" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of distributed processing:</th>
-								<th><input type="text" name="rcf_3" id="rcf_3" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_3" id="rcf_3" style="width: 40px; height: 20px" placeholder="" data-inputmask="'mask': '5'"></th>
 								<th>Performance requirements:</th>
-								<th><input type="text" name="rcf_4" id="rcf_4" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_4" id="rcf_4" style="width: 40px; height: 20px" placeholder="" data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Expected operational environment:</th>
-								<th><input type="text" name="rcf_5" id="rcf_5" style="width: 40px; height: 20px" placeholder="7" data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_5" id="rcf_5" style="width: 40px; height: 20px" placeholder="" data-inputmask="'mask': '5'"></th>
 								<th>Extent of online data entries:</th>
-								<th><input type="text" name="rcf_6" id="rcf_6" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_6" id="rcf_6" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of multi-screen or multi-operation online data input:</th>
-								<th><input type="text" name="rcf_7" id="rcf_7" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_7" id="rcf_7" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 								<th>Extent of online updating of master files:</th>
-								<th><input type="text" name="rcf_8" id="rcf_8" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_8" id="rcf_8" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of complex inputs, outputs, online queries and files:</th>
-								<th><input type="text" name="rcf_9" id="rcf_9" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_9" id="rcf_9" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 								<th>Extent of complex data processing:</th>
-								<th><input type="text" name="rcf_10" id="rcf_10" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_10" id="rcf_10" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent that currently developed code can be designed for reuse:</th>
-								<th><input type="text" name="rcf_11" id="rcf_11" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_11" id="rcf_11" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 								<th>Extent of conversion and installation included in the design:</th>
-								<th><input type="text" name="rcf_12" id="rcf_12" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_12" id="rcf_12" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of multiple installations in an organizationand variety of 
 								customer organizations:</th>
-								<th><input type="text" name="rcf_13" id="rcf_13" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_13" id="rcf_13" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 								<th>Extent of change and focus on ease of use:</th>
-								<th><input type="text" name="rcf_14" id="rcf_14" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_14" id="rcf_14" style="width: 40px; height: 20px" placeholder=""data-inputmask="'mask': '5'"></th>
 							</tr>		
 						 </table>
 						 </div>
@@ -677,7 +677,7 @@ $(document).ready(function(){
 			<td style="width: 70%">		
 					<div id="panelPaymentFP" style="text-align: left; display: none; margin-top: 10px;">
 						<div class="" style="width: 320px;">
-							<label>Wage per hour</label> <input type="text" name="fp_Wage_per_hour" id="fp_Wage_per_hour" class="form-control"placeholder="5">
+							<label>Wage per hour</label> <input type="text" name="fp_Wage_per_hour" id="fp_Wage_per_hour" class="form-control"placeholder="">
 						</div>
 					</div>
 			</td>
