@@ -1,6 +1,7 @@
 package com.estimating.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ShareProjectBean implements Serializable {
 
@@ -12,7 +13,7 @@ public class ShareProjectBean implements Serializable {
 	public ShareProjectBean() {
 		// TODO Auto-generated constructor stub
 	}
-
+	private List<String> lstUsername;
 	private int maProject;
 	private String share_user;
 	private int idshare_project;
@@ -75,6 +76,14 @@ public class ShareProjectBean implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<String> getLstUsername() {
+		return lstUsername;
+	}
+
+	public void setLstUsername(List<String> lstUsername) {
+		this.lstUsername = lstUsername;
 	}
 
 

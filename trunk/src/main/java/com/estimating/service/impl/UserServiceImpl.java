@@ -52,4 +52,9 @@ public class UserServiceImpl implements IUserService {
 	public boolean editUser(UserBean userbean) {
 		return userDao.editUser(userbean);
 	}
+
+	@Override
+	public String checkAndGetUserByUsername(String username) {
+		return userDao.checkAndGetUserByUsername(username);
+	}
 }
