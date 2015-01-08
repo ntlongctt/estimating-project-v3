@@ -14,11 +14,113 @@ $.getJSON("listprojectjson.json",{ajax : 'true'},
 			$('#share-project').append($('<option>', {
 			    value: data[i].projectID,
 			    text: data[i].name,
-			}));
+			}));	
 		}
 	})
 
 })
+
+
+
+var addButton = document.getElementById("add"),
+newResp = document.getElementById("resp_input"),
+respList = document.getElementById("resp");
+
+//This is our element in the view model.
+function Responsibility(text){
+this.text=text;
+}
+//a list of our responsibilities, an actual view model to back our data
+var responsibilities = []; 
+var temp = [];
+
+
+//render our actual elements
+function render(){
+respList.innerHTML = "";
+// note, foreach needs a modern browser but can easily be shimmed
+responsibilities.forEach(function(responsibility,i){
+    var el = renderResponsibility(responsibilities[i],function(){
+        responsibilities.splice(i,1);//remove the element
+       abc();
+       //alert("chuoi:" + temp.toString());
+        render();//re-render
+       // alert("foi ham");
+      
+    });
+    respList.appendChild(el);
+    abc();
+    //alert("chuoi:" + temp.toString());
+});
+}
+
+function abc(){
+	temp = [];
+	for(var i=0; i<responsibilities.length; i++)
+		{
+			temp[i] = responsibilities[i].text;
+		}
+}
+
+//events 
+addButton.onclick = function(e){
+var username = $('#resp_input').val();
+$.ajax({
+    type : "GET",
+    url : "check-username/" + username + ".json",
+    dataType: 'json',
+	
+	contentType: 'application/json',
+	mimeType: 'application/json',
+    success : function(response) {
+    	var i = temp.length;
+    	if (i==0){
+    		var text = newResp.value;
+	     	var resp = new Responsibility(text);
+	     	var j = responsibilities.length;
+	     	responsibilities[j] = resp;	
+	     	render();
+	     	newResp.value = "";
+    	}
+    	else{
+    		if (isExisted(username) == 0)
+    			alert("ton tai");
+    		else{
+    			var text = newResp.value;
+    	     	var resp = new Responsibility(text);
+    	     	var j = responsibilities.length;
+    	     	responsibilities[j] = resp;	
+    	     	render();
+    	     	newResp.value = "";
+    		}
+    	}
+     },
+     error: function() {    
+	    	alert("Khong tim thay user:" + username);
+	    }
+ });
+}
+
+function isExisted(username){
+	var kq=1
+	for(var i=0; i<temp.length;i++){
+		if (temp[i] == username)
+			{kq = 0;break;}
+	}
+	return kq;
+}
+function renderResponsibility(rep,deleteClick){
+var el = document.createElement("li");
+var rem = document.createElement("a");
+rem.textContent = " X";
+rem.onclick = deleteClick;
+var cont = document.createElement("span");
+cont.textContent = rep.text;
+el.appendChild(cont);
+el.appendChild(rem);
+return el;
+}
+
 
 // Get list share project in TO OTHER USER
 function getListShareProject(){
@@ -49,10 +151,26 @@ function getListShareProject(){
 		
 }
 
-function shareproject(){
+//chay vong for goi fuction shareproject
+function share(){
+	alert(temp.toString());
+	// shareproject(temp);
+	for(var i=0; i<temp.length; i++){
+        var share_user = temp[i];
+		shareproject(share_user);
+	}
+	
+	$('ul li').remove();
+	responsibilities.length = 0;
+	temp.length = 0;
+}
+
+function shareproject(share_user){
+	alert("goi ham");
 	var maProject = $('#share-project').val();
-	var share_user = $('#txt-user-share').val();
+	//var share_user = $('#txt-user-share').val();
 	var json = {"maProject" :maProject, "share_user" :share_user};
+	//var 
 	$.ajax({
 	    url: "add-share-project.json",
 	    type: 'POST',

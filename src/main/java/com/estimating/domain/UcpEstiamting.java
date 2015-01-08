@@ -29,6 +29,15 @@ public class UcpEstiamting implements Serializable {
 	private String technical_Factor;
 
 	private double total;
+	
+	private double was;
+	
+	private double wus;
+	
+	private double tcf;
+	
+	private double efc;
+	
 
 	private String useCase;
 
@@ -112,6 +121,38 @@ public class UcpEstiamting implements Serializable {
 
 	public void setProject(Project project) {
 		this.project = project;
+	}
+
+	public double getWas() {
+		return was;
+	}
+
+	public void setWas(double was) {
+		this.was = was;
+	}
+
+	public double getWus() {
+		return wus;
+	}
+
+	public void setWus(double wus) {
+		this.wus = wus;
+	}
+
+	public double getTcf() {
+		return tcf;
+	}
+
+	public void setTcf(double tcf) {
+		this.tcf = tcf;
+	}
+
+	public double getEfc() {
+		return efc;
+	}
+
+	public void setEfc(double efc) {
+		this.efc = efc;
 	}
 
 }

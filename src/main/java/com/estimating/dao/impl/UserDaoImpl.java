@@ -110,4 +110,15 @@ public class UserDaoImpl implements IUserDao {
 		return check;
 	}
 
+	@Override
+	public String checkAndGetUserByUsername(String username) {
+		String strQuery = "SELECT p From User p WHERE p.username = :userName";
+		TypedQuery<User> query = em.createQuery(strQuery, User.class);
+		query.setParameter("userName", username);
+		String user = query.getSingleResult().getUsername();
+		if(user == "")
+			user = "long";
+		return user;
+	}
+
 }
