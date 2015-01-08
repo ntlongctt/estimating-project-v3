@@ -331,6 +331,29 @@ function editTableFP() {
 	});
 }
 
+//Create new FP version
+
+function createNewFpVersion(){
+	alert("new");
+	getValueFunction();
+	
+	$.ajax({
+		    url: "new-fpVersion.json",
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(json),
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+		    	alert("Save successful!")
+		    	
+		   	},
+		    error: function() {   
+		    	alert("Error! Please try again.")
+		    }
+		}); 
+}
+
 //Update current FP version
 function updFpVersion(){
 	alert("new");

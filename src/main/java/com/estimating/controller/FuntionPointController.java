@@ -81,6 +81,17 @@ public class FuntionPointController {
 		return fpPointBean;
 	}
 	
+	/*Create new FP version*/
+	@RequestMapping(value ="/new-fpVersion", method = RequestMethod.POST)
+	@ResponseBody
+	public FuntionPointBean createNewFpVersion(
+			@RequestBody FuntionPointBean fpBean, Model model){
+		// Validate
+		if(fpBean.getProjectID() == 0)
+			model.addAttribute("message", "Please select version of project!");
+		fpService.addFuntionPoint(fpBean);
+		return fpBean;
+	}
 	//update version function point
 	@RequestMapping(value ="/update-fpVersion", method = RequestMethod.POST)
 	@ResponseBody
