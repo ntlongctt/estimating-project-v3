@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 
 import com.estimating.beans.FuntionPointBean;
 import com.estimating.beans.ProjectBean;
-import com.estimating.beans.UseCasePointBean;
 import com.estimating.beans.ShareProjectBean;
+import com.estimating.beans.UseCasePointBean;
 import com.estimating.dao.IFpEstimatingDao;
 import com.estimating.dao.IProjectDao;
 import com.estimating.dao.IUseCasePointDao;
 import com.estimating.domain.FpEstimating;
 import com.estimating.domain.Project;
 import com.estimating.domain.ProjectType;
-import com.estimating.domain.UcpEstiamting;
 import com.estimating.domain.ShareProject;
+import com.estimating.domain.UcpEstiamting;
 import com.estimating.service.IProjectService;
 import com.estimating.utils.ParseStringToArrayUtils;
 
@@ -109,24 +109,24 @@ public class ProjectServiceImpl implements IProjectService {
 			fpBean.setUiComplex(ui.get(2));
 			//Set User output
 			List<Double> uo = ParseStringToArrayUtils.parseToArray(fp.getUser_Output());
-			fpBean.setUiSimple(uo.get(0));
-			fpBean.setUiAverage(uo.get(1));
-			fpBean.setUiComplex(uo.get(2));
+			fpBean.setUoSimple(uo.get(0));
+			fpBean.setUoAverage(uo.get(1));
+			fpBean.setUoComplex(uo.get(2));
 			//set User Online queries
 			List<Double> uq = ParseStringToArrayUtils.parseToArray(fp.getUser_Online_Query());
-			fpBean.setUiSimple(uq.get(0));
-			fpBean.setUiAverage(uq.get(1));
-			fpBean.setUiComplex(uq.get(2));
+			fpBean.setUqSimple(uq.get(0));
+			fpBean.setUqAverage(uq.get(1));
+			fpBean.setUqComplex(uq.get(2));
 			//Set Logical file
 			List<Double> ilf = ParseStringToArrayUtils.parseToArray(fp.getLogical_File());
-			fpBean.setUiSimple(ilf.get(0));
-			fpBean.setUiAverage(ilf.get(1));
-			fpBean.setUiComplex(ilf.get(2));
+			fpBean.setIlfSimple(ilf.get(0));
+			fpBean.setIlfAverage(ilf.get(1));
+			fpBean.setIlfComplex(ilf.get(2));
 			//Set External Interface
 			List<Double> eif = ParseStringToArrayUtils.parseToArray(fp.getExternal_Interface());
-			fpBean.setUiSimple(eif.get(0));
-			fpBean.setUiAverage(eif.get(1));
-			fpBean.setUiComplex(eif.get(2));
+			fpBean.setEifSimple(eif.get(0));
+			fpBean.setEifAverage(eif.get(1));
+			fpBean.setEifComplex(eif.get(2));
 			//Set RACF
 			List<Double> rf = ParseStringToArrayUtils.parseToArray(fp.getRelative_Factor());
 			fpBean.setrF1(rf.get(0));

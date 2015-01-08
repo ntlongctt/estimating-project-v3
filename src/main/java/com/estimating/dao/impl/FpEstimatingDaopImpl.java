@@ -59,7 +59,7 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	 */
 	@Override
 	@Transactional
-	public boolean updateFuntionPoint(FuntionPointBean fpBean) {
+	public boolean updateFuntionPoint(FuntionPointBean fpBean, boolean newVersion) {
 		boolean result = false;
 		try {
 			String strQuery = "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject AND p.version = 1";

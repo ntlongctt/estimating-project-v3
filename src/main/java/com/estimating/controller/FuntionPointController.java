@@ -67,7 +67,7 @@ public class FuntionPointController {
 			logger.info("Project ID: " + fpPointBean.getProjectID());
 			logger.info("Update FP!");
 			fpPointBean.setVersion(0);
-			fpService.updateFuntionPoint(fpPointBean);
+			fpService.updateFuntionPoint(fpPointBean,false);
 		} else {
 			// Add fp + Update FP_Estiamted in project
 			logger.info("Add FP!");
@@ -79,5 +79,14 @@ public class FuntionPointController {
 		fpPointBean.setCost(fpService.calCostFp(fpPointBean));
 
 		return fpPointBean;
+	}
+	
+	//update version function point
+	@RequestMapping(value ="/update-fpVersion", method = RequestMethod.POST)
+	@ResponseBody
+	public FuntionPointBean updateNewFpVersion(
+			@RequestBody FuntionPointBean fpBean, Model model){
+		fpService.updateFuntionPoint(fpBean, false);
+		return fpBean;
 	}
 }

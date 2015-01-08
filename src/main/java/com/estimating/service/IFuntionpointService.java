@@ -9,7 +9,7 @@ import com.estimating.domain.FpEstimating;
 public interface IFuntionpointService {
 	public double calFuntionPoint(FuntionPointBean fpBean);
 	public boolean addFuntionPoint(FuntionPointBean fpBean);
-	public boolean updateFuntionPoint(FuntionPointBean fpBean);
+	public boolean updateFuntionPoint(FuntionPointBean fpBean, boolean newVersion);
 	public double calCostFp(FuntionPointBean fpBean);
 	public List<FpEstimating> getAllListFp();
 }

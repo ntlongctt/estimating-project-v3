@@ -7,7 +7,7 @@ import com.estimating.domain.FpEstimating;
 
 public interface IFpEstimatingDao {
 	public boolean addFuntionPoint(FuntionPointBean fpBean);
-	public boolean updateFuntionPoint(FuntionPointBean fpBean);
+	public boolean updateFuntionPoint(FuntionPointBean fpBean, boolean newVersion);
 	public List<FpEstimating> getListFpEstimated(int projectID);
 	public List<FpEstimating> getAllListFp();
 }
