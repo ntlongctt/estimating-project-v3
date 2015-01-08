@@ -3,6 +3,12 @@
   var reusableCode, easeofInstallation, easeofUse, portable, easeofChange, concurrentUse, accessforThirdParties, specialSecurity;
   var trainingNeeds, familiarwithDevelopmentProcess, applicationExperience, objectOrientedExperience, leadAnalystCapability;
   var motivation, stableRequirements, parttimeStaff, difficulProgrammingLanguage;
+  var uiSimple, uiAverage, uiComplex;
+  var uoSimple, uoAverage, uoComplex;
+  var uqSimple, uqAverage, uqComplex;
+  var ilfSimple, ilfAverage, ilfComplex;
+  var eifSimple, eifAverage, eifComplex;
+  var rf1, rf2, rf3, rf4, rf5, rf6, rf7, rf8, rf9, rf10, rf11, rf12, rf13, rf14;
   var projectID2;
   var json;
   
@@ -11,6 +17,7 @@ function() {
 editTableUCP();
 editTableFP();
 selectUCP();
+selectFP();
 
 
 
@@ -70,8 +77,64 @@ function getValueUseCase(){
 
 	ucpId= $("#selectUCP option:selected").val();
 	
-	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , "distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, "objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, "projectID" :projectID2, "ucpId" :ucpId };
+	json ={"easy" :easy, "medium" :medium, "difficult" :difficult, "simple" :simple, "average" :average, "complex" :complex , 
+			"distributed" :distributed, "performance" :performance, "endUserefficiency" :endUserefficiency,"complexProcessing" :complexProcessing,
+			"reusableCode" :reusableCode, "easeofInstallation" :easeofInstallation, "easeofUse" :easeofUse, "portable" :portable,
+			"easeofChange" :easeofChange, "concurrentUse" :concurrentUse, "accessforThirdParties" :accessforThirdParties, "specialSecurity" :specialSecurity,
+			"trainingNeeds" :trainingNeeds, "familiarwithDevelopmentProcess" :familiarwithDevelopmentProcess,"applicationExperience" :applicationExperience, 
+			"objectOrientedExperience" :objectOrientedExperience, "leadAnalystCapability" :leadAnalystCapability, "motivation" :motivation,
+			"stableRequirements" :stableRequirements, "parttimeStaff" :parttimeStaff, "difficulProgrammingLanguage" :difficulProgrammingLanguage, 
+			"projectID" :projectID2, "ucpId" :ucpId };
 	
+}
+
+//Get value FP input
+function getValueFunction(){
+	uiSimple=$('#fp_User_Input_Simple').val();
+	uiAverage=$('#fp_User_Input_Average').val();
+	uiComplex=$('#fp_User_Input_Complex').val();
+	
+	uoSimple=$('#fp_User_Output_Simple').val();
+	uoAverage=$('#fp_User_Output_Average').val();
+	uoComplex=$('#fp_User_Output_Complex').val();
+	
+	uqSimple=$('#fp_User_Online_Query_Simple').val();
+	uqAverage=$('#fp_User_Online_Query_Average').val();
+	uqComplex=$('#fp_User_Online_Query_Complex').val();
+	
+	ilfSimple=$('#fp_Internal_Logical_File_Simple').val();
+	ilfAverage=$('#fp_Internal_Logical_File_Average').val();
+	ilfComplex=$('#fp_Internal_Logical_File_Complex').val();
+	
+	eifSimple=$('#fp_External_Interface_Simple').val();
+	eifAverage=$('#fp_External_Interface_Average').val();
+	eifComplex=$('#fp_External_Interface_Complex').val();
+	
+	rf1=$('#rcf_1').val();
+ 	rf2=$('#rcf_2').val();
+ 	rf3=$('#rcf_3').val();
+ 	rf4=$('#rcf_4').val();
+ 	rf5=$('#rcf_5').val();
+ 	rf6=$('#rcf_6').val();
+ 	rf7=$('#rcf_7').val();
+ 	rf8=$('#rcf_8').val();
+ 	rf9=$('#rcf_9').val();
+ 	rf10=$('#rcf_10').val();
+ 	rf11=$('#rcf_11').val();
+ 	rf12=$('#rcf_12').val();
+ 	rf13=$('#rcf_13').val();
+ 	rf14=$('#rcf_14').val();
+ 	
+ 	fpID= $("#selectFP option:selected").val();
+ 	json={"uiSimple":uiSimple,"uiAverage":uiAverage,"uiComplex":uiComplex,
+ 			 "uoSimple":uoSimple,"uoAverage":uoAverage,"uoComplex":uoComplex,
+ 			 "uqSimple":uqSimple,"uqAverage":uqAverage,"uqComplex":uqComplex,
+ 			 "ilfSimple":ilfSimple,"ilfAverage":ilfAverage,"ilfComplex":ilfComplex,
+ 			 "eifSimple":eifSimple,"eifAverage":eifAverage,"eifComplex":eifComplex,
+ 			 "rf1":rf1,"rf2":rf2,"rf3":rf3,"rf4":rf4,"rf5":rf5,"rf6":rf6,"rf7":rf7,
+ 			 "rf8":rf8,"rf9":rf9,"rf10":rf10,"rf11":rf11,"rf12":rf12,"rf13":rf13,"rf14":rf14,
+ 			"projectID" :projectID2, "fpID" :fpID};
+ 	
 }
 
 // Event collapse for UCP
@@ -268,6 +331,28 @@ function editTableFP() {
 	});
 }
 
+//Update current FP version
+function updFpVersion(){
+	alert("new");
+	getValueFunction();
+	
+	$.ajax({
+		    url: "update-fpVersion.json",
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(json),
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+		    	alert("Save successful!")
+		    	
+		   	},
+		    error: function() {   
+		    	alert("Error! Please try again.")
+		    }
+		}); 
+}
+
 // View version for ucp and fp when click Detail in Table List Project 
 function viewVersion(projectID) {
 	$.getJSON(projectID + "/viewDetailFpUc.json", {ajax : 'true'}, 
@@ -277,9 +362,9 @@ function viewVersion(projectID) {
 		var length1 = data['listFp'].length;
 		var lstFp = data['listFp'];
 		var projectName = data['projectName'];
-		$('#lstFuntionPoint').html('');
+		$('#selectFP').html('');
 		for (var i = 0; i < length1; i++) {
-			$('#lstFuntionPoint').append($('<option>', {
+			$('#selectFP').append($('<option>', {
 			    value: lstFp[i].fpID,
 			    text: lstFp[i].tenProject,
 			}));
@@ -297,6 +382,7 @@ function viewVersion(projectID) {
 			}));
 			
 		}
+		//get UCP value
 		$('#ucp_ucpw_simple').val(lstUp[0].easy);
 		$('#ucp_ucpw_Average').val(lstUp[0].medium);
 	 	$('#ucp_ucpw_Complex').val( lstUp[0].difficult);
@@ -329,9 +415,46 @@ function viewVersion(projectID) {
 	 	$('#ucp_total_point').val( lstUp[0].totalUCP);
 	 	$('#ucp_total_hour').val("20");
 	 	$('#ucp_cost').val( lstUp[0].totalUCP * 20);
+	 	
+	 	//get FP value
+	 	$('#fp_User_Input_Simple').val(lstFp[0].uiSimple);
+	 	$('#fp_User_Input_Average').val(lstFp[0].uiAverage);
+	 	$('#fp_User_Input_Complex').val(lstFp[0].uiComplex);
+	 	
+	 	$('#fp_User_Output_Simple').val(lstFp[0].uoSimple);
+	 	$('#fp_User_Output_Average').val(lstFp[0].uoAverage);
+	 	$('#fp_User_Output_Complex').val(lstFp[0].uoComplex);
+	 	
+	 	$('#fp_User_Online_Query_Simple').val(lstFp[0].uqSimple);
+	 	$('#fp_User_Online_Query_Average').val(lstFp[0].uqAverage);
+	 	$('#fp_User_Online_Query_Complex').val(lstFp[0].uqComplex);
+	 	
+	 	$('#fp_Internal_Logical_File_Simple').val(lstFp[0].ilfSimple);
+	 	$('#fp_Internal_Logical_File_Average').val(lstFp[0].ilfAverage);
+	 	$('#fp_Internal_Logical_File_Complex').val(lstFp[0].ilfComplex);
 
-
-
+	 	$('#fp_External_Interface_Simple').val(lstFp[0].eifSimple);
+	 	$('#fp_External_Interface_Average').val(lstFp[0].eifAverage);
+	 	$('#fp_External_Interface_Complex').val(lstFp[0].eifComplex);
+	 	
+	 	$('#rcf_1').val(lstFp[0].rf1);
+	 	$('#rcf_2').val(lstFp[0].rf2);
+	 	$('#rcf_3').val(lstFp[0].rf3);
+	 	$('#rcf_4').val(lstFp[0].rf4);
+	 	$('#rcf_5').val(lstFp[0].rf5);
+	 	$('#rcf_6').val(lstFp[0].rf6);
+	 	$('#rcf_7').val(lstFp[0].rf7);
+	 	$('#rcf_8').val(lstFp[0].rf8);
+	 	$('#rcf_9').val(lstFp[0].rf9);
+	 	$('#rcf_10').val(lstFp[0].rf10);
+	 	$('#rcf_11').val(lstFp[0].rf11);
+	 	$('#rcf_12').val(lstFp[0].rf12);
+	 	$('#rcf_13').val(lstFp[0].rf13);
+	 	$('#rcf_14').val(lstFp[0].rf14);
+	 	
+	 	$('#fp_Total_point').val( lstFp[0].totalFP);
+	 	$('#fp_Total_hour').val(lstFp[0].totalFP * 20);
+	 	$('#fp_Cost').val( lstFp[0].totalFP *40);
 		
 		
 		document.getElementById("projectName").innerHTML = "Project : " + "<b style='color:#3c8dbc'>" + projectName + "</b>"; 
@@ -393,12 +516,46 @@ function selectUCP() {
 }
 
 function selectFP() {
-	$('#selectUCP').change(function () {
+	$('#selectFP').change(function () {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	    alert("Value: " + valueSelected +" Text: " +textSelected);
+	    alert(valueSelected);
+	    $.ajax({
+	        type : "GET",
+	        url : "show-fpDetail/" + valueSelected + ".json",
+	        dataType: 'json',
+	    	contentType: 'application/json',
+	    	mimeType: 'application/json',
+	         success : function(response) {
+	         	alert(response.easy);
+	         	 $('#fp_User_Input_Simple').val( response.uiSimple);
+	         	 $('#fp_User_Input_Average').val( response.uiAverage);
+	         	 $('#fp_User_Input_Complex').val( response.uiComplex);
+	         	 
+	         	 $('#fp_User_Output_Simple').val( response.uoSimple);
+	         	 $('#fp_User_Output_Average').val( response.uoAverage);
+	         	 $('#fp_User_Output_Complex').val( response.uoComplex);
+	         	 
+	         	 $('#fp_User_Online_Query_Simple').val( response.uqSimple);
+	         	 $('#fp_User_Online_Query_Average').val( response.uqAverage);
+	         	 $('#fp_User_Online_Query_Complex').val( response.uqComplex);
+	         	 
+	         	 $('#fp_Internal_Logical_File_Simple').val( response.ilfSimple);
+	         	 $('#fp_Internal_Logical_File_Average').val( response.ilfAverage);
+	         	 $('#fp_Internal_Logical_File_Complex').val( response.ilfComplex);
+	         	 
+	         	 $('#fp_External_Interface_Simple').val( response.eifSimple);
+	         	 $('#fp_External_Interface_Average').val( response.eifAverage);
+	         	 $('#fp_External_Interface_Complex').val( response.eifComplex);
+
+	         	 $('#ucp_total_point').val( response.totalUCP);
+	         	 $('#ucp_total_hour').val(response.totalUCP * 20);
+	         	 $('#ucp_cost').val( response.totalUCP * 80);
+	         }
+	     });
 	});
+	
 }
 
 // Search regular

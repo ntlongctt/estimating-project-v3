@@ -519,7 +519,7 @@ $(document).ready(function(){
 								<!-- select version-->
 		                        <select class="form-control" id="lstFuntionPoint">
 	                             </select>
-		                        <input type="button" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
+		                        <input type="button" class="btn btn-primary btn-flat" value="Update version" onclick="updFpVersion()" style="margin-top: 10px">
 		                        <input type="button" class="btn btn-success btn-flat" value="Create new version" style="margin-top: 10px">
 							</div>
 						</div>
@@ -657,7 +657,7 @@ $(document).ready(function(){
 								<th>Extent that currently developed code can be designed for reuse:</th>
 								<th><input type="text" name="rcf_11" id="rcf_11" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 								<th>Extent of conversion and installation included in the design:</th>
-								<th><input type="text" name="rcf_12" id="rcf_13" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
+								<th><input type="text" name="rcf_12" id="rcf_12" style="width: 40px; height: 20px" placeholder="7"data-inputmask="'mask': '5'"></th>
 							</tr>
 							<tr class="info">
 								<th>Extent of multiple installations in an organizationand variety of 

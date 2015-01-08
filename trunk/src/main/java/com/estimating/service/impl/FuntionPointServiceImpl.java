@@ -29,8 +29,8 @@ public class FuntionPointServiceImpl implements IFuntionpointService {
 	}
 
 	@Override
-	public boolean updateFuntionPoint(FuntionPointBean fpBean) {
-		return fpDao.updateFuntionPoint(fpBean);
+	public boolean updateFuntionPoint(FuntionPointBean fpBean, boolean newVersion) {
+		return fpDao.updateFuntionPoint(fpBean,false);
 	}
 
 	@Override
