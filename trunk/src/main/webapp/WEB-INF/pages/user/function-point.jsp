@@ -137,7 +137,7 @@
 											</tr>
 											<tr>
 												<td>4</td>
-												<td>Number of Files</td>
+												<td>Number of Internal Logical Files</td>
 												<td><input type="text" id="ilfSimple" name="ilfSimple" placeholder="0"></td>
 												<td><input type="text" id="ilfAverage" name="ilfAverage" placeholder="0"></td>
 												<td><input type="text" id="ilfComplex" name="ilfComplex" placeholder="0"></td>
@@ -160,7 +160,7 @@
 							<!-- STEP 3 -->
 							<div id="step-3" style="width: 100%; height: 700px">
 								<h2 class="StepTitle">
-									Step 3: Adjustment Factor (VAF) Calculation Table<small><i
+									Step 3: Relative Complexity Adjustment Factor (RCAF) Calculation Table<small><i
 										class="fa fa-fw fa-info-circle" data-toggle="modal"
 										data-target="#myModal"></i></small>
 								</h2>
