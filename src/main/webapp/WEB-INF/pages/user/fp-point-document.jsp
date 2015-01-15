@@ -53,10 +53,8 @@
 
 			<!-- Main content -->
 			<section class="content">
-				<h2 class="text-info">Use Case Points</h2>
-				<p>Function Point (FP) is a software estimation technique devised in 1979 by A. J. Albrecht, then of IBM, as a means of measuring software size and productivity. 
-				In practice this metric is used to measure the amount of functionality in a system as described by a specification.
-				Quantifies the size and complexity of an application based on its inputs, outputs, inquiries, internal files, and interfaces.</p>
+				<h2 class="text-info">Function Points</h2>
+				<p>A function point is a unit of measurement to express the amount of business functionality an information system (as a product) provides to a user. Function points measure software size. The cost (in dollars or hours) of a single unit is calculated from past projects.</p>
 				<div class="box-body">
 					<div class="box-group" id="accordion">
 						<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
@@ -68,12 +66,7 @@
 							<div id="collapseOne1" class="panel-collapse collapse"
 								style="height: 0px;">
 								<div class="box-body">
-								<p >The first version of FPA, invented by Albrecht at IBM in 1979 [3], proposed 
-									a new metric (i.e., function point) for software size rather than lines of code. The International Function Point User Group (IFPUG) adopted a revised method [4], defining a function point as a means to “measure software size by quantifying the functionality provided 
-									to the user based solely on logical designs and functionality specifications” [24]. Because 
-									the functionality of a software system, from the user’s perspective, usually emerges early 
-									in a project, FPA offers the unique advantage of being applicable during the early stage, 
-									when other approaches to size measurement are not appropriate.
+								<p >Function points were defined in 1979 in Measuring Application Development Productivity by Allan Albrecht at IBM. The functional user requirements of the software are identified and each one is categorized into one of five types: outputs, inquiries, inputs, internal files, and external interfaces.
 									</p></div>
 							</div>
 						</div>
@@ -86,301 +79,381 @@
 								<div class="box-body">
 								<p>The method for determining the size estimate to develop a system is based on a calculation with the following elements:</p>
 								<ul>
-								<li>Unadjusted Use Case Weight (UUCW) – the point size of the software that accounts for the number and complexity of use cases.</li>
-								<li>Unadjusted Actor Weight (UAW) – the point size of the software that accounts for the number and complexity of actors.</li>
-								<li>Technical Complexity Factor (TCF) – factor that is used to adjust the size based on technical considerations.</li>
-								<li>Environmental Complexity Factor (ECF) – factor that is used to adjust the size based on environmental considerations.</li>
+								<li>User Inputs.</li>
+								<li>User Outputs.</li>
+								<li>User Inquiries.</li>
+								<li>Internal Logical Files.</li>
+								<li>External Interface Files.</li>
+								<li>Relative Complexity Adjustment Factor.</li>
 								</ul>
-								<p>Once the previous four elements have been calculated, the final size estimate can be calculated. This final number is known as the Use Case Points or UCP for a software development project.<br>The following sections walk through the various calculations to determine the UCP for a project.</p>
+								<p>Weighted factors are applied to each components according to their complexity : simple, average, complex.</p>
+								<!--<p>Once the previous four elements have been calculated, the final size estimate can be calculated. This final number is known as the Use Case Points or UCP for a software development project.<br>The following sections walk through the various calculations to determine the UCP for a project.</p>-->
 								</div>
 							</div>
 						</div>
 						<div class="panel box ">
 							<div class="box-header">
-								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" class="collapsed text-light-blue"  >Unadjusted Use Case Weight (UUCW)</a>
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" class="collapsed text-light-blue"  >User Inputs</a>
 								</h4>
 							</div>
 							<div id="collapseOne3" class="panel-collapse collapse" style="height: 0px;">
 								<div class="box-body">
-								<p>The UUCW is one of the factors that contribute to the size of the software being developed. It is calculated based on the number and complexity of the use cases for the system. To find the UUCW for a system, each of the use cases must be identified and classified as Simple, Average or Complex based on the number of transactions the use case contains. Each classification has a predefined weight assigned. Once all use cases have been classified as simple, average or complex, the total weight (UUCW) is determine by summing the corresponding weights for each use case. The following chart shows the different classifications of use cases based on the number of transactions and the weight value assigned for each use case within the classification.</p>
-								
+								<p>Count each unique user data or user control input type that enters the external boundary 
+								of the application being measured, and adds, changes, deletes or otherwise alters data 
+								(e.g. assign, transfer, add, update) in an external logical file. Also count control 
+								information that enters the application boundary and assures compliance with business 
+								function specified by the user. An external input should be considered unique if the 
+								external logical design requires processing logic different from other external inputs.</p>
 								<div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">Use Case Classification Weight Table</h3>
+                                    <h3 class="box-title">User Inputs Weight Table</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding">
                                     <table class="table table-hover">
                                         <tbody><tr>
                                             <th>ID</th>
-                                            <th>Use Case Classification</th>
-                                            <th>No. of Transactions</th>
+                                            <th>Complexity</th>
                                             <th>Weight</th>
                                         </tr>
                                         <tr>
                                             <td>1</td>
                                             <td>Simple</td>
-                                            <td>1 to 3 transactions</td>
-                                            <td>5</td>
+                                            <td>3</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Average</td>
-                                            <td>4 to 7 transactions</td>
-                                            <td>10</td>
+                                            <td>4</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>Complex</td>
-                                            <td>8 or more transactions</td>
-                                            <td>15</td>
+                                            <td>6</td>
+                                            <td></td>
                                         </tr>
                                     </tbody></table>
                              </div><!-- /.box-body -->
                             </div>	
 							</div>
-								 <p>UUCW = (Total No. of Simple Use Cases x 5) + (Total No. Average Use Case x 10) + (Total No. Complex Use Cases x 15)</p>
+								 <p>UIP = (No.of Simple)*3 + (No. of Average)*4 + (No. of Complex)*6</p>
 							</div>
 						</div>
 						<div class="panel box ">
 							<div class="box-header">
-							<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed text-light-blue"  >Unadjusted Actor Weight (UAW)</a>
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne4" class="collapsed text-light-blue"  >User Outputs</a>
+								</h4>
+							</div>
+							<div id="collapseOne4" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>Count each unique user data or control data that leaves the external boundary of the 
+								application being measured. An external output should be considered unique if it has 
+								different data, or if the external design requires processing logic different from other 
+								external outputs. External outputs often consist of reports, output files sent to other 
+								applications, or messages to the user.</p>
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">User Outputs Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Complexity</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>7</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+							</div>
+								 <p>UOP = (No.of Simple)*4 + (No. of Average)*5 + (No. of Complex)*7</p>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne5" class="collapsed text-light-blue"  >User Inquiries</a>
+								</h4>
+							</div>
+							<div id="collapseOne5" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>Count each unique input/output combination, where an input causes and generates an 
+								output, as an external inquiry. An external inquiry should be considered unique if it has 
+								different data elements from other external inquiry types in its output part, or if the 
+								external design requires a processing logic different from other external inquiries.</p>
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">User Inquiries Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Complexity</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>6</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+							</div>
+								 <p>UQP = (No.of Simple)*3 + (No. of Average)*4 + (No. of Complex)*6</p>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne6" class="collapsed text-light-blue"  >Internal Logical Files</a>
+								</h4>
+							</div>
+							<div id="collapseOne6" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>Each major logical group of user data or application control information is one ILF. 
+								Include each logical file, or within a database, each logical group of data from the 
+								viewpoint of the user that is generated, used or maintained by the application. Count each 
+								logical group of data as viewed by the user and as defined by requirements analysis or 
+								data design rather than the actual physical files. Do not include files not accessible by the 
+								user through external output or inquiry and that are not independently maintained.</p>
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Internal Logical Files Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Complexity</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>15</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+							</div>
+								 <p>ILFP = (No.of Simple)*7 + (No. of Average)*10 + (No. of Complex)*15</p>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne7" class="collapsed text-light-blue"  >External Interface Files</a>
+								</h4>
+							</div>
+							<div id="collapseOne7" class="panel-collapse collapse" style="height: 0px;">
+								<div class="box-body">
+								<p>Count each major logical group of user data or control information used by the 
+								application. This information must be maintained, however, by another application. 
+								Include each logical file or logical group of data from the viewpoint of the user. Count 
+								each major logical group of user data or control information that is extracted by the 
+								application from another application as an external interface file. The extract will not 
+								result in an update to any internal logical files. If an update occurs, count an EI not an 
+								EIF.</p>
+								<div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">External Interface Files Weight Table</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody><tr>
+                                            <th>ID</th>
+                                            <th>Complexity</th>
+                                            <th>Weight</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Simple</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Average</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Complex</td>
+                                            <td>10</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody></table>
+                             </div><!-- /.box-body -->
+                            </div>	
+							</div>
+								 <p>EIFP = (No.of Simple)*5 + (No. of Average)*7 + (No. of Complex)*10</p>
+							</div>
+						</div>
+						<div class="panel box ">
+							<div class="box-header">
+							<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed text-light-blue"  >Unadjusted Function Points (UFP)</a>
 								</h4>
 							</div>
 							<div id="collapse4" class="panel-collapse collapse">
 								<div class="box-body">
-								<p>The UAW is another factor that contributes to the size of the software being developed. It is calculated based on the number and complexity of the actors for the system. Similar to finding the UUCW, each of the actors must be identified and classified as Simple, Average or Complex based on the type of actor. Each classification also has a predefined weight assigned. The UAW is the total of the weights for each of the actors. The following chart shows the different classifications of actors and the weight value assigned.</p>
+								<p>Total Unadjusted Function Points</p>
 								<div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">Actor Classification Weight Table</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <tbody><tr>
-                                            <th>ID</th>
-                                            <th>Actor Classification</th>
-                                            <th>Type of Actor</th>
-                                            <th>Weight</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Simple</td>
-                                            <td>External system that must interact with the system using a well-defined API</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Average</td>
-                                            <td>External system that must interact with the system using standard communication protocols (e.g. TCP/IP, FTP, HTTP, database)</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Complex</td>
-                                            <td>Human actor using a GUI application interface</td>
-                                            <td>3</td>
-                                        </tr>
-                                    </tbody></table>
                              </div><!-- /.box-body -->
                             </div>	
-                            <p>UAW = (Total No. of Simple actors x 1) + (Total No. Average actors x 2) + (Total No. Complex actors x 3)</p>
+                            <p>UFP = UIP + UOP + UQP + ILFP + EIFP.</p>
 								</div>
 							</div>
 						</div>
 						<div class="panel box ">
 							<div class="box-header">
-								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5" class="collapsed text-light-blue"  >Technical Complexity Factor (TCF)</a>
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne8" class="collapsed text-light-blue">Relative Complexity Adjustment Factor</a>
 								</h4>
 							</div>
-							<div id="collapse5" class="panel-collapse collapse" style="height: auto;">
+							<div id="collapseOne8" class="panel-collapse collapse" style="height: 0px;">
 								<div class="box-body">
-								<p>The TCF is one of the factors applied to the estimated size of the software in order to account for technical considerations of the system. It is determined by assigning a score between 0 (factor is irrelevant) and 5 (factor is essential) to each of the 13 technical factors listed in the table below. This score is then multiplied by the defined weighted value for each factor. The total of all calculated values is the technical factor (TF). The TF is then used to compute the TCF with the following formula:</p><br>
-								<p>TCF = 0.6 + (TF/100)</p>
-								
 								<div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">Actor Classification Weight Table</h3>
+                                    <h3 class="box-title">Relative Complexity Adjusment Factor Table</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding">
                                     <table class="table table-hover">
                                         <tbody><tr>
                                             <th>ID</th>
-                                            <th>Factor</th>
-                                            <th>Description</th>
-                                            <th>Weight</th>
+                                            <th>Subject</th>
+                                            <th>Grade</th>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td>T1</td>
-                                            <td>Distributed system</td>
-                                            <td>2.0</td>
+                                            <td>Does with system require reliable backup and recovery?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>T2</td>
-                                            <td>Response time/performance objectives</td>
-                                            <td>1.0</td>
+                                            <td>Are data communications required?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>T3</td>
-                                            <td>End-user efficiency</td>
-                                            <td>1.0</td>
+                                            <td>Are there distributed processing functions?</td>
+                                            <td>0-5</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>T4</td>
-                                            <td>Internal processing complexity</td>
-                                            <td>1.0</td>
+                                            <td>Is performance critical?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>T5</td>
-                                            <td>Code reusability</td>
-                                            <td>1.0</td>
+                                            <td>Will the system run in an existing, heavily utilized operational environment?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>T6</td>
-                                            <td>Easy to install</td>
-                                            <td>0.5</td>
+                                            <td>Does the system require on-line data entry?</td>
+                                            <td>0-5</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>T7</td>
-                                            <td>Easy to use</td>
-                                            <td>0.5</td>
+                                            <td>Does the on-line data entry require the input transaction to be built over multiple screens or operations?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
-                                            <td>T8</td>
-                                            <td>Portability to other platforms</td>
-                                            <td>2.0</td>
+                                            <td>Are the master files updated on-line?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td>T9</td>
-                                            <td>System maintenance</td>
-                                            <td>1.0</td>
+                                            <td>Are the inputs, outputs,files or inquiries complex?</td>
+                                            <td>0-5</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>10</td>
-                                            <td>T10</td>
-                                            <td>Concurrent/parallel processing</td>
-                                            <td>1.0</td>
+                                            <td>Is the internal processing complex?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>11</td>
-                                            <td>T11</td>
-                                            <td>Security features</td>
-                                            <td>1.0</td>
+                                            <td>Is the code designed to be reusable?</td>
+                                            <td>0-5</td>
                                         </tr>
                                         <tr>
                                             <td>12</td>
-                                            <td>T12</td>
-                                            <td>End-user efficiency</td>
-                                            <td>1.0</td>
+                                            <td>Are conversion and installation included in the design?</td>
+                                            <td>0-5</td>
+                                            <td></td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td>13</td>
-                                            <td>T13</td>
-                                            <td>End user training</td>
-                                            <td>1.0</td>
+                                            <td>Is the system designed for multiple installations in different organizations?</td>
+                                            <td>0-5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>Is the application designed to facilitate change and ease of use by the user?</td>
+                                            <td>0-5</td>
                                         </tr>
                                     </tbody></table>
+                                <p>Rate each factor on a scale of 0 to 5:</p>
+								<ul>
+								<li>0 = No influence</li>
+								<li>1 = Incidental</li>
+								<li>2 = Moderate</li>
+								<li>3 = Average</li>
+								<li>4 = Significant</li>
+								<li>5 = Essential</li>
+								</ul>
                              </div><!-- /.box-body -->
                             </div>	
-								
-								</div>
-							</div>
-						</div>
-						<div class="panel box  ">
-							<div class="box-header">
-								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6" class="collapsed text-light-blue"  >Environmental Complexity Factor (ECF)</a></h4>
-							</div>
-							<div id="collapse6" class="panel-collapse collapse"
-								style="height: 0px;">
-								<div class="box-body">
-								<p>The ECF is another factor applied to the estimated size of the software in order to account for environmental considerations of the system. It is determined by assigning a score between 0 (no experience) and 5 (expert) to each of the 8 environmental factors listed in the table below. This score is then multiplied by the defined weighted value for each factor. The total of all calculated values is the environment factor (EF). The EF is then used to compute the ECF with the following formula:</p><br>
-								<p>ECF = 1.4 + (-0.03 x EF)</p>
-								
-								<div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">Actor Classification Weight Table</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <tbody><tr>
-                                            <th>ID</th>
-                                            <th>Factor</th>
-                                            <th>Description</th>
-                                            <th>Weight</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>E1</td>
-                                            <td>Familiarity with development process used</td>
-                                            <td>1.5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>E2</td>
-                                            <td>Application experience</td>
-                                            <td>0.5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>E3</td>
-                                            <td>Object-oriented experience of team</td>
-                                            <td>1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>E4</td>
-                                            <td>Lead analyst capability</td>
-                                            <td>0.5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>E5</td>
-                                            <td>Motivation of the team	</td>
-                                            <td>1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>E6</td>
-                                            <td>Stability of requirements</td>
-                                            <td>2.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>E7</td>
-                                            <td>Part-time staff</td>
-                                            <td>-1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>E8</td>
-                                            <td>Difficult programming language</td>
-                                            <td>-1.0</td>
-                                        </tr>
-                                        
-                                    </tbody></table>
-                             	</div><!-- /.box-body -->
-                            	</div>	
-							
-							</div>
-							</div>
 						</div>
 						<div class="panel box ">
 							<div class="box-header">
-								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne6" class="collapsed text-light-blue"  >Use Case Points (UCP)</a>
+								<h4 class="box-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne10" class="collapsed text-light-blue"  >Total Function Points (FP)</a>
 								</h4>
 							</div>
-							<div id="collapseOne6" class="panel-collapse collapse"
+							<div id="collapseOne10" class="panel-collapse collapse"
 								style="height: 0px;">
 								<div class="box-body">
-								<p >Finally the UCP can be calculated once the unadjusted project size (UUCW and UAW), technical factor (TCF) and environmental factor (ECF) have been determined. The UCP is calculated based on the following formula:</p><br>
-								<p>UCP = (UUCW + UAW) x TCF x ECF</p>
+								<p >Finally the FP can be calculated once the unadjusted function point and total of RCAF. The FP is calculated based on the following formula:</p><br>
+								<p>FP = [0.65 + (0.01 * RCAF)] * UFP.</p>
 								</div>
 							</div>
 						</div>
