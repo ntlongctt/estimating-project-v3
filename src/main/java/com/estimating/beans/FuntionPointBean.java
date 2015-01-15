@@ -40,6 +40,54 @@ public class FuntionPointBean implements Serializable {
 	private double eifSimple;
 	private double eifAverage;
 	private double eifComplex;
+	
+	//
+	private double totalUI;
+	private double totalUO;
+	private double totalUQ;
+	private double totalEIF;
+	private double totalILF;
+	private double totalRCAF;
+
+	public double getTotalUO() {
+		return totalUO;
+	}
+
+	public void setTotalUO(double totalUO) {
+		this.totalUO = totalUO;
+	}
+
+	public double getTotalUQ() {
+		return totalUQ;
+	}
+
+	public void setTotalUQ(double totalUQ) {
+		this.totalUQ = totalUQ;
+	}
+
+	public double getTotalEIF() {
+		return totalEIF;
+	}
+
+	public void setTotalEIF(double totalEIF) {
+		this.totalEIF = totalEIF;
+	}
+
+	public double getTotalILF() {
+		return totalILF;
+	}
+
+	public void setTotalILF(double totalILF) {
+		this.totalILF = totalILF;
+	}
+
+	public double getTotalRCAF() {
+		return totalRCAF;
+	}
+
+	public void setTotalRCAF(double totalRCAF) {
+		this.totalRCAF = totalRCAF;
+	}
 
 	// Relative Factor
 	private double rf1;
@@ -61,7 +109,9 @@ public class FuntionPointBean implements Serializable {
 	
 	private int projectID;
 	
-	private double hour;
+	private double wage;
+	
+	private double totalHour;
 	
 	private String tenProject;
 
@@ -93,14 +143,6 @@ public class FuntionPointBean implements Serializable {
 
 	private int version;
 	
-	public double getHour() {
-		return hour;
-	}
-
-	public void setHour(double hour) {
-		this.hour = hour;
-	}
-
 	public int getProjectID() {
 		return projectID;
 	}
@@ -470,6 +512,48 @@ public class FuntionPointBean implements Serializable {
 
 	public void setTotalFP(double totalFP) {
 		this.totalFP = totalFP;
+	}
+
+	/**
+	 * @return the totalUI
+	 */
+	public double getTotalUI() {
+		return totalUI;
+	}
+
+	/**
+	 * @param totalUI the totalUI to set
+	 */
+	public void setTotalUI(double totalUI) {
+		this.totalUI = totalUI;
+	}
+
+	/**
+	 * @return the wage
+	 */
+	public double getWage() {
+		return wage;
+	}
+
+	/**
+	 * @param wage the wage to set
+	 */
+	public void setWage(double wage) {
+		this.wage = wage;
+	}
+
+	/**
+	 * @return the totalHour
+	 */
+	public double getTotalHour() {
+		return totalHour;
+	}
+
+	/**
+	 * @param totalHour the totalHour to set
+	 */
+	public void setTotalHour(double totalHour) {
+		this.totalHour = totalHour;
 	}
 
 }

@@ -152,7 +152,7 @@ function getListShareProject(){
 }
 
 //chay vong for goi fuction shareproject
-function share(){
+/*function share(){
 	alert(temp.toString());
 	// shareproject(temp);
 	for(var i=0; i<temp.length; i++){
@@ -163,13 +163,13 @@ function share(){
 	$('ul li').remove();
 	responsibilities.length = 0;
 	temp.length = 0;
-}
+}*/
 
-function shareproject(share_user){
+function shareproject(){
 	alert("goi ham");
 	var maProject = $('#share-project').val();
-	//var share_user = $('#txt-user-share').val();
-	var json = {"maProject" :maProject, "share_user" :share_user};
+	var share_user = temp.valueOf();
+	var json = {"maProject" :maProject, "lstUsername" :share_user};
 	//var 
 	$.ajax({
 	    url: "add-share-project.json",

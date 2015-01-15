@@ -459,7 +459,7 @@ function viewVersion(projectID) {
 	 	$('#fp_External_Interface_Simple').val(lstFp[0].eifSimple);
 	 	$('#fp_External_Interface_Average').val(lstFp[0].eifAverage);
 	 	$('#fp_External_Interface_Complex').val(lstFp[0].eifComplex);
-	 	
+	 	//alert(lstFp[0].uiSimple);
 	 	$('#rcf_1').val(lstFp[0].rf1);
 	 	$('#rcf_2').val(lstFp[0].rf2);
 	 	$('#rcf_3').val(lstFp[0].rf3);
@@ -499,7 +499,7 @@ function selectUCP() {
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
 	         success : function(response) {
-	         	alert(response.easy);
+	         	//alert(response.easy);
 	         	 $('#ucp_ucpw_simple').val( response.easy);
 	         	 $('#ucp_ucpw_Average').val( response.medium);
 	         	 $('#ucp_ucpw_Complex').val( response.difficult);
@@ -543,7 +543,7 @@ function selectFP() {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	    alert(valueSelected);
+	   // alert(valueSelected);
 	    $.ajax({
 	        type : "GET",
 	        url : "show-fpDetail/" + valueSelected + ".json",
@@ -551,7 +551,7 @@ function selectFP() {
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
 	         success : function(response) {
-	         	alert(response.easy);
+	         	alert("1"+response.uiSimple);
 	         	 $('#fp_User_Input_Simple').val( response.uiSimple);
 	         	 $('#fp_User_Input_Average').val( response.uiAverage);
 	         	 $('#fp_User_Input_Complex').val( response.uiComplex);

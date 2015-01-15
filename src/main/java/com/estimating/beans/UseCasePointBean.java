@@ -395,4 +395,12 @@ public class UseCasePointBean implements Serializable {
 		this.tenProject = tenProject;
 	}
 
+	public int getFpID() {
+		return fpID;
+	}
+
+	public void setFpID(int fpID) {
+		this.fpID = fpID;
+	}
+
 }

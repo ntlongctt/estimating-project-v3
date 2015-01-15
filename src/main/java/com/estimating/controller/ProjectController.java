@@ -73,12 +73,24 @@ public class ProjectController {
 	}
 	
 	
-	@RequestMapping(value ="/add-share-project", method = RequestMethod.POST, headers="Accept=application/json")
+	/*@RequestMapping(value ="/add-share-project", method = RequestMethod.POST, headers="Accept=application/json")
 	@ResponseBody 
 	public List<ShareProjectBean> projectShare(@RequestBody ShareProjectBean shareBean, @ModelAttribute("user") String username ){
 		List<ShareProjectBean> result = new ArrayList<ShareProjectBean>();
 		shareBean.setOwn_user(username);
 		if(projectService.addProjectShare(shareBean)) {
+			result = projectService.getListShareProject(username);
+		}
+		
+		return result;
+	}*/
+	
+	@RequestMapping(value ="/add-share-project", method = RequestMethod.POST, headers="Accept=application/json")
+	@ResponseBody 
+	public List<ShareProjectBean> projectShare(@RequestBody ShareProjectBean litShareBean, @ModelAttribute("user")String username ){
+		List<ShareProjectBean> result = new ArrayList<ShareProjectBean>();
+		litShareBean.setOwn_user(username);
+		if(projectService.addProjectShare(litShareBean)) {
 			result = projectService.getListShareProject(username);
 		}
 		

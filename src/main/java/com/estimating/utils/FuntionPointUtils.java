@@ -90,7 +90,17 @@ public class FuntionPointUtils {
 		System.out.println("Total : " + totalFP);
 		return totalFP;
 	}
-
+	
+	public double calculateCostFp(FuntionPointBean fpBean) {
+		FuntionPointUtils fpUtils = new FuntionPointUtils();
+		fpBean.setTotalFP(fpUtils.calTotalFP(fpBean));
+		return fpBean.getTotalFP() * 20 * fpBean.getWage();
+	}
+	public double calculateHour(FuntionPointBean fpBean){
+		double totalHour = fpBean.getTotalFP()*20;
+		return totalHour;
+	}
+	
 	/**
 	 * @return HashMap value function point to update or save to database
 	 */
@@ -136,12 +146,16 @@ public class FuntionPointUtils {
 		maps.put(Constants.FUNCTION_POINT_RELATIVE_FACTOR, strRACF);
 		maps.put(Constants.FUNCTION_POINT_TOTAL,
 				String.valueOf(fpUtil.calTotalFP(fpBean)));
+		maps.put(Constants.FUNCTION_POINT_TOTALUI, String.valueOf(FuntionPointUtils.calculateUIP(fpBean.getUiSimple(), fpBean.getUiAverage(), fpBean.getUiComplex())));
+		maps.put(Constants.FUNCTION_POINT_TOTALUO, String.valueOf(FuntionPointUtils.calculateUOP(fpBean.getUoSimple(), fpBean.getUoAverage(), fpBean.getUoComplex())));
+		maps.put(Constants.FUNCTION_POINT_TOTALUQ, String.valueOf(FuntionPointUtils.calculateUQP(fpBean.getUqSimple(), fpBean.getUqAverage(), fpBean.getUqComplex())));
+		maps.put(Constants.FUNCTION_POINT_TOTALEIF, String.valueOf(FuntionPointUtils.calculateEIF(fpBean.getEifSimple(), fpBean.getEifAverage(), fpBean.getEifComplex())));
+		maps.put(Constants.FUNCTION_POINT_TOTALILF, String.valueOf(FuntionPointUtils.calculateILF(fpBean.getIlfSimple(), fpBean.getIlfAverage(), fpBean.getIlfComplex())));
+		maps.put(Constants.FUNCTION_POINT_TOTALRACF, String.valueOf(FuntionPointUtils.calculateRACF(fpBean)));
+		maps.put(Constants.FUNCTION_POINT_COST, String.valueOf(fpUtil.calculateCostFp(fpBean)));
+		maps.put(Constants.FUNCTION_POINT_TOTALHOUR, String.valueOf(fpUtil.calculateHour(fpBean)));
 		return maps;
 	}
 
-	public double calculateCostFp(FuntionPointBean fpBean) {
-		FuntionPointUtils fpUtils = new FuntionPointUtils();
-		fpBean.setTotalFP(fpUtils.calTotalFP(fpBean));
-		return fpBean.getTotalFP() * 20 * fpBean.getHour();
-	}
+	
 }

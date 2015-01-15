@@ -173,7 +173,7 @@ $(document).ready(function(){
 				                                            <th style="width: 40px"><span><input type="text" name="vip_ucp_total_hour_to" id="vip_ucp_total_hour_to"></span></th>
 				                                        </tr>
 				                                        <tr>
-				                                            <th style="width: 200px">Coat of project:</th>
+				                                            <th style="width: 200px">Cost of project:</th>
 				                                            <th style="width: 50px"><span><input type="text" name="vip_ucp_coat_from" id="vip_ucp_coat_from"></span></th>
 				                                            <th style="width: 50px">to:</th>
 				                                            <th style="width: 40px"><span><input type="text" name="vip_ucp_coat_to" id="vip_ucp_coat_to"></span></th>

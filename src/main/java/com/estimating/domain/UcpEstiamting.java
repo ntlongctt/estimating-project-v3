@@ -1,8 +1,18 @@
 package com.estimating.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -21,27 +31,30 @@ public class UcpEstiamting implements Serializable {
 
 	private String actor;
 
+	private double cost;
+
+	private double efc;
+
 	private String enviriment_Factor;
+
+	private double hour;
 
 	@Temporal(TemporalType.DATE)
 	private Date ngay;
 
+	private double tcf;
+
 	private String technical_Factor;
 
 	private double total;
-	
-	private double was;
-	
-	private double wus;
-	
-	private double tcf;
-	
-	private double efc;
-	
 
 	private String useCase;
 
 	private int version;
+
+	private double was;
+
+	private double wus;
 
 	//bi-directional many-to-one association to Project
 	@ManyToOne
@@ -67,6 +80,16 @@ public class UcpEstiamting implements Serializable {
 		this.actor = actor;
 	}
 
+
+
+	public double getEfc() {
+		return this.efc;
+	}
+
+	public void setEfc(double efc) {
+		this.efc = efc;
+	}
+
 	public String getEnviriment_Factor() {
 		return this.enviriment_Factor;
 	}
@@ -75,12 +98,28 @@ public class UcpEstiamting implements Serializable {
 		this.enviriment_Factor = enviriment_Factor;
 	}
 
+	public double getHour() {
+		return this.hour;
+	}
+
+	public void setHour(double hour) {
+		this.hour = hour;
+	}
+
 	public Date getNgay() {
 		return this.ngay;
 	}
 
 	public void setNgay(Date ngay) {
 		this.ngay = ngay;
+	}
+
+	public double getTcf() {
+		return this.tcf;
+	}
+
+	public void setTcf(double tcf) {
+		this.tcf = tcf;
 	}
 
 	public String getTechnical_Factor() {
@@ -115,6 +154,22 @@ public class UcpEstiamting implements Serializable {
 		this.version = version;
 	}
 
+	public double getWas() {
+		return this.was;
+	}
+
+	public void setWas(double was) {
+		this.was = was;
+	}
+
+	public double getWus() {
+		return this.wus;
+	}
+
+	public void setWus(double wus) {
+		this.wus = wus;
+	}
+
 	public Project getProject() {
 		return this.project;
 	}
@@ -123,36 +178,18 @@ public class UcpEstiamting implements Serializable {
 		this.project = project;
 	}
 
-	public double getWas() {
-		return was;
+	/**
+	 * @return the cost
+	 */
+	public double getCost() {
+		return cost;
 	}
 
-	public void setWas(double was) {
-		this.was = was;
-	}
-
-	public double getWus() {
-		return wus;
-	}
-
-	public void setWus(double wus) {
-		this.wus = wus;
-	}
-
-	public double getTcf() {
-		return tcf;
-	}
-
-	public void setTcf(double tcf) {
-		this.tcf = tcf;
-	}
-
-	public double getEfc() {
-		return efc;
-	}
-
-	public void setEfc(double efc) {
-		this.efc = efc;
+	/**
+	 * @param cost the cost to set
+	 */
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 }

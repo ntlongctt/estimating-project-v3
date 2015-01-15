@@ -74,8 +74,22 @@ public final class Constants {
 	public static final String FUNCTION_POINT_RELATIVE_FACTOR = "relative_Factor ";
 	public static final String FUNCTION_POINT_USER_OUTPUT = "user_Output";
 	public static final String FUNCTION_POINT_TOTAL = "total";
+	public static final String FUNCTION_POINT_TOTALUI = "totalUI";
+	public static final String FUNCTION_POINT_TOTALUO = "totalUO";
+	public static final String FUNCTION_POINT_TOTALUQ = "totalUQ";
+	public static final String FUNCTION_POINT_TOTALEIF = "totalEIF";
+	public static final String FUNCTION_POINT_TOTALILF = "totalILF";
+	public static final String FUNCTION_POINT_TOTALRACF = "totalRACF";
+	public static final String FUNCTION_POINT_COST = "Cost";
+	public static final String FUNCTION_POINT_TOTALHOUR = "totalHour";
 
 	// Map uc_estimating table
+	public static final String USECASE_TOTAL_HOUR = "Total_hour";
+	public static final String USECASE_COST = "cost";
+	public static final String USECASE_WAS ="was";
+	public static final String USECASE_WUS ="wus";
+	public static final String USECASE_TCF ="tcf";
+	public static final String USECASE_EFC ="efc";
 	public static final String USECASE_POINT_WAS = "actor";
 	public static final String USECASE_POINT_WUC = "useCase";
 	public static final String USECASE_POINT_TECHNICAL_FACTOR = "technical_Factor";

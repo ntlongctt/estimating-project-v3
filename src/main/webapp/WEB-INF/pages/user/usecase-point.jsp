@@ -386,8 +386,8 @@ $(document).ready(function(){
 												<input type="number"  id="maximun_hours_input" style="width: 100px"  value="25">
 											</div>
 											<div class="input-group" style="margin-bottom: 10px">
-												<span class="input-group-addon">Enter value to change devired maximun value</span>
-												<input type="number" id="devired_hours_input" style="width: 100px" value="20">
+												<span class="input-group-addon">Enter value payment:</span>
+												<input type="number" id="payment" style="width: 100px" value="20000">
 											</div>
 											
 											<ul class="list-group">
@@ -399,11 +399,12 @@ $(document).ready(function(){
 													hours</li>
 											</ul>
 											<ul class="list-group">
-												<li class="list-group-item"><span class="badge" id="devired_hours">0</span>Derived
+												<li class="list-group-item"><span class="badge" id="payment">0</span>Derived
 													hours</li>
 											</ul>
 											<ul class="list-group">
 												<li class="list-group-item"><span class="badge" id="cost">0</span>Cost: </li>
+												
 											</ul>
 										</div>
 									</div>

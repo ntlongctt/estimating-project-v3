@@ -35,7 +35,52 @@ public class FpEstimating implements Serializable {
 	private String user_Online_Query;
 
 	private String user_Output;
+	
 
+	private double totalUI;
+	private double totalUO;
+	private double totalUQ;
+	private double totalEIF;
+	private double totalILF;
+	private double totalRCAF;
+	
+	public double getTotalUO() {
+		return totalUO;
+	}
+
+	public void setTotalUO(double totalUO) {
+		this.totalUO = totalUO;
+	}
+
+	public double getTotalUQ() {
+		return totalUQ;
+	}
+
+	public void setTotalUQ(double totalUQ) {
+		this.totalUQ = totalUQ;
+	}
+
+	public double getTotalEIF() {
+		return totalEIF;
+	}
+
+	public void setTotalEIF(double totalEIF) {
+		this.totalEIF = totalEIF;
+	}
+
+	public double getTotalILF() {
+		return totalILF;
+	}
+
+	public void setTotalILF(double totalILF) {
+		this.totalILF = totalILF;
+	}
+
+
+	private double totalHour;
+	private double Cost;
+
+	
 	private int version;
 
 	//bi-directional many-to-one association to Project
@@ -44,6 +89,14 @@ public class FpEstimating implements Serializable {
 	private Project project;
 
 	public FpEstimating() {
+	}
+
+	public double getCost() {
+		return Cost;
+	}
+
+	public void setCost(double cost) {
+		Cost = cost;
 	}
 
 	public int getMaFP_Es() {
@@ -133,5 +186,49 @@ public class FpEstimating implements Serializable {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+
+
+	/**
+	 * @return the totalUI
+	 */
+	public double getTotalUI() {
+		return totalUI;
+	}
+
+	/**
+	 * @param totalUI the totalUI to set
+	 */
+	public void setTotalUI(double totalUI) {
+		this.totalUI = totalUI;
+	}
+
+	/**
+	 * @return the totalHour
+	 */
+	public double getTotalHour() {
+		return totalHour;
+	}
+
+	/**
+	 * @param totalHour the totalHour to set
+	 */
+	public void setTotalHour(double totalHour) {
+		this.totalHour = totalHour;
+	}
+
+	/**
+	 * @return the totalRCAF
+	 */
+	public double getTotalRCAF() {
+		return totalRCAF;
+	}
+
+	/**
+	 * @param totalRCAF the totalRCAF to set
+	 */
+	public void setTotalRCAF(double totalRCAF) {
+		this.totalRCAF = totalRCAF;
+	}
+
 
 }

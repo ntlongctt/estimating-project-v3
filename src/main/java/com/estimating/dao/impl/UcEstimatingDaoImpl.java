@@ -58,7 +58,14 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
 			logger.info("pojectID save Buoc 3.1 " + project.getMaProject());
 			uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
+			uc.setWas(Double.parseDouble(maps.get(Constants.USECASE_WAS)));
+			uc.setWus(Double.parseDouble(maps.get(Constants.USECASE_WUS)));
+			uc.setTcf(Double.parseDouble(maps.get(Constants.USECASE_TCF)));
+			uc.setEfc(Double.parseDouble(maps.get(Constants.USECASE_EFC)));
+			uc.setCost(Double.parseDouble(maps.get(Constants.USECASE_COST)));
+			uc.setHour(Double.parseDouble(maps.get(Constants.USECASE_TOTAL_HOUR)));
 			em.persist(uc);
+//			uc.set
 			logger.info("Save thanh cong!:");
 		}
 		catch(Exception ex){

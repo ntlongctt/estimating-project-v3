@@ -30,10 +30,7 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 	}
 	
 
-	@Override
-	public double calWuc(UseCasePointBean ucpBean) {
-		return UseCasePointUtils.calculator_WUCs(ucpBean.getSimple(), ucpBean.getAverage(), ucpBean.getComplex());
-	}
+
 	
 	
 	
@@ -72,22 +69,22 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 		 * 	Calculate useCasePointBean
 		 */
 		Assert.notNull(listUseCasePointBean, "Can't find use case point");
-		for (UseCasePointBean useCasePointBean : listUseCasePointBean) {
-			/** Set Use Case Point Weight */
-			useCasePointBean.setWuc(UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
-					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
-			System.out.println("calculator_WUCs: " + UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
-					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
-			/** Set Function Point Weight */
-			useCasePointBean.setWas(UseCasePointUtils.calculator_WAs(useCasePointBean.getSimple(),
-					useCasePointBean.getAverage(), useCasePointBean.getComplex()));
-			
-			/** Set Technical Complexity Factor  */
-			useCasePointBean.setTcf(UseCasePointUtils.calculator_TCF(useCasePointBean));
-			
-			/** Set Invironment factors*/
-			useCasePointBean.setEfc(UseCasePointUtils.calculator_ECF(useCasePointBean));
-		}
+//		for (UseCasePointBean useCasePointBean : listUseCasePointBean) {
+//			/** Set Use Case Point Weight */
+//			useCasePointBean.setWuc(UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
+//					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
+//			System.out.println("calculator_WUCs: " + UseCasePointUtils.calculator_WUCs(useCasePointBean.getEasy(),
+//					useCasePointBean.getMedium(), useCasePointBean.getDifficult()));
+//			/** Set Function Point Weight */
+//			useCasePointBean.setWas(UseCasePointUtils.calculator_WAs(useCasePointBean.getSimple(),
+//					useCasePointBean.getAverage(), useCasePointBean.getComplex()));
+//			
+//			/** Set Technical Complexity Factor  */
+//			useCasePointBean.setTcf(UseCasePointUtils.calculator_TCF(useCasePointBean));
+//			
+//			/** Set Invironment factors*/
+//			useCasePointBean.setEfc(UseCasePointUtils.calculator_ECF(useCasePointBean));
+//		}
 		
 		/**
 		 * Compare
@@ -189,10 +186,14 @@ public class UseCasePointServiceImpl implements IUseCasePointService {
 
 
 	@Override
-	public double calWas(UseCasePointBean ucpBean) {
-		return UseCasePointUtils.calculator_WAs(ucpBean.getEasy(), ucpBean.getMedium(), ucpBean.getDifficult());
+	public double calWuc(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_WUCs(ucpBean.getEasy(), ucpBean.getMedium(), ucpBean.getDifficult());
 	}
 
+	@Override
+	public double calWas(UseCasePointBean ucpBean) {
+		return UseCasePointUtils.calculator_WAs(ucpBean.getSimple(), ucpBean.getAverage(), ucpBean.getComplex());
+	}
 
 	@Override
 	public double calTfc(UseCasePointBean ucpBean) {
