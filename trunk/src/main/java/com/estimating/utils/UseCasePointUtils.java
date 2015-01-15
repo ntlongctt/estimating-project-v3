@@ -9,11 +9,9 @@ import org.apache.log4j.Logger;
 
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.domain.UcpEstiamting;
-import com.mysql.fabric.xmlrpc.base.Array;
 
 public class UseCasePointUtils {
 
-	@SuppressWarnings("unused")
 	private static final Logger logger = Logger
 			.getLogger(UseCasePointUtils.class);
 	@SuppressWarnings("unused")
@@ -168,7 +166,14 @@ public class UseCasePointUtils {
 		maps.put(Constants.USECASE_POINT_WUC, srtWUCPoint);
 		maps.put(Constants.USECASE_POINT_TECHNICAL_FACTOR, srtTFCPoint);
 		maps.put(Constants.USECASE_POINT_ENVIRIMENT_FACTOR, srtEFCPoint);
+		maps.put(Constants.USECASE_WUS, String.valueOf(UseCasePointUtils.calculator_WAs(ucBean.getSimple(), ucBean.getAverage(), ucBean.getComplex())));
+		maps.put(Constants.USECASE_WAS, String.valueOf(UseCasePointUtils.calculator_WUCs(ucBean.getEasy(), ucBean.getMedium(), ucBean.getDifficult())));
+		maps.put(Constants.USECASE_TCF, String.valueOf(UseCasePointUtils.calculator_TCF(ucBean)));
+		maps.put(Constants.USECASE_EFC, String.valueOf(UseCasePointUtils.calculator_ECF(ucBean)));
+		maps.put(Constants.USECASE_TOTAL_HOUR, String.valueOf(ucBean.getHour() * ucpUltil.calTotalUCP(ucBean)));
+		maps.put(Constants.USECASE_COST, String.valueOf(ucBean.getCost() * ucpUltil.calTotalUCP(ucBean) * ucBean.getHour() ));
 		maps.put(Constants.USECASE_POINT_TOTAL, String.valueOf(ucpUltil.calTotalUCP(ucBean)));
+		
 		return maps;
 		
 	}

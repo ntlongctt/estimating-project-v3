@@ -47,6 +47,14 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 			fp.setRelative_Factor(maps.get(Constants.FUNCTION_POINT_RELATIVE_FACTOR));
 			fp.setExternal_Interface(maps.get(Constants.FUNCTION_POINT_EXTERNAL_INTERFACE));
 			fp.setTotal(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTAL)));
+			fp.setTotalUI(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALUI)));
+			fp.setTotalUO(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALUO)));
+			fp.setTotalUQ(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALUQ)));
+			fp.setTotalEIF(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALEIF)));
+			fp.setTotalILF(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALILF)));
+			fp.setTotalRCAF(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALRACF)));
+			fp.setCost(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_COST)));
+			fp.setTotalHour(Double.parseDouble(maps.get(Constants.FUNCTION_POINT_TOTALHOUR)));
 			em.persist(fp);
 		} catch (Exception ex) {
 			result = false;
