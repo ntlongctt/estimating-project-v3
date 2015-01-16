@@ -126,7 +126,7 @@
 							<!-- /. tools -->
 
 							<i class="fa fa-map-marker"></i>
-							<h3 class="box-title">Top 5 Use case Point</h3>
+							<h3 class="box-title">Top 5 Use case Points</h3>
 						</div>
 						<div class="box-body no-padding" style="display: block;">
 							<div class="table-responsive">
@@ -140,53 +140,46 @@
 											<th>Cost</th>
 										</tr>
 										<tr>
-											<td><a href="#">USA</a></td>
+											<td><a href="#">AVG Antivirus Professional</a></td>
 											<td><div id="sparkline-1">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>209</td>
-											<td>239</td>
+											<td>101</td>
+											<td>6060</td>
 										</tr>
 										<tr>
-											<td><a href="#">India</a></td>
+											<td><a href="#">Baidu Antivirus</a></td>
 											<td><div id="sparkline-2">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>131</td>
-											<td>958</td>
+											<td>98</td>
+											<td>5880</td>
 										</tr>
 										<tr>
-											<td><a href="#">Britain</a></td>
+											<td><a href="#">COMODO Internet Security</a></td>
 											<td><div id="sparkline-3">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>19</td>
-											<td>417</td>
+											<td>90</td>
+											<td>5400</td>
 										</tr>
 										<tr>
-											<td><a href="#">Brazil</a></td>
+											<td><a href="#">DVDStyler</a></td>
 											<td><div id="sparkline-4">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>109</td>
-											<td>476</td>
+											<td>88</td>
+											<td>5280</td>
 										</tr>
 
 									</tbody>
 								</table>
 								<!-- /.table -->
 							</div>
-						</div>
-						<!-- /.box-body-->
-						<div class="box-footer" style="display: block;">
-							
-							<button class="btn btn-warning">
-								<i class="fa fa-bug"></i> Give Feedback
-							</button>
 						</div>
 					</div>
 				</section>
@@ -219,40 +212,40 @@
 											<th>Cost</th>
 										</tr>
 										<tr>
-											<td><a href="#">USA</a></td>
+											<td><a href="#">iSpring Suite</a></td>
 											<td><div id="sparkline-1">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>209</td>
-											<td>239</td>
+											<td>119</td>
+											<td>7140</td>
 										</tr>
 										<tr>
-											<td><a href="#">India</a></td>
+											<td><a href="#">MadCap Flare</a></td>
 											<td><div id="sparkline-2">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>131</td>
-											<td>958</td>
+											<td>111</td>
+											<td>6660</td>
 										</tr>
 										<tr>
-											<td><a href="#">Britain</a></td>
+											<td><a href="#">Noralabs Norascan</a></td>
 											<td><div id="sparkline-3">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>19</td>
-											<td>417</td>
+											<td>109</td>
+											<td>6540</td>
 										</tr>
 										<tr>
-											<td><a href="#">Brazil</a></td>
+											<td><a href="#">Norman Malware Cleaner</a></td>
 											<td><div id="sparkline-4">
 													<canvas width="54" height="20"
 														style="display: inline-block; width: 54px; height: 20px; vertical-align: top;"></canvas>
 												</div></td>
-											<td>109</td>
-											<td>476</td>
+											<td>89</td>
+											<td>5340</td>
 										</tr>
 
 									</tbody>
@@ -261,12 +254,6 @@
 							</div>
 						</div>
 						<!-- /.box-body-->
-						<div class="box-footer" style="display: block;">
-							
-							<button class="btn btn-warning">
-								<i class="fa fa-bug"></i> Give Feedback
-							</button>
-						</div>
 					</div>
 				</section>
 
