@@ -1,10 +1,15 @@
 package com.estimating.utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.estimating.beans.FuntionPointBean;
+import com.estimating.beans.UseCasePointBean;
+import com.estimating.domain.FpEstimating;
+import com.estimating.domain.UcpEstiamting;
 
 public class FuntionPointUtils {
 
@@ -157,5 +162,69 @@ public class FuntionPointUtils {
 		return maps;
 	}
 
+	
+	public FuntionPointBean parseSingleFpToSingleBean(FpEstimating fpEstimating){
+		FuntionPointBean fpBean;
+		fpBean = new FuntionPointBean();
+		String strUIPoint = fpEstimating.getUser_Input();
+		List<Double> listDouble = new ArrayList<Double>();
+		listDouble = ParseStringToArrayUtils.parseToArray(strUIPoint);
+		fpBean.setUiSimple(listDouble.get(0));
+		fpBean.setUiAverage(listDouble.get(1));
+		fpBean.setUiComplex(listDouble.get(02));
+		
+		listDouble.clear();
+		String strUOPoint = fpEstimating.getUser_Output();
+		listDouble = ParseStringToArrayUtils.parseToArray(strUOPoint);
+		fpBean.setUoSimple(listDouble.get(0));
+		fpBean.setUoAverage(listDouble.get(1));
+		fpBean.setUoComplex(listDouble.get(2));
+		
+		listDouble.clear();
+		String strUQPoint = fpEstimating.getUser_Online_Query();
+		listDouble = ParseStringToArrayUtils.parseToArray(strUQPoint);
+		fpBean.setUqSimple(listDouble.get(0));
+		fpBean.setUqAverage(listDouble.get(1));
+		fpBean.setUqComplex(listDouble.get(2));
+		
+		listDouble.clear();
+		String strILFPoint = fpEstimating.getLogical_File();
+		listDouble = ParseStringToArrayUtils.parseToArray(strILFPoint);
+		fpBean.setIlfSimple(listDouble.get(0));
+		fpBean.setIlfAverage(listDouble.get(1));
+		fpBean.setIlfComplex(listDouble.get(2));
+		
+		listDouble.clear();
+		String strEIFPoint = fpEstimating.getExternal_Interface();
+		listDouble = ParseStringToArrayUtils.parseToArray(strEIFPoint);
+		fpBean.setEifSimple(listDouble.get(0));
+		fpBean.setEifAverage(listDouble.get(1));
+		fpBean.setEifComplex(listDouble.get(2));
+		
+		listDouble.clear();
+		String strRACF = fpEstimating.getRelative_Factor();
+		listDouble = ParseStringToArrayUtils.parseToArray(strRACF);
+		fpBean.setRf1(listDouble.get(0));
+		fpBean.setRf2(listDouble.get(1));
+		fpBean.setRf3(listDouble.get(2));
+		fpBean.setRf4(listDouble.get(3));
+		fpBean.setRf5(listDouble.get(4));
+		fpBean.setRf6(listDouble.get(5));
+		fpBean.setRf7(listDouble.get(6));
+		fpBean.setRf8(listDouble.get(7));
+		fpBean.setRf9(listDouble.get(8));
+		fpBean.setRf10(listDouble.get(9));
+		fpBean.setRf11(listDouble.get(10));
+		fpBean.setRf12(listDouble.get(11));
+		fpBean.setRf13(listDouble.get(12));
+		fpBean.setRf14(listDouble.get(13));
+		
+		fpBean.setProjectID(fpEstimating.getProject().getMaProject());
+		fpBean.setTotalHour(fpEstimating.getTotal());
+		fpBean.setCost(fpEstimating.getTotalHour()*20);
+		
+		return fpBean;
+		
+	}
 	
 }

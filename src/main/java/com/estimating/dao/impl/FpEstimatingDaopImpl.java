@@ -35,11 +35,20 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 		boolean result = true;
 		try {
 			FpEstimating fp = new FpEstimating();
+			int version = 0;
 			HashMap<String, String> maps = fpPointUtils.mapValueFunctionPoint(fpBean);
 			Project project = em.find(Project.class, fpBean.getProjectID());
 			fp.setProject(project);
 			fp.setNgay(new Date());
-			fp.setVersion(1);
+			// For create new Version
+			if(fpBean.getFpID() != 0) {
+				String strQuery = "SELECT p From FpEstimating p WHERE p.project.maProject = :maProject ORDER BY p.version DESC";
+				TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
+				query.setParameter("maProject", fpBean.getProjectID());
+				List<FpEstimating> temp = query.getResultList();
+				version = temp.get(0).getVersion() + 1;
+			}
+			fp.setVersion(version);
 			fp.setUser_Input(maps.get(Constants.FUNCTION_POINT_USER_INPUT));
 			fp.setUser_Output(maps.get(Constants.FUNCTION_POINT_USER_OUTPUT));
 			fp.setUser_Online_Query(maps.get(Constants.FUNCTION_POINT_USER_ONLINE_QUERY));
@@ -87,6 +96,13 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 		}
 		return result;
 	}
+//	SELECT e FROM Entity e
+//	WHERE e.timestamp = (SELECT MAX(ee.timestamp) FROM Entity ee WHERE ee.entityId = e.entityId)
+	@Override
+	public double maxCost(){
+		TypedQuery<FpEstimating> query = em.createQuery("select  p from FpEstimating p where p.Cost = ( select max(q.Cost) from FpEstimating q)", FpEstimating.class);
+		return query.getSingleResult().getCost();
+	}
 	
 	@Override
 	public List<FpEstimating> getListFpEstimated(int projectID) {
@@ -101,6 +117,14 @@ public class FpEstimatingDaopImpl implements IFpEstimatingDao {
 	public List<FpEstimating> getAllListFp() {
 		TypedQuery<FpEstimating> query = em.createQuery("Select p From FpEstimating p", FpEstimating.class);
 		return query.getResultList();
+	}
+
+	@Override
+	public FpEstimating findFunctionPointByUCId(int id) {
+		String strQuery= "SELECT p From FpEstimating p WHERE p.maFP_Es = :id ";
+	    TypedQuery<FpEstimating> query = em.createQuery(strQuery, FpEstimating.class);
+	    query.setParameter("id", id);
+		return query.getSingleResult();
 	}
 
 }

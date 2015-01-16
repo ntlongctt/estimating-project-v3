@@ -23,10 +23,11 @@ public interface IProjectService {
 	public List<Project> getListProjectByUserName(String username);
 	public Map<String, Object>  getListFpVsUcp(int projectID);
 	public ProjectType findProjectTypeById(int typeID);
-	public List<ProjectBean> findListProjectBySearchUcpVip(Set<Integer> listId);
+	public List<ProjectBean> findListProjectBySearchUcpVip(String username, Set<Integer> listId);
 	public List<ProjectBean> findListProjectBySearchFpRegular(Set<Integer> listId);
 	public boolean addProjectShare(ShareProjectBean shareproject);
 	public List<ShareProjectBean> getListShareProject(String username);
 	public List<ShareProjectBean> getListProjectShareByOtherUser(String username);
+	public List<Project> getListProjectNotEstimated(String username);
 	public boolean discardProject(int[] listId);
 }

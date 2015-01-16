@@ -105,26 +105,7 @@ public class RouterController {
 	}
 
 	// end
-	@RequestMapping(value = "/test2", method = RequestMethod.POST)
-	public String goTest2(Model model, @RequestParam String username,
-			@RequestParam String password) {
-
-		model.addAttribute("username", username);
-		model.addAttribute("password", password);
-		model.addAttribute("listUser", userService.getListUser());
-		return "test2";
-	}
-
-	@RequestMapping(value = "/test3/{username1}/{password1}", method = RequestMethod.GET)
-	public String goTest2GET(Model model,
-			@PathVariable("username1") String username1,
-			@PathVariable("password1") String password1) {
-		System.out.println("vao");
-		model.addAttribute("username1", username1);
-		model.addAttribute("password1", password1);
-		model.addAttribute("listUser", userService.getListUser());
-		return "test2";
-	}
+	
 
 	/**
 	 * **************************************************************** 
@@ -160,7 +141,7 @@ public class RouterController {
 
 		// Set sessopm user
 		model.addAttribute("user", username);
-
+		model.addAttribute("usertype", userService.getUserByUsername(username).getUserType().getMaUserType());
 		// Get role - add session rolesuser
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 
@@ -177,6 +158,8 @@ public class RouterController {
 			model.addAttribute("countFp",fpService.getAllListFp().size());
 			model.addAttribute("countUc",ucpService.getAllListUc().size());
 			model.addAttribute("totalVersion",fpService.getAllListFp().size()+ucpService.getAllListUc().size());
+			model.addAttribute("maxfp", fpService.maxcost());
+			model.addAttribute("maxuc", ucpService.maxcost());
 			double percentFp = 0;
 			double percentUc = 0;
 			double a = fpService.getAllListFp().size();

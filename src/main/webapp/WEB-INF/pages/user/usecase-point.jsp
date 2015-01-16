@@ -21,6 +21,7 @@
 <link href="resources/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="resources/wizard/css/zice.style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/wizard/js/jquery.smartWizard-2.0.min.js"></script>
+<script type="text/javascript" src="resources/js/myjs/mask.js"></script>
 <script src="resources/js/jquery.inputmask.bundle.js"></script>
 <script>
 $(document).ready(function(){
@@ -44,9 +45,6 @@ $(document).ready(function(){
 			<section class="content">
 				<!-- Smart Wizard wizard1-->
 				<div class="onecolumn">
-					<!-- <div class="header">
-						<span><span class="ico gray wizard"></span>UCP step</span>
-					</div> -->
 					<div class="clear"></div>
 					<div class="content">
 					<div id="wizard1" class="swMain">				
@@ -67,7 +65,7 @@ $(document).ready(function(){
 									<span class="stepNumber">5</span><span class="stepDesc"> Step 5<br /> <small>EFC Calculation</small></span></a>
 								</li>
 								<li><a href="#step-6"> 
-									<span class="stepNumber">6</span><span class="stepDesc"> Result<br /> <small>Show Resulft</small></span></a>
+									<span class="stepNumber">6</span><span class="stepDesc"> Result<br /> <small>Show Result</small></span></a>
 								</li>
 							</ul>
 							<!-- STEP 1 -->
@@ -295,7 +293,7 @@ $(document).ready(function(){
 										<div class="form-group">
 											<label><a href="ucp-step-decription.html#step2" target="_blank">Motivation</a></label> <input type="text"
 												class="form-control" id="motivation" name="motivation"
-												placeholder="0" data-inputmask="'mask': '5	'">
+												placeholder="0" data-inputmask="'mask': '5'">
 										</div>
 									</div>
 									<!-- Stable Requirements -->
@@ -506,7 +504,7 @@ $(document).ready(function(){
 						<h4 class="modal-title" id="myModalLabel3">Create New Project</h4>
 					</div>
 				<div class="modal-body">
-				<form action="addProject.html" method="POST">
+				<form action="addProjectuc.html" method="POST">
 					<label>Project's Name</label> 
 					<input type="text" class="form-control" name="txtProjectName" id="exampleInputEmail1"	placeholder="Project's Name"> 
 					
@@ -519,13 +517,28 @@ $(document).ready(function(){
 					
 					<label>Description</label>
 					<textarea class="form-control" name="txtDescription"  placeholder="Enter ..."></textarea>
-					
 					<button type="submit" class="btn bg-purple margin"  >Create</button>
 				</form>	
 				</div>
 			</div>
 			</div>
 		</div>
+		<!-- Modal new -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">You will goto Manager Project page?</h4>
+		      </div>
+		      <div class="modal-footer">
+		        
+		        
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<a class="btn" href="manage-project.html">GO</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 </body>
-<script type="text/javascript" src="resources/js/myjs/usecase-point.js"></script>
-</html>
+<script type="text/javascript" src="resources/js/myjs/usecase-point.js"></script></html>
+

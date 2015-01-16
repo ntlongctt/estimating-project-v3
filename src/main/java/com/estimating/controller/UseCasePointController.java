@@ -1,14 +1,12 @@
 package com.estimating.controller;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -53,6 +50,7 @@ public class UseCasePointController {
 		model.addAttribute("listProjectType",
 				projectService.getListProjectType());
 		model.addAttribute("diem", ucpService.calTotalUseCasePoint(uBean));
+		model.addAttribute("numProject", projectService.getListProjectNotEstimated(username).size());
 		return "user/usecase-point";
 	}
 
@@ -156,7 +154,7 @@ public class UseCasePointController {
 		Set<Integer> listId = ucpService.listUcpIdToSearchVip(lstUcpEstiamting, searchUCPBean);
 		
 		// Step 4
-		result = projectService.findListProjectBySearchUcpVip(listId);
+		result = projectService.findListProjectBySearchUcpVip(username, listId);
 		
 		return result;
 	}

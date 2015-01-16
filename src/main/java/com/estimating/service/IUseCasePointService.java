@@ -25,5 +25,6 @@ public interface IUseCasePointService {
 	public Set<Integer> listUcpIdToSearch(List<UcpEstiamting> listUcpEstiamting, SearchUseCasePointBean searchBean); 
 	
 	public UseCasePointBean findUseCasePointByUCId(int id);
+	public double maxcost();
 }
 

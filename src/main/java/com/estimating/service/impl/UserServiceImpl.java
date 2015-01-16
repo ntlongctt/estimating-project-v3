@@ -35,6 +35,10 @@ public class UserServiceImpl implements IUserService {
 	public boolean addUser(UserBean userbean) {
 		return userDao.addUser(userbean);
 	}
+	@Override
+	public boolean upgradeUser(String username, String key){
+		return userDao.upgradeUser(username, key);
+	}
 
 	@Override
 	public UserBean getProfilebyUser(String username) {
@@ -53,8 +57,15 @@ public class UserServiceImpl implements IUserService {
 		return userDao.editUser(userbean);
 	}
 
+
+
 	@Override
-	public String checkAndGetUserByUsername(String username) {
-		return userDao.checkAndGetUserByUsername(username);
+	public String checkduplicateOwner() {
+		return userDao.checkduplicateOwner();
+	}
+
+	@Override
+	public String checkAndGetUserByUsername(String username, String currentUser, String maProject) {
+		return userDao.checkAndGetUserByUsername(username,currentUser, maProject);
 	}
 }

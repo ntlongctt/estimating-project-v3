@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +80,15 @@ public class FuntionPointController {
 		fpPointBean.setCost(fpService.calCostFp(fpPointBean));
 
 		return fpPointBean;
+	}
+	
+	@RequestMapping (value = "/show-fpDetail/{valueSelected}", method = RequestMethod.GET)
+	@ResponseBody
+	public FuntionPointBean showUseCaseDetail(@PathVariable("valueSelected") int valueSelected, Model model){
+		FuntionPointBean ucBean = new FuntionPointBean();
+		ucBean = fpService.findFunctionPointByUCId(valueSelected);
+		logger.info("Gia tri: " + valueSelected);
+		return ucBean;
 	}
 	
 	/*Create new FP version*/

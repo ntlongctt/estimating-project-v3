@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,7 @@
 
 			<!-- Main content -->
 			<section class="content">
-
+				<c:if test="${usertype ==1 }">
 				<div class="alert alert-info alert-dismissable">
 					<i class="fa fa-info"></i>
 					<button type="button" class="close" data-dismiss="alert"
@@ -40,7 +42,7 @@
 					<a href="upgrade_user.html"><b>Opportunity</b> Sale of 50% to
 						VIP member</a>
 				</div>
-
+				</c:if>
 				<div class="row">
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
@@ -64,8 +66,8 @@
 						<!-- small box -->
 						<div class="small-box bg-yellow">
 							<div class="inner">
-								<h4>44,120 $</h4>
-								<p>Largest project cost</p>
+								<h4><fmt:formatNumber value="${maxfp}" minFractionDigits="3"/></h4>
+								<p>Largest Function cost</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-person-add"></i>
@@ -80,8 +82,8 @@
 						<!-- small box -->
 						<div class="small-box bg-red">
 							<div class="inner">
-								<h4>65</h4>
-								<p>Pr</p>
+								<h4><fmt:formatNumber value="${maxuc}" minFractionDigits="3"/></h4>
+								<p>Largest Usecase cost</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-pie-graph"></i>

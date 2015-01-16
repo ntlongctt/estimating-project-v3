@@ -31,13 +31,21 @@ public class ProjectDaoImpl implements IProjectDao {
 	 * @return list project
 	 */
 	@Override
-	public List<Project> getListProject(String username) {
-		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.username = :username",
+	public List<Project> getListProjectNotEstimated(String username) {
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.username = :username and p.UCP_Estimated = 0",
 				Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Project> getListProject(String username) {
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.user.username = :username ",
+				Project.class);
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
+	
 	@Override
 	@Transactional
 	public boolean addProject(Project project) {
@@ -66,9 +74,7 @@ public class ProjectDaoImpl implements IProjectDao {
 
 	@Override
 	public List<Project> getListProjectFPEstiamted(String username) {
-		TypedQuery<Project> query = em
-.createQuery("Select p From Project p Where p.FP_Estiamted=0 and p.user.username = :username",
-						Project.class);
+		TypedQuery<Project> query = em.createQuery("Select p From Project p Where p.FP_Estiamted=0 and p.user.username = :username",Project.class);
 		query.setParameter("username", username);
 		return query.getResultList();
 	}

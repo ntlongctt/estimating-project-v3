@@ -23,6 +23,7 @@ public class UserBean implements Serializable {
 	private String mail;
 	private String phone;
 	private String address;
+	private String msgError;
 
 	public String getUsername() {
 		return username;
@@ -70,5 +71,13 @@ public class UserBean implements Serializable {
 
 	public void setAddress(String adddress) {
 		this.address = adddress;
+	}
+
+	public String getMsgError() {
+		return msgError;
+	}
+
+	public void setMsgError(String msgError) {
+		this.msgError = msgError;
 	}
 }

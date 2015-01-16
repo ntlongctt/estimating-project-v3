@@ -43,7 +43,12 @@ public class ProjectServiceImpl implements IProjectService {
 	public List<Project> getListProject(String username) {
 		return projectDao.getListProject(username);
 	}
-
+	
+	@Override
+	public List<Project> getListProjectNotEstimated(String username) {
+		return projectDao.getListProjectNotEstimated(username);
+	}
+	
 	@Override
 	public boolean addProject(Project project) {
 		System.out.println("Service: " + project.getMoTa());
@@ -220,7 +225,7 @@ public class ProjectServiceImpl implements IProjectService {
 	}
 
 	@Override
-	public List<ProjectBean> findListProjectBySearchUcpVip(Set<Integer> listId) {
+	public List<ProjectBean> findListProjectBySearchUcpVip(String username, Set<Integer> listId) {
 		List<Project> projects =  new ArrayList<Project>();
 		projects = projectDao.findListProjectBySearchUcpVip(listId);
 		List<ProjectBean> result = new ArrayList<ProjectBean>();
@@ -231,6 +236,11 @@ public class ProjectServiceImpl implements IProjectService {
 			bean.setType(project.getProjectType().getTenLoaiProject());
 			bean.setDescription(project.getMoTa());
 			bean.setProjectID(project.getMaProject());
+			System.out.println("username: " + username + " --- Owner: " + project.getUser().getUsername());
+			if(username.equals(project.getUser().getUsername()))
+					bean.setOwner(1); // Project of current user
+			else
+				bean.setOwner(0);
 			result.add(bean);
 		}
 		return result;
@@ -334,6 +344,8 @@ public class ProjectServiceImpl implements IProjectService {
 		
 		return listBean;
 	}
+
+
 
 	
 

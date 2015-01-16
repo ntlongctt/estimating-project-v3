@@ -15,7 +15,7 @@
   
   // Finish
   function onFinishCallback(){
-    alert('Finish Called');
+	  $('#exampleModal').modal('show'); 
   }    
   
   // Get value from input
@@ -53,6 +53,8 @@
 	difficulProgrammingLanguage = $('#difficulProgrammingLanguage').val(); 
 
 	projectID= $("#selectProject option:selected").val();
+	hour = $("#maximun_hours_input").val();
+	cost = $("#payment").val();
 	if(flag == 2){
 		hour = 	document.getElementById("maximun_hours").value;
 		cost = document.getElementById("cost").value;
@@ -80,8 +82,6 @@
 // Preview Result
   function PreviewUsecasePoint(){
   getValue(1);
-  alert(hour);
-  alert(cost);
   $.ajax({
 	    url: "calc-usecasepoint.json",
 	    type: 'POST',
@@ -103,7 +103,6 @@
 	    	
 	    	document.getElementById("minimun_hours").innerHTML = data.totalUCP*document.getElementById("minimun_hours_input").value;
 	    	document.getElementById("maximun_hours").innerHTML = data.totalUCP*document.getElementById("maximun_hours_input").value;
-	    	
 	   	},
 	    error: function() {    	
 	    }
@@ -142,12 +141,133 @@
      return sign + integer + decimalcharacter + fraction;
   }
   
+//inputmasak======================================
+  var patterns = ["n3"];
+  var options;
+  var masks = [];
+  var mask;
+  options = {
+          $el: $("#distributed"),
+          mask: patterns[0],
+      }
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#performance"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#endUserefficiency"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#complexProcessing"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#reusableCode"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#easeofInstallation"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#easeofUse"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#portable"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#easeofChange"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#concurrentUse"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#specialSecurity"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#accessforThirdParties"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#trainingNeeds"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#simple"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#average"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#complex"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#easy"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#medium"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  options = {
+          $el: $("#difficult"),
+          mask: patterns[0],
+      }   
+  mask = Mask.newMask(options);
+  masks.push(mask);
+  
+  //==============================================
   function saveUcPoint(){
+	//  alert("vao");
+	  getValue();
 	  
 	//  alert("vao");
 	  //getValue(2);
-	  alert(hour);
-	  alert(cost);
 	  
 	  easy = $('#easy').val();
 		medium = $('#medium').val();
@@ -198,8 +318,6 @@
 
 		projectID= $("#selectProject option:selected").val();
 		
-		 alert(hour);
-		 alert(cost);
 
 	  $.ajax({
 		    url: "save-usecasepoint.json",
@@ -217,5 +335,6 @@
 		}); 	     
   }
 
+  
 
  

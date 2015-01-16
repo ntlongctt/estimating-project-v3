@@ -15,6 +15,7 @@ import com.estimating.beans.UseCasePointBean;
 import com.estimating.dao.IUseCasePointDao;
 import com.estimating.domain.Project;
 import com.estimating.domain.UcpEstiamting;
+import com.estimating.domain.User;
 import com.estimating.utils.Constants;
 import com.estimating.utils.UseCasePointUtils;
 
@@ -58,6 +59,10 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 			uc.setEnviriment_Factor(maps.get(Constants.USECASE_POINT_ENVIRIMENT_FACTOR));
 			logger.info("pojectID save Buoc 3.1 " + project.getMaProject());
 			uc.setTotal(Double.parseDouble(maps.get(Constants.USECASE_POINT_TOTAL)));
+			uc.setWas(Double.parseDouble(maps.get(Constants.USECASE_WAS)));
+			uc.setWus(Double.parseDouble(maps.get(Constants.USECASE_WUS)));
+			uc.setTcf(Double.parseDouble(maps.get(Constants.USECASE_TCF)));
+			uc.setEfc(Double.parseDouble(maps.get(Constants.USECASE_EFC)));
 			uc.setWas(Double.parseDouble(maps.get(Constants.USECASE_WAS)));
 			uc.setWus(Double.parseDouble(maps.get(Constants.USECASE_WUS)));
 			uc.setTcf(Double.parseDouble(maps.get(Constants.USECASE_TCF)));
@@ -109,6 +114,12 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 	}
 	
 	@Override
+	public double maxCost(){
+		TypedQuery<UcpEstiamting> query = em.createQuery("select p from UcpEstiamting p where p.cost = ( select max(qq.cost) from UcpEstiamting qq)", UcpEstiamting.class);
+		return query.getSingleResult().getCost();
+	}
+
+	@Override
 	public List<UcpEstiamting> getListUcpEstimated(int projectID) {
 		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.maProject = :maProject ORDER BY p.version DESC ";
 		
@@ -119,9 +130,16 @@ public class UcEstimatingDaoImpl implements IUseCasePointDao {
 
 	@Override
 	public List<UcpEstiamting> findListUcpByUsername(String username) {
-		String strQuery= "SELECT p From UcpEstiamting p WHERE p.project.user.username = :username ";
+		User user = em.find(User.class, username);
+		String strQuery = "";
+		if(user.getUserType().getMaUserType() == 1) {
+			strQuery= "SELECT p From UcpEstiamting p WHERE p.project.user.username = :username ";
+		} else {
+			strQuery= "SELECT p From UcpEstiamting p";
+		}
 	    TypedQuery<UcpEstiamting> query = em.createQuery(strQuery, UcpEstiamting.class);
-	    query.setParameter("username", username);
+	    if(user.getUserType().getMaUserType() == 1)
+	    	query.setParameter("username", username);
 		return query.getResultList();
 	}
 

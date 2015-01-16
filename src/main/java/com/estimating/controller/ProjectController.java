@@ -63,6 +63,33 @@ public class ProjectController {
 		model.addAttribute("listProject", projectService.getListProject(username));
 		return "user/function-point";
 	}
+	
+	@RequestMapping(value = "/addProjectuc", method = RequestMethod.POST)
+	public String addProjectuc(Model model,
+			@RequestParam("txtProjectName") String name,
+			@RequestParam("txtDescription") String description,
+			@RequestParam("typeProject") int type,
+			@ModelAttribute("user") String username) {
+
+		logger.info("Add New Project");
+
+		Project project = new Project();
+		// Set user
+		User user = new User();
+		user = userService.getUserByUsername(username);
+		project.setUser(user);
+		project.setTenProject(name);
+		project.setMoTa(description);
+
+		// Set ProjectType
+		ProjectType projectType = projectService.findProjectTypeById(type);
+		project.setProjectType(projectType);
+		if (!projectService.addProject(project))
+			logger.info("\n\n Errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+		model.addAttribute("listProject", projectService.getListProjectNotEstimated(username));
+		return "user/usecase-point";
+	}
+	
 	/**
 	 * Start Share Project
 	 */

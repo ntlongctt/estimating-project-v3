@@ -9,6 +9,15 @@ public class ProjectBean implements Serializable {
 	private String type;
 	private String description;
 	private int projectID;
+	private int owner; 
+
+	public int getOwner() {
+		return owner;
+	}
+
+	public void setOwner(int owner) {
+		this.owner = owner;
+	}
 
 	public int getProjectID() {
 		return projectID;

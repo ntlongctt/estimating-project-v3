@@ -10,10 +10,11 @@ public interface IUserService {
 	public User getUserByUsername(String username);
 	public List<User> getListUserByRole(int roleId);
 	
-	public String checkAndGetUserByUsername(String username); 
+	public String checkAndGetUserByUsername(String username, String currentUser, String maProject); 
 	public boolean addUser(UserBean userbean);
 	
 	public boolean editUser(UserBean userbean);
-		
+	public String checkduplicateOwner();	
 	public UserBean getProfilebyUser(String username);
+	public boolean upgradeUser(String username, String key);
 	}
