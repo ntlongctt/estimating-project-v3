@@ -63,7 +63,6 @@ $(document).ready(function(){
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_1" data-toggle="tab">Use case Point</a></li>
                                 <li class=""><a href="#tab_2" data-toggle="tab">Function Point</a></li>
-                                <li class=""><a href="#tab_3" data-toggle="tab">Statistic</a></li>
                             </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
@@ -345,7 +344,7 @@ $(document).ready(function(){
                                 </select>
 		                        <input type="button" name="btn_update_servion" id="btn_update_servion" onclick="updUcpVersion();" class="btn btn-primary btn-flat" value="Update version" style="margin-top: 10px">
 		                        <input type="button" class="btn btn-success btn-flat" name="btn_create_version" onclick="createNewUcpVersion();" id="btn_create_version" value="Create new version" style="margin-top: 10px">
-									------- ${message }
+									
 							</div>
 							
 							<c:if test="${message !='' }">

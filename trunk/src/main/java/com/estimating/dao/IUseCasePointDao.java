@@ -12,4 +12,5 @@ public interface IUseCasePointDao {
 	public List<UcpEstiamting> getAllListUc();
 	public List<UcpEstiamting> findListUcpByUsername(String username);
 	public UcpEstiamting findUseCasePointByUCId(int id);
+	public double maxCost();
 }

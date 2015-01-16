@@ -43,7 +43,7 @@ $.getJSON("listprojectjson.json",{ajax : 'true'},
 
 //Get value use case point input
 function getValueUseCase(){
-	alert("ID: " + projectID2);
+	//alert("ID: " + projectID2);
 	easy = $('#ucp_ucpw_simple').val();
 	medium = $('#ucp_ucpw_Average').val();
 	difficult = $('#ucp_ucpw_Complex').val();
@@ -202,7 +202,7 @@ function editTableUCP() {
 
 //Create new UCP version
 function createNewUcpVersion(){
-	alert("new");
+	//alert("new");
 	getValueUseCase();
 	
 	$.ajax({
@@ -224,7 +224,7 @@ function createNewUcpVersion(){
 
 // Update current UCP version
 function updUcpVersion(){
-	alert("new");
+	//alert("new");
 	getValueUseCase();
 	
 	$.ajax({
@@ -334,7 +334,7 @@ function editTableFP() {
 //Create new FP version
 
 function createNewFpVersion(){
-	alert("new");
+	//alert("new");
 	getValueFunction();
 	
 	$.ajax({
@@ -356,7 +356,7 @@ function createNewFpVersion(){
 
 //Update current FP version
 function updFpVersion(){
-	alert("new");
+	//alert("new");
 	getValueFunction();
 	
 	$.ajax({
@@ -490,7 +490,7 @@ function selectUCP() {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	    alert(valueSelected);
+	   // alert(valueSelected);
 	    $.ajax({
 	        type : "GET",
 	        url : "show-ucpDetail/" + valueSelected + ".json",
@@ -543,7 +543,7 @@ function selectFP() {
 	    var optionSelected = $(this).find("option:selected");
 	    var valueSelected  = optionSelected.val();
 	    var textSelected   = optionSelected.text();
-	   // alert(valueSelected);
+	  // alert(valueSelected);
 	    $.ajax({
 	        type : "GET",
 	        url : "show-fpDetail/" + valueSelected + ".json",
@@ -551,7 +551,7 @@ function selectFP() {
 	    	contentType: 'application/json',
 	    	mimeType: 'application/json',
 	         success : function(response) {
-	         	alert("1"+response.uiSimple);
+	         		//alert("1"+response.uiSimple);
 	         	 $('#fp_User_Input_Simple').val( response.uiSimple);
 	         	 $('#fp_User_Input_Average').val( response.uiAverage);
 	         	 $('#fp_User_Input_Complex').val( response.uiComplex);
@@ -571,10 +571,10 @@ function selectFP() {
 	         	 $('#fp_External_Interface_Simple').val( response.eifSimple);
 	         	 $('#fp_External_Interface_Average').val( response.eifAverage);
 	         	 $('#fp_External_Interface_Complex').val( response.eifComplex);
-
-	         	 $('#ucp_total_point').val( response.totalUCP);
-	         	 $('#ucp_total_hour').val(response.totalUCP * 20);
-	         	 $('#ucp_cost').val( response.totalUCP * 80);
+	         	// alert(response.totalHour);
+	         	 $('#fp_Total_point').val( response.totalHour/2);
+	         	 $('#fp_Total_hour').val(response.totalHour);
+	         	 $('#fp_Cost').val( response.totalHour * 80);
 	         }
 	     });
 	});
@@ -687,7 +687,10 @@ function searchVip() {
 	vip_ecf_from = $('#vip_ecf_from').val();
 	vip_ecf_to = $('#vip_ecf_to').val();
 	
-	var json ={"vip_ucp_from" :vip_ucp_from, "vip_ucp_to" :vip_ucp_to, "vip_ucp_total_hour_from" :vip_ucp_total_hour_from, "vip_ucp_total_hour_to" :vip_ucp_total_hour_to,"vip_ucp_coat_from" :vip_ucp_coat_from, "vip_ucp_coat_to" :vip_ucp_coat_to , "vip_ucpw_from" :vip_ucpw_from, "vip_ucpw_to" :vip_ucpw_to,"vip_fpw_from" :vip_fpw_from,"vip_fpw_to" :vip_fpw_to,"vip_tcf_from" :vip_tcf_from, "vip_tcf_to" :vip_tcf_to, "vip_ecf_from" :vip_ecf_from,"vip_ecf_to" :vip_ecf_to};
+	var json ={"vip_ucp_from" :vip_ucp_from, "vip_ucp_to" :vip_ucp_to, "vip_ucp_total_hour_from" :vip_ucp_total_hour_from, 
+			"vip_ucp_total_hour_to" :vip_ucp_total_hour_to,"vip_ucp_coat_from" :vip_ucp_coat_from, "vip_ucp_coat_to" :vip_ucp_coat_to ,
+			"vip_ucpw_from" :vip_ucpw_from, "vip_ucpw_to" :vip_ucpw_to,"vip_fpw_from" :vip_fpw_from,"vip_fpw_to" :vip_fpw_to,
+			"vip_tcf_from" :vip_tcf_from, "vip_tcf_to" :vip_tcf_to, "vip_ecf_from" :vip_ecf_from,"vip_ecf_to" :vip_ecf_to};
 	$("#projectTable > tbody").html("");
 	$.ajax({
 	    url: "search-usecasepoint-vip.json",
@@ -697,6 +700,7 @@ function searchVip() {
 	    contentType: 'application/json',
 	    mimeType: 'application/json',
 	    success: function(data) {
+	    	//alert("thanh cong");
 	    	var length = data.length;
 	    	if(length > 0) {
 	    		for (var i = 0; i < length; i++) {
@@ -704,9 +708,15 @@ function searchVip() {
 	    			content += "<td>" + data[i].name + "</td>";
 	    			content += "<td>" + data[i].type + "</td>";
 	    			content += "<td>" + data[i].description	+ "</td>";
-	    			content += "<td>"
+	    			if(data[i].owner == 1) {
+	    				content += "<td>"
 	    					+ "<a type='button' onclick='viewVersion(" + data[i].projectID + ")' style='color:green; font-weight: bold;' >Detail</a>"
 	    					+ "</td>";
+	    			} else {
+	    				content += "<td>"
+	    					+ "Other Users"
+	    					+ "</td>";
+	    			}
 	    			content += "</tr>";
 	    			$("#projectTable > tbody").append(content);
 	    		}

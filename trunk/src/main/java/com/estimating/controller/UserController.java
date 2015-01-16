@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.estimating.beans.UseCasePointBean;
 import com.estimating.beans.UserBean;
 import com.estimating.service.IUserService;
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 @Controller
 @SessionAttributes({ "user", "roleuser", "userFullname" })
@@ -34,21 +35,35 @@ public class UserController {
 		userService.editUser(userBean);
 		return userBean;
 	}
-/*	
-	@RequestMapping(value = "/check-username", method = RequestMethod.GET, headers="Accept=application/json" )
-	@ResponseBody
-	public String checkusername(@RequestBody String username, Model model){
-		String name = userService.checkAndGetUserByUsername(username);
-		return name;
-	}*/
+
 	
-	@RequestMapping (value = "/check-username/{username}", method = RequestMethod.GET)
+	@RequestMapping (value = "/check-username/{username}/{maProject}", method = RequestMethod.GET)
 	@ResponseBody
-	public UserBean showUseCaseDetail(@PathVariable("username") String username, Model model){
-		String name = userService.checkAndGetUserByUsername(username);
-		UserBean result = new UserBean();
-		result.setUsername(name);
-		return result;
+	public UserBean showUseCaseDetail(@PathVariable("username") String username, @PathVariable("maProject") String maProject, 
+			Model model, @ModelAttribute("user") String currentUser){
+		if(username.equals(currentUser)){
+			
+			String resultcheck = "TrungUser";
+			UserBean result = new UserBean();
+			result.setMsgError(resultcheck);
+			return result;
+		}
+		else{
+			String resultcheck = userService.checkAndGetUserByUsername(username, currentUser, maProject);
+			UserBean result = new UserBean();
+			result.setMsgError(resultcheck);
+			return result;
+		}
+		
+	}
+
+	
+	
+	@RequestMapping (value = "/check-upgrade/{key}", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean upgrade(@PathVariable("key") String key, @ModelAttribute("user") String username, 
+			Model model){
+		return userService.upgradeUser(username, key);
 	}
 	
 	@RequestMapping(value = "/user-profile", method = RequestMethod.GET)

@@ -65,38 +65,47 @@ function abc(){
 //events 
 addButton.onclick = function(e){
 var username = $('#resp_input').val();
+var maProject = $('#share-project').val();
 $.ajax({
     type : "GET",
-    url : "check-username/" + username + ".json",
+    url : "check-username/" + username +"/"+  maProject + ".json",
     dataType: 'json',
 	
 	contentType: 'application/json',
 	mimeType: 'application/json',
     success : function(response) {
-    	var i = temp.length;
-    	if (i==0){
-    		var text = newResp.value;
-	     	var resp = new Responsibility(text);
-	     	var j = responsibilities.length;
-	     	responsibilities[j] = resp;	
-	     	render();
-	     	newResp.value = "";
+    	if(response.msgError == "TrungUser"){
+    		alert("Không thể Share cho chính bạn!!!");
+    	}
+    	if(response.msgError =="Shared"){
+    		alert("Da share cho user nay roi");
     	}
     	else{
-    		if (isExisted(username) == 0)
-    			alert("ton tai");
-    		else{
-    			var text = newResp.value;
+    		var i = temp.length;
+        	if (i==0){
+        		var text = newResp.value;
     	     	var resp = new Responsibility(text);
     	     	var j = responsibilities.length;
     	     	responsibilities[j] = resp;	
     	     	render();
     	     	newResp.value = "";
-    		}
+        	}
+        	else{
+        		if (isExisted(username) == 0)
+        			alert("ton tai");
+        		else{
+        			var text = newResp.value;
+        	     	var resp = new Responsibility(text);
+        	     	var j = responsibilities.length;
+        	     	responsibilities[j] = resp;	
+        	     	render();
+        	     	newResp.value = "";
+        		}
+        	}
     	}
      },
      error: function() {    
-	    	alert("Khong tim thay user:" + username);
+	    	alert("Không tìm thấy user:" + username);
 	    }
  });
 }
@@ -151,19 +160,6 @@ function getListShareProject(){
 		
 }
 
-//chay vong for goi fuction shareproject
-/*function share(){
-	alert(temp.toString());
-	// shareproject(temp);
-	for(var i=0; i<temp.length; i++){
-        var share_user = temp[i];
-		shareproject(share_user);
-	}
-	
-	$('ul li').remove();
-	responsibilities.length = 0;
-	temp.length = 0;
-}*/
 
 function shareproject(){
 	alert("goi ham");
@@ -266,7 +262,43 @@ function viewVersion(projectID){
 		document.getElementById("ucp_ecf_6").innerHTML = lstUp[0].stableRequirements;
 		document.getElementById("ucp_ecf_7").innerHTML = lstUp[0].parttimeStaff;
 		document.getElementById("ucp_ecf_8").innerHTML = lstUp[0].difficulProgrammingLanguage;
+		
+		
+		//get FP value fp_User_Input_Simple
+	 	document.getElementById("fp_User_Input_Simple").innerHTML = lstFp[0].uiSimple;
+	 	document.getElementById("fp_User_Input_Average").innerHTML= lstFp[0].uiAverage;
+	 	document.getElementById("fp_User_Input_Complex").innerHTML= lstFp[0].uiComplex;
+	 	
+	 	document.getElementById("fp_User_Outputs_Simple").innerHTML = lstFp[0].uoSimple;
+	 	document.getElementById("fp_User_Outputs_Average").innerHTML = lstFp[0].uoAverage;
+	 	document.getElementById("fp_User_Outputs_Complex").innerHTML = lstFp[0].uoComplex;
+	 	
+	 	document.getElementById("fp_User_Inquiries_Simple").innerHTML = lstFp[0].uqSimple;
+	 	document.getElementById("fp_User_Inquiries_Average").innerHTML = lstFp[0].uqAverage;
+	 	document.getElementById("fp_User_Inquiries_Complex").innerHTML = lstFp[0].uqComplex;
+	 	
+	 	document.getElementById("fp_Number_of_Files_Simple").innerHTML = lstFp[0].ilfSimple;
+	 	document.getElementById("fp_Number_of_Files_Average").innerHTML = lstFp[0].ilfAverage;
+	 	document.getElementById("fp_Number_of_Files_Complex").innerHTML = lstFp[0].ilfComplex;
 
+	 	document.getElementById("fp_External_Interfaces_Simple").innerHTML= lstFp[0].eifSimple;
+	 	document.getElementById("fp_External_Interfaces_Average").innerHTML= lstFp[0].eifAverage;
+	 	document.getElementById("fp_External_Interfaces_Complex").innerHTML= lstFp[0].eifComplex;
+	 	//alert(lstFp[0].uiSimple;
+	 	document.getElementById("rcf_1").innerHTML= lstFp[0].rf1;
+	 	document.getElementById("rcf_2").innerHTML= lstFp[0].rf2;
+	 	document.getElementById("rcf_3").innerHTML= lstFp[0].rf3;
+	 	document.getElementById("rcf_4").innerHTML= lstFp[0].rf4;
+	 	document.getElementById("rcf_5").innerHTML= lstFp[0].rf5;
+	 	document.getElementById("rcf_6").innerHTML= lstFp[0].rf6;
+	 	document.getElementById("rcf_7").innerHTML= lstFp[0].rf7;
+	 	document.getElementById("rcf_8").innerHTML= lstFp[0].rf8;
+	 	document.getElementById("rcf_9").innerHTML= lstFp[0].rf9;
+	 	document.getElementById("rcf_10").innerHTML= lstFp[0].rf10;
+	 	document.getElementById("rcf_11").innerHTML= lstFp[0].rf11;
+	 	document.getElementById("rcf_12").innerHTML= lstFp[0].rf12;
+	 	document.getElementById("rcf_13").innerHTML= lstFp[0].rf13;
+	 	document.getElementById("rcf_14").innerHTML= lstFp[0].rf14;
 	});
 
 

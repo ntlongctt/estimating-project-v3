@@ -14,6 +14,7 @@
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="resources/js/myjs/upgrade.js" type="text/javascript"></script>
 
 
 
@@ -43,37 +44,6 @@
 
 						<div class="box-body">
 							<div class="form-group">
-								<input type="email" class="form-control" id="exampleInputEmail1"
-									placeholder="First Name">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control"
-									id="exampleInputPassword1" placeholder="Last Name">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control"
-									id="exampleInputPassword1" placeholder="City">
-							</div>
-							
-							<div class="form-group">
-								<select class="form-control" name="selectProject">
-								<option value="VietNam">VietNam</option>
-								<option value="VietNam">US</option>
-								<option value="VietNam">Japan</option>
-								<option value="VietNam">ThaiLan</option>
-							</select>
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control"
-									id="exampleInputPassword1" placeholder="Region">
-							</div>
-
-
-							<div class="form-group">
-								<input type="password" class="form-control"
-									id="exampleInputPassword1" placeholder="Postal Code">
-							</div>
-							<div class="form-group">
 							<label><input type="radio" id="rf5_1" name="rf5"
 								value="0" class="minimal-red" checked /> Visa</label>
 							<label><input type="radio" id="rf5_2" name="rf5"
@@ -84,7 +54,7 @@
 								value="0" class="minimal-red" checked /> American Express</label>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control"
+								<input type="text" class="form-control"
 									id="exampleInputPassword1" placeholder="Card Number">
 							</div>
 						</div>
@@ -92,7 +62,7 @@
 				<!-- /.box-body -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary" onclick="upgrade();">Submit</button>
 				</div>
 	
 				</form>

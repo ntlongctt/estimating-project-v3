@@ -28,4 +28,5 @@ public interface IProjectDao {
 	public boolean discardProject(int[] listId);
 	public ProjectType findProjectTypeById(int typeID);
 	public Project findProjectById(int id);
+	public List<Project> getListProjectNotEstimated(String username);
 }

@@ -577,6 +577,22 @@
 			</div>
 			</div>
 		</div>
+		<!-- Modal new -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">You will goto Manager Project page?</h4>
+		      </div>
+		      <div class="modal-footer">
+		        
+		        
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<a class="btn" href="manage-project.html">GO</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 </body>
 <script type="text/javascript" src="resources/js/myjs/function-point.js"></script>
 </html>

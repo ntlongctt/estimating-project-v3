@@ -170,6 +170,11 @@ public class UseCasePointUtils {
 		maps.put(Constants.USECASE_WAS, String.valueOf(UseCasePointUtils.calculator_WUCs(ucBean.getEasy(), ucBean.getMedium(), ucBean.getDifficult())));
 		maps.put(Constants.USECASE_TCF, String.valueOf(UseCasePointUtils.calculator_TCF(ucBean)));
 		maps.put(Constants.USECASE_EFC, String.valueOf(UseCasePointUtils.calculator_ECF(ucBean)));
+
+		maps.put(Constants.USECASE_WUS, String.valueOf(UseCasePointUtils.calculator_WAs(ucBean.getSimple(), ucBean.getAverage(), ucBean.getComplex())));
+		maps.put(Constants.USECASE_WAS, String.valueOf(UseCasePointUtils.calculator_WUCs(ucBean.getEasy(), ucBean.getMedium(), ucBean.getDifficult())));
+		maps.put(Constants.USECASE_TCF, String.valueOf(UseCasePointUtils.calculator_TCF(ucBean)));
+		maps.put(Constants.USECASE_EFC, String.valueOf(UseCasePointUtils.calculator_ECF(ucBean)));
 		maps.put(Constants.USECASE_TOTAL_HOUR, String.valueOf(ucBean.getHour() * ucpUltil.calTotalUCP(ucBean)));
 		maps.put(Constants.USECASE_COST, String.valueOf(ucBean.getCost() * ucpUltil.calTotalUCP(ucBean) * ucBean.getHour() ));
 		maps.put(Constants.USECASE_POINT_TOTAL, String.valueOf(ucpUltil.calTotalUCP(ucBean)));
@@ -243,6 +248,9 @@ public class UseCasePointUtils {
 			
 			/** Set project ID */
 			ucpBean.setProjectID(ucpDao.getProject().getMaProject());
+			
+			// Set total
+			ucpBean.setTotalUCP(ucpDao.getTotal());
 			
 			listUseCasePointBean.add(ucpBean);
 			

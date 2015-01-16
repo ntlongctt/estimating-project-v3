@@ -53,21 +53,21 @@
                                 <li><a href="share-project.html"><i class="fa fa-angle-double-right"></i>Share Project</a></li>
                             </ul>
                         </li>
-                        <li>
+               <!--          <li>
                             <a href="contact-us.html">
                                 <i class="fa fa-envelope-o"></i> <span>Contact us</span>
                             </a>
-                        </li>
+                        </li> -->
                          <li>
                             <a href="user-profile.html">
                                 <i class="fa fa-user"></i> <span>My profiles</span>
                             </a>
                         </li>
-                         <li>
+<!--                          <li>
                             <a href="search-engine.html">
                                 <i class="fa fa-search"></i> <span>Search engine</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#">
                                 <i class="fa fa-info-circle"></i> <span>About us</span>

@@ -15,7 +15,7 @@ var projectID;
   //  Wizard 1      
   $('#wizard1').smartWizard({transitionEffect:'fade',onFinish:onFinishCallback});
   function onFinishCallback(){
-    alert('Finish Called');
+	  $('#exampleModal').modal('show'); 
   }    
   
   // Get value function point
